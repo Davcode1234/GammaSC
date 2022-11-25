@@ -1,58 +1,150 @@
-import { MotionConfig } from "framer-motion";
+import { AnimatePresence, useCycle } from "framer-motion";
 import { useState } from "react";
 import {
   NavigationWrapper,
   MenuBtn,
   Logo,
-  FirstSlider,
-  SliderWrapper,
+  MainSliderMenu,
+  SecondarySliderMenu,
+  LinksWrapper,
+  MenuLink,
 } from "./Navigation.style";
+import Image from "next/image";
 
-const slide = {
-  hidden: {
-    width: "0px",
+const links = [
+  { name: "Oferta", id: 1 },
+  { name: "Portfolio", id: 2 },
+  { name: "O nas", id: 3 },
+  { name: "Kontakt", id: 4 },
+];
+
+const itemVariants = {
+  closed: {
+    opacity: 0,
   },
-  visible: {
-    width: "375px",
+  open: {
+    opacity: 1,
+  },
+};
+
+const sideVariants = {
+  closed: {
     transition: {
-      duration: 0.3,
       type: "spring",
-      damping: 25,
-      stiffness: 500,
-      from: -100,
+      staggerChildren: 0.2,
+      staggerDirection: -1,
     },
   },
-  exit: {
-    width: "0px",
+  open: {
+    transition: {
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+    },
   },
 };
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, cycleOpen] = useCycle(false, true);
+  const [exitVar, setExitVar] = useState(false);
+  // const [secondSliderVal, setSecondSliderVal] = useState(false);
+
+  const openMenu = () => {
+    cycleOpen();
+    setExitVar((val) => !val);
+  };
+
+  const originVal = exitVar ? "originX: 1" : "originX: 0";
+
+  const slide = {
+    hidden: {
+      scaleX: 0,
+      originX: 0,
+    },
+    visible: {
+      scaleX: 1,
+      originX: { originVal },
+      transition: {
+        delay: 0.4,
+      },
+    },
+    exit: {
+      scaleX: 0,
+      transition: { delay: 0.7, duration: 0.3 },
+      originX: 1,
+    },
+  };
+
+  const secondSlide = {
+    hidden: {
+      scaleX: 0,
+      originX: 0,
+    },
+    visible: {
+      scaleX: 1,
+      originX: { originVal },
+    },
+    exit: {
+      scaleX: 0,
+      transition: { duration: 0.3 },
+      originX: 1,
+    },
+  };
 
   return (
     <>
       <NavigationWrapper>
-        <Logo>Hello</Logo>
         <MenuBtn
           onClick={() => {
-            setIsOpen((val) => !val);
+            openMenu();
           }}
-          whileHover={{ scale: 1.2 }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.8 }}
         ></MenuBtn>
       </NavigationWrapper>
 
-      <SliderWrapper>
-        {isOpen && (
-          <FirstSlider
-            variants={slide}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          />
+      <AnimatePresence>
+        {open && (
+          <>
+            <SecondarySliderMenu
+              variants={secondSlide}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            ></SecondarySliderMenu>
+            <MainSliderMenu
+              variants={slide}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <Image
+                src={"/HomePage/Gletter.svg"}
+                width={66}
+                height={42}
+                alt={"Gletter"}
+              />
+              <LinksWrapper
+                variants={sideVariants}
+                initial="closed"
+                animate="open"
+                exit="closed"
+              >
+                {links.map(({ name, id }) => {
+                  return (
+                    <MenuLink
+                      key={id}
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {name}
+                    </MenuLink>
+                  );
+                })}
+              </LinksWrapper>
+            </MainSliderMenu>
+          </>
         )}
-      </SliderWrapper>
+      </AnimatePresence>
     </>
   );
 };

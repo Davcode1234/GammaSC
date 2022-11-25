@@ -13,15 +13,12 @@ export const GlobalStyle = createGlobalStyle`
   
   body {
     margin: 0;
+    padding: 0;
     font-size: 1.6rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    line-height: 1.5;
     font-size: 1.5rem;
+    overflow: hidden;
   }
   
-  
-  p, li, a {
- 
-  }
 `;
