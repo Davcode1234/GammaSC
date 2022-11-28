@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimatePresence, useCycle } from "framer-motion";
 import { useState } from "react";
 import {
@@ -8,8 +9,7 @@ import {
   SecondarySliderMenu,
   LinksWrapper,
   MenuLink,
-} from "./Navigation.style";
-import Image from "next/image";
+} from "./Navigation.styles";
 
 const links = [
   { name: "Oferta", id: 1 },
@@ -44,13 +44,15 @@ const sideVariants = {
 };
 
 const Navigation = () => {
-  const [open, cycleOpen] = useCycle(false, true);
+  const [open, setOpen] = useState(false);
   const [exitVar, setExitVar] = useState(false);
   // const [secondSliderVal, setSecondSliderVal] = useState(false);
+  console.log({ open });
 
   const openMenu = () => {
-    cycleOpen();
+    setOpen((val) => !val);
     setExitVar((val) => !val);
+    console.log({ open });
   };
 
   const originVal = exitVar ? "originX: 1" : "originX: 0";
@@ -93,7 +95,14 @@ const Navigation = () => {
   return (
     <>
       <NavigationWrapper>
+        <Image
+          src={"/HomePage/orange.png"}
+          width={160}
+          height={60}
+          alt="logo"
+        ></Image>
         <MenuBtn
+          isOpen={open}
           onClick={() => {
             openMenu();
           }}

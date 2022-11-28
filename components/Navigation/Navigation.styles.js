@@ -1,23 +1,26 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export const NavigationWrapper = styled.div`
+  position: fixed;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 100px;
   width: 100%;
   height: 90px;
+  z-index: 100;
 `;
 
-export const MenuBtn = styled(motion.button)`
+export const MenuBtn = styled.button`
   position: relative;
   border: none;
   border-radius: 4px;
   width: 23px;
   height: 3px;
   cursor: pointer;
-  background-color: ${({ theme }) => theme.color.gammaOrange};
+  background-color: ${({ isOpen }) => (isOpen ? "#fff" : "#f68c1e")};
+  z-index: 10;
 
   &:after {
     content: "";
@@ -28,7 +31,7 @@ export const MenuBtn = styled(motion.button)`
     top: 0;
     right: 0;
     transform: translateY(-8px);
-    background-color: ${({ theme }) => theme.color.gammaOrange};
+    background-color: ${({ isOpen }) => (isOpen ? "#fff" : "#f68c1e")};
   }
 
   &:before {
@@ -40,7 +43,7 @@ export const MenuBtn = styled(motion.button)`
     top: 0;
     right: 0;
     transform: translateY(8px);
-    background-color: ${({ theme }) => theme.color.gammaOrange};
+    background-color: ${({ isOpen }) => (isOpen ? "#fff" : "#f68c1e")};
   }
 `;
 
