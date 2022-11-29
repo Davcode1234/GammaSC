@@ -6,7 +6,9 @@ import {
   CtaBtn,
   BtnWrapper,
   StyledLink,
+  InfoSec,
 } from "../styles/pages/Home.styles";
+import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 
 export default function Home() {
   return (
@@ -36,6 +38,10 @@ export default function Home() {
           <StyledLink href="#">Skontaktuj się z nami</StyledLink>
         </BtnWrapper>
       </WelcomSection>
+
+      <InfoSec>
+        <InfoSecCard number={20} text={"siema"}></InfoSecCard>
+      </InfoSec>
     </>
   );
 }

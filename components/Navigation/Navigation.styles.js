@@ -52,8 +52,8 @@ export const Logo = styled.h1`
 `;
 
 export const MainSliderMenu = styled(motion.aside)`
+  position: fixed;
   box-sizing: border-box;
-  position: absolute;
   top: 0;
   right: 0;
   background-color: ${({ theme }) => theme.color.gammaOrange};

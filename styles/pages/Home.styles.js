@@ -52,3 +52,10 @@ export const StyledLink = styled(Link)`
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.gammaOrange};
 `;
+
+// Second sec
+
+export const InfoSec = styled.section`
+  height: 1000px;
+  background-color: ${({ theme }) => theme.color.graphite};
+`;
