@@ -15,7 +15,6 @@ export const DescriptionParagraph = styled.p`
   max-width: 800px;
   margin-top: 40px;
   color: ${({ theme }) => theme.color.graphite};
-  z-index: 10;
 `;
 
 export const CtaBtn = styled.button`
@@ -58,4 +57,13 @@ export const StyledLink = styled(Link)`
 export const InfoSec = styled.section`
   height: 1000px;
   background-color: ${({ theme }) => theme.color.graphite};
+  padding-top: 110px;
+`;
+
+export const CardsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 65px;
+  width: 100%;
 `;

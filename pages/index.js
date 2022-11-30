@@ -7,8 +7,36 @@ import {
   BtnWrapper,
   StyledLink,
   InfoSec,
+  CardsWrapper,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
+
+const infoSecCardData = [
+  {
+    number: 18,
+    text: "lat doświadczenia",
+    withPlus: true,
+    id: 1,
+  },
+  {
+    number: 36,
+    text: "tysięcy ukończonych projektów",
+    withPlus: true,
+    id: 1,
+  },
+  {
+    number: 29,
+    text: "tysięcy wypitych filiżanek kawy",
+    withPlus: true,
+    id: 1,
+  },
+  {
+    number: 50,
+    text: "stałych klientów",
+    withPlus: false,
+    id: 1,
+  },
+];
 
 export default function Home() {
   return (
@@ -40,7 +68,19 @@ export default function Home() {
       </WelcomSection>
 
       <InfoSec>
-        <InfoSecCard number={20} text={"siema"}></InfoSecCard>
+        <CardsWrapper>
+          {" "}
+          {infoSecCardData.map((card) => {
+            return (
+              <InfoSecCard
+                number={card.number}
+                text={card.text}
+                addPlus={card.withPlus}
+                key={card.id}
+              ></InfoSecCard>
+            );
+          })}
+        </CardsWrapper>
       </InfoSec>
     </>
   );

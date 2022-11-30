@@ -1,10 +1,19 @@
-import { InfoSecCardWrapper } from "./InfoSecCard.styles";
+import {
+  InfoSecCardWrapper,
+  NumParagraph,
+  TextParagraph,
+} from "./InfoSecCard.styles";
 
-const InfoSecCard = ({ number, text }) => {
+const InfoSecCard = ({ number, text, addPlus }) => {
   return (
     <InfoSecCardWrapper>
-      {number}
-      {text}
+      {addPlus ? (
+        <NumParagraph>+{number}</NumParagraph>
+      ) : (
+        <NumParagraph>{number}</NumParagraph>
+      )}
+
+      <TextParagraph>{text}</TextParagraph>
     </InfoSecCardWrapper>
   );
 };
