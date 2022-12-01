@@ -67,3 +67,36 @@ export const CardsWrapper = styled.div`
   gap: 65px;
   width: 100%;
 `;
+
+export const InfoTextWrapper = styled.div`
+  width: 100%;
+  max-width: 1000px;
+  margin: 110px auto;
+  transform: translateX(-5rem);
+`;
+
+export const InfoSmallPar = styled.p`
+  font-size: ${({ theme }) => theme.font.size.paragraphSmall};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
+  color: ${({ theme }) => theme.color.gammaOrange};
+  text-transform: uppercase;
+  margin-bottom: 20px;
+`;
+
+export const InfoSecHeader = styled.h2`
+  font-size: ${({ theme }) => theme.font.size.heading};
+  font-weight: ${({ theme }) => theme.font.weight.thin};
+  color: ${({ theme }) => theme.color.white};
+  margin-bottom: 4rem;
+  & > span {
+    color: ${({ theme }) => theme.color.gammaOrange};
+  }
+`;
+
+export const InfoSecContentPar = styled.p`
+  font-size: ${({ theme }) => theme.font.size.paragraph};
+  color: ${({ theme }) => theme.color.white};
+  max-width: 660px;
+  line-height: 140%;
+  margin-bottom: 4rem;
+`;

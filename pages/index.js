@@ -8,6 +8,10 @@ import {
   StyledLink,
   InfoSec,
   CardsWrapper,
+  InfoSmallPar,
+  InfoTextWrapper,
+  InfoSecHeader,
+  InfoSecContentPar,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 
@@ -69,7 +73,6 @@ export default function Home() {
 
       <InfoSec>
         <CardsWrapper>
-          {" "}
           {infoSecCardData.map((card) => {
             return (
               <InfoSecCard
@@ -81,6 +84,19 @@ export default function Home() {
             );
           })}
         </CardsWrapper>
+
+        <InfoTextWrapper>
+          <InfoSmallPar>o nas</InfoSmallPar>
+          <InfoSecHeader>
+            Jesteśmy Agencją Reklamową <span>360°</span>
+          </InfoSecHeader>
+          <InfoSecContentPar>
+            Działamy na rynku od 2004 r. Od początku dążyliśmy do stworzenia
+            firmy reklamowej oferującej swoim Klientom kompleksową obsługę w
+            zakresie reklamy, druku oraz rozwiązań internetowych.
+          </InfoSecContentPar>
+          <CtaBtn isBig>Dowiedz się więcej</CtaBtn>
+        </InfoTextWrapper>
       </InfoSec>
     </>
   );
