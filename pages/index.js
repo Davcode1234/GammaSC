@@ -12,6 +12,9 @@ import {
   InfoTextWrapper,
   InfoSecHeader,
   InfoSecContentPar,
+  PartnersSec,
+  PartnersTextWrapper,
+  PartnersSecHeader,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 
@@ -98,6 +101,15 @@ export default function Home() {
           <CtaBtn isBig>Dowiedz się więcej</CtaBtn>
         </InfoTextWrapper>
       </InfoSec>
+
+      <PartnersSec>
+        <PartnersTextWrapper>
+          <InfoSmallPar>Nasi klienci</InfoSmallPar>
+          <PartnersSecHeader>
+            Stworzyliśmy dla nich <span>wiele niezwykłych</span> kreacji
+          </PartnersSecHeader>
+        </PartnersTextWrapper>
+      </PartnersSec>
     </>
   );
 }

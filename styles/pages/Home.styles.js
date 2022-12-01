@@ -100,3 +100,33 @@ export const InfoSecContentPar = styled.p`
   line-height: 140%;
   margin-bottom: 4rem;
 `;
+
+export const PartnersSec = styled.section`
+  height: 100vh;
+  max-height: 900px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const PartnersTextWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 31px;
+`;
+
+export const PartnersSecHeader = styled.h2`
+  font-size: ${({ theme }) => theme.font.size.headingSmall};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
+  color: ${({ theme }) => theme.color.graphite};
+  max-width: 79.5rem;
+  text-align: center;
+
+  & > span {
+    color: ${({ theme }) => theme.color.gammaOrange};
+  }
+`;
