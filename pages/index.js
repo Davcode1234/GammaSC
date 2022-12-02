@@ -16,10 +16,12 @@ import {
   PartnersTextWrapper,
   PartnersSecHeader,
   OfferSection,
+  OfferSecHeader,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 import Slider from "../components/Slider/Slider";
 import { topImages, bottomImages } from "../components/Slider/Slider";
+import OfferCard from "../components/OfferCard/OfferCard";
 
 const infoSecCardData = [
   {
@@ -115,7 +117,15 @@ export default function Home() {
         <Slider position={"right"} imgArr={bottomImages}></Slider>
       </PartnersSec>
 
-      <OfferSection></OfferSection>
+      <OfferSection>
+        <PartnersTextWrapper>
+          <InfoSmallPar>nasi klienci</InfoSmallPar>
+          <OfferSecHeader>
+            Zobacz, co możemy <span>dla Ciebie</span> zrobić:
+          </OfferSecHeader>
+        </PartnersTextWrapper>
+        <OfferCard header={"test"}></OfferCard>
+      </OfferSection>
     </>
   );
 }

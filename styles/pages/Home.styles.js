@@ -144,3 +144,7 @@ export const OfferSection = styled.section`
   max-height: 950px;
   background-color: ${({ theme }) => theme.color.grey};
 `;
+
+export const OfferSecHeader = styled(PartnersSecHeader)`
+  max-width: 81.5rem;
+`;
