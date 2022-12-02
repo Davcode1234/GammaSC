@@ -17,6 +17,7 @@ import {
   PartnersSecHeader,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
+import Slider from "../components/Slider/Slider";
 
 const infoSecCardData = [
   {
@@ -109,6 +110,8 @@ export default function Home() {
             Stworzyliśmy dla nich <span>wiele niezwykłych</span> kreacji
           </PartnersSecHeader>
         </PartnersTextWrapper>
+        <Slider position={"left"}></Slider>
+        <Slider position={"right"}></Slider>
       </PartnersSec>
     </>
   );
