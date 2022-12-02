@@ -15,9 +15,11 @@ import {
   PartnersSec,
   PartnersTextWrapper,
   PartnersSecHeader,
+  OfferSection,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 import Slider from "../components/Slider/Slider";
+import { topImages, bottomImages } from "../components/Slider/Slider";
 
 const infoSecCardData = [
   {
@@ -30,19 +32,19 @@ const infoSecCardData = [
     number: 36,
     text: "tysięcy ukończonych projektów",
     withPlus: true,
-    id: 1,
+    id: 2,
   },
   {
     number: 29,
     text: "tysięcy wypitych filiżanek kawy",
     withPlus: true,
-    id: 1,
+    id: 3,
   },
   {
     number: 50,
     text: "stałych klientów",
     withPlus: false,
-    id: 1,
+    id: 4,
   },
 ];
 
@@ -63,8 +65,7 @@ export default function Home() {
           width={851}
           height={597}
           alt="Cameleon"
-        ></Image>
-
+        />
         <DescriptionParagraph>
           Projektujemy, filmujemy, fotografujemy, drukujemy, tworzymy koncepcje
           promocyjne, a nawet produkujemy profesjonalną odzież sportową.
@@ -110,9 +111,11 @@ export default function Home() {
             Stworzyliśmy dla nich <span>wiele niezwykłych</span> kreacji
           </PartnersSecHeader>
         </PartnersTextWrapper>
-        <Slider position={"left"}></Slider>
-        <Slider position={"right"}></Slider>
+        <Slider position={"left"} imgArr={topImages}></Slider>
+        <Slider position={"right"} imgArr={bottomImages}></Slider>
       </PartnersSec>
+
+      <OfferSection></OfferSection>
     </>
   );
 }

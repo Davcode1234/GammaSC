@@ -28,6 +28,7 @@ export const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  z-index: -1;
 `;
 
 export const SliderContainer = styled.div`

@@ -47,12 +47,10 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [exitVar, setExitVar] = useState(false);
   // const [secondSliderVal, setSecondSliderVal] = useState(false);
-  console.log({ open });
 
   const openMenu = () => {
     setOpen((val) => !val);
     setExitVar((val) => !val);
-    console.log({ open });
   };
 
   const originVal = exitVar ? "originX: 1" : "originX: 0";

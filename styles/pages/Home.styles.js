@@ -101,6 +101,8 @@ export const InfoSecContentPar = styled.p`
   margin-bottom: 4rem;
 `;
 
+// Partners sec
+
 export const PartnersSec = styled.section`
   height: 100vh;
   max-height: 900px;
@@ -116,7 +118,7 @@ export const PartnersTextWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 31px;
+  margin-bottom: 110px;
 `;
 
 export const PartnersSecHeader = styled.h2`
@@ -129,4 +131,16 @@ export const PartnersSecHeader = styled.h2`
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};
   }
+`;
+
+// Offer Sec
+
+export const OfferSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-height: 950px;
+  background-color: ${({ theme }) => theme.color.grey};
 `;
