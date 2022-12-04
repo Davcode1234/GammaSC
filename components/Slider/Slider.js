@@ -117,6 +117,8 @@ export const bottomImages = [
   },
 ];
 
+// Issue on bigger screens
+
 const Slider = ({ position, imgArr }) => {
   return (
     <OuterContainer>

@@ -148,3 +148,10 @@ export const OfferSection = styled.section`
 export const OfferSecHeader = styled(PartnersSecHeader)`
   max-width: 81.5rem;
 `;
+
+export const OfferCardsGrid = styled.div`
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  grid-gap: 20px;
+  gap: 45px;
+`;
