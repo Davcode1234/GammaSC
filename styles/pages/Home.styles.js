@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 
 export const WelcomSection = styled.section`
   display: flex;
@@ -143,6 +144,7 @@ export const OfferSection = styled.section`
   height: 100vh;
   max-height: 950px;
   background-color: ${({ theme }) => theme.color.grey};
+  /* z-index: -2; */
 `;
 
 export const OfferSecHeader = styled(PartnersSecHeader)`
@@ -154,4 +156,55 @@ export const OfferCardsGrid = styled.div`
   grid-template: repeat(2, 1fr) / repeat(3, 1fr);
   grid-gap: 20px;
   gap: 45px;
+`;
+
+// Countries Sec
+
+export const CountriesSection = styled.div`
+  width: 100%;
+  height: 100vh;
+  max-height: 790px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+`;
+
+export const CountriesTextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  transform: translate(46%, -25%);
+  z-index: 2;
+`;
+
+export const CountriesSecHeader = styled(PartnersSecHeader)`
+  max-width: 600px;
+  text-align: start;
+`;
+
+export const CountriesSecText = styled.p`
+  font-size: ${({ theme }) => theme.font.size.paragraph};
+  color: ${({ theme }) => theme.color.graphite};
+  max-width: 435px;
+  position: relative;
+  transform: translateX(105px);
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 5px;
+    background-color: ${({ theme }) => theme.color.gammaOrange};
+    top: 5px;
+    left: -105px;
+  }
+`;
+
+export const StyledImageMap = styled(Image)`
+  transform: translate(-6%, -8%);
 `;

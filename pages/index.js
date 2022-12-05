@@ -18,6 +18,12 @@ import {
   OfferSection,
   OfferSecHeader,
   OfferCardsGrid,
+  CountriesSection,
+  ContentWrapper,
+  CountriesSecHeader,
+  CountriesTextWrapper,
+  CountriesSecText,
+  StyledImageMap,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 import Slider from "../components/Slider/Slider";
@@ -120,7 +126,7 @@ export default function Home() {
 
       <OfferSection>
         <PartnersTextWrapper>
-          <InfoSmallPar>nasi klienci</InfoSmallPar>
+          <InfoSmallPar>nasza oferta</InfoSmallPar>
           <OfferSecHeader>
             Zobacz, co możemy <span>dla Ciebie</span> zrobić:
           </OfferSecHeader>
@@ -141,6 +147,29 @@ export default function Home() {
           })}
         </OfferCardsGrid>
       </OfferSection>
+
+      <CountriesSection>
+        <ContentWrapper>
+          <CountriesTextWrapper>
+            <CountriesSecHeader>
+              Nasze projekty <br /> dotarły aż do <span>30 państw.</span>
+            </CountriesSecHeader>
+            <CountriesSecText>
+              Dbamy o każdego klienta, dzięki czemu tworzymy relacje i rozwijamy
+              się tak szybko. Nie zwalniamy tempa wciąż wdrażając innowacyjne
+              metody produkcji, aby nasze produkty były stale na najwyższym
+              poziomie.
+            </CountriesSecText>
+          </CountriesTextWrapper>
+
+          <StyledImageMap
+            src={"/HomePage/mapa.svg"}
+            width={1000}
+            height={565}
+            alt={"Map"}
+          />
+        </ContentWrapper>
+      </CountriesSection>
     </>
   );
 }

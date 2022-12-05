@@ -60,6 +60,7 @@ export const MainSliderMenu = styled(motion.aside)`
   width: 375px;
   height: 100vh;
   padding: 100px 0 0 60px;
+  z-index: 1;
 `;
 
 export const SecondarySliderMenu = styled(MainSliderMenu)`
