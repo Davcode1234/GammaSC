@@ -17,11 +17,12 @@ import {
   PartnersSecHeader,
   OfferSection,
   OfferSecHeader,
+  OfferCardsGrid,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 import Slider from "../components/Slider/Slider";
 import { topImages, bottomImages } from "../components/Slider/Slider";
-import OfferCard from "../components/OfferCard/OfferCard";
+import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
 
 const infoSecCardData = [
   {
@@ -124,7 +125,21 @@ export default function Home() {
             Zobacz, co możemy <span>dla Ciebie</span> zrobić:
           </OfferSecHeader>
         </PartnersTextWrapper>
-        <OfferCard header={"test"}></OfferCard>
+        <OfferCardsGrid>
+          {cardsContent.map((card) => {
+            return (
+              <OfferCard
+                header={card.header}
+                text={card.text}
+                img={card.img}
+                alt={card.alt}
+                width={card.width}
+                height={card.height}
+                key={card.header}
+              />
+            );
+          })}
+        </OfferCardsGrid>
       </OfferSection>
     </>
   );

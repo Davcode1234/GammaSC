@@ -14,3 +14,9 @@ export const CardHeader = styled.h3`
   font-size: ${({ theme }) => theme.font.size.headingOffer};
   font-weight: ${({ theme }) => theme.font.weight.thin};
 `;
+
+export const CardText = styled.p`
+
+font-size: ${({ theme }) => theme.font.size.paragraph};
+color: ${({ theme }) => theme.color.graphite}
+`;
