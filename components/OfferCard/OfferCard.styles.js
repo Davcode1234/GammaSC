@@ -12,4 +12,5 @@ export const CardWrapper = styled.div`
 
 export const CardHeader = styled.h3`
   font-size: ${({ theme }) => theme.font.size.headingOffer};
+  font-weight: ${({ theme }) => theme.font.weight.thin};
 `;

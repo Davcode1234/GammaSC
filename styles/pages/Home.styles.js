@@ -146,5 +146,5 @@ export const OfferSection = styled.section`
 `;
 
 export const OfferSecHeader = styled(PartnersSecHeader)`
-  max-width: 81.5rem;
+  max-width: 85rem;
 `;

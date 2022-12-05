@@ -63,7 +63,7 @@ export const MainSliderMenu = styled(motion.aside)`
 `;
 
 export const SecondarySliderMenu = styled(MainSliderMenu)`
-  background-color: ${({ theme }) => theme.color.gammaPurple};
+  background-color: ${({ theme }) => theme.color.darkPurple};
 `;
 
 export const LinksWrapper = styled(motion.div)`
