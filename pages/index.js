@@ -84,7 +84,7 @@ export default function Home() {
         </DescriptionParagraph>
         <BtnWrapper>
           <CtaBtn isBig>Zobacz nasze realizacje</CtaBtn>
-          <StyledLink href="#">
+          <StyledLink href="/contact">
             Skontaktuj się z nami{" "}
             <StyledIcon
               icon="material-symbols:arrow-back"

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export const NavigationWrapper = styled.nav`
   position: fixed;
@@ -8,8 +9,9 @@ export const NavigationWrapper = styled.nav`
   justify-content: space-between;
   padding: 0 100px;
   width: 100%;
-  height: 90px;
+  height: 75px;
   z-index: 100;
+  background-color: ${({ theme }) => theme.color.white};
 `;
 
 export const MenuBtn = styled.button`
@@ -79,4 +81,8 @@ export const MenuLink = styled(motion.p)`
   font-weight: ${({ theme }) => theme.font.weight.bold};
   cursor: pointer;
   margin: 0 0 16px 0;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
 `;

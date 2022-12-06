@@ -9,13 +9,15 @@ import {
   SecondarySliderMenu,
   LinksWrapper,
   MenuLink,
+  StyledLink,
 } from "./Navigation.styles";
+import Link from "next/link";
 
 const links = [
-  { name: "Oferta", id: 1 },
-  { name: "Portfolio", id: 2 },
-  { name: "O nas", id: 3 },
-  { name: "Kontakt", id: 4 },
+  { name: "Oferta", id: 1, to: "/oferta" },
+  { name: "Portfolio", id: 2, to: "/portfolio" },
+  { name: "O nas", id: 3, to: "/onas" },
+  { name: "Kontakt", id: 4, to: "/contact" },
 ];
 
 const itemVariants = {
@@ -136,15 +138,20 @@ const Navigation = () => {
                 animate="open"
                 exit="closed"
               >
-                {links.map(({ name, id }) => {
+                {links.map(({ name, id, to }) => {
                   return (
-                    <MenuLink
+                    <StyledLink
                       key={id}
-                      variants={itemVariants}
-                      whileHover={{ scale: 1.05 }}
+                      href={to}
+                      onClick={() => setOpen(false)}
                     >
-                      {name}
-                    </MenuLink>
+                      <MenuLink
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {name}
+                      </MenuLink>
+                    </StyledLink>
                   );
                 })}
               </LinksWrapper>
