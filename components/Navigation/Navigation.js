@@ -95,12 +95,14 @@ const Navigation = () => {
   return (
     <>
       <NavigationWrapper>
-        <Image
-          src={"/HomePage/orange.png"}
-          width={160}
-          height={60}
-          alt="logo"
-        ></Image>
+        <Link href={"/"} onClick={() => setOpen(false)}>
+          <Image
+            src={"/HomePage/orange.png"}
+            width={160}
+            height={60}
+            alt="logo"
+          ></Image>
+        </Link>
         <MenuBtn
           isOpen={open}
           onClick={() => {

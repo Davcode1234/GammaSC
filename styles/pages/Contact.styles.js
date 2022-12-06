@@ -32,8 +32,15 @@ export const MapHeader = styled.h2`
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.graphite};
   text-align: center;
+  margin-bottom: 60px;
 
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};
+  }
+`;
+
+export const Map = styled.div`
+  & > div {
+    height: 620px;
   }
 `;

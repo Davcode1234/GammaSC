@@ -1,9 +1,12 @@
+import { useEffect, useRef } from "react";
 import Head from "next/head";
+import { Loader } from "@googlemaps/js-api-loader";
 import {
   ContactHeader,
   ContactInfoSection,
   ContactTextPar,
   MapHeader,
+  Map,
 } from "../styles/pages/Contact.styles";
 import { InfoSecHeader, InfoSmallPar } from "../styles/pages/Home.styles";
 import ContactAssistantCard from "../components/ContactAssistantCard/ContactAssistantCard";
@@ -29,6 +32,29 @@ const contactData = [
 ];
 
 export default function Contact() {
+  const googleMap = useRef(null);
+
+  50.07215399984899, 21.388977045745907;
+
+  useEffect(() => {
+    const loader = new Loader({
+      apiKey: process.env.NEXT_PUBLIC_GOOGLE_API,
+      version: "weekly",
+    });
+    let map;
+
+    loader.load().then(() => {
+      map = new google.maps.Map(googleMap.current, {
+        center: { lat: 50.07215399984899, lng: 21.388977045745907 },
+        zoom: 16,
+      });
+      let marker = new google.maps.Marker({
+        position: { lat: 50.07215399984899, lng: 21.388977045745907 },
+        map: map,
+      });
+    });
+  });
+
   return (
     <>
       <Head>
@@ -64,10 +90,13 @@ export default function Contact() {
           );
         })}
       </ContactInfoSection>
-
       <MapHeader>
         <span>Gdzie</span> nas znajdziesz?
       </MapHeader>
+
+      <Map>
+        <div id="map" ref={googleMap} />
+      </Map>
     </>
   );
 }

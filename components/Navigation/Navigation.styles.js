@@ -11,7 +11,7 @@ export const NavigationWrapper = styled.nav`
   width: 100%;
   height: 75px;
   z-index: 100;
-  background-color: ${({ theme }) => theme.color.white};
+  /* background-color: ${({ theme }) => theme.color.white}; */
 `;
 
 export const MenuBtn = styled.button`

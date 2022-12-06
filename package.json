@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.15.1",
     "@iconify/react": "^4.0.1",
     "dotenv": "^16.0.3",
     "framer-motion": "^7.6.12",
