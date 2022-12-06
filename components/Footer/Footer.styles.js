@@ -5,7 +5,7 @@ import Image from "next/image";
 export const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
-  gap: 150px;
+  gap: 205px;
   height: 390px;
   background-color: ${({ theme }) => theme.color.graphite};
   padding: 90px 50px 0 50px;
