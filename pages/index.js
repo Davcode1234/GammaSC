@@ -24,6 +24,9 @@ import {
   CountriesTextWrapper,
   CountriesSecText,
   StyledImageMap,
+  ContactUsSection,
+  StyledIcon,
+  StyledFooterImage,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 import Slider from "../components/Slider/Slider";
@@ -81,7 +84,14 @@ export default function Home() {
         </DescriptionParagraph>
         <BtnWrapper>
           <CtaBtn isBig>Zobacz nasze realizacje</CtaBtn>
-          <StyledLink href="#">Skontaktuj się z nami</StyledLink>
+          <StyledLink href="#">
+            Skontaktuj się z nami{" "}
+            <StyledIcon
+              icon="material-symbols:arrow-back"
+              width="24"
+              height="24"
+            />
+          </StyledLink>
         </BtnWrapper>
       </WelcomSection>
 
@@ -170,6 +180,21 @@ export default function Home() {
           />
         </ContentWrapper>
       </CountriesSection>
+
+      <ContactUsSection>
+        <div>
+          <InfoSecHeader>
+            Usiądź wygodnie,
+            <br /> a my się wszystkim zajmiemy.
+          </InfoSecHeader>
+          <CtaBtn isBig>Skontaktuj się z nami</CtaBtn>
+        </div>
+        <StyledFooterImage
+          src={"/HomePage/kamcio_stopka1.svg"}
+          width={443}
+          height={391}
+        ></StyledFooterImage>
+      </ContactUsSection>
     </>
   );
 }

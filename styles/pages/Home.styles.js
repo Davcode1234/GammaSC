@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
+import { Icon } from "@iconify/react";
 
 export const WelcomSection = styled.section`
   display: flex;
@@ -51,6 +52,14 @@ export const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.font.size.button};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.gammaOrange};
+  position: relative;
+`;
+
+export const StyledIcon = styled(Icon)`
+  transform: rotate(135deg);
+  position: absolute;
+  top: -10%;
+  right: -18%;
 `;
 
 // Second sec
@@ -160,7 +169,7 @@ export const OfferCardsGrid = styled.div`
 
 // Countries Sec
 
-export const CountriesSection = styled.div`
+export const CountriesSection = styled.section`
   width: 100%;
   height: 100vh;
   max-height: 790px;
@@ -207,4 +216,19 @@ export const CountriesSecText = styled.p`
 
 export const StyledImageMap = styled(Image)`
   transform: translate(-6%, -8%);
+`;
+
+// Contact Us
+
+export const ContactUsSection = styled.section`
+  display: flex;
+  height: 400px;
+  background-color: ${({ theme }) => theme.color.graphite};
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+`;
+
+export const StyledFooterImage = styled(Image)`
+  transform: translateY(-29%);
 `;

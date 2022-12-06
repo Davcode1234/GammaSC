@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const NavigationWrapper = styled.div`
+export const NavigationWrapper = styled.nav`
   position: fixed;
   display: flex;
   align-items: center;

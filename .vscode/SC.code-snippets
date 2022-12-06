@@ -1,0 +1,7 @@
+{
+  "th": {
+    "prefix": "th",
+    "body": ["${({theme}) => theme.}"],
+    "description": "a theme func"
+  }
+}

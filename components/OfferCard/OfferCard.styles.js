@@ -23,10 +23,11 @@ export const StyledImage = styled(Image)`
 `;
 
 export const StyledIcon = styled(Icon)`
-  transform: rotate(135deg);
+  transform: rotate(180deg);
   position: absolute;
   top: -10%;
   right: -20%;
+  transition: all 0.3s ease;
 `;
 
 export const CardBtn = styled.button`
@@ -61,6 +62,10 @@ export const CardWrapper = styled.div`
 
     ${CardHeader} {
       transform: translateY(-10%);
+    }
+
+    ${StyledIcon} {
+      transform: rotate(135deg);
     }
   }
 `;

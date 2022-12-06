@@ -6,7 +6,6 @@ import {
   StyledImage,
   StyledIcon,
 } from "./OfferCard.styles";
-// import { Icon } from "@iconify/react";
 
 export const cardsContent = [
   {
