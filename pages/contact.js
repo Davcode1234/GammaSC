@@ -1,15 +1,13 @@
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import Head from "next/head";
 import { Loader } from "@googlemaps/js-api-loader";
 import {
-  ContactHeader,
   ContactInfoSection,
-  ContactTextPar,
   MapHeader,
   Map,
 } from "../styles/pages/Contact.styles";
-import { InfoSecHeader, InfoSmallPar } from "../styles/pages/Home.styles";
 import ContactAssistantCard from "../components/ContactAssistantCard/ContactAssistantCard";
+import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 
 const contactData = [
   {
@@ -30,6 +28,15 @@ const contactData = [
     id: 2,
   },
 ];
+const headerData = {
+  headerSmall: "Kontakt",
+  headerBig: (
+    <Fragment>
+      Jesteśmy tu <span>dla Ciebie!</span>
+    </Fragment>
+  ),
+  text: "Skontaktuj się z naszym działem marketingu. Lubimy rozmawiać, więc chętnie odpowiemy na wszelkie pytania.",
+};
 
 export default function Contact() {
   const googleMap = useRef(null);
@@ -64,18 +71,11 @@ export default function Contact() {
           content="Gamma agencja reklamowa kampania reklamowa kontakt jak dojechać"
         ></meta>
       </Head>
-      <ContactHeader>
-        <div>
-          <InfoSmallPar>kontakt</InfoSmallPar>
-          <InfoSecHeader>
-            Jesteśmy tu <span>dla Ciebie!</span>
-          </InfoSecHeader>
-          <ContactTextPar>
-            Skontaktuj się z naszym działem marketingu. Lubimy rozmawiać, więc
-            chętnie odpowiemy na wszelkie pytania.
-          </ContactTextPar>
-        </div>
-      </ContactHeader>
+      <SubpagesHeader
+        headerSmall={headerData.headerSmall}
+        headerBig={headerData.headerBig}
+        text={headerData.text}
+      ></SubpagesHeader>
       <ContactInfoSection>
         {contactData.map((card) => {
           return (

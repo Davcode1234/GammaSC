@@ -14,9 +14,9 @@ import {
 import Link from "next/link";
 
 const links = [
-  { name: "Oferta", id: 1, to: "/oferta" },
+  { name: "Oferta", id: 1, to: "/offer" },
   { name: "Portfolio", id: 2, to: "/portfolio" },
-  { name: "O nas", id: 3, to: "/onas" },
+  { name: "O nas", id: 3, to: "/about" },
   { name: "Kontakt", id: 4, to: "/contact" },
 ];
 

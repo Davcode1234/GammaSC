@@ -10,7 +10,7 @@ import Image from "next/image";
 const ContactAssistantCard = ({ img, title, position, mail, number }) => {
   return (
     <ContactCardWrapper>
-      <Image src={img} width={300} height={400} alt="test"></Image>
+      <Image src={img} width={300} height={400} alt="test" priority></Image>
       <ContentWrapper>
         <ContactCardHeader>{title}</ContactCardHeader>
         <PositionText>{position}</PositionText>
