@@ -1,14 +1,34 @@
 import {
   ContentContainer,
-  ImgWrapper,
-  StyledImg,
+  StyledImgBackground,
+  Header,
+  ContentTextWrapper,
+  Text,
+  StyledCamImg,
 } from "./OfferPageCard.styles";
 
-const OfferPageCard = ({ backgroundImg }) => {
+const OfferPageCard = ({
+  backgroundImg,
+  header,
+  text,
+  camImg,
+  alt,
+  width,
+  height,
+}) => {
   return (
     <>
-      <StyledImg src={backgroundImg} alt={"background image"}></StyledImg>;
-      <ContentContainer></ContentContainer>
+      <StyledImgBackground imageSource={backgroundImg} alt={"background image"}>
+        <ContentTextWrapper>
+          <div>
+            <Header>{header}</Header>
+            <Text>{text}</Text>
+          </div>
+        </ContentTextWrapper>
+      </StyledImgBackground>
+      <ContentContainer>
+        <StyledCamImg src={camImg} alt={alt} width={width} height={height} />
+      </ContentContainer>
     </>
   );
 };

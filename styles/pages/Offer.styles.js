@@ -17,7 +17,7 @@ to {
 
 export const ButtonsWrapper = styled.div`
   display: flex;
-  gap: 4.5%;
+  gap: 6%;
   justify-content: center;
   transform: translateY(60px);
 `;
