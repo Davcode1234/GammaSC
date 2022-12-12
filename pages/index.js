@@ -60,6 +60,10 @@ const infoSecCardData = [
   },
 ];
 
+// Probably fix to first render without styles: https://styled-components.com/docs/advanced#server-side-rendering
+
+// https://egghead.io/lessons/react-extend-next-js-default-document-class-to-ensure-styles-are-rendered-on-the-server
+
 export default function Home() {
   return (
     <>
