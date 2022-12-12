@@ -1,10 +1,42 @@
 import { Fragment, useState } from "react";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 import OfferPageCard from "../components/OfferPageCard/OfferPageCard";
-import { ButtonsWrapper, OfferButton } from "../styles/pages/Offer.styles";
+import { AnimatePresence } from "framer-motion";
+
+import {
+  ButtonsWrapper,
+  OfferButton,
+  AnimationSlider,
+} from "../styles/pages/Offer.styles";
 
 export default function Offer() {
   const [tag, setTag] = useState("kreacja");
+  const [contentTag, setContentTag] = useState("kreacja");
+  const [slideAnim, setSlideAnim] = useState(false);
+  const [exitVar, setExitVar] = useState(false);
+
+  const originVal = exitVar ? "originX: 1" : "originX: 0";
+
+  const slideOptions = {
+    hidden: {
+      scaleX: 0,
+      originX: 0,
+    },
+    visible: {
+      type: "spring",
+      scaleX: 1,
+      originX: { originVal },
+      transition: {
+        duration: 0.5,
+      },
+    },
+    exit: {
+      type: "spring",
+      scaleX: 0,
+      transition: { duration: 0.5 },
+      originX: 1,
+    },
+  };
 
   const testData = [
     {
@@ -61,14 +93,9 @@ export default function Offer() {
       alt: "Gamma cameleon with a needle looking for something",
       id: "sublimacja",
     },
-    // {
-    //   title: "Hafciarnia",
-    //   text: "Nasze haftytfu som wporzo i dobre jakość ",
-    //   id: "hafciarnia",
-    // },
   ];
 
-  const filteredData = testData.filter((card) => card.id === tag);
+  const filteredData = testData.filter((card) => card.id === contentTag);
 
   const offerData = {
     headerSmall: "oferta",
@@ -92,6 +119,13 @@ export default function Offer() {
 
   const handleButtonClick = (btn) => {
     setTag(btn);
+    setExitVar(false);
+    setSlideAnim(true);
+    setTimeout(() => {
+      setContentTag(btn);
+      setExitVar(true);
+      setSlideAnim(false);
+    }, 700);
   };
   return (
     <>
@@ -100,6 +134,16 @@ export default function Offer() {
         headerBig={offerData.headerBig}
         text={offerData.text}
       ></SubpagesHeader>
+      <AnimatePresence>
+        {slideAnim && (
+          <AnimationSlider
+            variants={slideOptions}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          ></AnimationSlider>
+        )}
+      </AnimatePresence>
       <ButtonsWrapper>
         {buttons.map((btn) => {
           {

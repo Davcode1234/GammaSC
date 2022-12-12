@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { InfoSmallPar } from "../../styles/pages/Home.styles";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export const ContentTextWrapper = styled.div`

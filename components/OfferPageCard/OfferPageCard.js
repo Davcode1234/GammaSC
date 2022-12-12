@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   ContentContainer,
   StyledImgBackground,
@@ -5,6 +6,7 @@ import {
   ContentTextWrapper,
   Text,
   StyledCamImg,
+  AnimationSlider,
 } from "./OfferPageCard.styles";
 
 const OfferPageCard = ({

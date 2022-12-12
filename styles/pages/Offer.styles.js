@@ -1,14 +1,14 @@
 import styled, { css, keyframes } from "styled-components";
 import { motion } from "framer-motion";
 
-const test = keyframes`
+const clicked = keyframes`
 to {
     color: #f68c1e;
     font-weight: 700;
 }
 `;
 
-const test2 = keyframes`
+const unClicked = keyframes`
 to { 
     color: #fff;
     font-weight: 400;
@@ -20,6 +20,7 @@ export const ButtonsWrapper = styled.div`
   gap: 6%;
   justify-content: center;
   transform: translateY(60px);
+  z-index: 232342;
 `;
 
 export const OfferButton = styled(motion.button)`
@@ -31,13 +32,14 @@ export const OfferButton = styled(motion.button)`
   cursor: pointer;
   text-transform: uppercase;
   transition: scale 0.3s ease;
+
   ${({ isClicked }) => {
     return isClicked
       ? css`
-          animation: ${test} 0.3s ease forwards;
+          animation: ${clicked} 0.3s ease forwards;
         `
       : css`
-          animation: ${test2} 0.3s ease forwards;
+          animation: ${unClicked} 0.3s ease forwards;
         `;
   }}
   ${({ theme }) => theme.mq.bigDesktop} {
@@ -47,4 +49,11 @@ export const OfferButton = styled(motion.button)`
   /* &:hover {
     transform: scale(1.05) translateY(60px);
   } */
+`;
+export const AnimationSlider = styled(motion.div)`
+  position: absolute;
+  width: 100%;
+  height: 505px;
+  background-color: ${({ theme }) => theme.color.graphite};
+  z-index: 0;
 `;
