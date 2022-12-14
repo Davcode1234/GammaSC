@@ -53,7 +53,7 @@ export const OfferButton = styled(motion.button)`
 export const AnimationSlider = styled(motion.div)`
   position: absolute;
   width: 100%;
-  height: 505px;
+  height: 405px;
   background-color: ${({ theme }) => theme.color.graphite};
   z-index: 0;
 `;

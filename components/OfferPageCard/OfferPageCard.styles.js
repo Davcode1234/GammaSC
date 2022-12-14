@@ -24,15 +24,42 @@ export const StyledImgBackground = styled.div`
   background-size: cover;
   position: relative;
   width: 100%;
-  height: 505px;
+  height: 405px;
   z-index: -1;
   transform: translateY(-30px);
 `;
 
 export const ContentContainer = styled.div`
   height: 675px;
+  display: flex;
+  justify-content: space-around;
 `;
 
 export const StyledCamImg = styled(Image)`
   transform: translate(85%, -30%);
+`;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  max-width: 650px;
+  line-height: 140%;
+  margin-top: 60px;
+`;
+
+export const FirstTextParagraph = styled.p`
+  margin-bottom: 10px;
+`;
+
+export const SecondTextParagraph = styled(FirstTextParagraph)``;
+
+export const List = styled.ul``;
+
+export const ListItem = styled.li``;
+
+export const Line = styled.div`
+  width: 300px;
+  height: 3px;
+  background-color: ${({ theme }) => theme.color.gammaOrange};
+  margin-right: 20px;
+  transform: translateY(10px);
 `;
