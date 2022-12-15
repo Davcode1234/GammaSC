@@ -1,6 +1,10 @@
 import { Fragment, useState } from "react";
+import dynamic from "next/dynamic";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
-import OfferPageCard from "../components/OfferPageCard/OfferPageCard";
+const OfferPageCard = dynamic(
+  () => import("../components/OfferPageCard/OfferPageCard"),
+  { ssr: false }
+);
 import { AnimatePresence } from "framer-motion";
 
 import {
@@ -47,6 +51,41 @@ export default function Offer() {
       height: 540,
       alt: "Gamma cameleon with can of farb",
       id: "kreacja",
+      contentText: (
+        <Fragment>
+          Zajmujemy się całością prac związanych z wykonaniem materiałów
+          reklamowych, budujących tożsamość firmy. Zaczynając od projektu,
+          poprzez kreację, skład, a kończąc na druku i wysyłce. Od małych
+          produkcji - poprzez usługi nietypowe - do dużych nakładów.
+          <div>
+            <span>
+              Nasze usługi w dziedzinie kreacji i składu DTP obejmują:
+            </span>
+          </div>
+        </Fragment>
+      ),
+
+      items: [
+        {
+          listItem:
+            "projektowanie spójnych wizerunkowo materiałów reklamowych i promocyjnych,",
+          id: 1,
+        },
+        {
+          listItem:
+            "profesjonalne przygotowanie do druku wszelkich materiałów poligraficznych,",
+          id: 2,
+        },
+        {
+          listItem:
+            "projekt i druk różnego rodzaju materiałówwielkoformatowych: banerów, roll-upów, plakatów",
+          id: 3,
+        },
+        {
+          listItem: "kompleksową obsługę DTP",
+          id: 4,
+        },
+      ],
     },
     {
       title: "Drukarnia",
@@ -56,6 +95,52 @@ export default function Offer() {
       height: 490,
       alt: "Gamma cameleon in carpet",
       id: "drukarnia",
+      contentText: (
+        <Fragment>
+          Druki druki dupa test mhm hmh nietypowe rozwiązania druk laserowy i
+          wszystko laser robi wzium wzium tak właśnie zczaj to gościu ;) my sie
+          zimy nie boimy chyba że jest ślisko no to troche musze jeszcze troche
+          dopisać żeby było super fajnie
+          <div>
+            <span>
+              Nasze usługi druku obejmują sublimację laserowo grzbietowaną:
+            </span>
+          </div>
+        </Fragment>
+      ),
+
+      items: [
+        {
+          listItem:
+            "pierwszy list item który musi mieć tak z parenaście słów żeby width był dobry,",
+          id: 1,
+        },
+        {
+          listItem:
+            "drugi list item który musi mieć tak z parenaście słów żeby width był dobry,",
+          id: 2,
+        },
+        {
+          listItem:
+            "trzeci list item który musi mieć tak z parenaście słów żeby width był dobry",
+          id: 3,
+        },
+        {
+          listItem: "czwarty troche krótszy",
+          id: 4,
+        },
+      ],
+
+      // listItem:
+      //   "pierwszy list item który musi mieć tak z parenaście słów żeby width był dobry,",
+
+      // listItem:
+      //   "drugi list item który musi mieć tak z parenaście słów żeby width był dobry,",
+
+      // listItem:
+      //   "trzeci list item który musi mieć tak z parenaście słów żeby width był dobry",
+
+      // listItem: "czwarty troche krótszy",
     },
     {
       title: "Fotografia",
@@ -65,6 +150,41 @@ export default function Offer() {
       height: 490,
       alt: "Gamma cameleon standing on his head taking photos",
       id: "fotografia",
+      contentText: (
+        <Fragment>
+          Zajmujemy się całością prac związanych z wykonaniem materiałów
+          reklamowych, budujących tożsamość firmy. Zaczynając od projektu,
+          poprzez kreację, skład, a kończąc na druku i wysyłce. Od małych
+          produkcji - poprzez usługi nietypowe - do dużych nakładów.
+          <div>
+            <span>
+              Nasze usługi w dziedzinie kreacji i składu DTP obejmują:
+            </span>
+          </div>
+        </Fragment>
+      ),
+
+      items: [
+        {
+          listItem:
+            "projektowanie spójnych wizerunkowo materiałów reklamowych i promocyjnych,",
+          id: 1,
+        },
+        {
+          listItem:
+            "profesjonalne przygotowanie do druku wszelkich materiałów poligraficznych,",
+          id: 2,
+        },
+        {
+          listItem:
+            "projekt i druk różnego rodzaju materiałówwielkoformatowych: banerów, roll-upów, plakatów",
+          id: 3,
+        },
+        {
+          listItem: "kompleksową obsługę DTP",
+          id: 4,
+        },
+      ],
     },
     {
       title: "Gadżety",
@@ -74,6 +194,41 @@ export default function Offer() {
       height: 480,
       alt: "Gamma cameleon in Gamma t-shirt with glasses on",
       id: "gadżety",
+      contentText: (
+        <Fragment>
+          Zajmujemy się całością prac związanych z wykonaniem materiałów
+          reklamowych, budujących tożsamość firmy. Zaczynając od projektu,
+          poprzez kreację, skład, a kończąc na druku i wysyłce. Od małych
+          produkcji - poprzez usługi nietypowe - do dużych nakładów.
+          <div>
+            <span>
+              Nasze usługi w dziedzinie kreacji i składu DTP obejmują:
+            </span>
+          </div>
+        </Fragment>
+      ),
+
+      items: [
+        {
+          listItem:
+            "projektowanie spójnych wizerunkowo materiałów reklamowych i promocyjnych,",
+          id: 1,
+        },
+        {
+          listItem:
+            "profesjonalne przygotowanie do druku wszelkich materiałów poligraficznych,",
+          id: 2,
+        },
+        {
+          listItem:
+            "projekt i druk różnego rodzaju materiałówwielkoformatowych: banerów, roll-upów, plakatów",
+          id: 3,
+        },
+        {
+          listItem: "kompleksową obsługę DTP",
+          id: 4,
+        },
+      ],
     },
     {
       title: "Szwalnia",
@@ -83,6 +238,40 @@ export default function Offer() {
       height: 480,
       alt: "Gamma cameleon showing his gadgets under coat",
       id: "szwalnia",
+      contentText: (
+        <Fragment>
+          Zajmujemy się całością prac związanych z wykonaniem materiałów
+          reklamowych, budujących tożsamość firmy. Zaczynając od projektu,
+          poprzez kreację, skład, a kończąc na druku i wysyłce. Od małych
+          produkcji - poprzez usługi nietypowe - do dużych nakładów.
+          <div>
+            <span>
+              Nasze usługi w dziedzinie kreacji i składu DTP obejmują:
+            </span>
+          </div>
+        </Fragment>
+      ),
+      items: [
+        {
+          listItem:
+            "projektowanie spójnych wizerunkowo materiałów reklamowych i promocyjnych,",
+          id: 1,
+        },
+        {
+          listItem:
+            "profesjonalne przygotowanie do druku wszelkich materiałów poligraficznych,",
+          id: 2,
+        },
+        {
+          listItem:
+            "projekt i druk różnego rodzaju materiałówwielkoformatowych: banerów, roll-upów, plakatów",
+          id: 3,
+        },
+        {
+          listItem: "kompleksową obsługę DTP",
+          id: 4,
+        },
+      ],
     },
     {
       title: "Sublimacja",
@@ -92,6 +281,41 @@ export default function Offer() {
       height: 480,
       alt: "Gamma cameleon with a needle looking for something",
       id: "sublimacja",
+      contentText: (
+        <Fragment>
+          Zajmujemy się całością prac związanych z wykonaniem materiałów
+          reklamowych, budujących tożsamość firmy. Zaczynając od projektu,
+          poprzez kreację, skład, a kończąc na druku i wysyłce. Od małych
+          produkcji - poprzez usługi nietypowe - do dużych nakładów.
+          <div>
+            <span>
+              Nasze usługi w dziedzinie kreacji i składu DTP obejmują:
+            </span>
+          </div>
+        </Fragment>
+      ),
+
+      items: [
+        {
+          listItem:
+            "projektowanie spójnych wizerunkowo materiałów reklamowych i promocyjnych,",
+          id: 1,
+        },
+        {
+          listItem:
+            "profesjonalne przygotowanie do druku wszelkich materiałów poligraficznych,",
+          id: 2,
+        },
+        {
+          listItem:
+            "projekt i druk różnego rodzaju materiałówwielkoformatowych: banerów, roll-upów, plakatów",
+          id: 3,
+        },
+        {
+          listItem: "kompleksową obsługę DTP",
+          id: 4,
+        },
+      ],
     },
   ];
 
@@ -179,6 +403,8 @@ export default function Offer() {
         width={filteredData[0].width}
         height={filteredData[0].height}
         alt={filteredData[0].alt}
+        contentParagraph={filteredData[0].contentText}
+        itemsArray={filteredData[0].items}
       ></OfferPageCard>
     </>
   );

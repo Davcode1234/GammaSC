@@ -47,10 +47,10 @@ export const TextWrapper = styled.div`
 `;
 
 export const FirstTextParagraph = styled.p`
-  margin-bottom: 10px;
+  & > div {
+    margin-top: 10px;
+  }
 `;
-
-export const SecondTextParagraph = styled(FirstTextParagraph)``;
 
 export const List = styled.ul``;
 

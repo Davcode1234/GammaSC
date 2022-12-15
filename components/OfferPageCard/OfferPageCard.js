@@ -23,6 +23,8 @@ const OfferPageCard = ({
   alt,
   width,
   height,
+  contentParagraph,
+  itemsArray,
 }) => {
   return (
     <>
@@ -39,29 +41,12 @@ const OfferPageCard = ({
         <TextWrapper>
           <Line></Line>
           <div>
-            <FirstTextParagraph>
-              Zajmujemy się całością prac związanych z wykonaniem materiałów
-              reklamowych, budujących tożsamość firmy. Zaczynając od projektu,
-              poprzez kreację, skład, a kończąc na druku i wysyłce. Od małych
-              produkcji – poprzez usługi nietypowe – do dużych nakładów.
-            </FirstTextParagraph>
-            <SecondTextParagraph>
-              Nasze usługi w dziedzinie kreacji i składu DTP obejmują:
-            </SecondTextParagraph>
+            <FirstTextParagraph>{contentParagraph}</FirstTextParagraph>
             <List>
-              <ListItem>
-                projektowanie spójnych wizerunkowo materiałów reklamowych i
-                promocyjnych,
-              </ListItem>
-              <ListItem>
-                profesjonalne przygotowanie do druku wszelkich materiałów
-                poligraficznych,
-              </ListItem>
-              <ListItem>
-                projekt i druk różnego rodzaju materiałówwielkoformatowych:
-                banerów, roll-upów, plakatów
-              </ListItem>
-              <ListItem>kompleksową obsługę DTP</ListItem>
+              {itemsArray.map((item) => {
+                return <ListItem key={item.id}>{item.listItem}</ListItem>;
+                // console.log(item.listItem);
+              })}
             </List>
           </div>
         </TextWrapper>

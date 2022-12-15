@@ -1,5 +1,4 @@
 import { InfoSmallPar } from "../../styles/pages/Home.styles";
-import { InfoSecHeader } from "../../styles/pages/Home.styles";
 import {
   Header,
   HeaderSection,
