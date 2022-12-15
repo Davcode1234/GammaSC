@@ -4,10 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export const ContentTextWrapper = styled.div`
-  position: absolute;
-  right: 15%;
-  top: 45%;
   max-width: 700px;
+  transform: translate(220px, 50px);
 `;
 
 export const Header = styled(InfoSmallPar)``;
@@ -27,16 +25,20 @@ export const StyledImgBackground = styled.div`
   height: 405px;
   z-index: -1;
   transform: translateY(-30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ContentContainer = styled.div`
   height: 675px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 100px;
 `;
 
 export const StyledCamImg = styled(Image)`
-  transform: translate(85%, -30%);
+  transform: translateY(-30%);
 `;
 
 export const TextWrapper = styled.div`
