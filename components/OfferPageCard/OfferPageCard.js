@@ -36,6 +36,8 @@ const OfferPageCard = ({
       translateY: 0,
 
       transition: {
+        type: "spring",
+        stiffness: 100,
         duration: 0.4,
         delay: 0.5,
       },
