@@ -37,11 +37,13 @@ export const ContentContainer = styled.div`
   gap: 100px;
 `;
 
+export const CamImgWrapper = styled(motion.div)``;
+
 export const StyledCamImg = styled(Image)`
   transform: translateY(-30%);
 `;
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled(motion.div)`
   display: flex;
   max-width: 650px;
   line-height: 140%;

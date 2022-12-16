@@ -45,10 +45,6 @@ export const OfferButton = styled(motion.button)`
   ${({ theme }) => theme.mq.bigDesktop} {
     font-size: 1.4rem;
   }
-
-  /* &:hover {
-    transform: scale(1.05) translateY(60px);
-  } */
 `;
 export const AnimationSlider = styled(motion.div)`
   position: absolute;

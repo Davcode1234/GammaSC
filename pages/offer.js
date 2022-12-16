@@ -22,6 +22,7 @@ export default function Offer() {
   const [contentTag, setContentTag] = useState("kreacja");
   const [slideAnim, setSlideAnim] = useState(false);
   const [exitVar, setExitVar] = useState(false);
+  const [appear, setAppear] = useState(true);
 
   const originVal = exitVar ? "originX: 1" : "originX: 0";
 
@@ -52,10 +53,12 @@ export default function Offer() {
     setTag(btn);
     setExitVar(false);
     setSlideAnim(true);
+    setAppear(false);
     setTimeout(() => {
       setContentTag(btn);
       setExitVar(true);
       setSlideAnim(false);
+      setAppear(true);
     }, 700);
   };
   return (
@@ -112,6 +115,7 @@ export default function Offer() {
         alt={filteredData[0].alt}
         contentParagraph={filteredData[0].contentText}
         itemsArray={filteredData[0].items}
+        test={appear}
       ></OfferPageCard>
     </>
   );
