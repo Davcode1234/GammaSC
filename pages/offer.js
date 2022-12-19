@@ -16,6 +16,7 @@ import {
   OfferButton,
   AnimationSlider,
 } from "../styles/pages/Offer.styles";
+import Head from "next/head";
 
 export default function Offer() {
   const [tag, setTag] = useState("kreacja");
@@ -63,6 +64,13 @@ export default function Offer() {
   };
   return (
     <>
+      <Head>
+        <title>Gamma | Oferta</title>
+        <meta
+          name="keywords"
+          content="Gamma oferta kreacja drukarnia fotografia sesja gadżety szwalnia sublimacja"
+        ></meta>
+      </Head>
       <SubpagesHeader
         headerSmall={offerHeaderData.headerSmall}
         headerBig={offerHeaderData.headerBig}
