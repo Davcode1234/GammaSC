@@ -6,9 +6,9 @@ import {
   AboutParagraph,
   ContentSec,
   Header,
-  HeroImg,
   TeamContainer,
 } from "../styles/pages/About.styles";
+import { AnimatePresence } from "framer-motion";
 
 const ImagesURLS = [
   {
@@ -97,6 +97,22 @@ const ImagesURLS = [
   },
 ];
 
+const cardsVariants = {
+  closed: {
+    transition: {
+      type: "spring",
+      staggerChildren: 0.2,
+      staggerDirection: -1,
+    },
+  },
+  open: {
+    transition: {
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+    },
+  },
+};
+
 export default function About() {
   const aboutData = {
     headerSmall: "o nas",
@@ -128,18 +144,25 @@ export default function About() {
           imperdiet neque egestas faucibus ac. Velit congue donec at euismod
           velit quis ut purus eros.{" "}
         </AboutParagraph>
-        <TeamContainer>
-          {ImagesURLS.map((hero) => {
-            return (
-              <AboutWorkerCard
-                img={hero.img}
-                name={hero.name}
-                position={hero.position}
-                key={hero.id}
-              ></AboutWorkerCard>
-            );
-          })}
-        </TeamContainer>
+        <AnimatePresence>
+          <TeamContainer
+            variants={cardsVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+          >
+            {ImagesURLS.map((hero) => {
+              return (
+                <AboutWorkerCard
+                  img={hero.img}
+                  name={hero.name}
+                  position={hero.position}
+                  key={hero.id}
+                ></AboutWorkerCard>
+              );
+            })}
+          </TeamContainer>
+        </AnimatePresence>
       </ContentSec>
     </>
   );

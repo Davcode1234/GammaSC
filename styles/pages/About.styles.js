@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const ContentSec = styled.section`
   width: 100%;
@@ -24,7 +25,7 @@ export const AboutParagraph = styled.p`
   margin-bottom: 100px;
 `;
 
-export const TeamContainer = styled.div`
+export const TeamContainer = styled(motion.div)`
   /* display: grid;
   grid-template: repeat(4, 1fr) / repeat(4, 1fr);
   grid-gap: 20px;

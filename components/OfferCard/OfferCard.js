@@ -13,7 +13,6 @@ export const cardsContent = [
     text: "Tworzymy niezwykłe kreacje, które zapadają w pamieci",
     img: "/HomePage/cameleons/KameleonObszar-kompozycji-2.png",
     alt: "Gamma cameleon with can of farb",
-
     width: "92",
     height: "162",
   },

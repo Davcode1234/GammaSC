@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Image from "next/legacy/image";
+import { motion } from "framer-motion";
 
-export const CardWrapper = styled.div``;
+export const CardWrapper = styled(motion.div)``;
 
 export const HeroImg = styled(Image)``;
 
