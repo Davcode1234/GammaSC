@@ -111,7 +111,7 @@ export default function Home() {
 
         <InfoTextWrapper>
           <InfoSmallPar>o nas</InfoSmallPar>
-          <InfoSecHeader>
+          <InfoSecHeader whileInView={{ opacity: 1 }}>
             Jesteśmy Agencją Reklamową <span>360°</span>
           </InfoSecHeader>
           <InfoSecContentPar>

@@ -6,7 +6,7 @@ import {
 } from "./AboutWorkerCard.styles";
 import { AnimatePresence } from "framer-motion";
 
-//Animation doesn work - try move animation code to one file
+//Animation doesn work properly - try move animation code to one file
 
 const itemVariants = {
   closed: {

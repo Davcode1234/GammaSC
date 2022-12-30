@@ -8,7 +8,7 @@ export const ContentSec = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 90px 0;
+  padding-top: 90px;
 `;
 export const Header = styled.h2`
   font-size: ${({ theme }) => theme.font.size.headingSmall};
@@ -26,16 +26,38 @@ export const AboutParagraph = styled.p`
 `;
 
 export const TeamContainer = styled(motion.div)`
-  /* display: grid;
-  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
-  grid-gap: 20px;
-  max-width: 60%; */
   display: flex;
   flex-wrap: wrap;
   max-width: 90%;
   max-width: 1500px;
   gap: 50px;
   justify-content: center;
+  margin-bottom: 90px;
 `;
 
 export const HeroImg = styled(Image)``;
+
+export const CompanyImagesSection = styled.section`
+  height: 900px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.color.grey};
+`;
+
+export const CompanySecHeader = styled.h2`
+  font-size: ${({ theme }) => theme.font.size.headingSmall};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
+  color: ${({ theme }) => theme.color.graphite};
+  max-width: 500px;
+  margin: 80px auto;
+  transform: translateX(-50%);
+`;
+
+export const ImagesWrapper = styled(motion.div)`
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  gap: 40px;
+  overflow: hidden;
+`;
+
+export const ImagesSecondWrapper = styled(motion.div)``;

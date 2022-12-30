@@ -4,11 +4,16 @@ import AboutWorkerCard from "../components/AboutWorkerCard/AboutWorkerCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 import {
   AboutParagraph,
+  CompanyImagesSection,
+  CompanySecHeader,
   ContentSec,
   Header,
+  ImagesSecondWrapper,
+  ImagesWrapper,
   TeamContainer,
 } from "../styles/pages/About.styles";
 import { AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const ImagesURLS = [
   {
@@ -97,6 +102,89 @@ const ImagesURLS = [
   },
 ];
 
+// import { motion, useMotionValue, useTransform } from "framer-motion";
+
+// const items = [0, 1, 2,3,4,5];
+// const width = 200;
+// const padding = 10;
+// const size = 150;
+
+// export function Example() {
+//     const scrollX = useMotionValue(0);
+//     const scale = useTransform(scrollX, [0, 100], [0, 1]);
+//     const opacity = useTransform(scrollX, [0, 100], [0, 1]);
+
+//     return (
+//         <>
+//             <motion.div
+//                 style={{
+//                     width: 40,
+//                     height: 40,
+//                     borderRadius: 20,
+//                     backgroundColor: "#fff",
+//                     position: "absolute",
+//                     top: "35%",
+//                     marginTop: 15,
+//                     left: "40%",
+//                     marginLeft: -50,
+//                     scale: scale,
+//                     opacity: opacity
+//                 }}
+//             />
+//             <motion.div
+//                 style={{
+//                     width: 550,
+//                     height: 150,
+//                     borderRadius: 5,
+//                     overflow: "hidden",
+//                     position: "relative",
+//                     transform: "translateZ(0)",
+//                     cursor: "grab"
+//                 }}
+//                 whileTap={{ cursor: "grabbing" }}
+//             >
+//                 <motion.div
+//                     style={{
+//                         height: 150,
+//                         width: getWidth(items),
+//                         x: scrollX
+//                     }}
+//                     drag="x"
+//                     dragConstraints={{
+//                         left: -getWidth(items) + size,
+//                         right: 0
+//                     }}
+//                 >
+//                     {items.map((index) => {
+//                         return (
+//                             <motion.div
+//                                 style={{
+//                                     width: width,
+//                                     height: 150,
+//                                     borderRadius: 5,
+//                                     backgroundColor: "#fff",
+//                                     float:"left",
+//                                     marginRight:
+//                                         index !== items.length - 1 ? 10 : 0
+//                                 }}
+//                                 key={index}
+//                             />
+//                         );
+//                     })}
+
+//                 </motion.div>
+//             </motion.div>
+//         </>
+//     );
+// }
+
+// function getWidth(items) {
+//   const totalWidth = items.length * width;
+//   const totalPadding = (items.length - 1) * padding;
+//   const totalScroll = totalWidth + totalPadding;
+//   return totalScroll;
+// }
+
 const cardsVariants = {
   closed: {
     transition: {
@@ -163,6 +251,47 @@ export default function About() {
             })}
           </TeamContainer>
         </AnimatePresence>
+
+        <CompanyImagesSection>
+          <CompanySecHeader>
+            Lorem ipsum dolor sit amet consectetur.
+          </CompanySecHeader>
+
+          <ImagesWrapper>
+            <ImagesSecondWrapper>
+              <Image
+                src={"/AboutPage/BottomSec/o_nas_1.webp"}
+                alt="grill"
+                width={493}
+                height={464}
+              ></Image>
+              <Image
+                src={"/AboutPage/BottomSec/o_nas_1.webp"}
+                alt="grill"
+                width={493}
+                height={464}
+              ></Image>
+              <Image
+                src={"/AboutPage/BottomSec/o_nas_1.webp"}
+                alt="grill"
+                width={493}
+                height={464}
+              ></Image>
+              <Image
+                src={"/AboutPage/BottomSec/o_nas_1.webp"}
+                alt="grill"
+                width={493}
+                height={464}
+              ></Image>
+              <Image
+                src={"/AboutPage/BottomSec/o_nas_1.webp"}
+                alt="grill"
+                width={493}
+                height={464}
+              ></Image>
+            </ImagesSecondWrapper>
+          </ImagesWrapper>
+        </CompanyImagesSection>
       </ContentSec>
     </>
   );

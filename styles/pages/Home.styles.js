@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 export const WelcomSection = styled.section`
   display: flex;
@@ -93,11 +94,12 @@ export const InfoSmallPar = styled.p`
   margin-bottom: 20px;
 `;
 
-export const InfoSecHeader = styled.h2`
+export const InfoSecHeader = styled(motion.h2)`
   font-size: ${({ theme }) => theme.font.size.heading};
   font-weight: ${({ theme }) => theme.font.weight.thin};
   color: ${({ theme }) => theme.color.white};
   margin-bottom: 4rem;
+
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};
   }
