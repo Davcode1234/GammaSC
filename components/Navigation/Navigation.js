@@ -13,6 +13,7 @@ import {
   StyledLink,
   TestPathSvg,
   TestSvg,
+  Overlay,
 } from "./Navigation.styles";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -105,7 +106,6 @@ const Navigation = () => {
     visible: {
       scaleX: 1,
       originX: 1,
-
       transition: { delay: 0.5, duration: 1 },
     },
     exit: {
@@ -123,7 +123,7 @@ const Navigation = () => {
       transition: {
         duration,
         fill: {
-          delay: duration - 1,
+          delay: duration - 0.5,
           duration,
         },
       },
@@ -168,6 +168,13 @@ const Navigation = () => {
           whileTap={{ scale: 0.8 }}
         ></MenuBtnView>
       </NavigationWrapper>
+      {open && (
+        <Overlay
+          onClick={() => {
+            setOpen(false);
+          }}
+        ></Overlay>
+      )}
 
       <AnimatePresence>
         {open && (

@@ -25,6 +25,13 @@ const MenuBtnRev2 = keyframes`
   }
 `;
 
+export const Overlay = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: transparent;
+`;
+
 export const NavigationWrapper = styled.nav`
   position: fixed;
   display: flex;
@@ -141,6 +148,6 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-export const TestSvg = styled(motion.svg)``;
+// export const TestSvg = styled(motion.svg)``;
 
-export const TestPathSvg = styled(motion.path)``;
+// export const TestPathSvg = styled(motion.path)``;

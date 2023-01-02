@@ -17,6 +17,7 @@ export const ContactInfoSection = styled.section`
   display: flex;
   gap: 30px;
   justify-content: center;
+  flex-wrap: wrap;
   transform: translateY(-12%);
 `;
 

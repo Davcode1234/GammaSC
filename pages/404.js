@@ -10,6 +10,8 @@ const fdPage = () => {
         height={565}
         alt="mariusz"
       ></Image>
+
+      <h1>Radze ci wracać koleżko - ta strona nie istnieje ;)</h1>
     </Custom404Sec>
   );
 };

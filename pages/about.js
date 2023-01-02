@@ -29,10 +29,16 @@ const ImagesURLS = [
     id: 7,
   },
   {
+    img: "/AboutPage/Gamma-ela.png",
+    name: "Elżbieta",
+    position: "Creative director",
+    id: 8,
+  },
+  {
     img: "/AboutPage/Gamma_Aleksander.webp",
     name: "Aleksander",
     position: "Vice",
-    id: 1,
+    id: 14,
   },
   {
     img: "/AboutPage/Gamma_Anna.webp",
@@ -110,12 +116,6 @@ const ImagesURLS = [
     img: "/AboutPage/Gamma-aleksandra.png",
     name: "Aleksandra",
     position: "Sales Specialist",
-    id: 14,
-  },
-  {
-    img: "/AboutPage/Gamma-ela.png",
-    name: "Elżbieta",
-    position: "Creative director",
     id: 14,
   },
 ];
