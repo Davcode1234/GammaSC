@@ -57,7 +57,7 @@ export const ImagesWrapper = styled(motion.div)`
   justify-content: center;
   display: flex;
   gap: 40px;
-  overflow: hidden;
+  overflow-x: hidden;
 `;
 
 export const ImagesSecondWrapper = styled(motion.div)``;

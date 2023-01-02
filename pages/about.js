@@ -14,6 +14,12 @@ import {
 } from "../styles/pages/About.styles";
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+
+const items = [0, 1, 2, 3, 4, 5];
+const width = 500;
+const padding = 10;
+const size = 150;
 
 const ImagesURLS = [
   {
@@ -102,89 +108,6 @@ const ImagesURLS = [
   },
 ];
 
-// import { motion, useMotionValue, useTransform } from "framer-motion";
-
-// const items = [0, 1, 2,3,4,5];
-// const width = 200;
-// const padding = 10;
-// const size = 150;
-
-// export function Example() {
-//     const scrollX = useMotionValue(0);
-//     const scale = useTransform(scrollX, [0, 100], [0, 1]);
-//     const opacity = useTransform(scrollX, [0, 100], [0, 1]);
-
-//     return (
-//         <>
-//             <motion.div
-//                 style={{
-//                     width: 40,
-//                     height: 40,
-//                     borderRadius: 20,
-//                     backgroundColor: "#fff",
-//                     position: "absolute",
-//                     top: "35%",
-//                     marginTop: 15,
-//                     left: "40%",
-//                     marginLeft: -50,
-//                     scale: scale,
-//                     opacity: opacity
-//                 }}
-//             />
-//             <motion.div
-//                 style={{
-//                     width: 550,
-//                     height: 150,
-//                     borderRadius: 5,
-//                     overflow: "hidden",
-//                     position: "relative",
-//                     transform: "translateZ(0)",
-//                     cursor: "grab"
-//                 }}
-//                 whileTap={{ cursor: "grabbing" }}
-//             >
-//                 <motion.div
-//                     style={{
-//                         height: 150,
-//                         width: getWidth(items),
-//                         x: scrollX
-//                     }}
-//                     drag="x"
-//                     dragConstraints={{
-//                         left: -getWidth(items) + size,
-//                         right: 0
-//                     }}
-//                 >
-//                     {items.map((index) => {
-//                         return (
-//                             <motion.div
-//                                 style={{
-//                                     width: width,
-//                                     height: 150,
-//                                     borderRadius: 5,
-//                                     backgroundColor: "#fff",
-//                                     float:"left",
-//                                     marginRight:
-//                                         index !== items.length - 1 ? 10 : 0
-//                                 }}
-//                                 key={index}
-//                             />
-//                         );
-//                     })}
-
-//                 </motion.div>
-//             </motion.div>
-//         </>
-//     );
-// }
-
-// function getWidth(items) {
-//   const totalWidth = items.length * width;
-//   const totalPadding = (items.length - 1) * padding;
-//   const totalScroll = totalWidth + totalPadding;
-//   return totalScroll;
-// }
-
 const cardsVariants = {
   closed: {
     transition: {
@@ -202,7 +125,7 @@ const cardsVariants = {
 };
 
 export default function About() {
-  const aboutData = {
+  const aboutSubHeaderData = {
     headerSmall: "o nas",
     headerBig: (
       <Fragment>
@@ -211,6 +134,12 @@ export default function About() {
     ),
     text: "Lorem ipsum dolor sit amet consectetur. Ipsum arcu congue volutpat risus in congue nunc nunc tortor. At dui sed ultricies adipiscing. Placerat duis egestas diam pellentesque sit cras dolor a.",
   };
+
+  const scrollX = useMotionValue(0);
+  const scale = useTransform(scrollX, [0, 100], [0, 1]);
+  const opacity = useTransform(scrollX, [0, 100], [0, 1]);
+  const boxWidth = true;
+
   return (
     <>
       <Head>
@@ -221,9 +150,9 @@ export default function About() {
         ></meta>
       </Head>
       <SubpagesHeader
-        headerBig={aboutData.headerBig}
-        headerSmall={aboutData.headerSmall}
-        text={aboutData.text}
+        headerBig={aboutSubHeaderData.headerBig}
+        headerSmall={aboutSubHeaderData.headerSmall}
+        text={aboutSubHeaderData.text}
       ></SubpagesHeader>
       <ContentSec>
         <Header>Nasz team</Header>
@@ -257,42 +186,78 @@ export default function About() {
             Lorem ipsum dolor sit amet consectetur.
           </CompanySecHeader>
 
-          <ImagesWrapper>
-            <ImagesSecondWrapper>
-              <Image
-                src={"/AboutPage/BottomSec/o_nas_1.webp"}
-                alt="grill"
-                width={493}
-                height={464}
-              ></Image>
-              <Image
-                src={"/AboutPage/BottomSec/o_nas_1.webp"}
-                alt="grill"
-                width={493}
-                height={464}
-              ></Image>
-              <Image
-                src={"/AboutPage/BottomSec/o_nas_1.webp"}
-                alt="grill"
-                width={493}
-                height={464}
-              ></Image>
-              <Image
-                src={"/AboutPage/BottomSec/o_nas_1.webp"}
-                alt="grill"
-                width={493}
-                height={464}
-              ></Image>
-              <Image
-                src={"/AboutPage/BottomSec/o_nas_1.webp"}
-                alt="grill"
-                width={493}
-                height={464}
-              ></Image>
-            </ImagesSecondWrapper>
-          </ImagesWrapper>
+          <motion.div
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 20,
+              backgroundColor: "#fff",
+              position: "absolute",
+              top: "35%",
+              marginTop: 15,
+              left: "40%",
+              marginLeft: -50,
+              scale: scale,
+              opacity: opacity,
+            }}
+          />
+
+          <motion.div
+            style={{
+              width: "100%",
+              height: 464,
+              borderRadius: 5,
+              overflow: "hidden",
+              position: "relative",
+              transform: "translateZ(0)",
+              cursor: "grab",
+            }}
+            whileTap={{ cursor: "grabbing" }}
+          >
+            <motion.div
+              style={{
+                height: 464,
+                width: getWidth(items, boxWidth),
+                x: scrollX,
+                display: "flex",
+                translateX: "5%",
+              }}
+              drag="x"
+              dragConstraints={{
+                left: -getWidth(items) + size,
+                right: 0,
+              }}
+            >
+              {items.map((index) => {
+                return (
+                  <motion.div
+                    style={{
+                      backgroundImage: "url(/AboutPage/BottomSec/o_nas_1.webp)",
+                      backgroundPosition: "center center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                      width: width,
+                      height: 464,
+                      marginRight: index !== items.length - 1 ? 40 : 0,
+                    }}
+                    key={index}
+                  />
+                );
+              })}
+            </motion.div>
+          </motion.div>
         </CompanyImagesSection>
       </ContentSec>
     </>
   );
+}
+
+function getWidth(items, boxWidth = false) {
+  const totalWidth = (items.length * width) / 2;
+  const totalWidthBox = items.length * width;
+  const totalWidthCalc = boxWidth ? totalWidthBox : totalWidth;
+
+  const totalPadding = (items.length - 1) * padding;
+  const totalScroll = totalWidthCalc + totalPadding;
+  return totalScroll;
 }
