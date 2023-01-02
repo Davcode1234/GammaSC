@@ -6,6 +6,7 @@ import {
   StyledImage,
   StyledIcon,
 } from "./OfferCard.styles";
+import PropTypes from "prop-types";
 
 export const cardsContent = [
   {
@@ -79,3 +80,12 @@ const OfferCard = ({ header, text, img, alt, width, height }) => {
 };
 
 export default OfferCard;
+
+OfferCard.propTypes = {
+  header: PropTypes.string,
+  text: PropTypes.string,
+  img: PropTypes.string,
+  alt: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+};

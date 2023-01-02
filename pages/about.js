@@ -106,6 +106,18 @@ const ImagesURLS = [
     position: "Graphic Designer",
     id: 14,
   },
+  {
+    img: "/AboutPage/Gamma-aleksandra.png",
+    name: "Aleksandra",
+    position: "Sales Specialist",
+    id: 14,
+  },
+  {
+    img: "/AboutPage/Gamma-ela.png",
+    name: "Elżbieta",
+    position: "Creative director",
+    id: 14,
+  },
 ];
 
 const cardsVariants = {
@@ -253,7 +265,7 @@ export default function About() {
 }
 
 function getWidth(items, boxWidth = false) {
-  const totalWidth = (items.length * width) / 2;
+  const totalWidth = (items.length * width) / 1.5;
   const totalWidthBox = items.length * width;
   const totalWidthCalc = boxWidth ? totalWidthBox : totalWidth;
 

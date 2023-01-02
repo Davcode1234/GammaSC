@@ -13,6 +13,7 @@ import {
   CamImgWrapper,
 } from "./OfferPageCard.styles";
 import { AnimatePresence } from "framer-motion";
+import PropTypes from "prop-types";
 
 const OfferPageCard = ({
   backgroundImg,
@@ -106,3 +107,16 @@ const OfferPageCard = ({
 };
 
 export default OfferPageCard;
+
+OfferPageCard.propTypes = {
+  backgroundImg: PropTypes.string,
+  header: PropTypes.string,
+  text: PropTypes.string,
+  camImg: PropTypes.string,
+  alt: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  contentParagraph: PropTypes.string,
+  itemsArray: PropTypes.array,
+  text: PropTypes.bool,
+};

@@ -5,6 +5,7 @@ import {
   PositionParagraph,
 } from "./AboutWorkerCard.styles";
 import { AnimatePresence } from "framer-motion";
+import PropTypes from "prop-types";
 
 //Animation doesn work properly - try move animation code to one file
 
@@ -45,3 +46,9 @@ const AboutWorkerCard = ({ img, name, position }) => {
 };
 
 export default AboutWorkerCard;
+
+AboutWorkerCard.propTypes = {
+  img: PropTypes.string,
+  name: PropTypes.string,
+  position: PropTypes.string,
+};

@@ -3,6 +3,7 @@ import {
   NumParagraph,
   TextParagraph,
 } from "./InfoSecCard.styles";
+import PropTypes from "prop-types";
 
 const InfoSecCard = ({ number, text, addPlus }) => {
   return (
@@ -19,3 +20,9 @@ const InfoSecCard = ({ number, text, addPlus }) => {
 };
 
 export default InfoSecCard;
+
+InfoSecCard.propTypes = {
+  number: PropTypes.number,
+  text: PropTypes.string,
+  addPlus: PropTypes.bool,
+};

@@ -5,6 +5,7 @@ import {
   NavStripe,
   TextParagraph,
 } from "./SubpagesHeader.styles";
+import PropTypes from "prop-types";
 
 const SubpagesHeader = ({ headerSmall, headerBig, text }) => {
   return (
@@ -22,3 +23,9 @@ const SubpagesHeader = ({ headerSmall, headerBig, text }) => {
 };
 
 export default SubpagesHeader;
+
+SubpagesHeader.propTypes = {
+  headerSmall: PropTypes.string,
+  headerBig: PropTypes.string,
+  text: PropTypes.string,
+};

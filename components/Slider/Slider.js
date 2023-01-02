@@ -1,5 +1,6 @@
 import { OuterContainer, SliderContainer, ImgWrapper } from "./Slider.styles";
 import Image from "next/legacy/image";
+import PropTypes from "prop-types";
 
 export const topImages = [
   {
@@ -144,3 +145,8 @@ const Slider = ({ position, imgArr }) => {
 };
 
 export default Slider;
+
+Slider.propTypes = {
+  position: PropTypes.string,
+  imgArr: PropTypes.array,
+};
