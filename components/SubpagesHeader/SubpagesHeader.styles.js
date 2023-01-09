@@ -11,7 +11,7 @@ export const HeaderSection = styled.section`
     transform: translateX(-25%);
   }
 
-  ${({ theme }) => theme.mq.forSubpages} {
+  ${({ theme }) => theme.mq.smallerDesktop} {
     & > div {
       transform: translateX(0);
     }

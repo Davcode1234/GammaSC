@@ -42,6 +42,9 @@ export const NavigationWrapper = styled.nav`
   height: 75px;
   z-index: 100;
   /* background-color: ${({ theme }) => theme.color.white}; */
+  ${({ theme }) => theme.mq.smallerPhone} {
+    padding: 0 30px;
+  }
 `;
 
 export const MenuBtn = styled.button`

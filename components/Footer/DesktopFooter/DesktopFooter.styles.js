@@ -9,6 +9,9 @@ export const FooterWrapper = styled.footer`
   height: 390px;
   background-color: ${({ theme }) => theme.color.graphite};
   padding: 90px 50px 0 50px;
+  ${({ theme }) => theme.mq.smallerDesktop} {
+    gap: 80px;
+  }
 `;
 
 export const FooterHeader = styled.h4`
