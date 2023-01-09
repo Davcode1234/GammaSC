@@ -13,12 +13,13 @@ export const ContactHeader = styled.section`
 `;
 
 export const ContactInfoSection = styled.section`
-  height: 600px;
+  min-height: 600px;
   display: flex;
   gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
   transform: translateY(-12%);
+  /* gap: 200px; */
 `;
 
 export const ContactTextPar = styled.p`
@@ -37,6 +38,10 @@ export const MapHeader = styled.h2`
 
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.font.size.headingMobileDP};
   }
 `;
 

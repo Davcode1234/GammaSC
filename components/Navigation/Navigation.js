@@ -191,16 +191,6 @@ const Navigation = () => {
               animate="visible"
               exit="exit"
             >
-              {/* <Image
-                src={"/HomePage/Gletter.svg"}
-                width={66}
-                height={42}
-                alt={"Gletter"}
-              /> */}
-
-              {/* <TestSvg>
-                 <TestPathSvg></TestPathSvg>
-                </TestSvg> */}
               <motion.svg
                 style={{ width: "62", height: "42" }}
                 viewBox="0 0 66 42"

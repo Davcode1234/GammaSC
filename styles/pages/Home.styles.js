@@ -92,6 +92,10 @@ export const InfoSmallPar = styled.p`
   color: ${({ theme }) => theme.color.gammaOrange};
   text-transform: uppercase;
   margin-bottom: 20px;
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+  }
 `;
 
 export const InfoSecHeader = styled(motion.h2)`

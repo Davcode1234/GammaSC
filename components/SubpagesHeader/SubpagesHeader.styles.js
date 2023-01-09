@@ -10,6 +10,16 @@ export const HeaderSection = styled.section`
   & > div {
     transform: translateX(-25%);
   }
+
+  ${({ theme }) => theme.mq.forSubpages} {
+    & > div {
+      transform: translateX(0);
+    }
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    padding: 0 30px;
+  }
 `;
 
 export const Header = styled.h2`
@@ -18,9 +28,11 @@ export const Header = styled.h2`
   font-weight: ${({ theme }) => theme.font.weight.thin};
   color: ${({ theme }) => theme.color.white};
   margin-bottom: 4rem;
-
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};
+  }
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.font.size.headingMobileDP};
   }
 `;
 
@@ -29,6 +41,9 @@ export const TextParagraph = styled.p`
   color: ${({ theme }) => theme.color.white};
   max-width: 750px;
   line-height: 140%;
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+  }
 `;
 
 export const NavStripe = styled.div`
