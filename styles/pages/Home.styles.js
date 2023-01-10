@@ -5,11 +5,12 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
 export const WelcomSection = styled.section`
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 175px;
+  padding-bottom: 175px;
 `;
 
 export const DescriptionParagraph = styled.p`
@@ -23,7 +24,7 @@ export const DescriptionParagraph = styled.p`
 export const CtaBtn = styled.button`
   font-size: ${({ theme }) => theme.font.size.button};
   font-weight: ${({ theme }) => theme.font.weight.bold};
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat, sans-serif;
   width: ${({ isBig }) => (isBig ? "285px" : "240px")};
   height: 55px;
   border-radius: 5px;
@@ -32,7 +33,6 @@ export const CtaBtn = styled.button`
   background-color: #f68c1e;
   color: #fff;
   letter-spacing: 0.5px;
-
   transition: all 0.5s ease;
 
   &:hover {
@@ -103,6 +103,7 @@ export const InfoSecHeader = styled(motion.h2)`
   font-weight: ${({ theme }) => theme.font.weight.thin};
   color: ${({ theme }) => theme.color.white};
   margin-bottom: 4rem;
+  opacity: 0;
 
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};

@@ -1,3 +1,17 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-useless-escape": "off",
+    "import/no-unresolved": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": "off",
+    "react/button-has-type": "off",
+    "react/self-closing-comp": "off",
+    "react/prop-types": "warn",
+    "react/destructuring-assignment": "warn",
+    "no-debugger": "off",
+    "jsx-a11y/label-has-associated-control": "warn",
+    "react/require-default-props": "off",
+    "react-hooks/exhaustive-deps": "off"
+  }
 }

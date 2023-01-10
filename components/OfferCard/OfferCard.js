@@ -86,6 +86,6 @@ OfferCard.propTypes = {
   text: PropTypes.string,
   img: PropTypes.string,
   alt: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
+  width: PropTypes.string,
+  height: PropTypes.string,
 };

@@ -35,28 +35,28 @@ import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
 
 const infoSecCardData = [
   {
-    number: 18,
     text: "lat doświadczenia",
     withPlus: true,
     id: 1,
+    intervalTime: 900,
   },
   {
-    number: 36,
     text: "tysięcy ukończonych projektów",
     withPlus: true,
     id: 2,
+    intervalTime: 1800,
   },
   {
-    number: 29,
     text: "tysięcy wypitych filiżanek kawy",
     withPlus: true,
     id: 3,
+    intervalTime: 1450,
   },
   {
-    number: 50,
     text: "stałych klientów",
     withPlus: false,
     id: 4,
+    intervalTime: 2500,
   },
 ];
 
@@ -76,7 +76,7 @@ export default function Home() {
           src="/HomePage/Grouped.png"
           width={851}
           height={597}
-          alt="Cameleon"
+          alt="gamma Cameleon with bulb above his hand"
         />
         <DescriptionParagraph>
           Projektujemy, filmujemy, fotografujemy, drukujemy, tworzymy koncepcje
@@ -100,10 +100,10 @@ export default function Home() {
           {infoSecCardData.map((card) => {
             return (
               <InfoSecCard
-                number={card.number}
                 text={card.text}
                 addPlus={card.withPlus}
                 key={card.id}
+                stopInterval={card.intervalTime}
               ></InfoSecCard>
             );
           })}
@@ -183,7 +183,7 @@ export default function Home() {
 
       <ContactUsSection>
         <div>
-          <InfoSecHeader>
+          <InfoSecHeader whileInView={{ opacity: 1 }}>
             Usiądź wygodnie,
             <br /> a my się wszystkim zajmiemy.
           </InfoSecHeader>

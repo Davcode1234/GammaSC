@@ -42,7 +42,7 @@ export const OfferButton = styled(motion.button)`
           animation: ${unClicked} 0.3s ease forwards;
         `;
   }}
-  ${({ theme }) => theme.mq.bigDesktop} {
+  ${({ theme }) => theme.mq.tablet} {
     font-size: 1.4rem;
   }
 `;
