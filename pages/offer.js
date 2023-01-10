@@ -33,7 +33,6 @@ export default function Offer() {
       originX: 0,
     },
     visible: {
-      type: "spring",
       scaleX: 1,
       originX: { originVal },
       transition: {
@@ -41,8 +40,8 @@ export default function Offer() {
       },
     },
     exit: {
-      type: "spring",
       scaleX: 0,
+
       transition: { duration: 0.5 },
       originX: 1,
     },
@@ -123,7 +122,7 @@ export default function Offer() {
         alt={filteredData[0].alt}
         contentParagraph={filteredData[0].contentText}
         itemsArray={filteredData[0].items}
-        test={appear}
+        appear={appear}
       ></OfferPageCard>
     </>
   );

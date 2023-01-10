@@ -59,9 +59,9 @@ export const cardsContent = [
   },
 ];
 
-const OfferCard = ({ header, text, img, alt, width, height }) => {
+const OfferCard = ({ header, text, img, alt, width, height, innerRef }) => {
   return (
-    <CardWrapper>
+    <CardWrapper ref={innerRef}>
       <CardHeader>{header}</CardHeader>
       <CardBtn>
         Dowiedz się więcej
@@ -88,4 +88,5 @@ OfferCard.propTypes = {
   alt: PropTypes.string,
   width: PropTypes.string,
   height: PropTypes.string,
+  innerRef: PropTypes.func,
 };

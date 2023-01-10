@@ -32,6 +32,7 @@ import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 import Slider from "../components/Slider/Slider";
 import { topImages, bottomImages } from "../components/Slider/Slider";
 import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
+import { useInView } from "react-intersection-observer";
 
 const infoSecCardData = [
   {
@@ -60,7 +61,37 @@ const infoSecCardData = [
   },
 ];
 
+const textAppearOptions = {
+  hidden: {
+    opacity: 0,
+    translateY: 200,
+  },
+  visible: {
+    opacity: 1,
+    translateY: 0,
+
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      duration: 0.4,
+      delay: 0.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+    translateY: 200,
+
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      duration: 0.4,
+    },
+  },
+};
+
 export default function Home() {
+  const [ref, inView] = useInView();
+
   return (
     <>
       <Head>
@@ -77,13 +108,20 @@ export default function Home() {
           width={851}
           height={597}
           alt="gamma Cameleon with bulb above his hand"
+          priority
         />
         <DescriptionParagraph>
           Projektujemy, filmujemy, fotografujemy, drukujemy, tworzymy koncepcje
           promocyjne, a nawet produkujemy profesjonalną odzież sportową.
         </DescriptionParagraph>
         <BtnWrapper>
-          <CtaBtn isBig>Zobacz nasze realizacje</CtaBtn>
+          <CtaBtn
+            isbig="true"
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            Zobacz nasze realizacje
+          </CtaBtn>
           <StyledLink href="/contact">
             Skontaktuj się z nami{" "}
             <StyledIcon
@@ -110,16 +148,43 @@ export default function Home() {
         </CardsWrapper>
 
         <InfoTextWrapper>
-          <InfoSmallPar>o nas</InfoSmallPar>
-          <InfoSecHeader whileInView={{ opacity: 1 }}>
+          <InfoSmallPar
+            variants={textAppearOptions}
+            initial="hidden"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: true }}
+          >
+            o nas
+          </InfoSmallPar>
+          <InfoSecHeader
+            variants={textAppearOptions}
+            initial="hidden"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: true }}
+          >
             Jesteśmy Agencją Reklamową <span>360°</span>
           </InfoSecHeader>
-          <InfoSecContentPar>
+          <InfoSecContentPar
+            variants={textAppearOptions}
+            initial="hidden"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: true }}
+          >
             Działamy na rynku od 2004 r. Od początku dążyliśmy do stworzenia
             firmy reklamowej oferującej swoim Klientom kompleksową obsługę w
             zakresie reklamy, druku oraz rozwiązań internetowych.
           </InfoSecContentPar>
-          <CtaBtn isBig>Dowiedz się więcej</CtaBtn>
+          <CtaBtn
+            isbig="true"
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1.4 }}
+            viewport={{ once: true }}
+          >
+            Dowiedz się więcej
+          </CtaBtn>
         </InfoTextWrapper>
       </InfoSec>
 
@@ -145,6 +210,7 @@ export default function Home() {
           {cardsContent.map((card) => {
             return (
               <OfferCard
+                innerRef={ref}
                 header={card.header}
                 text={card.text}
                 img={card.img}
@@ -187,12 +253,19 @@ export default function Home() {
             Usiądź wygodnie,
             <br /> a my się wszystkim zajmiemy.
           </InfoSecHeader>
-          <CtaBtn isBig>Skontaktuj się z nami</CtaBtn>
+          <CtaBtn
+            isbig="true"
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            Skontaktuj się z nami
+          </CtaBtn>
         </div>
         <StyledFooterImage
           src={"/HomePage/kamcio_stopka1.svg"}
           width={443}
           height={391}
+          alt={"cameleon chilling with a drink"}
         ></StyledFooterImage>
       </ContactUsSection>
     </>

@@ -31,19 +31,23 @@ const InfoSecCard = ({ text, addPlus, stopInterval }) => {
           increaseNumbers();
           test();
         }
-      }, 200);
+      }, 50);
     }
   }, [inView]);
 
   return (
-    <InfoSecCardWrapper ref={ref}>
+    <InfoSecCardWrapper ref={ref} playState={inView}>
       {addPlus ? (
         <NumParagraph>+{numberAnim}</NumParagraph>
       ) : (
         <NumParagraph>{numberAnim}</NumParagraph>
       )}
 
-      <TextParagraph whileInView={{ opacity: 1 }} transition={{ delay: 1 }}>
+      <TextParagraph
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        viewport={{ once: true }}
+      >
         {text}
       </TextParagraph>
     </InfoSecCardWrapper>

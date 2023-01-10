@@ -39,6 +39,12 @@ export const InfoSecCardWrapper = styled.div`
   /* border-radius: 5px; */
   padding-top: 16px;
 
+  &::after,
+  &::before {
+    animation-play-state: ${({ playState }) =>
+      playState ? "running !important" : "paused !important"};
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -50,7 +56,6 @@ export const InfoSecCardWrapper = styled.div`
     clip-path: polygon(1% 100%, 1% 100%, 1% 100%, 0 100%, 0 100%, 1% 100%);
     animation: ${showFromLeftCorner} 2s 1s ease forwards;
   }
-
   &::before {
     content: "";
     position: absolute;

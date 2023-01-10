@@ -25,7 +25,7 @@ const OfferPageCard = ({
   height,
   contentParagraph,
   itemsArray,
-  test,
+  appear,
 }) => {
   const textAppearOptions = {
     hidden: {
@@ -44,12 +44,12 @@ const OfferPageCard = ({
       },
     },
     exit: {
-      type: "spring",
-      stiffness: 100,
       opacity: 0,
       translateY: 200,
 
       transition: {
+        type: "spring",
+        stiffness: 100,
         duration: 0.4,
       },
     },
@@ -66,7 +66,7 @@ const OfferPageCard = ({
       </StyledImgBackground>
       <ContentContainer>
         <AnimatePresence>
-          {test && (
+          {appear && (
             <>
               <CamImgWrapper
                 variants={textAppearOptions}
@@ -119,4 +119,5 @@ OfferPageCard.propTypes = {
   contentParagraph: PropTypes.string,
   itemsArray: PropTypes.array,
   text: PropTypes.bool,
+  appear: PropTypes.bool,
 };

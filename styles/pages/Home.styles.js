@@ -21,11 +21,11 @@ export const DescriptionParagraph = styled.p`
   color: ${({ theme }) => theme.color.graphite};
 `;
 
-export const CtaBtn = styled.button`
+export const CtaBtn = styled(motion.button)`
   font-size: ${({ theme }) => theme.font.size.button};
   font-weight: ${({ theme }) => theme.font.weight.bold};
-  font-family: Montserrat, sans-serif;
-  width: ${({ isBig }) => (isBig ? "285px" : "240px")};
+  font-family: "Montserrat", sans-serif;
+  width: ${({ isbig }) => (isbig ? "285px" : "240px")};
   height: 55px;
   border-radius: 5px;
   cursor: pointer;
@@ -34,6 +34,7 @@ export const CtaBtn = styled.button`
   color: #fff;
   letter-spacing: 0.5px;
   transition: all 0.5s ease;
+  opacity: 0;
 
   &:hover {
     background-color: #fff;
@@ -86,7 +87,7 @@ export const InfoTextWrapper = styled.div`
   transform: translateX(-5rem);
 `;
 
-export const InfoSmallPar = styled.p`
+export const InfoSmallPar = styled(motion.p)`
   font-size: ${({ theme }) => theme.font.size.paragraphSmall};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.gammaOrange};
@@ -110,12 +111,13 @@ export const InfoSecHeader = styled(motion.h2)`
   }
 `;
 
-export const InfoSecContentPar = styled.p`
+export const InfoSecContentPar = styled(motion.p)`
   font-size: ${({ theme }) => theme.font.size.paragraph};
   color: ${({ theme }) => theme.color.white};
   max-width: 660px;
   line-height: 140%;
   margin-bottom: 4rem;
+  opacity: 0;
 `;
 
 // Partners sec

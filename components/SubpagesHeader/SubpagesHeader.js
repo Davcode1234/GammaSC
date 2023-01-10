@@ -26,6 +26,6 @@ export default SubpagesHeader;
 
 SubpagesHeader.propTypes = {
   headerSmall: PropTypes.string,
-  headerBig: PropTypes.string,
+  headerBig: PropTypes.node,
   text: PropTypes.string,
 };
