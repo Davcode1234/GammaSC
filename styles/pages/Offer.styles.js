@@ -33,8 +33,8 @@ export const OfferButton = styled(motion.button)`
   text-transform: uppercase;
   transition: scale 0.3s ease;
 
-  ${({ isClicked }) => {
-    return isClicked
+  ${({ isclicked }) => {
+    return isclicked
       ? css`
           animation: ${clicked} 0.3s ease forwards;
         `

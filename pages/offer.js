@@ -91,7 +91,7 @@ export default function Offer() {
             return tag === btn.buttonName ? (
               <OfferButton
                 key={btn.id}
-                isClicked={true}
+                isclicked="true"
                 onClick={() => handleButtonClick(`${btn.buttonName}`)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -102,7 +102,6 @@ export default function Offer() {
               <OfferButton
                 key={btn.id}
                 onClick={() => handleButtonClick(`${btn.buttonName}`)}
-                isClicked={false}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

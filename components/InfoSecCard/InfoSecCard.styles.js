@@ -26,18 +26,33 @@ const showFromRightCorner = keyframes`
   }
 `;
 
-export const InfoSecCardWrapper = styled.div`
+// const roundCorners = keyframes`
+// from {
+//   border-radius: 0;
+// }
+// to {
+//   border-radius: 7px;
+// }
+// `;
+
+export const SecInfoSecCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   position: relative;
   align-items: center;
   width: 230px;
   height: 165px;
   background-color: transparent;
-  /* border: 2px solid orange; */
-  /* border-radius: 5px; */
+  border: 2px solid #f68c1e;
+  border-radius: 0px;
   padding-top: 16px;
+  /* transition: all 0.2s ease; */
+  /* animation: ${roundCorners} 0.5s ease forwards; */
+`;
+
+export const FirstInfoSecCardWrapper = styled(SecInfoSecCardWrapper)`
+  border: none;
+  border-radius: none;
 
   &::after,
   &::before {
@@ -59,8 +74,8 @@ export const InfoSecCardWrapper = styled.div`
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: right;
+    bottom: 0;
+    right: 0;
     background-color: ${({ theme }) => theme.color.gammaOrange};
     width: 100%;
     height: 100%;

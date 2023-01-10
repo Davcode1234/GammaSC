@@ -116,8 +116,7 @@ OfferPageCard.propTypes = {
   alt: PropTypes.string,
   width: PropTypes.number,
   height: PropTypes.number,
-  contentParagraph: PropTypes.string,
+  contentParagraph: PropTypes.object,
   itemsArray: PropTypes.array,
-  text: PropTypes.bool,
   appear: PropTypes.bool,
 };

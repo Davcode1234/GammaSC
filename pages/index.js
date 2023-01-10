@@ -27,12 +27,15 @@ import {
   ContactUsSection,
   StyledIcon,
   StyledFooterImage,
+  StyledBtnText,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 import Slider from "../components/Slider/Slider";
 import { topImages, bottomImages } from "../components/Slider/Slider";
 import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const infoSecCardData = [
   {
@@ -74,23 +77,38 @@ const textAppearOptions = {
       type: "spring",
       stiffness: 100,
       duration: 0.4,
-      delay: 0.5,
+      delay: 0.2,
     },
   },
-  exit: {
+};
+
+const btnOptions = {
+  hidden: {
     opacity: 0,
-    translateY: 200,
+    translateX: -200,
+  },
+  visible: {
+    opacity: 1,
+    translateX: 0,
 
     transition: {
       type: "spring",
       stiffness: 100,
-      duration: 0.4,
+      duration: 1,
+      delay: 1.7,
     },
   },
 };
 
 export default function Home() {
   const [ref, inView] = useInView();
+  const [animated, setAnimated] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setAnimated(true);
+    }
+  }, [inView]);
 
   return (
     <>
@@ -119,11 +137,15 @@ export default function Home() {
             isbig="true"
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
+            whileHover={{
+              backgroundColor: "rgb(246, 140, 30, .0)",
+              color: "#f68c1e",
+            }}
           >
             Zobacz nasze realizacje
           </CtaBtn>
           <StyledLink href="/contact">
-            Skontaktuj się z nami{" "}
+            Skontaktuj się z nami
             <StyledIcon
               icon="material-symbols:arrow-back"
               width="24"
@@ -152,7 +174,6 @@ export default function Home() {
             variants={textAppearOptions}
             initial="hidden"
             whileInView="visible"
-            exit="exit"
             viewport={{ once: true }}
           >
             o nas
@@ -161,7 +182,6 @@ export default function Home() {
             variants={textAppearOptions}
             initial="hidden"
             whileInView="visible"
-            exit="exit"
             viewport={{ once: true }}
           >
             Jesteśmy Agencją Reklamową <span>360°</span>
@@ -170,21 +190,27 @@ export default function Home() {
             variants={textAppearOptions}
             initial="hidden"
             whileInView="visible"
-            exit="exit"
             viewport={{ once: true }}
           >
             Działamy na rynku od 2004 r. Od początku dążyliśmy do stworzenia
             firmy reklamowej oferującej swoim Klientom kompleksową obsługę w
             zakresie reklamy, druku oraz rozwiązań internetowych.
           </InfoSecContentPar>
-          <CtaBtn
-            isbig="true"
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 1.4 }}
-            viewport={{ once: true }}
-          >
-            Dowiedz się więcej
-          </CtaBtn>
+          <Link href="/about">
+            <CtaBtn
+              isbig="true"
+              variants={btnOptions}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              whileHover={{
+                backgroundColor: "rgb(246, 140, 30, .0)",
+                color: "#f68c1e",
+              }}
+            >
+              Dowiedz się więcej
+            </CtaBtn>
+          </Link>
         </InfoTextWrapper>
       </InfoSec>
 
@@ -210,6 +236,8 @@ export default function Home() {
           {cardsContent.map((card) => {
             return (
               <OfferCard
+                start={animated}
+                delay={card.delay}
                 innerRef={ref}
                 header={card.header}
                 text={card.text}
@@ -257,6 +285,10 @@ export default function Home() {
             isbig="true"
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
+            whileHover={{
+              backgroundColor: "rgb(246, 140, 30, .0)",
+              color: "#f68c1e",
+            }}
           >
             Skontaktuj się z nami
           </CtaBtn>

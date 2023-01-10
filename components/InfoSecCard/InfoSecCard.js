@@ -1,7 +1,8 @@
 import {
-  InfoSecCardWrapper,
+  FirstInfoSecCardWrapper,
   NumParagraph,
   TextParagraph,
+  SecInfoSecCardWrapper,
 } from "./InfoSecCard.styles";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
@@ -10,13 +11,20 @@ import { useInView } from "react-intersection-observer";
 const InfoSecCard = ({ text, addPlus, stopInterval }) => {
   const [numberAnim, setNumberAnim] = useState(0);
   const [ref, inView] = useInView();
+  // const [border, setBorder] = useState(false);
   let intervalID;
 
-  const test = () => {
+  const stopCounter = () => {
     setTimeout(() => {
       clearInterval(intervalID);
     }, stopInterval);
   };
+
+  // const swapBorders = () => {
+  //   setTimeout(() => {
+  //     setBorder(true);
+  //   }, 3300);
+  // };
 
   const increaseNumbers = () => {
     intervalID = setInterval(() => {
@@ -29,14 +37,19 @@ const InfoSecCard = ({ text, addPlus, stopInterval }) => {
       setTimeout(() => {
         if (numberAnim === 0) {
           increaseNumbers();
-          test();
+          stopCounter();
+          // swapBorders();
         }
       }, 50);
     }
   }, [inView]);
 
+  // const ViewComponent = border
+  //   ? SecInfoSecCardWrapper
+  //   : FirstInfoSecCardWrapper;
+
   return (
-    <InfoSecCardWrapper ref={ref} playState={inView}>
+    <FirstInfoSecCardWrapper ref={ref} playState={inView}>
       {addPlus ? (
         <NumParagraph>+{numberAnim}</NumParagraph>
       ) : (
@@ -50,7 +63,7 @@ const InfoSecCard = ({ text, addPlus, stopInterval }) => {
       >
         {text}
       </TextParagraph>
-    </InfoSecCardWrapper>
+    </FirstInfoSecCardWrapper>
   );
 };
 

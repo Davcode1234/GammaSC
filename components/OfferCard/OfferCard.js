@@ -7,6 +7,7 @@ import {
   StyledIcon,
 } from "./OfferCard.styles";
 import PropTypes from "prop-types";
+import { delay } from "framer-motion";
 
 export const cardsContent = [
   {
@@ -16,6 +17,7 @@ export const cardsContent = [
     alt: "Gamma cameleon with can of farb",
     width: "92",
     height: "162",
+    delay: `${0.1}s`,
   },
   {
     header: "Drukarnia",
@@ -24,6 +26,7 @@ export const cardsContent = [
     alt: "Gamma cameleon in carpet",
     width: "119",
     height: "162",
+    delay: ` ${0.2}s`,
   },
   {
     header: "Fotografia",
@@ -32,6 +35,7 @@ export const cardsContent = [
     alt: "Gamma cameleon standing on his head taking photos",
     width: "156",
     height: "162",
+    delay: ` ${0.3}s`,
   },
   {
     header: "Sublimacja",
@@ -40,6 +44,7 @@ export const cardsContent = [
     alt: "Gamma cameleon in Gamma t-shirt with glasses on",
     width: "148",
     height: "162",
+    delay: ` ${0.4}s`,
   },
   {
     header: "Gadżety",
@@ -48,6 +53,7 @@ export const cardsContent = [
     alt: "Gamma cameleon showing his gadgets under coat",
     width: "134",
     height: "162",
+    delay: ` ${0.5}s`,
   },
   {
     header: "Szwalnia",
@@ -56,12 +62,23 @@ export const cardsContent = [
     alt: "Gamma cameleon with a needle looking for something",
     width: "163",
     height: "162",
+    delay: ` ${0.6}s`,
   },
 ];
 
-const OfferCard = ({ header, text, img, alt, width, height, innerRef }) => {
+const OfferCard = ({
+  header,
+  text,
+  img,
+  alt,
+  width,
+  height,
+  innerRef,
+  start,
+  delay,
+}) => {
   return (
-    <CardWrapper ref={innerRef}>
+    <CardWrapper ref={innerRef} start={start} delay={delay}>
       <CardHeader>{header}</CardHeader>
       <CardBtn>
         Dowiedz się więcej
@@ -89,4 +106,6 @@ OfferCard.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   innerRef: PropTypes.func,
+  start: PropTypes.bool,
+  delay: PropTypes.string,
 };

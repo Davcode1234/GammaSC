@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 
@@ -71,7 +71,16 @@ export const CardWrapper = styled.div`
   max-height: 200px;
   margin-bottom: 35px;
   border-radius: 5px;
-  animation: ${revealCard} 5s 0.5s ease forwards;
+  transform: scale(0);
+  opacity: 0;
+
+  ${({ start, delay }) => {
+    if (start) {
+      return css`
+        animation: ${revealCard} 0.5s ${delay} ease forwards;
+      `;
+    }
+  }}
 
   &:hover {
     ${CardBtn} {

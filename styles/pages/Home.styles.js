@@ -23,23 +23,24 @@ export const DescriptionParagraph = styled.p`
 
 export const CtaBtn = styled(motion.button)`
   font-size: ${({ theme }) => theme.font.size.button};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
-  font-family: "Montserrat", sans-serif;
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
+  letter-spacing: 0.5px;
   width: ${({ isbig }) => (isbig ? "285px" : "240px")};
   height: 55px;
   border-radius: 5px;
+
+  color: #fff;
   cursor: pointer;
   border: 1px solid #f68c1e;
   background-color: #f68c1e;
-  color: #fff;
-  letter-spacing: 0.5px;
-  transition: all 0.5s ease;
+
+  /* transition: all 0.5s ease; */
   opacity: 0;
 
-  &:hover {
+  /* &:hover {
     background-color: #fff;
     color: #f68c1e;
-  }
+  } */
 `;
 
 export const BtnWrapper = styled.div`
@@ -62,6 +63,13 @@ export const StyledIcon = styled(Icon)`
   position: absolute;
   top: -10%;
   right: -18%;
+`;
+
+export const StyledBtnText = styled.p`
+  font-size: ${({ theme }) => theme.font.size.button};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
+  color: #fff;
+  letter-spacing: 0.5px;
 `;
 
 // Second sec
