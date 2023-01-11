@@ -17,8 +17,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <Head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="icon" type="image/png" href="/favicon30.png" />
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>

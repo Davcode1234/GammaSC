@@ -23,7 +23,7 @@ const AssistantLoadAnim = {
     transition: {
       type: "spring",
       stiffness: 100,
-      duration: 0.8,
+      duration: 1,
       delay: 0.4,
     },
   },

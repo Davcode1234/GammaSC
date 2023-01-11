@@ -6,6 +6,8 @@ import {
 } from "./AboutWorkerCard.styles";
 import { AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
+// import useWindowSize from "../../hooks/useWindowSize";
+import { useState, useEffect } from "react";
 
 //Animation doesn work properly - try move animation code to one file
 
@@ -23,6 +25,27 @@ const itemVariants = {
 };
 
 const AboutWorkerCard = ({ img, name, position }) => {
+  const [imgSize, setImgSize] = useState({
+    width: 280,
+    height: 300,
+  });
+
+  // const isMobile = useWindowSize(750);
+
+  // useEffect(() => {
+  //   if (isMobile) {
+  //     setImgSize({
+  //       width: 230,
+  //       height: 246.42,
+  //     });
+  //   } else if (!isMobile) {
+  //     setImgSize({
+  //       width: 280,
+  //       height: 300,
+  //     });
+  //   }
+  // }, [isMobile]);
+
   return (
     <AnimatePresence>
       <CardWrapper
@@ -33,8 +56,8 @@ const AboutWorkerCard = ({ img, name, position }) => {
       >
         <HeroImg
           src={img}
-          width={280}
-          height={300}
+          width={imgSize.width}
+          height={imgSize.height}
           alt={"hero img"}
           priority
         ></HeroImg>

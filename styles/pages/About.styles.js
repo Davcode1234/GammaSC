@@ -15,6 +15,10 @@ export const Header = styled.h2`
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.gammaOrange};
   margin-bottom: 15px;
+
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.font.size.headingMobileAC};
+  }
 `;
 
 export const AboutParagraph = styled.p`
@@ -23,6 +27,12 @@ export const AboutParagraph = styled.p`
   text-align: center;
   max-width: 660px;
   margin-bottom: 100px;
+
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+    max-width: 350px;
+    margin: 0 10px 50px 10px;
+  }
 `;
 
 export const TeamContainer = styled(motion.div)`
