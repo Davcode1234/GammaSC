@@ -5,8 +5,15 @@ import { ThemeProvider } from "styled-components";
 import "../styles/normalize.css";
 import PropTypes from "prop-types";
 import Head from "next/head";
+import { AnimatePresence, motion } from "framer-motion";
 
-function MyApp({ Component, pageProps }) {
+const pageTransition = {
+  hidden: { opacity: 0, x: -200, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: 0, y: -100 },
+};
+
+function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <Head>
@@ -16,7 +23,22 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Layout>
-          <Component {...pageProps} />
+          <AnimatePresence
+            exitBeforeEnter
+            initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
+          >
+            <motion.main
+              variants={pageTransition}
+              initial="hidden"
+              animate="enter"
+              exit="exit"
+              transition={{ type: "linear" }}
+              key={router.route}
+            >
+              <Component {...pageProps} />
+            </motion.main>
+          </AnimatePresence>
         </Layout>
       </ThemeProvider>
     </>
@@ -26,6 +48,7 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 
 MyApp.propTypes = {
-  Component: PropTypes.any,
+  Component: PropTypes.func,
   pageProps: PropTypes.object,
+  router: PropTypes.object,
 };

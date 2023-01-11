@@ -1,13 +1,14 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const ContactCardWrapper = styled.div`
+export const ContactCardWrapper = styled(motion.div)`
   /* height: 400px; */
   display: flex;
   align-items: center;
   transform: translateY(-15%);
 
   ${({ theme }) => theme.mq.tablet} {
-    transform: translateY(0);
+    transform: translateY(0) !important;
   }
 
   ${({ theme }) => theme.mq.phone} {

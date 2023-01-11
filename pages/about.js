@@ -156,6 +156,7 @@ export default function About() {
     <>
       <Head>
         <title>Gamma | O nas</title>
+
         <meta
           name="keywords"
           content="Gamma Gafik designer web developer specjalista sprzedaż team o nas doświadczenie"

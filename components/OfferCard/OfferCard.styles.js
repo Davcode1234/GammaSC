@@ -74,10 +74,10 @@ export const CardWrapper = styled.div`
   transform: scale(0);
   opacity: 0;
 
-  ${({ start, delay }) => {
-    if (start) {
+  ${({ $start, $delay }) => {
+    if ($start) {
       return css`
-        animation: ${revealCard} 0.5s ${delay} ease forwards;
+        animation: ${revealCard} 0.5s ${$delay} ease forwards;
       `;
     }
   }}

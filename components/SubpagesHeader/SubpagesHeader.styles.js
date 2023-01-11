@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const HeaderSection = styled.section`
   height: 560px;
@@ -22,7 +23,7 @@ export const HeaderSection = styled.section`
   }
 `;
 
-export const Header = styled.h2`
+export const Header = styled(motion.h2)`
   max-width: 900px;
   font-size: ${({ theme }) => theme.font.size.heading};
   font-weight: ${({ theme }) => theme.font.weight.thin};
@@ -36,7 +37,7 @@ export const Header = styled.h2`
   }
 `;
 
-export const TextParagraph = styled.p`
+export const TextParagraph = styled(motion.p)`
   font-size: ${({ theme }) => theme.font.size.paragraph};
   color: ${({ theme }) => theme.color.white};
   max-width: 750px;

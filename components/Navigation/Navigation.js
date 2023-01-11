@@ -219,6 +219,7 @@ const Navigation = () => {
                       key={id}
                       href={to}
                       onClick={() => setOpen(false)}
+                      scroll={false}
                     >
                       <MenuLink
                         variants={itemVariants}

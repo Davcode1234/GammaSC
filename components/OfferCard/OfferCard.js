@@ -7,7 +7,6 @@ import {
   StyledIcon,
 } from "./OfferCard.styles";
 import PropTypes from "prop-types";
-import { delay } from "framer-motion";
 
 export const cardsContent = [
   {
@@ -78,7 +77,7 @@ const OfferCard = ({
   delay,
 }) => {
   return (
-    <CardWrapper ref={innerRef} start={start} delay={delay}>
+    <CardWrapper ref={innerRef} $start={start} $delay={delay}>
       <CardHeader>{header}</CardHeader>
       <CardBtn>
         Dowiedz się więcej
