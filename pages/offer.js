@@ -48,6 +48,8 @@ export default function Offer() {
   };
 
   const filteredData = offerCardsData.filter((card) => card.id === contentTag);
+  const { title, text, img, width, height, alt, contentText, items } =
+    filteredData[0];
 
   const handleButtonClick = (btn) => {
     setTag(btn);
@@ -86,26 +88,26 @@ export default function Offer() {
         )}
       </AnimatePresence>
       <ButtonsWrapper>
-        {offerButtons.map((btn) => {
+        {offerButtons.map(({ buttonName, id }) => {
           {
-            return tag === btn.buttonName ? (
+            return tag === buttonName ? (
               <OfferButton
-                key={btn.id}
+                key={id}
                 isclicked="true"
-                onClick={() => handleButtonClick(`${btn.buttonName}`)}
+                onClick={() => handleButtonClick(`${buttonName}`)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {btn.buttonName}
+                {buttonName}
               </OfferButton>
             ) : (
               <OfferButton
-                key={btn.id}
-                onClick={() => handleButtonClick(`${btn.buttonName}`)}
+                key={id}
+                onClick={() => handleButtonClick(`${buttonName}`)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {btn.buttonName}
+                {buttonName}
               </OfferButton>
             );
           }
@@ -113,14 +115,14 @@ export default function Offer() {
       </ButtonsWrapper>
       <OfferPageCard
         backgroundImg={"/OfferPage/offerbackground.jpg"}
-        header={filteredData[0].title}
-        text={filteredData[0].text}
-        camImg={filteredData[0].img}
-        width={filteredData[0].width}
-        height={filteredData[0].height}
-        alt={filteredData[0].alt}
-        contentParagraph={filteredData[0].contentText}
-        itemsArray={filteredData[0].items}
+        header={title}
+        text={text}
+        camImg={img}
+        width={width}
+        height={height}
+        alt={alt}
+        contentParagraph={contentText}
+        itemsArray={items}
         appear={appear}
       ></OfferPageCard>
     </>

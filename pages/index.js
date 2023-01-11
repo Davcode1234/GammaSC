@@ -95,7 +95,7 @@ const btnOptions = {
       type: "spring",
       stiffness: 100,
       duration: 1,
-      delay: 1.7,
+      delay: 1.6,
     },
   },
 };
@@ -157,13 +157,13 @@ export default function Home() {
 
       <InfoSec>
         <CardsWrapper>
-          {infoSecCardData.map((card) => {
+          {infoSecCardData.map(({ text, withPlus, id, intervalTime }) => {
             return (
               <InfoSecCard
-                text={card.text}
-                addPlus={card.withPlus}
-                key={card.id}
-                stopInterval={card.intervalTime}
+                text={text}
+                addPlus={withPlus}
+                key={id}
+                stopInterval={intervalTime}
               ></InfoSecCard>
             );
           })}
@@ -216,8 +216,20 @@ export default function Home() {
 
       <PartnersSec>
         <PartnersTextWrapper>
-          <InfoSmallPar>Nasi klienci</InfoSmallPar>
-          <PartnersSecHeader>
+          <InfoSmallPar
+            variants={textAppearOptions}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            Nasi klienci
+          </InfoSmallPar>
+          <PartnersSecHeader
+            variants={textAppearOptions}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             Stworzyliśmy dla nich <span>wiele niezwykłych</span> kreacji
           </PartnersSecHeader>
         </PartnersTextWrapper>
@@ -227,28 +239,42 @@ export default function Home() {
 
       <OfferSection>
         <PartnersTextWrapper>
-          <InfoSmallPar>nasza oferta</InfoSmallPar>
-          <OfferSecHeader>
+          <InfoSmallPar
+            variants={textAppearOptions}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            nasza oferta
+          </InfoSmallPar>
+          <OfferSecHeader
+            variants={textAppearOptions}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             Zobacz, co możemy <span>dla Ciebie</span> zrobić:
           </OfferSecHeader>
         </PartnersTextWrapper>
         <OfferCardsGrid>
-          {cardsContent.map((card) => {
-            return (
-              <OfferCard
-                start={animated}
-                delay={card.delay}
-                innerRef={ref}
-                header={card.header}
-                text={card.text}
-                img={card.img}
-                alt={card.alt}
-                width={card.width}
-                height={card.height}
-                key={card.header}
-              />
-            );
-          })}
+          {cardsContent.map(
+            ({ delay, header, text, img, alt, width, height }) => {
+              return (
+                <OfferCard
+                  start={animated}
+                  innerRef={ref}
+                  delay={delay}
+                  header={header}
+                  text={text}
+                  img={img}
+                  alt={alt}
+                  width={width}
+                  height={height}
+                  key={header}
+                />
+              );
+            }
+          )}
         </OfferCardsGrid>
       </OfferSection>
 

@@ -180,13 +180,13 @@ export default function About() {
             animate="open"
             exit="closed"
           >
-            {ImagesURLS.map((hero) => {
+            {ImagesURLS.map(({ img, name, position, id }) => {
               return (
                 <AboutWorkerCard
-                  img={hero.img}
-                  name={hero.name}
-                  position={hero.position}
-                  key={hero.id}
+                  img={img}
+                  name={name}
+                  position={position}
+                  key={id}
                 ></AboutWorkerCard>
               );
             })}

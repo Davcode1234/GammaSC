@@ -33,8 +33,8 @@ const AboutWorkerCard = ({ img, name, position }) => {
       >
         <HeroImg
           src={img}
-          width={305}
-          height={350}
+          width={280}
+          height={300}
           alt={"hero img"}
           priority
         ></HeroImg>

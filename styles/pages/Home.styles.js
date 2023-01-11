@@ -148,7 +148,7 @@ export const PartnersTextWrapper = styled.div`
   margin-bottom: 110px;
 `;
 
-export const PartnersSecHeader = styled.h2`
+export const PartnersSecHeader = styled(motion.h2)`
   font-size: ${({ theme }) => theme.font.size.headingSmall};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.graphite};

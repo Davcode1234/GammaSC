@@ -77,15 +77,15 @@ export default function Contact() {
         text={headerData.text}
       ></SubpagesHeader>
       <ContactInfoSection>
-        {contactData.map((card) => {
+        {contactData.map(({ img, name, position, number, mail, id }) => {
           return (
             <ContactAssistantCard
-              img={card.img}
-              title={card.name}
-              position={card.position}
-              number={card.number}
-              mail={card.mail}
-              key={card.id}
+              img={img}
+              title={name}
+              position={position}
+              number={number}
+              mail={mail}
+              key={id}
             ></ContactAssistantCard>
           );
         })}

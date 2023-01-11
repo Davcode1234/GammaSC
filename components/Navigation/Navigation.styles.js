@@ -89,12 +89,12 @@ export const CloseMenuBtn = styled.button`
   border: none;
   border-radius: 4px;
   width: 32px;
-  height: 3px;
+  height: 2px;
   cursor: pointer;
   background-color: #fff;
   z-index: 10;
   transform: scaleX(0);
-  animation: ${MenuBtnRev1} 0.3s 1.7s ease forwards;
+  animation: ${MenuBtnRev1} 0.5s 1.7s ease forwards;
   transform-origin: right;
 
   &:after {
@@ -107,9 +107,9 @@ export const CloseMenuBtn = styled.button`
     transform: scale(0);
     cursor: pointer;
     width: 32px;
-    height: 3px;
+    height: 2px;
     background-color: #fff;
-    animation: ${MenuBtnRev2} 0.3s 1.9s ease forwards;
+    animation: ${MenuBtnRev2} 0.5s 1.9s ease forwards;
   }
 `;
 
