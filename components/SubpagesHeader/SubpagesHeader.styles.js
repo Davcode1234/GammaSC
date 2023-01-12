@@ -28,12 +28,13 @@ export const Header = styled(motion.h2)`
   font-size: ${({ theme }) => theme.font.size.heading};
   font-weight: ${({ theme }) => theme.font.weight.thin};
   color: ${({ theme }) => theme.color.white};
-  margin-bottom: 4rem;
+  margin-bottom: 40px;
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};
   }
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.font.size.headingMobileDP};
+    margin-bottom: 20px;
   }
 `;
 

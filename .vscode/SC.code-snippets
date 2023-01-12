@@ -1,7 +1,30 @@
 {
   "th": {
     "prefix": "th",
-    "body": ["${({theme}) => theme.}"],
+    "body": ["${({theme}) => theme."],
     "description": "a theme func"
+  },
+  "thc": {
+    "prefix": "thc",
+    "body": ["${({theme}) => theme.color}"],
+    "description": "a theme color func"
+  },
+
+  "ths": {
+    "prefix": "ths",
+    "body": ["font-size: ${({theme}) => theme.font.size."],
+    "description": "a theme font size func"
+  },
+
+  "thw": {
+    "prefix": "thw",
+    "body": ["font-weight: ${({theme}) => theme.font.weight."],
+    "description": "a theme font weight func"
+  },
+
+  "thm": {
+    "prefix": "thm",
+    "body": ["${({theme}) => theme.mq.}"],
+    "description": "a theme media query func"
   }
 }
