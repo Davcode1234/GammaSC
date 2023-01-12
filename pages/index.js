@@ -320,7 +320,7 @@ export default function Home() {
           </CtaBtn>
         </div>
         <StyledFooterImage
-          src={"/HomePage/kamcio_stopka1.svg"}
+          src={"/HomePage/kamcio_stopka1.webp"}
           width={443}
           height={391}
           alt={"cameleon chilling with a drink"}

@@ -59,8 +59,7 @@ const Navigation = () => {
     setOpen((val) => !val);
     setExitVar((val) => !val);
   };
-
-  const originVal = exitVar ? "originX: 1" : "originX: 0";
+  const originVal = exitVar ? 1 : 0;
 
   const slide = {
     hidden: {
@@ -69,7 +68,7 @@ const Navigation = () => {
     },
     visible: {
       scaleX: 1,
-      originX: { originVal },
+      originX: originVal,
       transition: {
         delay: 0.4,
       },

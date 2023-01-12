@@ -14,13 +14,9 @@ import { useState, useEffect } from "react";
 const itemVariants = {
   closed: {
     opacity: 0,
-    duration: 10,
-    delay: 10,
   },
   open: {
     opacity: 1,
-    duration: 10,
-    delay: 10,
   },
 };
 
@@ -48,12 +44,7 @@ const AboutWorkerCard = ({ img, name, position }) => {
 
   return (
     <AnimatePresence>
-      <CardWrapper
-        variants={itemVariants}
-        initial="closed"
-        animate="open"
-        exit="closed"
-      >
+      <CardWrapper variants={itemVariants} initial="closed" animate="open">
         <HeroImg
           src={img}
           width={imgSize.width}

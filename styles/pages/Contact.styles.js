@@ -42,6 +42,8 @@ export const MapHeader = styled.h2`
 
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.font.size.headingMobileDP};
+    margin: 0 auto 30px auto;
+    max-width: 350px;
   }
 `;
 
