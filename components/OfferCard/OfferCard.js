@@ -7,6 +7,7 @@ import {
   StyledIcon,
 } from "./OfferCard.styles";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 export const cardsContent = [
   {
@@ -65,6 +66,16 @@ export const cardsContent = [
   },
 ];
 
+export let offerType = {
+  offer: "kreacja",
+};
+
+export const updateOfferType = (picked) => {
+  offerType = {
+    ...offerType,
+    offer: picked,
+  };
+};
 const OfferCard = ({
   header,
   text,
@@ -79,10 +90,21 @@ const OfferCard = ({
   return (
     <CardWrapper ref={innerRef} $start={start} $delay={delay}>
       <CardHeader>{header}</CardHeader>
-      <CardBtn>
-        Dowiedz się więcej
-        <StyledIcon icon="material-symbols:arrow-back" width="24" height="24" />
-      </CardBtn>
+      <Link href="/offer" scroll={false}>
+        <CardBtn
+          onClick={() => {
+            updateOfferType(header);
+          }}
+        >
+          Dowiedz się więcej
+          <StyledIcon
+            icon="material-symbols:arrow-back"
+            width="24"
+            height="24"
+          />
+        </CardBtn>
+      </Link>
+
       <CardText>{text}</CardText>
       <StyledImage
         src={img}

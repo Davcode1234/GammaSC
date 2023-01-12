@@ -198,7 +198,7 @@ export default function Home() {
               firmy reklamowej oferującej swoim Klientom kompleksową obsługę w
               zakresie reklamy, druku oraz rozwiązań internetowych.
             </InfoSecContentPar>
-            <Link href="/about">
+            <Link href="/about" scroll={false}>
               <CtaBtn
                 isbig="true"
                 variants={btnOptions}
@@ -316,17 +316,19 @@ export default function Home() {
             Usiądź wygodnie,
             <br /> a my się wszystkim zajmiemy.
           </InfoSecHeader>
-          <CtaBtn
-            isbig="true"
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            whileHover={{
-              backgroundColor: "rgb(246, 140, 30, .0)",
-              color: "#f68c1e",
-            }}
-          >
-            Skontaktuj się z nami
-          </CtaBtn>
+          <Link href="/contact" scroll={false}>
+            <CtaBtn
+              isbig="true"
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              whileHover={{
+                backgroundColor: "rgb(246, 140, 30, .0)",
+                color: "#f68c1e",
+              }}
+            >
+              Skontaktuj się z nami
+            </CtaBtn>
+          </Link>
         </div>
         <StyledFooterImage
           src={"/HomePage/kamcio_stopka1.webp"}

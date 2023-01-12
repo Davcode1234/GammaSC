@@ -24,8 +24,8 @@ function MyApp({ Component, pageProps, router }) {
         <Layout>
           <AnimatePresence
             mode="wait"
-            onExitComplete={() => window.scrollTo(0, 0)}
             initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
           >
             <motion.main
               variants={pageTransition}

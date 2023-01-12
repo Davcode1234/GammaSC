@@ -18,9 +18,11 @@ import {
 } from "../styles/pages/Offer.styles";
 import Head from "next/head";
 
+import { offerType } from "../components/OfferCard/OfferCard";
+
 export default function Offer() {
-  const [tag, setTag] = useState("kreacja");
-  const [contentTag, setContentTag] = useState("kreacja");
+  const [tag, setTag] = useState(offerType.offer.toLowerCase());
+  const [contentTag, setContentTag] = useState(offerType.offer.toLowerCase());
   const [slideAnim, setSlideAnim] = useState(false);
   const [exitVar, setExitVar] = useState(false);
   const [appear, setAppear] = useState(true);
@@ -72,6 +74,7 @@ export default function Offer() {
       setAppear(true);
     }, 700);
   };
+
   return (
     <>
       <Head>
