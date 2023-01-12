@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export const ContentTextWrapper = styled.div`
   max-width: 700px;
-  transform: translate(220px, 50px);
+  transform: ${({ xDim }) => `translate(${xDim}, 50px)`};
 `;
 
 export const Header = styled(InfoSmallPar)``;
@@ -34,7 +34,7 @@ export const ContentContainer = styled.div`
   height: 675px;
   display: flex;
   justify-content: center;
-  gap: 100px;
+  gap: 150px;
 `;
 
 export const CamImgWrapper = styled(motion.div)``;

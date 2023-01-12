@@ -36,6 +36,7 @@ import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const infoSecCardData = [
   {
@@ -169,93 +170,101 @@ export default function Home() {
           })}
         </CardsWrapper>
 
-        <InfoTextWrapper>
-          <InfoSmallPar
-            variants={textAppearOptions}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            o nas
-          </InfoSmallPar>
-          <InfoSecHeader
-            variants={textAppearOptions}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            Jesteśmy Agencją Reklamową <span>360°</span>
-          </InfoSecHeader>
-          <InfoSecContentPar
-            variants={textAppearOptions}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            Działamy na rynku od 2004 r. Od początku dążyliśmy do stworzenia
-            firmy reklamowej oferującej swoim Klientom kompleksową obsługę w
-            zakresie reklamy, druku oraz rozwiązań internetowych.
-          </InfoSecContentPar>
-          <Link href="/about">
-            <CtaBtn
-              isbig="true"
-              variants={btnOptions}
+        <AnimatePresence initial={true}>
+          <InfoTextWrapper>
+            <InfoSmallPar
+              variants={textAppearOptions}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              whileHover={{
-                backgroundColor: "rgb(246, 140, 30, .0)",
-                color: "#f68c1e",
-              }}
             >
-              Dowiedz się więcej
-            </CtaBtn>
-          </Link>
-        </InfoTextWrapper>
+              o nas
+            </InfoSmallPar>
+            <InfoSecHeader
+              variants={textAppearOptions}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              Jesteśmy Agencją Reklamową <span>360°</span>
+            </InfoSecHeader>
+            <InfoSecContentPar
+              variants={textAppearOptions}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              Działamy na rynku od 2004 r. Od początku dążyliśmy do stworzenia
+              firmy reklamowej oferującej swoim Klientom kompleksową obsługę w
+              zakresie reklamy, druku oraz rozwiązań internetowych.
+            </InfoSecContentPar>
+            <Link href="/about">
+              <CtaBtn
+                isbig="true"
+                variants={btnOptions}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{
+                  backgroundColor: "rgb(246, 140, 30, .0)",
+                  color: "#f68c1e",
+                }}
+              >
+                Dowiedz się więcej
+              </CtaBtn>
+            </Link>
+          </InfoTextWrapper>
+        </AnimatePresence>
       </InfoSec>
 
       <PartnersSec>
-        <PartnersTextWrapper>
-          <InfoSmallPar
-            variants={textAppearOptions}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            Nasi klienci
-          </InfoSmallPar>
-          <PartnersSecHeader
-            variants={textAppearOptions}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            Stworzyliśmy dla nich <span>wiele niezwykłych</span> kreacji
-          </PartnersSecHeader>
-        </PartnersTextWrapper>
+        <AnimatePresence initial={true}>
+          <PartnersTextWrapper>
+            <InfoSmallPar
+              variants={textAppearOptions}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              Nasi klienci
+            </InfoSmallPar>
+            <PartnersSecHeader
+              variants={textAppearOptions}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              Stworzyliśmy dla nich <span>wiele niezwykłych</span> kreacji
+            </PartnersSecHeader>
+          </PartnersTextWrapper>
+        </AnimatePresence>
+
         <Slider position={"left"} imgArr={topImages}></Slider>
         <Slider position={"right"} imgArr={bottomImages}></Slider>
       </PartnersSec>
 
       <OfferSection>
-        <PartnersTextWrapper>
-          <InfoSmallPar
-            variants={textAppearOptions}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            nasza oferta
-          </InfoSmallPar>
-          <OfferSecHeader
-            variants={textAppearOptions}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            Zobacz, co możemy <span>dla Ciebie</span> zrobić:
-          </OfferSecHeader>
-        </PartnersTextWrapper>
+        <AnimatePresence initial={true}>
+          <PartnersTextWrapper>
+            <InfoSmallPar
+              variants={textAppearOptions}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              nasza oferta
+            </InfoSmallPar>
+            <OfferSecHeader
+              variants={textAppearOptions}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              Zobacz, co możemy <span>dla Ciebie</span> zrobić:
+            </OfferSecHeader>
+          </PartnersTextWrapper>
+        </AnimatePresence>
+
         <OfferCardsGrid>
           {cardsContent.map(
             ({ delay, header, text, img, alt, width, height }) => {

@@ -48,8 +48,17 @@ export default function Offer() {
   };
 
   const filteredData = offerCardsData.filter((card) => card.id === contentTag);
-  const { title, text, img, width, height, alt, contentText, items } =
-    filteredData[0];
+  const {
+    title,
+    text,
+    img,
+    width,
+    height,
+    headerXdim,
+    alt,
+    contentText,
+    items,
+  } = filteredData[0];
 
   const handleButtonClick = (btn) => {
     setTag(btn);
@@ -120,6 +129,7 @@ export default function Offer() {
         camImg={img}
         width={width}
         height={height}
+        translateVal={headerXdim}
         alt={alt}
         contentParagraph={contentText}
         itemsArray={items}

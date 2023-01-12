@@ -15,6 +15,33 @@ import {
 import { AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 
+const textAppearOptions = {
+  hidden: {
+    opacity: 0,
+    translateY: 200,
+  },
+  visible: {
+    opacity: 1,
+    translateY: 0,
+
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      duration: 0.4,
+      delay: 0.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+    translateY: 200,
+
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      duration: 0.4,
+    },
+  },
+};
 const OfferPageCard = ({
   backgroundImg,
   header,
@@ -26,38 +53,12 @@ const OfferPageCard = ({
   contentParagraph,
   itemsArray,
   appear,
+  translateVal,
 }) => {
-  const textAppearOptions = {
-    hidden: {
-      opacity: 0,
-      translateY: 200,
-    },
-    visible: {
-      opacity: 1,
-      translateY: 0,
-
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        duration: 0.4,
-        delay: 0.5,
-      },
-    },
-    exit: {
-      opacity: 0,
-      translateY: 200,
-
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        duration: 0.4,
-      },
-    },
-  };
   return (
     <>
       <StyledImgBackground imageSource={backgroundImg} alt={"background image"}>
-        <ContentTextWrapper>
+        <ContentTextWrapper xDim={translateVal}>
           <div>
             <Header>{header}</Header>
             <Text>{text}</Text>
@@ -119,4 +120,5 @@ OfferPageCard.propTypes = {
   contentParagraph: PropTypes.object,
   itemsArray: PropTypes.array,
   appear: PropTypes.bool,
+  translateVal: PropTypes.string,
 };
