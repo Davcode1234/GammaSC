@@ -11,6 +11,10 @@ export const WelcomSection = styled.section`
   justify-content: center;
   align-items: center;
   padding-bottom: 175px;
+
+  ${({ theme }) => theme.mq.phone} {
+    padding: 0 16px;
+  }
 `;
 
 export const DescriptionParagraph = styled.p`
@@ -19,6 +23,10 @@ export const DescriptionParagraph = styled.p`
   max-width: 800px;
   margin-top: 40px;
   color: ${({ theme }) => theme.color.graphite};
+
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+  }
 `;
 
 export const CtaBtn = styled(motion.button)`
@@ -28,19 +36,16 @@ export const CtaBtn = styled(motion.button)`
   width: ${({ isbig }) => (isbig ? "285px" : "240px")};
   height: 55px;
   border-radius: 5px;
-
   color: #fff;
   cursor: pointer;
   border: 1px solid #f68c1e;
   background-color: #f68c1e;
-
-  /* transition: all 0.5s ease; */
   opacity: 0;
 
-  /* &:hover {
-    background-color: #fff;
-    color: #f68c1e;
-  } */
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+    width: 220px;
+  }
 `;
 
 export const BtnWrapper = styled.div`
@@ -48,6 +53,11 @@ export const BtnWrapper = styled.div`
   align-items: center;
   gap: 60px;
   margin-top: 30px;
+  ${({ theme }) => theme.mq.phone} {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -56,6 +66,9 @@ export const StyledLink = styled(Link)`
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.gammaOrange};
   position: relative;
+  ${({ theme }) => theme.mq.phone} {
+    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+  }
 `;
 
 export const StyledIcon = styled(Icon)`
@@ -65,12 +78,12 @@ export const StyledIcon = styled(Icon)`
   right: -18%;
 `;
 
-export const StyledBtnText = styled.p`
-  font-size: ${({ theme }) => theme.font.size.button};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: #fff;
-  letter-spacing: 0.5px;
-`;
+// export const StyledBtnText = styled.p`
+//   font-size: ${({ theme }) => theme.font.size.button};
+//   font-weight: ${({ theme }) => theme.font.weight.semiBold};
+//   color: #fff;
+//   letter-spacing: 0.5px;
+// `;
 
 // Second sec
 
@@ -86,6 +99,10 @@ export const CardsWrapper = styled.div`
   align-items: center;
   gap: 65px;
   width: 100%;
+
+  ${({ theme }) => theme.mq.tablet} {
+    gap: 30px;
+  }
 `;
 
 export const InfoTextWrapper = styled.div`
@@ -93,6 +110,11 @@ export const InfoTextWrapper = styled.div`
   max-width: 1000px;
   margin: 110px auto;
   transform: translateX(-5rem);
+
+  ${({ theme }) => theme.mq.tablet} {
+    transform: translateX(0);
+    padding-left: 16px;
+  }
 `;
 
 export const InfoSmallPar = styled(motion.p)`
@@ -104,6 +126,7 @@ export const InfoSmallPar = styled(motion.p)`
 
   ${({ theme }) => theme.mq.tablet} {
     font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+    margin-bottom: 10px;
   }
 `;
 
@@ -111,11 +134,16 @@ export const InfoSecHeader = styled(motion.h2)`
   font-size: ${({ theme }) => theme.font.size.heading};
   font-weight: ${({ theme }) => theme.font.weight.thin};
   color: ${({ theme }) => theme.color.white};
-  margin-bottom: 4rem;
+  margin-bottom: 40px;
   opacity: 0;
 
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.font.size.headingMobileDP};
+    margin-bottom: 20px;
   }
 `;
 
@@ -126,6 +154,10 @@ export const InfoSecContentPar = styled(motion.p)`
   line-height: 140%;
   margin-bottom: 4rem;
   opacity: 0;
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+  }
 `;
 
 // Partners sec

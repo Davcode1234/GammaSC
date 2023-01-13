@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import {
   WelcomSection,
   DescriptionParagraph,
@@ -27,7 +27,6 @@ import {
   ContactUsSection,
   StyledIcon,
   StyledFooterImage,
-  StyledBtnText,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 import Slider from "../components/Slider/Slider";
@@ -35,8 +34,9 @@ import { topImages, bottomImages } from "../components/Slider/Slider";
 import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import useWindowSize from "../hooks/useWindowSize";
 
 const infoSecCardData = [
   {
@@ -68,15 +68,11 @@ const infoSecCardData = [
 const textAppearOptions = {
   hidden: {
     opacity: 0,
-    translateY: 200,
   },
   visible: {
     opacity: 1,
-    translateY: 0,
 
     transition: {
-      type: "spring",
-      stiffness: 100,
       duration: 0.4,
       delay: 0.2,
     },
@@ -86,15 +82,11 @@ const textAppearOptions = {
 const btnOptions = {
   hidden: {
     opacity: 0,
-    translateX: -200,
   },
   visible: {
     opacity: 1,
-    translateX: 0,
 
     transition: {
-      type: "spring",
-      stiffness: 100,
       duration: 1,
       delay: 1.6,
     },

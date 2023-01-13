@@ -46,8 +46,15 @@ export const SecInfoSecCardWrapper = styled.div`
   border: 2px solid #f68c1e;
   border-radius: 0px;
   padding-top: 16px;
-  /* transition: all 0.2s ease; */
-  /* animation: ${roundCorners} 0.5s ease forwards; */
+
+  ${({ theme }) => theme.mq.tablet} {
+    width: 200px;
+    height: 124px;
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    display: none;
+  }
 `;
 
 export const FirstInfoSecCardWrapper = styled(SecInfoSecCardWrapper)`
@@ -89,6 +96,10 @@ export const NumParagraph = styled.p`
   font-weight: ${({ theme }) => theme.font.weight.bold};
   color: ${({ theme }) => theme.color.white};
   margin: 0;
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: 60px;
+  }
 `;
 
 export const TextParagraph = styled(motion.p)`
@@ -97,4 +108,8 @@ export const TextParagraph = styled(motion.p)`
   text-align: center;
   max-width: 170px;
   opacity: 0;
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: 14px;
+  }
 `;
