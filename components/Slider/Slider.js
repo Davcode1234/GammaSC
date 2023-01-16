@@ -1,6 +1,8 @@
-import { OuterContainer, SliderContainer, ImgWrapper } from "./Slider.styles";
-import Image from "next/legacy/image";
+import Image from "next/image";
+import { SliderContainer, SlideTrack } from "./Slider.styles";
 import PropTypes from "prop-types";
+import useWindowSize from "../../hooks/useWindowSize";
+import { useMemo, useState } from "react";
 
 export const topImages = [
   {
@@ -117,30 +119,61 @@ export const bottomImages = [
     alt: "Partner Sokolow",
   },
 ];
-
-// Issue on bigger screens
-
 const Slider = ({ position, imgArr }) => {
-  return (
-    <OuterContainer>
-      <SliderContainer position={position}>
-        {imgArr.map((img) => {
-          return (
-            <ImgWrapper key={img.id}>
-              <Image width={380} height={233} src={img.src} alt={img.alt} />
-            </ImgWrapper>
-          );
-        })}
+  const [logoSize, setLogoSize] = useState({
+    width: 350,
+    height: 175,
+  });
 
-        {imgArr.map((img) => {
-          return (
-            <ImgWrapper key={img.id}>
-              <Image width={380} height={233} src={img.src} alt={img.alt} />
-            </ImgWrapper>
-          );
-        })}
+  const isSmaller = useWindowSize(1200);
+
+  useMemo(() => {
+    if (isSmaller) {
+      setLogoSize({
+        width: 200,
+        height: 100,
+      });
+    } else {
+      setLogoSize({
+        width: 350,
+        height: 175,
+      });
+    }
+  }, [isSmaller]);
+
+  return (
+    <>
+      <SliderContainer>
+        <SlideTrack position={position}>
+          {imgArr.map((car) => {
+            return (
+              <div className="slide" key={car.id}>
+                <Image
+                  src={car.src}
+                  alt="car.slt"
+                  width={logoSize.width}
+                  height={logoSize.height}
+                  priority
+                ></Image>
+              </div>
+            );
+          })}
+          {imgArr.map((car) => {
+            return (
+              <div className="slide" key={car.id}>
+                <Image
+                  src={car.src}
+                  alt="car.slt"
+                  width={logoSize.width}
+                  height={logoSize.height}
+                  priority
+                ></Image>
+              </div>
+            );
+          })}
+        </SlideTrack>
       </SliderContainer>
-    </OuterContainer>
+    </>
   );
 };
 

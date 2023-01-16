@@ -1,52 +1,51 @@
 import styled, { keyframes, css } from "styled-components";
 
-const slideToLeft = keyframes`
+const slideToRight = keyframes`
   0% {
-    left: 0;
+    transform: translateX(-50%);
   }
   100% {
-    left: -100%;
+    transform: translateX(0%);
   }
 `;
 
-const slideToRight = keyframes`
+const slideToLeft = keyframes`
   0% {
-    right: 0;
+    transform: translateX(0%);
   }
   100% {
-    right: -100%;
+    transform: translateX(-50%);
   }
-`;
-export const OuterContainer = styled.div`
-  overflow: hidden;
-  position: relative;
-  height: 150px;
-  width: 200%;
-  margin-bottom: 20px;
-`;
-export const ImgWrapper = styled.div`
-  /* display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: -1; */
 `;
 
 export const SliderContainer = styled.div`
-  display: flex;
-  position: absolute;
-  align-items: center;
-  height: 150px;
-  width: 200%;
+  background: white;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  width: 95%;
+
+  ${({ theme }) => theme.mq.tablet} {
+    height: 110px;
+  }
+`;
+
+export const SlideTrack = styled.div`
+  display: inline-block;
+  white-space: nowrap;
 
   ${({ position }) => {
     return position === "left"
       ? css`
-          left: 0;
           animation: ${slideToLeft} 35s linear infinite;
         `
       : css`
-          right: 0;
           animation: ${slideToRight} 35s linear infinite;
         `;
   }}
+
+  & > * {
+    padding: 2vw;
+    display: inline-block;
+  }
 `;

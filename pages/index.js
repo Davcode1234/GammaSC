@@ -27,17 +27,18 @@ import {
   ContactUsSection,
   StyledIcon,
   StyledFooterImage,
+  MapWrapper,
+  FooterImageWrapper,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
-import Slider from "../components/Slider/Slider";
 import { topImages, bottomImages } from "../components/Slider/Slider";
 import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import useWindowSize from "../hooks/useWindowSize";
-import TestSlider from "../components/TestSlider/TestSlider";
+// import useWindowSize from "../hooks/useWindowSize";
+import Slider from "../components/Slider/Slider";
 
 const infoSecCardData = [
   {
@@ -232,8 +233,8 @@ export default function Home() {
           </PartnersTextWrapper>
         </AnimatePresence>
 
-        <TestSlider position={"left"} imgArr={topImages}></TestSlider>
-        <TestSlider position={"right"} imgArr={bottomImages}></TestSlider>
+        <Slider position={"left"} imgArr={topImages}></Slider>
+        <Slider position={"right"} imgArr={bottomImages}></Slider>
       </PartnersSec>
 
       <OfferSection>
@@ -294,12 +295,16 @@ export default function Home() {
             </CountriesSecText>
           </CountriesTextWrapper>
 
-          <StyledImageMap
-            src={"/HomePage/mapa.svg"}
-            width={1000}
-            height={565}
-            alt={"Map"}
-          />
+          <MapWrapper>
+            <StyledImageMap
+              src={"/HomePage/mapa.svg"}
+              // width={1000}
+              // height={563}
+              fill
+              objectFit="contain"
+              alt={"Map"}
+            />
+          </MapWrapper>
         </ContentWrapper>
       </CountriesSection>
 
@@ -323,12 +328,17 @@ export default function Home() {
             </CtaBtn>
           </Link>
         </div>
-        <StyledFooterImage
-          src={"/HomePage/kamcio_stopka1.webp"}
-          width={443}
-          height={391}
-          alt={"cameleon chilling with a drink"}
-        ></StyledFooterImage>
+
+        <FooterImageWrapper>
+          <StyledFooterImage
+            src={"/HomePage/kamcio_stopka1.webp"}
+            alt={"cameleon chilling with a drink"}
+            fill
+            sizes="(max-width:1150px) 328px, 
+            443px
+            "
+          ></StyledFooterImage>
+        </FooterImageWrapper>
       </ContactUsSection>
     </>
   );

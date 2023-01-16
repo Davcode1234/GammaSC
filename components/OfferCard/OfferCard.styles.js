@@ -74,6 +74,10 @@ export const CardWrapper = styled.div`
   transform: scale(0);
   opacity: 0;
 
+  ${({ theme }) => theme.mq.phone} {
+    display: none;
+  }
+
   ${({ $start, $delay }) => {
     if ($start) {
       return css`

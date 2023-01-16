@@ -240,6 +240,11 @@ export const OfferCardsGrid = styled.div`
   grid-template: repeat(2, 1fr) / repeat(3, 1fr);
   grid-gap: 20px;
   gap: 45px;
+
+  ${({ theme }) => theme.mq.smallerDesktop} {
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    grid-gap: 15px;
+  }
 `;
 
 // Countries Sec
@@ -251,11 +256,29 @@ export const CountriesSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+
+  ${({ theme }) => theme.mq.desktop} {
+    max-height: none;
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    padding: 50px 0;
+  }
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   align-items: flex-end;
+  ${({ theme }) => theme.mq.desktop} {
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    gap: 30px;
+  }
 `;
 
 export const CountriesTextWrapper = styled.div`
@@ -264,6 +287,15 @@ export const CountriesTextWrapper = styled.div`
   gap: 40px;
   transform: translate(46%, -25%);
   z-index: 2;
+  ${({ theme }) => theme.mq.desktop} {
+    transform: translate(0, 0);
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    padding: 0 16px;
+    margin-bottom: 150px;
+    gap: 20px;
+  }
 `;
 
 export const CountriesSecHeader = styled(PartnersSecHeader)`
@@ -286,12 +318,35 @@ export const CountriesSecText = styled.p`
     background-color: ${({ theme }) => theme.color.gammaOrange};
     top: 5px;
     left: -105px;
+
+    ${({ theme }) => theme.mq.tablet} {
+      display: none;
+    }
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.font.size.paragraphSmall};
+    transform: translateX(0);
   }
 `;
 
-export const StyledImageMap = styled(Image)`
+export const MapWrapper = styled.div`
+  position: relative;
+  width: 70vw;
+  height: 563px;
   transform: translate(-6%, -8%);
+
+  ${({ theme }) => theme.mq.tablet} {
+    transform: translate(0, 0);
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    width: 100vw;
+    height: 250px;
+  }
 `;
+
+export const StyledImageMap = styled(Image)``;
 
 // Contact Us
 
@@ -302,8 +357,28 @@ export const ContactUsSection = styled.section`
   justify-content: center;
   align-items: center;
   gap: 20px;
+
+  ${({ theme }) => theme.mq.phone} {
+    flex-wrap: wrap-reverse;
+    padding: 0 16px;
+  }
 `;
 
-export const StyledFooterImage = styled(Image)`
+export const StyledFooterImage = styled(Image)``;
+
+export const FooterImageWrapper = styled.div`
+  position: relative;
+  width: 443px;
+  height: 391px;
   transform: translateY(-29%);
+
+  ${({ theme }) => theme.mq.tablet} {
+    width: 328px;
+    height: 293px;
+    transform: translateY(-35%);
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    transform: translateY(0);
+  }
 `;
