@@ -153,6 +153,7 @@ const TestSlider = ({ position, imgArr }) => {
                   alt="car.slt"
                   width={logoSize.width}
                   height={logoSize.height}
+                  priority
                 ></Image>
               </div>
             );
@@ -165,6 +166,7 @@ const TestSlider = ({ position, imgArr }) => {
                   alt="car.slt"
                   width={logoSize.width}
                   height={logoSize.height}
+                  priority
                 ></Image>
               </div>
             );
