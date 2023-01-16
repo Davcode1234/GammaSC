@@ -37,6 +37,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import useWindowSize from "../hooks/useWindowSize";
+import TestSlider from "../components/TestSlider/TestSlider";
 
 const infoSecCardData = [
   {
@@ -231,8 +232,8 @@ export default function Home() {
           </PartnersTextWrapper>
         </AnimatePresence>
 
-        <Slider position={"left"} imgArr={topImages}></Slider>
-        <Slider position={"right"} imgArr={bottomImages}></Slider>
+        <TestSlider position={"left"} imgArr={topImages}></TestSlider>
+        <TestSlider position={"right"} imgArr={bottomImages}></TestSlider>
       </PartnersSec>
 
       <OfferSection>

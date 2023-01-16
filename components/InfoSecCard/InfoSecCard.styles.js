@@ -43,8 +43,8 @@ export const SecInfoSecCardWrapper = styled.div`
   width: 230px;
   height: 165px;
   background-color: transparent;
-  border: 2px solid #f68c1e;
-  border-radius: 0px;
+  border: 1px solid #f68c1e;
+  border-radius: 5px;
   padding-top: 16px;
 
   ${({ theme }) => theme.mq.tablet} {
@@ -52,8 +52,13 @@ export const SecInfoSecCardWrapper = styled.div`
     height: 124px;
   }
 
-  ${({ theme }) => theme.mq.phone} {
-    display: none;
+  ${({ theme }) => theme.mq.tinyPhone} {
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+    height: 85px;
+    gap: 20px;
+    padding-top: 0;
   }
 `;
 
@@ -100,6 +105,10 @@ export const NumParagraph = styled.p`
   ${({ theme }) => theme.mq.tablet} {
     font-size: 60px;
   }
+
+  ${({ theme }) => theme.mq.tinyPhone} {
+    font-weight: 600;
+  }
 `;
 
 export const TextParagraph = styled(motion.p)`
@@ -111,5 +120,10 @@ export const TextParagraph = styled(motion.p)`
 
   ${({ theme }) => theme.mq.tablet} {
     font-size: 14px;
+  }
+
+  ${({ theme }) => theme.mq.tinyPhone} {
+    max-width: 140px;
+    text-align: start;
   }
 `;

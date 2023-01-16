@@ -25,10 +25,10 @@ export const OuterContainer = styled.div`
   margin-bottom: 20px;
 `;
 export const ImgWrapper = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: flex-start;
-  z-index: -1;
+  z-index: -1; */
 `;
 
 export const SliderContainer = styled.div`

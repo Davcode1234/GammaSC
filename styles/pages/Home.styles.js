@@ -91,6 +91,11 @@ export const InfoSec = styled.section`
   height: 1000px;
   background-color: ${({ theme }) => theme.color.graphite};
   padding-top: 110px;
+
+  ${({ theme }) => theme.mq.phone} {
+    padding: 60px 0;
+    height: 850px;
+  }
 `;
 
 export const CardsWrapper = styled.div`
@@ -101,7 +106,9 @@ export const CardsWrapper = styled.div`
   width: 100%;
 
   ${({ theme }) => theme.mq.tablet} {
-    gap: 30px;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
   }
 `;
 
@@ -114,6 +121,10 @@ export const InfoTextWrapper = styled.div`
   ${({ theme }) => theme.mq.tablet} {
     transform: translateX(0);
     padding-left: 16px;
+  }
+
+  ${({ theme }) => theme.mq.tinyPhone} {
+    margin: 50px auto;
   }
 `;
 
@@ -158,6 +169,9 @@ export const InfoSecContentPar = styled(motion.p)`
   ${({ theme }) => theme.mq.tablet} {
     font-size: ${({ theme }) => theme.font.size.paragraphMobile};
   }
+  ${({ theme }) => theme.mq.phone} {
+    margin-bottom: 25px;
+  }
 `;
 
 // Partners sec
@@ -170,6 +184,9 @@ export const PartnersSec = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  /* ${({ theme }) => theme.mq.tablet} {
+    height: 80vh;
+  } */
 `;
 
 export const PartnersTextWrapper = styled.div`
@@ -178,6 +195,10 @@ export const PartnersTextWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   margin-bottom: 110px;
+
+  ${({ theme }) => theme.mq.tablet} {
+    margin-bottom: 50px;
+  }
 `;
 
 export const PartnersSecHeader = styled(motion.h2)`
@@ -189,6 +210,11 @@ export const PartnersSecHeader = styled(motion.h2)`
 
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.font.size.headingMobileDP};
+    max-width: 320px;
   }
 `;
 

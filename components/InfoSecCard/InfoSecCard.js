@@ -7,12 +7,15 @@ import {
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const InfoSecCard = ({ text, addPlus, stopInterval }) => {
   const [numberAnim, setNumberAnim] = useState(0);
   const [ref, inView] = useInView();
   // const [border, setBorder] = useState(false);
   let intervalID;
+
+  const isMobile = useWindowSize(390);
 
   const stopCounter = () => {
     setTimeout(() => {
@@ -44,12 +47,12 @@ const InfoSecCard = ({ text, addPlus, stopInterval }) => {
     }
   }, [inView]);
 
-  // const ViewComponent = border
-  //   ? SecInfoSecCardWrapper
-  //   : FirstInfoSecCardWrapper;
+  const ViewComponent = isMobile
+    ? SecInfoSecCardWrapper
+    : FirstInfoSecCardWrapper;
 
   return (
-    <FirstInfoSecCardWrapper ref={ref} playState={inView}>
+    <ViewComponent ref={ref} playState={inView}>
       {addPlus ? (
         <NumParagraph>+{numberAnim}</NumParagraph>
       ) : (
@@ -63,7 +66,7 @@ const InfoSecCard = ({ text, addPlus, stopInterval }) => {
       >
         {text}
       </TextParagraph>
-    </FirstInfoSecCardWrapper>
+    </ViewComponent>
   );
 };
 
