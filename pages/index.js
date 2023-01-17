@@ -37,7 +37,6 @@ import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence } from "framer-motion";
-// import useWindowSize from "../hooks/useWindowSize";
 import Slider from "../components/Slider/Slider";
 
 const infoSecCardData = [
@@ -296,14 +295,7 @@ export default function Home() {
           </CountriesTextWrapper>
 
           <MapWrapper>
-            <StyledImageMap
-              src={"/HomePage/mapa.svg"}
-              // width={1000}
-              // height={563}
-              fill
-              objectFit="contain"
-              alt={"Map"}
-            />
+            <StyledImageMap src={"/HomePage/mapa.svg"} fill alt={"Map"} />
           </MapWrapper>
         </ContentWrapper>
       </CountriesSection>

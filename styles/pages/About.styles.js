@@ -62,12 +62,14 @@ export const CompanySecHeader = styled.h2`
   transform: translateX(-50%);
 `;
 
-export const ImagesWrapper = styled(motion.div)`
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  gap: 40px;
-  overflow-x: hidden;
+export const CarouselImageWrapper = styled(motion.div)`
+  position: relative;
+  min-height: 40rem;
+  min-width: 465px;
+  padding: 40px;
 `;
 
-export const ImagesSecondWrapper = styled(motion.div)``;
+export const CarouselStyledImg = styled(Image)`
+  object-fit: contain;
+  pointer-events: none;
+`;

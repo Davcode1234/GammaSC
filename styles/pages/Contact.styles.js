@@ -17,9 +17,12 @@ export const ContactInfoSection = styled.section`
   display: flex;
   gap: 30px;
   justify-content: center;
-  flex-wrap: wrap;
   transform: translateY(-12%);
-  /* gap: 200px; */
+
+  ${({ theme }) => theme.mq.smallerDesktop} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const ContactTextPar = styled.p`

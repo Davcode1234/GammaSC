@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styled, { keyframes, css } from "styled-components";
 
 const slideToRight = keyframes`
@@ -47,5 +48,20 @@ export const SlideTrack = styled.div`
   & > * {
     padding: 2vw;
     display: inline-block;
+  }
+`;
+
+export const SliderItem = styled(Image)`
+  object-fit: contain;
+`;
+
+export const SliderItemWrapper = styled.div`
+  position: relative;
+  width: 350px;
+  height: 175px;
+
+  ${({ theme }) => theme.mq.tablet} {
+    width: 200px;
+    height: 100px;
   }
 `;

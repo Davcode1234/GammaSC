@@ -8,18 +8,13 @@ import {
   CompanySecHeader,
   ContentSec,
   Header,
-  ImagesSecondWrapper,
-  ImagesWrapper,
+  CarouselImageWrapper,
+  CarouselStyledImg,
   TeamContainer,
 } from "../styles/pages/About.styles";
 import { AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import { motion, useMotionValue, useTransform } from "framer-motion";
 
-const items = [0, 1, 2, 3, 4, 5];
-const width = 500;
-const padding = 10;
-const size = 150;
+import TestImageScroll from "../components/TestImageScroll/TestImageScroll";
 
 const ImagesURLS = [
   {
@@ -120,6 +115,33 @@ const ImagesURLS = [
   },
 ];
 
+const carouselImages = [
+  {
+    src: "/AboutPage/BottomSec/o_nas_1.webp",
+    id: 1,
+  },
+  {
+    src: "/AboutPage/BottomSec/o_nas_1.webp",
+    id: 2,
+  },
+  {
+    src: "/AboutPage/BottomSec/o_nas_1.webp",
+    id: 3,
+  },
+  {
+    src: "/AboutPage/BottomSec/o_nas_1.webp",
+    id: 4,
+  },
+  {
+    src: "/AboutPage/BottomSec/o_nas_1.webp",
+    id: 5,
+  },
+  {
+    src: "/AboutPage/BottomSec/o_nas_1.webp",
+    id: 6,
+  },
+];
+
 const cardsVariants = {
   closed: {
     transition: {
@@ -146,11 +168,6 @@ export default function About() {
     ),
     text: "Lorem ipsum dolor sit amet consectetur. Ipsum arcu congue volutpat risus in congue nunc nunc tortor. At dui sed ultricies adipiscing. Placerat duis egestas diam pellentesque sit cras dolor a.",
   };
-
-  const scrollX = useMotionValue(0);
-  const scale = useTransform(scrollX, [0, 100], [0, 1]);
-  const opacity = useTransform(scrollX, [0, 100], [0, 1]);
-  const boxWidth = true;
 
   return (
     <>
@@ -199,78 +216,21 @@ export default function About() {
             Lorem ipsum dolor sit amet consectetur.
           </CompanySecHeader>
 
-          <motion.div
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: 20,
-              backgroundColor: "#fff",
-              position: "absolute",
-              top: "35%",
-              marginTop: 15,
-              left: "40%",
-              marginLeft: -50,
-              scale: scale,
-              opacity: opacity,
-            }}
-          />
-
-          <motion.div
-            style={{
-              width: "100%",
-              height: 464,
-              borderRadius: 5,
-              overflow: "hidden",
-              position: "relative",
-              transform: "translateZ(0)",
-              cursor: "grab",
-            }}
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <motion.div
-              style={{
-                height: 464,
-                width: getWidth(items, boxWidth),
-                x: scrollX,
-                display: "flex",
-                translateX: "5%",
-              }}
-              drag="x"
-              dragConstraints={{
-                left: -getWidth(items) + size,
-                right: 0,
-              }}
-            >
-              {items.map((index) => {
-                return (
-                  <motion.div
-                    style={{
-                      backgroundImage: "url(/AboutPage/BottomSec/o_nas_1.webp)",
-                      backgroundPosition: "center center",
-                      backgroundRepeat: "no-repeat",
-                      backgroundSize: "cover",
-                      width: width,
-                      height: 464,
-                      marginRight: index !== items.length - 1 ? 40 : 0,
-                    }}
-                    key={index}
-                  />
-                );
-              })}
-            </motion.div>
-          </motion.div>
+          <TestImageScroll>
+            {carouselImages.map((image) => {
+              return (
+                <CarouselImageWrapper key={image.id}>
+                  <CarouselStyledImg
+                    src={image.src}
+                    fill
+                    alt="test"
+                  ></CarouselStyledImg>
+                </CarouselImageWrapper>
+              );
+            })}
+          </TestImageScroll>
         </CompanyImagesSection>
       </ContentSec>
     </>
   );
-}
-
-function getWidth(items, boxWidth = false) {
-  const totalWidth = (items.length * width) / 1.5;
-  const totalWidthBox = items.length * width;
-  const totalWidthCalc = boxWidth ? totalWidthBox : totalWidth;
-
-  const totalPadding = (items.length - 1) * padding;
-  const totalScroll = totalWidthCalc + totalPadding;
-  return totalScroll;
 }

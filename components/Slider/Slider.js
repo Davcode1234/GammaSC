@@ -1,8 +1,10 @@
-import Image from "next/image";
-import { SliderContainer, SlideTrack } from "./Slider.styles";
+import {
+  SliderContainer,
+  SliderItem,
+  SliderItemWrapper,
+  SlideTrack,
+} from "./Slider.styles";
 import PropTypes from "prop-types";
-import useWindowSize from "../../hooks/useWindowSize";
-import { useMemo, useState } from "react";
 
 export const topImages = [
   {
@@ -120,54 +122,43 @@ export const bottomImages = [
   },
 ];
 const Slider = ({ position, imgArr }) => {
-  const [logoSize, setLogoSize] = useState({
-    width: 350,
-    height: 175,
-  });
-
-  const isSmaller = useWindowSize(1200);
-
-  useMemo(() => {
-    if (isSmaller) {
-      setLogoSize({
-        width: 200,
-        height: 100,
-      });
-    } else {
-      setLogoSize({
-        width: 350,
-        height: 175,
-      });
-    }
-  }, [isSmaller]);
-
   return (
     <>
       <SliderContainer>
         <SlideTrack position={position}>
-          {imgArr.map((car) => {
+          {imgArr.map(({ id, src, alt }) => {
             return (
-              <div className="slide" key={car.id}>
-                <Image
-                  src={car.src}
-                  alt="car.slt"
-                  width={logoSize.width}
-                  height={logoSize.height}
-                  priority
-                ></Image>
+              <div key={id}>
+                <SliderItemWrapper>
+                  <SliderItem
+                    src={src}
+                    alt={alt}
+                    fill
+                    priority
+                    sizes="
+                    (max-width: 1150px) 200px
+                    350px
+                    "
+                  ></SliderItem>
+                </SliderItemWrapper>
               </div>
             );
           })}
-          {imgArr.map((car) => {
+          {imgArr.map(({ id, src, alt }) => {
             return (
-              <div className="slide" key={car.id}>
-                <Image
-                  src={car.src}
-                  alt="car.slt"
-                  width={logoSize.width}
-                  height={logoSize.height}
-                  priority
-                ></Image>
+              <div key={id}>
+                <SliderItemWrapper>
+                  <SliderItem
+                    src={src}
+                    alt={alt}
+                    fill
+                    priority
+                    sizes="
+                    (max-width: 1150px) 200px
+                    350px
+                    "
+                  ></SliderItem>
+                </SliderItemWrapper>
               </div>
             );
           })}

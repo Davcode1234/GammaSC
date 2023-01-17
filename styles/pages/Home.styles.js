@@ -346,7 +346,9 @@ export const MapWrapper = styled.div`
   }
 `;
 
-export const StyledImageMap = styled(Image)``;
+export const StyledImageMap = styled(Image)`
+  object-fit: contain;
+`;
 
 // Contact Us
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export const ContactCardWrapper = styled(motion.div)`
   /* height: 400px; */
@@ -7,7 +8,7 @@ export const ContactCardWrapper = styled(motion.div)`
   align-items: center;
   transform: translateY(-15%);
 
-  ${({ theme }) => theme.mq.tablet} {
+  ${({ theme }) => theme.mq.smallerDesktop} {
     transform: translateY(0) !important;
   }
 
@@ -48,5 +49,20 @@ export const ContactPar = styled.p`
 
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+  }
+`;
+
+export const SalesAssImg = styled(Image)`
+  object-fit: contain;
+`;
+
+export const SalesAssImgWrapper = styled.div`
+  position: relative;
+  width: 300px;
+  height: 400px;
+
+  ${({ theme }) => theme.mq.phone} {
+    width: 270px;
+    height: 300px;
   }
 `;

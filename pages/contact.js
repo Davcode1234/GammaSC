@@ -60,7 +60,7 @@ export default function Contact() {
         map: map,
       });
     });
-  });
+  }, []);
 
   return (
     <>

@@ -4,12 +4,11 @@ import {
   PositionText,
   ContactPar,
   ContentWrapper,
+  SalesAssImgWrapper,
+  SalesAssImg,
 } from "./ContactAssistantCard.styles";
 import Image from "next/image";
 import PropTypes from "prop-types";
-
-import { useEffect, useState } from "react";
-import useWindowSize from "../../hooks/useWindowSize";
 
 const AssistantLoadAnim = {
   hidden: {
@@ -30,40 +29,25 @@ const AssistantLoadAnim = {
 };
 
 const ContactAssistantCard = ({ img, title, position, mail, number }) => {
-  const [imgSize, setImgSize] = useState({
-    width: 300,
-    height: 400,
-  });
-
-  const isMobile = useWindowSize(750);
-
-  useEffect(() => {
-    if (isMobile) {
-      setImgSize({
-        width: 200,
-        height: 270,
-      });
-    } else if (!isMobile) {
-      setImgSize({
-        width: 300,
-        height: 400,
-      });
-    }
-  }, [isMobile]);
-
   return (
     <ContactCardWrapper
       variants={AssistantLoadAnim}
       initial="hidden"
       animate="visible"
     >
-      <Image
-        src={img}
-        width={imgSize.width}
-        height={imgSize.height}
-        alt="test"
-        priority
-      ></Image>
+      <SalesAssImgWrapper>
+        <SalesAssImg
+          src={img}
+          alt="Our sales specialist"
+          fill
+          priority
+          sizes="
+          (max-width: 750px) 270px
+          300px
+          "
+        ></SalesAssImg>
+      </SalesAssImgWrapper>
+
       <ContentWrapper>
         <ContactCardHeader>{title}</ContactCardHeader>
         <PositionText>{position}</PositionText>
