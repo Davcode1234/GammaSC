@@ -123,7 +123,7 @@ export const InfoTextWrapper = styled.div`
     padding-left: 16px;
   }
 
-  ${({ theme }) => theme.mq.tinyPhone} {
+  ${({ theme }) => theme.mq.smallerPhone} {
     margin: 50px auto;
   }
 `;
@@ -187,6 +187,10 @@ export const PartnersSec = styled.section`
   /* ${({ theme }) => theme.mq.tablet} {
     height: 80vh;
   } */
+
+  ${({ theme }) => theme.mq.smallerPhone} {
+    height: 85vh;
+  }
 `;
 
 export const PartnersTextWrapper = styled.div`
@@ -212,7 +216,7 @@ export const PartnersSecHeader = styled(motion.h2)`
     color: ${({ theme }) => theme.color.gammaOrange};
   }
 
-  ${({ theme }) => theme.mq.tablet} {
+  ${({ theme }) => theme.mq.smallerPhone} {
     font-size: ${({ theme }) => theme.font.size.headingMobileDP};
     max-width: 320px;
   }
@@ -231,6 +235,7 @@ export const OfferSection = styled.section`
 
   ${({ theme }) => theme.mq.smallerPhone} {
     height: 85vh;
+    /* align-items: none; */
   }
 `;
 
@@ -247,7 +252,7 @@ export const OfferCardsGrid = styled.div`
   grid-template: repeat(2, 1fr) / repeat(3, 1fr);
   grid-gap: 20px;
   gap: 45px;
-
+  overflow: hidden;
   ${({ theme }) => theme.mq.smallerDesktop} {
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
     grid-gap: 15px;

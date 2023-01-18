@@ -47,12 +47,9 @@ export const SecInfoSecCardWrapper = styled.div`
   border-radius: 5px;
   padding-top: 16px;
 
-  ${({ theme }) => theme.mq.tablet} {
+  ${({ theme }) => theme.mq.smallerPhone} {
     width: 200px;
     height: 124px;
-  }
-
-  ${({ theme }) => theme.mq.smallerPhone} {
     flex-direction: row;
     justify-content: center;
     width: 90%;
@@ -102,11 +99,8 @@ export const NumParagraph = styled.p`
   color: ${({ theme }) => theme.color.white};
   margin: 0;
 
-  ${({ theme }) => theme.mq.tablet} {
+  ${({ theme }) => theme.mq.smallerPhone} {
     font-size: 60px;
-  }
-
-  ${({ theme }) => theme.mq.tinyPhone} {
     font-weight: 600;
   }
 `;
@@ -118,11 +112,8 @@ export const TextParagraph = styled(motion.p)`
   max-width: 170px;
   opacity: 0;
 
-  ${({ theme }) => theme.mq.tablet} {
+  ${({ theme }) => theme.mq.smallerPhone} {
     font-size: 14px;
-  }
-
-  ${({ theme }) => theme.mq.tinyPhone} {
     max-width: 140px;
     text-align: start;
   }
