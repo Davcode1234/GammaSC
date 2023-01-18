@@ -35,9 +35,11 @@ import { topImages, bottomImages } from "../components/Slider/Slider";
 import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Slider from "../components/Slider/Slider";
+import useWindowSize from "../hooks/useWindowSize";
+import VerticalScroll from "../components/VerticalScroll/VerticalScroll";
 
 const infoSecCardData = [
   {
@@ -97,6 +99,8 @@ const btnOptions = {
 export default function Home() {
   const [ref, inView] = useInView();
   const [animated, setAnimated] = useState(false);
+  const isMobile = useWindowSize(750);
+  const CardsWrapper = isMobile ? VerticalScroll : OfferCardsGrid;
 
   useEffect(() => {
     if (inView) {
@@ -257,8 +261,7 @@ export default function Home() {
             </OfferSecHeader>
           </PartnersTextWrapper>
         </AnimatePresence>
-
-        <OfferCardsGrid>
+        <CardsWrapper>
           {cardsContent.map(
             ({ delay, header, text, img, alt, width, height }) => {
               return (
@@ -277,7 +280,7 @@ export default function Home() {
               );
             }
           )}
-        </OfferCardsGrid>
+        </CardsWrapper>
       </OfferSection>
 
       <CountriesSection>

@@ -13,8 +13,7 @@ import {
   TeamContainer,
 } from "../styles/pages/About.styles";
 import { AnimatePresence } from "framer-motion";
-
-import TestImageScroll from "../components/TestImageScroll/TestImageScroll";
+import VerticalScroll from "../components/VerticalScroll/VerticalScroll";
 
 const ImagesURLS = [
   {
@@ -216,7 +215,7 @@ export default function About() {
             Lorem ipsum dolor sit amet consectetur.
           </CompanySecHeader>
 
-          <TestImageScroll>
+          <VerticalScroll>
             {carouselImages.map((image) => {
               return (
                 <CarouselImageWrapper key={image.id}>
@@ -228,7 +227,7 @@ export default function About() {
                 </CarouselImageWrapper>
               );
             })}
-          </TestImageScroll>
+          </VerticalScroll>
         </CompanyImagesSection>
       </ContentSec>
     </>

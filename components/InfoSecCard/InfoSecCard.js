@@ -15,7 +15,7 @@ const InfoSecCard = ({ text, addPlus, stopInterval }) => {
   // const [border, setBorder] = useState(false);
   let intervalID;
 
-  const isMobile = useWindowSize(390);
+  const isMobile = useWindowSize(430);
 
   const stopCounter = () => {
     setTimeout(() => {

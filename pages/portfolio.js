@@ -1,5 +1,7 @@
-import TestImageScroll from "../components/TestImageScroll/TestImageScroll";
-
 export default function Portfolio() {
-  return <TestImageScroll></TestImageScroll>;
+  return (
+    <>
+      <h1>Portfolio</h1>
+    </>
+  );
 }

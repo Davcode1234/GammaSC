@@ -52,7 +52,7 @@ export const SecInfoSecCardWrapper = styled.div`
     height: 124px;
   }
 
-  ${({ theme }) => theme.mq.tinyPhone} {
+  ${({ theme }) => theme.mq.smallerPhone} {
     flex-direction: row;
     justify-content: center;
     width: 90%;

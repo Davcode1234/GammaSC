@@ -89,23 +89,26 @@ const OfferCard = ({
 }) => {
   return (
     <CardWrapper ref={innerRef} $start={start} $delay={delay}>
-      <CardHeader>{header}</CardHeader>
-      <Link href="/offer" scroll={false}>
-        <CardBtn
-          onClick={() => {
-            updateOfferType(header);
-          }}
-        >
-          Dowiedz się więcej
-          <StyledIcon
-            icon="material-symbols:arrow-back"
-            width="24"
-            height="24"
-          />
-        </CardBtn>
-      </Link>
+      <div>
+        <CardHeader>{header}</CardHeader>
+        <Link href="/offer" scroll={false}>
+          <CardBtn
+            onClick={() => {
+              updateOfferType(header);
+            }}
+          >
+            Dowiedz się więcej
+            <StyledIcon
+              icon="material-symbols:arrow-back"
+              width="24"
+              height="24"
+            />
+          </CardBtn>
+        </Link>
 
-      <CardText>{text}</CardText>
+        <CardText>{text}</CardText>
+      </div>
+
       <StyledImage
         src={img}
         width={width}

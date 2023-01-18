@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from "react";
-import { Carousel, InnerCarousel, Wrapper } from "./TestImageScroll.styles";
+import { Carousel, InnerCarousel, Wrapper } from "./VerticalScroll.styles";
 import PropTypes from "prop-types";
 
-const TestImageScroll = ({ children }) => {
+const VerticalScroll = ({ children }) => {
   const [width, setWidth] = useState(0);
   const carousel = useRef();
 
@@ -25,8 +25,8 @@ const TestImageScroll = ({ children }) => {
   );
 };
 
-export default TestImageScroll;
+export default VerticalScroll;
 
-TestImageScroll.propTypes = {
+VerticalScroll.propTypes = {
   children: PropTypes.node,
 };

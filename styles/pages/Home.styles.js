@@ -224,15 +224,22 @@ export const OfferSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   height: 100vh;
   max-height: 950px;
   background-color: ${({ theme }) => theme.color.grey};
-  /* z-index: -2; */
+
+  ${({ theme }) => theme.mq.smallerPhone} {
+    height: 85vh;
+  }
 `;
 
 export const OfferSecHeader = styled(PartnersSecHeader)`
   max-width: 85rem;
+
+  ${({ theme }) => theme.mq.smallerPhone} {
+    max-width: 330px;
+  }
 `;
 
 export const OfferCardsGrid = styled.div`
