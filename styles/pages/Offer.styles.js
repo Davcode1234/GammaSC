@@ -16,16 +16,24 @@ to {
 `;
 
 export const ButtonsWrapper = styled.div`
+  position: absolute;
+  width: 100%;
   display: flex;
-  gap: 6%;
+  gap: 5%;
   justify-content: center;
   transform: translateY(60px);
-  z-index: 232342;
+
+  ${({ theme }) => theme.mq.phone} {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    grid-gap: 30px;
+    align-items: start;
+  }
 `;
 
 export const OfferButton = styled(motion.button)`
   font-size: ${({ theme }) => theme.font.size.offerButton};
-  font-weight: 400;
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: #fff;
   border: none;
   background-color: transparent;
@@ -43,7 +51,7 @@ export const OfferButton = styled(motion.button)`
         `;
   }}
   ${({ theme }) => theme.mq.tablet} {
-    font-size: 1.4rem;
+    font-size: ${({ theme }) => theme.font.size.paragraph};
   }
 `;
 export const AnimationSlider = styled(motion.div)`
@@ -52,4 +60,8 @@ export const AnimationSlider = styled(motion.div)`
   height: 405px;
   background-color: ${({ theme }) => theme.color.graphite};
   z-index: 0;
+
+  ${({ theme }) => theme.mq.phone} {
+    min-height: 575px;
+  }
 `;

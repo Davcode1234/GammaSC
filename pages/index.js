@@ -100,8 +100,7 @@ export default function Home() {
   const [ref, inView] = useInView();
   const [animated, setAnimated] = useState(false);
   const isMobile = useWindowSize(750);
-  const CardsWrapperdupa = isMobile ? VerticalScroll : OfferCardsGrid;
-  console.log(isMobile);
+  const CardsWrapperOffer = isMobile ? VerticalScroll : OfferCardsGrid;
 
   useEffect(() => {
     if (inView) {
@@ -262,7 +261,7 @@ export default function Home() {
             </OfferSecHeader>
           </PartnersTextWrapper>
         </AnimatePresence>
-        <CardsWrapperdupa>
+        <CardsWrapperOffer>
           {cardsContent.map(
             ({ delay, header, text, img, alt, width, height }) => {
               return (
@@ -281,7 +280,7 @@ export default function Home() {
               );
             }
           )}
-        </CardsWrapperdupa>
+        </CardsWrapperOffer>
       </OfferSection>
 
       <CountriesSection>

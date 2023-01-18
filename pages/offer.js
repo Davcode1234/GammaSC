@@ -17,8 +17,8 @@ import {
   AnimationSlider,
 } from "../styles/pages/Offer.styles";
 import Head from "next/head";
-
 import { offerType } from "../components/OfferCard/OfferCard";
+import useWindowSize from "../hooks/useWindowSize";
 
 export default function Offer() {
   const [tag, setTag] = useState(offerType.offer.toLowerCase());
@@ -56,6 +56,8 @@ export default function Offer() {
     img,
     width,
     height,
+    mobileWidth,
+    mobileHeight,
     headerXdim,
     alt,
     contentText,
@@ -74,6 +76,11 @@ export default function Offer() {
       setAppear(true);
     }, 700);
   };
+
+  const isMobile = useWindowSize(750);
+
+  const CamWidth = isMobile ? mobileWidth : width;
+  const CamHeight = isMobile ? mobileHeight : height;
 
   return (
     <>
@@ -130,8 +137,8 @@ export default function Offer() {
         header={title}
         text={text}
         camImg={img}
-        width={width}
-        height={height}
+        width={CamWidth}
+        height={CamHeight}
         translateVal={headerXdim}
         alt={alt}
         contentParagraph={contentText}

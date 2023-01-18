@@ -21,6 +21,12 @@ export const ContactCardWrapper = styled(motion.div)`
 
 export const ContentWrapper = styled.div`
   margin-left: 40px;
+
+  ${({ theme }) => theme.mq.smallerPhone} {
+    margin-left: git stat0px;
+
+    text-align: center;
+  }
 `;
 
 export const ContactCardHeader = styled.h3`
