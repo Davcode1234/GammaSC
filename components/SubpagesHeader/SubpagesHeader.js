@@ -19,7 +19,7 @@ const slideInVariants = {
       type: "spring",
       stiffness: 100,
       duration: 0.4,
-      delay: 0.1,
+      delay: 0.2,
     },
   },
 };

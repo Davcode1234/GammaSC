@@ -30,6 +30,10 @@ export const Overlay = styled.div`
   height: 100vh;
   width: 100%;
   background-color: transparent;
+
+  ${({ theme }) => theme.mq.smallerPhone} {
+    display: none;
+  }
 `;
 
 export const NavigationWrapper = styled.nav`
@@ -41,9 +45,8 @@ export const NavigationWrapper = styled.nav`
   width: 100%;
   height: 75px;
   z-index: 100;
-  /* background-color: ${({ theme }) => theme.color.white}; */
   ${({ theme }) => theme.mq.smallerPhone} {
-    padding: 0 30px;
+    padding: 0 50px;
   }
 `;
 
@@ -127,6 +130,10 @@ export const MainSliderMenu = styled(motion.aside)`
   height: 100vh;
   padding: 100px 0 0 60px;
   z-index: 1;
+
+  ${({ theme }) => theme.mq.smallerPhone} {
+    width: 100%;
+  }
 `;
 
 export const SecondarySliderMenu = styled(MainSliderMenu)`
@@ -150,7 +157,3 @@ export const MenuLink = styled(motion.p)`
 export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
-
-// export const TestSvg = styled(motion.svg)``;
-
-// export const TestPathSvg = styled(motion.path)``;

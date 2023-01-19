@@ -5,14 +5,11 @@ import {
   NavigationWrapper,
   MenuBtn,
   CloseMenuBtn,
-  Logo,
   MainSliderMenu,
   SecondarySliderMenu,
   LinksWrapper,
   MenuLink,
   StyledLink,
-  TestPathSvg,
-  TestSvg,
   Overlay,
 } from "./Navigation.styles";
 import Link from "next/link";

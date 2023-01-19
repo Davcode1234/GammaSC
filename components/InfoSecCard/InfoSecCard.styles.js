@@ -25,16 +25,6 @@ const showFromRightCorner = keyframes`
     clip-path: polygon(99% 0, 99% 99%, 0 99%, 0 100%, 100% 100%, 100% 0%);
   }
 `;
-
-// const roundCorners = keyframes`
-// from {
-//   border-radius: 0;
-// }
-// to {
-//   border-radius: 7px;
-// }
-// `;
-
 export const SecInfoSecCardWrapper = styled.div`
   display: flex;
   flex-direction: column;

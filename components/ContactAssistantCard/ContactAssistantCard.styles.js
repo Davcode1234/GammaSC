@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export const ContactCardWrapper = styled(motion.div)`
-  /* height: 400px; */
   display: flex;
   align-items: center;
   transform: translateY(-15%);

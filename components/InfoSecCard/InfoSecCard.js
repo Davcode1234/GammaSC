@@ -12,7 +12,6 @@ import useWindowSize from "../../hooks/useWindowSize";
 const InfoSecCard = ({ text, addPlus, stopInterval }) => {
   const [numberAnim, setNumberAnim] = useState(0);
   const [ref, inView] = useInView();
-  // const [border, setBorder] = useState(false);
   let intervalID;
 
   const isMobile = useWindowSize(500);
@@ -22,12 +21,6 @@ const InfoSecCard = ({ text, addPlus, stopInterval }) => {
       clearInterval(intervalID);
     }, stopInterval);
   };
-
-  // const swapBorders = () => {
-  //   setTimeout(() => {
-  //     setBorder(true);
-  //   }, 3300);
-  // };
 
   const increaseNumbers = () => {
     intervalID = setInterval(() => {
@@ -41,7 +34,6 @@ const InfoSecCard = ({ text, addPlus, stopInterval }) => {
         if (numberAnim === 0) {
           increaseNumbers();
           stopCounter();
-          // swapBorders();
         }
       }, 50);
     }

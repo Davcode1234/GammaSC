@@ -8,57 +8,57 @@ import PropTypes from "prop-types";
 
 export const topImages = [
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_axa.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_axa.webp",
     id: 1,
     alt: "Partner Axa",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_debica.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_debica.webp",
     id: 2,
     alt: "Partner Debica",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_justrelate.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_justrelate.webp",
     id: 3,
     alt: "Partner JustRelate",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_premio.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_premio.webp",
     id: 4,
     alt: "Partner Premio",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_fulda.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_fulda.webp",
     id: 5,
     alt: "Partner Fulda",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_sava.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_sava.webp",
     id: 6,
     alt: "Partner Sava",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_dunlop.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_dunlop.webp",
     id: 7,
     alt: "Partner Dunlop",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_SCB.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_SCB.webp",
     id: 8,
     alt: "Partner SCB",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_goodyear.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_goodyear.webp",
     id: 9,
     alt: "Partner GoodYear",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_shell.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_shell.webp",
     id: 10,
     alt: "Partner Shell",
   },
   {
-    src: "/HomePage/companies/upperline/gamma_strona_klienci_transcash.svg",
+    src: "/HomePage/companies/upperline/gamma_strona_klienci_transcash.webp",
     id: 11,
     alt: "Partner Transcash",
   },
@@ -66,57 +66,57 @@ export const topImages = [
 
 export const bottomImages = [
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_akzonobel.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_akzonobel.webp",
     id: 12,
     alt: "Partner Akzonobel",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_brembo.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_brembo.webp",
     id: 13,
     alt: "Partner Brembo",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_drewmet.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_drewmet.webp",
     id: 14,
     alt: "Partner Drewmet",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_galicja.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_galicja.webp",
     id: 15,
     alt: "Partner Galicja",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_leier.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_leier.webp",
     id: 16,
     alt: "Partner Leier",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_prymat.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_prymat.webp",
     id: 17,
     alt: "Partner Prymat",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_ravi.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_ravi.webp",
     id: 18,
     alt: "Partner Ravi",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_Rijk_zwaan.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_Rijk_zwaan.webp",
     id: 19,
     alt: "Partner Rijk Zwaan",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_romet.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_romet.webp",
     id: 20,
     alt: "Partner Romet",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_safran.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_safran.webp",
     id: 21,
     alt: "Partner Safran",
   },
   {
-    src: "/HomePage/companies/downline/gamma_strona_klienci_sokolow.svg",
+    src: "/HomePage/companies/downline/gamma_strona_klienci_sokolow.webp",
     id: 22,
     alt: "Partner Sokolow",
   },
