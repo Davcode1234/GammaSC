@@ -7,10 +7,10 @@ import {
   SalesAssImgWrapper,
   SalesAssImg,
 } from "./ContactAssistantCard.styles";
-import Image from "next/image";
 import PropTypes from "prop-types";
+import useWindowSize from "../../hooks/useWindowSize";
 
-const AssistantLoadAnim = {
+const DesktopAssistantLoadAnim = {
   hidden: {
     opacity: 0,
     translateY: 200,
@@ -28,10 +28,25 @@ const AssistantLoadAnim = {
   },
 };
 
+const MobileAssistanLoadAnim = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
+
 const ContactAssistantCard = ({ img, title, position, mail, number }) => {
+  const isMobile = useWindowSize(750);
+
+  const cardAnimVar = isMobile
+    ? MobileAssistanLoadAnim
+    : DesktopAssistantLoadAnim;
+
   return (
     <ContactCardWrapper
-      variants={AssistantLoadAnim}
+      variants={cardAnimVar}
       initial="hidden"
       animate="visible"
     >

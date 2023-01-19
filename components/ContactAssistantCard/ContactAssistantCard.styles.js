@@ -7,6 +7,7 @@ export const ContactCardWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   transform: translateY(-15%);
+  opacity: 0;
 
   ${({ theme }) => theme.mq.smallerDesktop} {
     transform: translateY(0) !important;
@@ -23,8 +24,7 @@ export const ContentWrapper = styled.div`
   margin-left: 40px;
 
   ${({ theme }) => theme.mq.smallerPhone} {
-    margin-left: git stat0px;
-
+    margin-left: 0;
     text-align: center;
   }
 `;

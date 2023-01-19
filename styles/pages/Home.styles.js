@@ -228,14 +228,14 @@ export const OfferSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   height: 100vh;
   max-height: 950px;
   background-color: ${({ theme }) => theme.color.grey};
 
-  ${({ theme }) => theme.mq.smallerPhone} {
+  ${({ theme }) => theme.mq.phone} {
     height: 85vh;
-    /* align-items: none; */
+    align-items: stretch;
   }
 `;
 
@@ -313,6 +313,10 @@ export const CountriesTextWrapper = styled.div`
 export const CountriesSecHeader = styled(PartnersSecHeader)`
   max-width: 600px;
   text-align: start;
+
+  ${({ theme }) => theme.mq.smallerPhone} {
+    max-width: 250px;
+  }
 `;
 
 export const CountriesSecText = styled.p`

@@ -28,6 +28,7 @@ export const ButtonsWrapper = styled.div`
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
     grid-gap: 30px;
     align-items: start;
+    padding-left: 16px;
   }
 `;
 
@@ -52,6 +53,7 @@ export const OfferButton = styled(motion.button)`
   }}
   ${({ theme }) => theme.mq.tablet} {
     font-size: ${({ theme }) => theme.font.size.paragraph};
+    text-align: left;
   }
 `;
 export const AnimationSlider = styled(motion.div)`
