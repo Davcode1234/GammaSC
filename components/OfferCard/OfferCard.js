@@ -52,7 +52,7 @@ export const cardsContent = [
     img: "/HomePage/cameleons/KameleonObszar-kompozycji-4.png",
     alt: "Gamma cameleon showing his gadgets under coat",
     width: "134",
-    height: "162",
+    height: "171",
     delay: ` ${0.5}s`,
   },
   {

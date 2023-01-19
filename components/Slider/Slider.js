@@ -134,7 +134,6 @@ const Slider = ({ position, imgArr }) => {
                     src={src}
                     alt={alt}
                     fill
-                    priority
                     sizes="
                     (max-width: 1150px) 200px
                     350px
@@ -152,7 +151,6 @@ const Slider = ({ position, imgArr }) => {
                     src={src}
                     alt={alt}
                     fill
-                    priority
                     sizes="
                     (max-width: 1150px) 200px
                     350px
