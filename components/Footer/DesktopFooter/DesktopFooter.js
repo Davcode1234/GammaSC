@@ -24,7 +24,7 @@ const DesktopFooter = () => {
         </FooterParagraph>
         <div>
           <FooterHeader>jesteśmy otwarci:</FooterHeader>
-          <FooterParagraph width={165}>Pn - Pt 8:00 - 16:00</FooterParagraph>
+          <FooterParagraph width={170}>Pn - Pt 8:00 - 16:00</FooterParagraph>
         </div>
       </div>
 

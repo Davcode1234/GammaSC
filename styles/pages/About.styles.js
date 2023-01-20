@@ -98,3 +98,19 @@ export const CarouselStyledImg = styled(Image)`
   object-fit: contain;
   pointer-events: none;
 `;
+
+// Modal test
+
+export const TitleName = styled.h2`
+  font-size: ${({ theme }) => theme.font.size.headingSmall};
+  color: ${({ theme }) => theme.color.gammaOrange};
+`;
+export const PositionPar = styled.p`
+  font-size: ${({ theme }) => theme.font.size.ContactCardPar};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
+  margin-bottom: 20px;
+`;
+
+export const AboutText = styled.p`
+  max-width: 400px;
+`;

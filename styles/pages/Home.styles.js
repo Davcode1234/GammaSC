@@ -116,7 +116,7 @@ export const InfoTextWrapper = styled.div`
   width: 100%;
   max-width: 1000px;
   margin: 110px auto;
-  transform: translateX(-5rem);
+  transform: translateX(-6rem);
 
   ${({ theme }) => theme.mq.tablet} {
     transform: translateX(0);
@@ -297,7 +297,7 @@ export const CountriesTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  transform: translate(46%, -25%);
+  transform: translate(66%, -25%);
   z-index: 2;
   ${({ theme }) => theme.mq.desktop} {
     transform: translate(0, 0);

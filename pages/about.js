@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import AboutWorkerCard from "../components/AboutWorkerCard/AboutWorkerCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 import {
@@ -11,9 +11,14 @@ import {
   CarouselImageWrapper,
   CarouselStyledImg,
   TeamContainer,
+  TitleName,
+  PositionPar,
+  AboutText,
 } from "../styles/pages/About.styles";
 import { AnimatePresence } from "framer-motion";
 import VerticalScroll from "../components/VerticalScroll/VerticalScroll";
+import ModalComp from "../components/Modal/Modal";
+import Image from "next/image";
 
 const ImagesURLS = [
   {
@@ -157,22 +162,23 @@ const cardsVariants = {
   },
 };
 
+const aboutSubHeaderData = {
+  headerSmall: "o nas",
+  headerBig: (
+    <Fragment>
+      Kreatywni, <span>nieszablonowi</span> <br />i otwarci na nowe wyzwania.
+    </Fragment>
+  ),
+  text: "Lorem ipsum dolor sit amet consectetur. Ipsum arcu congue volutpat risus in congue nunc nunc tortor. At dui sed ultricies adipiscing. Placerat duis egestas diam pellentesque sit cras dolor a.",
+};
+
 export default function About() {
-  const aboutSubHeaderData = {
-    headerSmall: "o nas",
-    headerBig: (
-      <Fragment>
-        Kreatywni, <span>nieszablonowi</span> <br />i otwarci na nowe wyzwania.
-      </Fragment>
-    ),
-    text: "Lorem ipsum dolor sit amet consectetur. Ipsum arcu congue volutpat risus in congue nunc nunc tortor. At dui sed ultricies adipiscing. Placerat duis egestas diam pellentesque sit cras dolor a.",
-  };
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <>
       <Head>
         <title>Gamma | O nas</title>
-
         <meta
           name="keywords"
           content="Gamma Gafik designer web developer specjalista sprzedaż team o nas doświadczenie"
@@ -183,6 +189,28 @@ export default function About() {
         headerSmall={aboutSubHeaderData.headerSmall}
         text={aboutSubHeaderData.text}
       ></SubpagesHeader>
+
+      <button onClick={() => setShowModal(true)}> Open</button>
+      <ModalComp isModalOpen={showModal} onClose={() => setShowModal(false)}>
+        <Image
+          src={"/AboutPage/Gamma-pan-rysiu.webp"}
+          width={280}
+          height={300}
+          alt="test"
+        ></Image>
+        <div>
+          <TitleName>Jaromir</TitleName>
+          <PositionPar>CEO</PositionPar>
+          <AboutText>
+            To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.{" "}
+            <br />
+            <br />
+            Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star
+            Wars. Niekończący się optymista, który pała miłością do szarlotek.
+          </AboutText>
+        </div>
+      </ModalComp>
+
       <ContentSec>
         <Header>Nasz team</Header>
         <AboutParagraph>
