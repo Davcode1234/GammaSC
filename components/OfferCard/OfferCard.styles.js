@@ -79,7 +79,6 @@ export const CardBtn = styled.button`
 
   ${({ theme }) => theme.mq.phone} {
     opacity: 1;
-
     font-size: ${({ theme }) => theme.font.size.paragraphSmall};
   }
 `;

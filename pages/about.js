@@ -19,103 +19,104 @@ import { AnimatePresence } from "framer-motion";
 import VerticalScroll from "../components/VerticalScroll/VerticalScroll";
 import ModalComp from "../components/Modal/Modal";
 import Image from "next/image";
+import AboutWorkerModalContent from "../components/AboutWorkerModalContent/AboutWorkerModalContent";
 
 const ImagesURLS = [
   {
     img: "/AboutPage/Gamma_Jaromir.webp",
     name: "Jaromir",
     position: "CEO",
-    id: 1,
+    id: 0,
   },
   {
     img: "/AboutPage/Gamma_Ela.png",
     name: "Elżbieta",
     position: "Creative director",
-    id: 2,
+    id: 1,
   },
   {
     img: "/AboutPage/Gamma_Aleksander.webp",
     name: "Aleksander",
     position: "Vice",
-    id: 3,
+    id: 2,
   },
   {
     img: "/AboutPage/Gamma_Anna.webp",
     name: "Anna",
     position: "Sales Specialist",
-    id: 4,
+    id: 3,
   },
   {
     img: "/AboutPage/Gamma_Beata.webp",
     name: "Beata",
     position: "Senior Graphic Designer",
-    id: 5,
+    id: 4,
   },
   {
     img: "/AboutPage/Gamma_Damian.webp",
     name: "Damian",
     position: "Web Developer",
-    id: 6,
+    id: 5,
   },
   {
     img: "/AboutPage/Gamma_Edyta.webp",
     name: "Edyta",
     position: "Senior Graphic Designer",
-    id: 7,
+    id: 6,
   },
   {
     img: "/AboutPage/Gamma_Gabriela.webp",
     name: "Gabriela",
     position: "Graphic Designer / Ilustrator",
-    id: 8,
+    id: 7,
   },
   {
     img: "/AboutPage/Gamma_Jerzy.webp",
     name: "Jurek",
     position: "Customer Service",
-    id: 9,
+    id: 8,
   },
   {
     img: "/AboutPage/Gamma_Joanna.webp",
     name: "Joanna",
     position: "Sales Specialist",
-    id: 10,
+    id: 9,
   },
   {
     img: "/AboutPage/Gamma_Kamil.webp",
     name: "Kamil",
     position: "Junior Graphic Designer",
-    id: 11,
+    id: 10,
   },
   {
     img: "/AboutPage/Gamma_Marta.webp",
     name: "Marta",
     position: "Senior Graphic Designer",
-    id: 12,
+    id: 11,
   },
   {
     img: "/AboutPage/Gamma_Panrysiu.webp",
     name: "Pan Rysiu",
     position: "Head of engineer",
-    id: 13,
+    id: 12,
   },
   {
     img: "/AboutPage/Gamma_Sebastian.webp",
     name: "Sebastian",
     position: "Senior Graphic Designer",
-    id: 14,
+    id: 13,
   },
   {
     img: "/AboutPage/Gamma_Weronika.webp",
     name: "Weronika",
     position: "Graphic Designer",
-    id: 15,
+    id: 14,
   },
   {
     img: "/AboutPage/Gamma_Aleksandra.png",
     name: "Aleksandra",
     position: "Sales Specialist",
-    id: 16,
+    id: 15,
   },
 ];
 
@@ -174,6 +175,17 @@ const aboutSubHeaderData = {
 
 export default function About() {
   const [showModal, setShowModal] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const increaseIndex = () => {
+    setIndex((id) =>
+      index < ImagesURLS.length - 1 ? id + 1 : ImagesURLS.length - 1
+    );
+  };
+
+  const decreaseIndex = () => {
+    setIndex((id) => (index === 0 ? id : id - 1));
+  };
 
   return (
     <>
@@ -190,25 +202,20 @@ export default function About() {
         text={aboutSubHeaderData.text}
       ></SubpagesHeader>
 
-      <button onClick={() => setShowModal(true)}> Open</button>
-      <ModalComp isModalOpen={showModal} onClose={() => setShowModal(false)}>
-        <Image
-          src={"/AboutPage/Gamma_Jaromir.webp"}
-          width={400}
-          height={429}
-          alt="test"
-        ></Image>
-        <div>
-          <TitleName>Jaromir</TitleName>
-          <PositionPar>CEO</PositionPar>
-          <AboutText>
-            To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.{" "}
-            <br />
-            <br />
-            Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star
-            Wars. Niekończący się optymista, który pała miłością do szarlotek.
-          </AboutText>
-        </div>
+      <ModalComp
+        isModalOpen={showModal}
+        onClose={() => setShowModal(false)}
+        nextContent={() => increaseIndex()}
+        prevContent={() => decreaseIndex()}
+      >
+        <AboutWorkerModalContent
+          name={ImagesURLS[index].name}
+          position={ImagesURLS[index].position}
+          text={
+            "To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami."
+          }
+          img={ImagesURLS[index].img}
+        ></AboutWorkerModalContent>
       </ModalComp>
 
       <ContentSec>
@@ -232,6 +239,11 @@ export default function About() {
                   name={name}
                   position={position}
                   key={id}
+                  click={() => {
+                    // setTag(name);
+                    setIndex(id);
+                    setShowModal(true);
+                  }}
                 ></AboutWorkerCard>
               );
             })}

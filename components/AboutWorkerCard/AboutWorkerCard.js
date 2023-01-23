@@ -1,6 +1,9 @@
 import {
+  CardOverlay,
   CardWrapper,
   HeroImg,
+  HoverLine,
+  HoverText,
   NameHeader,
   PositionParagraph,
 } from "./AboutWorkerCard.styles";
@@ -16,10 +19,19 @@ const itemVariants = {
   },
 };
 
-const AboutWorkerCard = ({ img, name, position }) => {
+const AboutWorkerCard = ({ img, name, position, click }) => {
   return (
     <AnimatePresence>
-      <CardWrapper variants={itemVariants} initial="closed" animate="open">
+      <CardWrapper
+        variants={itemVariants}
+        initial="closed"
+        animate="open"
+        onClick={click}
+      >
+        <CardOverlay>
+          <HoverText>Learn more!</HoverText>
+          <HoverLine></HoverLine>
+        </CardOverlay>
         <HeroImg
           src={img}
           width={280}
@@ -40,4 +52,5 @@ AboutWorkerCard.propTypes = {
   img: PropTypes.string,
   name: PropTypes.string,
   position: PropTypes.string,
+  click: PropTypes.func,
 };

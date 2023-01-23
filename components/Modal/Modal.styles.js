@@ -1,5 +1,22 @@
-import Image from "next/image";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { Icon } from "@iconify/react";
+
+const openModal = keyframes`
+0%{
+  transform: scale(0);
+  opacity: 0;
+}
+
+80% {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+100% {
+  transform: scale(1);
+  opacity: 1;
+}
+`;
 
 export const StyledModal = styled.div`
   position: relative;
@@ -14,6 +31,9 @@ export const StyledModal = styled.div`
   align-items: center;
   background-color: white;
   border-radius: 5px;
+  transform: scale(0);
+  animation: ${openModal} 0.5s ease forwards;
+  overflow: hidden;
 `;
 
 export const StyledOverlay = styled.div`
@@ -56,5 +76,28 @@ export const CloseBtn = styled.div`
     border-radius: 5px;
     background-color: black;
     transform: rotate(90deg);
+  }
+`;
+
+export const StyledIcon = styled(Icon)`
+  position: absolute;
+  cursor: pointer;
+  bottom: 5%;
+  left: 45%;
+  color: ${({ theme }) => theme.color.graphite};
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateX(-5px);
+  }
+`;
+
+export const SecondStyledIcon = styled(StyledIcon)`
+  left: 50%;
+  color: ${({ theme }) => theme.color.gammaOrange};
+  transform: rotate(180deg);
+
+  &:hover {
+    transform: translateX(5px) rotate(180deg);
   }
 `;
