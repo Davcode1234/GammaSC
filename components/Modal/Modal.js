@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { StyledModal, StyledOverlay } from "./Modal.styles";
+import {
+  CloseBtn,
+  CloseBtnWrapper,
+  StyledCloseBtn,
+  StyledModal,
+  StyledOverlay,
+} from "./Modal.styles";
 import PropTypes from "prop-types";
 
 const ModalComp = ({ isModalOpen, onClose, children }) => {
@@ -28,7 +34,9 @@ const ModalComp = ({ isModalOpen, onClose, children }) => {
             <StyledOverlay {...props}>{contentElement}</StyledOverlay>
           )}
         >
-          {/* <h1>Modal content</h1> */}
+          <CloseBtnWrapper onClick={onClose}>
+            <CloseBtn></CloseBtn>
+          </CloseBtnWrapper>
           {children}
         </Modal>
       )}

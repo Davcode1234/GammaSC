@@ -103,6 +103,7 @@ export const CarouselStyledImg = styled(Image)`
 
 export const TitleName = styled.h2`
   font-size: ${({ theme }) => theme.font.size.headingSmall};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.gammaOrange};
 `;
 export const PositionPar = styled.p`
@@ -112,5 +113,5 @@ export const PositionPar = styled.p`
 `;
 
 export const AboutText = styled.p`
-  max-width: 400px;
+  max-width: 350px;
 `;

@@ -1,6 +1,8 @@
+import Image from "next/image";
 import styled from "styled-components";
 
 export const StyledModal = styled.div`
+  position: relative;
   min-height: 500px;
   width: 70%;
   max-width: 900px;
@@ -25,4 +27,34 @@ export const StyledOverlay = styled.div`
   bottom: 0;
   z-index: 3500;
   background: #212b3277;
+`;
+
+export const CloseBtnWrapper = styled.button`
+  position: absolute;
+  height: 40px;
+  top: 35px;
+  right: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;
+
+export const CloseBtn = styled.div`
+  position: relative;
+  width: 40px;
+  height: 4px;
+  border-radius: 5px;
+  background-color: black;
+  transform: rotate(45deg);
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    left: 0;
+    border-radius: 5px;
+    background-color: black;
+    transform: rotate(90deg);
+  }
 `;

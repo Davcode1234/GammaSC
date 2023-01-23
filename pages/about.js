@@ -22,13 +22,13 @@ import Image from "next/image";
 
 const ImagesURLS = [
   {
-    img: "/AboutPage/Gamma-jaromir.webp",
+    img: "/AboutPage/Gamma_Jaromir.webp",
     name: "Jaromir",
     position: "CEO",
     id: 1,
   },
   {
-    img: "/AboutPage/Gamma-ela.png",
+    img: "/AboutPage/Gamma_Ela.png",
     name: "Elżbieta",
     position: "Creative director",
     id: 2,
@@ -64,55 +64,55 @@ const ImagesURLS = [
     id: 7,
   },
   {
-    img: "/AboutPage/Gamma-gabriela.webp",
+    img: "/AboutPage/Gamma_Gabriela.webp",
     name: "Gabriela",
     position: "Graphic Designer / Ilustrator",
     id: 8,
   },
   {
-    img: "/AboutPage/Gamma-jerzy.webp",
+    img: "/AboutPage/Gamma_Jerzy.webp",
     name: "Jurek",
     position: "Customer Service",
     id: 9,
   },
   {
-    img: "/AboutPage/Gamma-joanna.webp",
+    img: "/AboutPage/Gamma_Joanna.webp",
     name: "Joanna",
     position: "Sales Specialist",
     id: 10,
   },
   {
-    img: "/AboutPage/Gamma-kamil.webp",
+    img: "/AboutPage/Gamma_Kamil.webp",
     name: "Kamil",
     position: "Junior Graphic Designer",
     id: 11,
   },
   {
-    img: "/AboutPage/Gamma-marta.webp",
+    img: "/AboutPage/Gamma_Marta.webp",
     name: "Marta",
     position: "Senior Graphic Designer",
     id: 12,
   },
   {
-    img: "/AboutPage/Gamma-pan-rysiu.webp",
+    img: "/AboutPage/Gamma_Panrysiu.webp",
     name: "Pan Rysiu",
     position: "Head of engineer",
     id: 13,
   },
   {
-    img: "/AboutPage/Gamma-sebastian.webp",
+    img: "/AboutPage/Gamma_Sebastian.webp",
     name: "Sebastian",
     position: "Senior Graphic Designer",
     id: 14,
   },
   {
-    img: "/AboutPage/Gamma-weronika.webp",
+    img: "/AboutPage/Gamma_Weronika.webp",
     name: "Weronika",
     position: "Graphic Designer",
     id: 15,
   },
   {
-    img: "/AboutPage/Gamma-aleksandra.png",
+    img: "/AboutPage/Gamma_Aleksandra.png",
     name: "Aleksandra",
     position: "Sales Specialist",
     id: 16,
@@ -193,9 +193,9 @@ export default function About() {
       <button onClick={() => setShowModal(true)}> Open</button>
       <ModalComp isModalOpen={showModal} onClose={() => setShowModal(false)}>
         <Image
-          src={"/AboutPage/Gamma-pan-rysiu.webp"}
-          width={280}
-          height={300}
+          src={"/AboutPage/Gamma_Jaromir.webp"}
+          width={400}
+          height={429}
           alt="test"
         ></Image>
         <div>
