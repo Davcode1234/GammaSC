@@ -43,16 +43,15 @@ export const StyledModal = styled.div`
   align-items: center;
   background-color: white;
   border-radius: 5px;
-  transform: scale(0);
+  transform: scale(0) translateX(0);
 
   transition: all 0.3s ease;
   animation: ${openModal} 0.5s ease-in-out forwards;
+
   overflow: hidden;
   ${({ exitAnim }) => {
     if (exitAnim) {
       return css`
-        /* opacity: 0;
-        transform: scale(0); */
         animation: ${closeModal} 0.5s ease-in-out forwards;
       `;
     }
@@ -111,11 +110,23 @@ export const CloseBtn = styled.div`
   }
 `;
 
-export const StyledIcon = styled(Icon)`
+export const ArrowBtnWrapper = styled.button`
   position: absolute;
   cursor: pointer;
   bottom: 5%;
   left: 45%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  pointer-events: ${({ disabled }) => (disabled ? "none" : "null")};
+`;
+
+export const LeftArrowBtnWrapper = styled(ArrowBtnWrapper)`
+  left: 50%;
+  pointer-events: ${({ disabled }) => (disabled ? "none" : "null")};
+`;
+
+export const StyledIcon = styled(Icon)`
   color: ${({ theme }) => theme.color.graphite};
   transition: all 0.3s ease;
 

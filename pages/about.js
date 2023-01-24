@@ -176,21 +176,34 @@ const aboutSubHeaderData = {
 export default function About() {
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(0);
+  const [animateSwipe, setAnimateSwipe] = useState("");
   const [exitAnim, setExitAnim] = useState(false);
+  const [disabledBtn, setDisabledBtn] = useState(false);
 
   const increaseIndex = () => {
-    setIndex((id) =>
-      index < ImagesURLS.length - 1 ? id + 1 : ImagesURLS.length - 1
-    );
+    setAnimateSwipe("left");
+    setDisabledBtn(true);
+    setTimeout(() => {
+      setDisabledBtn(false);
+      setIndex((id) =>
+        index < ImagesURLS.length - 1 ? id + 1 : ImagesURLS.length - 1
+      );
+      setAnimateSwipe("");
+    }, 500);
   };
 
   const decreaseIndex = () => {
-    setIndex((id) => (index === 0 ? id : id - 1));
+    setAnimateSwipe("right");
+    setDisabledBtn(true);
+    setTimeout(() => {
+      setDisabledBtn(false);
+      setIndex((id) => (index === 0 ? id : id - 1));
+      setAnimateSwipe("");
+    }, 500);
   };
 
   const onRequestClose = () => {
     setExitAnim(true);
-
     setTimeout(() => {
       setShowModal(false);
       setExitAnim(false);
@@ -216,9 +229,20 @@ export default function About() {
         isModalOpen={showModal}
         onClose={onRequestClose}
         exitAnim={exitAnim}
+        disabled={disabledBtn}
         nextContent={() => increaseIndex()}
         prevContent={() => decreaseIndex()}
       >
+        <AboutWorkerModalContent
+          name={ImagesURLS[index > 0 ? index - 1 : index].name}
+          position={ImagesURLS[index > 0 ? index - 1 : index].position}
+          text={
+            "To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami."
+          }
+          img={ImagesURLS[index > 0 ? index - 1 : index].img}
+          dir={animateSwipe}
+        ></AboutWorkerModalContent>
+
         <AboutWorkerModalContent
           name={ImagesURLS[index].name}
           position={ImagesURLS[index].position}
@@ -226,6 +250,17 @@ export default function About() {
             "To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami."
           }
           img={ImagesURLS[index].img}
+          dir={animateSwipe}
+        ></AboutWorkerModalContent>
+
+        <AboutWorkerModalContent
+          name={ImagesURLS[index + 1].name}
+          position={ImagesURLS[index + 1].position}
+          text={
+            "To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami."
+          }
+          img={ImagesURLS[index + 1].img}
+          dir={animateSwipe}
         ></AboutWorkerModalContent>
       </ModalComp>
 

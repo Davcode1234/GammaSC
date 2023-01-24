@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import {
+  ArrowBtnWrapper,
   CloseBtn,
   CloseBtnWrapper,
+  LeftArrowBtnWrapper,
   SecondStyledIcon,
-  StyledCloseBtn,
   StyledIcon,
   StyledModal,
   StyledOverlay,
@@ -18,6 +19,8 @@ const ModalComp = ({
   nextContent,
   prevContent,
   exitAnim,
+  leftDisabled,
+  rightDisabled,
 }) => {
   const [isClient, setIsClient] = useState(false);
 
@@ -53,18 +56,21 @@ const ModalComp = ({
 
           {children}
 
-          <StyledIcon
-            icon="material-symbols:arrow-back"
-            width="40"
-            height="40"
-            onClick={prevContent}
-          />
-          <SecondStyledIcon
-            icon="material-symbols:arrow-back"
-            width="40"
-            height="40"
-            onClick={nextContent}
-          />
+          <ArrowBtnWrapper onClick={prevContent} disabled={leftDisabled}>
+            <StyledIcon
+              icon="material-symbols:arrow-back"
+              width="40"
+              height="40"
+            />
+          </ArrowBtnWrapper>
+
+          <LeftArrowBtnWrapper onClick={nextContent} disabled={rightDisabled}>
+            <SecondStyledIcon
+              icon="material-symbols:arrow-back"
+              width="40"
+              height="40"
+            />
+          </LeftArrowBtnWrapper>
         </Modal>
       )}
     </>
@@ -80,4 +86,6 @@ ModalComp.propTypes = {
   nextContent: PropTypes.func,
   prevContent: PropTypes.func,
   exitAnim: PropTypes.bool,
+  leftDisabled: PropTypes.bool,
+  rightDisabled: PropTypes.bool,
 };
