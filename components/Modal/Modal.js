@@ -17,6 +17,7 @@ const ModalComp = ({
   children,
   nextContent,
   prevContent,
+  exitAnim,
 }) => {
   const [isClient, setIsClient] = useState(false);
 
@@ -36,15 +37,20 @@ const ModalComp = ({
           className="_"
           overlayClassName="_"
           contentElement={(props, children) => (
-            <StyledModal {...props}>{children}</StyledModal>
+            <StyledModal exitAnim={exitAnim} {...props}>
+              {children}
+            </StyledModal>
           )}
           overlayElement={(props, contentElement) => (
-            <StyledOverlay {...props}>{contentElement}</StyledOverlay>
+            <StyledOverlay exitAnim={exitAnim} {...props}>
+              {contentElement}
+            </StyledOverlay>
           )}
         >
           <CloseBtnWrapper onClick={onClose}>
             <CloseBtn></CloseBtn>
           </CloseBtnWrapper>
+
           {children}
 
           <StyledIcon
@@ -73,4 +79,5 @@ ModalComp.propTypes = {
   onClose: PropTypes.func,
   nextContent: PropTypes.func,
   prevContent: PropTypes.func,
+  exitAnim: PropTypes.bool,
 };

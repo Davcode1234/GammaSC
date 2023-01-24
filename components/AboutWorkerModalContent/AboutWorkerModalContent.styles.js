@@ -1,12 +1,24 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 
+const swipe = keyframes`
+0% {
+  transform: translateX(0);
+}
+
+100% {
+  transform: translateX(-100%);
+}
+
+`;
+
 export const ContentWrapper = styled(motion.div)`
-  width: 100%;
+  /* width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  animation: ${swipe} 1s 0.2s ease;
 `;
 
 export const TitleName = styled.h2`

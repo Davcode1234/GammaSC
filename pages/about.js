@@ -176,6 +176,7 @@ const aboutSubHeaderData = {
 export default function About() {
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(0);
+  const [exitAnim, setExitAnim] = useState(false);
 
   const increaseIndex = () => {
     setIndex((id) =>
@@ -185,6 +186,15 @@ export default function About() {
 
   const decreaseIndex = () => {
     setIndex((id) => (index === 0 ? id : id - 1));
+  };
+
+  const onRequestClose = () => {
+    setExitAnim(true);
+
+    setTimeout(() => {
+      setShowModal(false);
+      setExitAnim(false);
+    }, 500);
   };
 
   return (
@@ -204,7 +214,8 @@ export default function About() {
 
       <ModalComp
         isModalOpen={showModal}
-        onClose={() => setShowModal(false)}
+        onClose={onRequestClose}
+        exitAnim={exitAnim}
         nextContent={() => increaseIndex()}
         prevContent={() => decreaseIndex()}
       >

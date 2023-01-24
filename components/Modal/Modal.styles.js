@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Icon } from "@iconify/react";
 
 const openModal = keyframes`
@@ -18,6 +18,18 @@ const openModal = keyframes`
 }
 `;
 
+const closeModal = keyframes`
+0%{
+  transform: scale(1);
+  opacity: 1;
+}
+
+100% {
+  transform: scale(0);
+  opacity: 0;
+}
+`;
+
 export const StyledModal = styled.div`
   position: relative;
   min-height: 500px;
@@ -32,8 +44,19 @@ export const StyledModal = styled.div`
   background-color: white;
   border-radius: 5px;
   transform: scale(0);
-  animation: ${openModal} 0.5s ease forwards;
+
+  transition: all 0.3s ease;
+  animation: ${openModal} 0.5s ease-in-out forwards;
   overflow: hidden;
+  ${({ exitAnim }) => {
+    if (exitAnim) {
+      return css`
+        /* opacity: 0;
+        transform: scale(0); */
+        animation: ${closeModal} 0.5s ease-in-out forwards;
+      `;
+    }
+  }}
 `;
 
 export const StyledOverlay = styled.div`
@@ -47,6 +70,15 @@ export const StyledOverlay = styled.div`
   bottom: 0;
   z-index: 3500;
   background: #212b3277;
+  transition: all 0.3s ease;
+
+  ${({ exitAnim }) => {
+    if (exitAnim) {
+      return css`
+        opacity: 0;
+      `;
+    }
+  }}
 `;
 
 export const CloseBtnWrapper = styled.button`
