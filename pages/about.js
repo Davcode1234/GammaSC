@@ -178,13 +178,19 @@ export default function About() {
   const [index, setIndex] = useState(0);
   const [animateSwipe, setAnimateSwipe] = useState("");
   const [exitAnim, setExitAnim] = useState(false);
-  const [disabledBtn, setDisabledBtn] = useState(false);
+  const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
+  const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
 
   const increaseIndex = () => {
     setAnimateSwipe("left");
-    setDisabledBtn(true);
+    setRightDisabledBtn(true);
+    if (leftDisabledBtn) {
+      setLeftDisabledBtn(false);
+    }
     setTimeout(() => {
-      setDisabledBtn(false);
+      if (index < 14) {
+        setRightDisabledBtn(false);
+      }
       setIndex((id) =>
         index < ImagesURLS.length - 1 ? id + 1 : ImagesURLS.length - 1
       );
@@ -194,9 +200,15 @@ export default function About() {
 
   const decreaseIndex = () => {
     setAnimateSwipe("right");
-    setDisabledBtn(true);
+    setLeftDisabledBtn(true);
+    if (rightDisabledBtn) {
+      setRightDisabledBtn(false);
+    }
+
     setTimeout(() => {
-      setDisabledBtn(false);
+      if (index > 1) {
+        setLeftDisabledBtn(false);
+      }
       setIndex((id) => (index === 0 ? id : id - 1));
       setAnimateSwipe("");
     }, 500);
@@ -229,7 +241,8 @@ export default function About() {
         isModalOpen={showModal}
         onClose={onRequestClose}
         exitAnim={exitAnim}
-        disabled={disabledBtn}
+        leftDisabled={leftDisabledBtn}
+        rightDisabled={rightDisabledBtn}
         nextContent={() => increaseIndex()}
         prevContent={() => decreaseIndex()}
       >
@@ -254,12 +267,12 @@ export default function About() {
         ></AboutWorkerModalContent>
 
         <AboutWorkerModalContent
-          name={ImagesURLS[index + 1].name}
-          position={ImagesURLS[index + 1].position}
+          name={ImagesURLS[index < 15 ? index + 1 : index].name}
+          position={ImagesURLS[index < 15 ? index + 1 : index].position}
           text={
             "To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami."
           }
-          img={ImagesURLS[index + 1].img}
+          img={ImagesURLS[index < 15 ? index + 1 : index].img}
           dir={animateSwipe}
         ></AboutWorkerModalContent>
       </ModalComp>
