@@ -24,8 +24,11 @@ const swipeRight = keyframes`
 export const StyledImage = styled(Image)``;
 
 export const Wrap = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
+  gap: 40px;
+
   ${({ dir }) => {
     switch (dir) {
       case "right":
@@ -47,6 +50,7 @@ export const TitleName = styled.h2`
   font-size: ${({ theme }) => theme.font.size.headingSmall};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.gammaOrange};
+  margin-bottom: 10px;
 `;
 export const PositionPar = styled.p`
   font-size: ${({ theme }) => theme.font.size.ContactCardPar};
@@ -55,7 +59,7 @@ export const PositionPar = styled.p`
 `;
 
 export const TextWrapper = styled.div`
-  min-width: 360px;
+  min-width: 350px;
 `;
 
 export const AboutText = styled.p``;

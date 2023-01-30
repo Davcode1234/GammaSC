@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import AboutWorkerCard from "../components/AboutWorkerCard/AboutWorkerCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 import {
@@ -11,14 +11,11 @@ import {
   CarouselImageWrapper,
   CarouselStyledImg,
   TeamContainer,
-  TitleName,
-  PositionPar,
-  AboutText,
 } from "../styles/pages/About.styles";
 import { AnimatePresence } from "framer-motion";
 import VerticalScroll from "../components/VerticalScroll/VerticalScroll";
 import ModalComp from "../components/Modal/Modal";
-import Image from "next/image";
+
 import AboutWorkerModalContent from "../components/AboutWorkerModalContent/AboutWorkerModalContent";
 
 const ImagesURLS = [
@@ -26,96 +23,240 @@ const ImagesURLS = [
     img: "/AboutPage/Gamma_Jaromir.webp",
     name: "Jaromir",
     position: "CEO",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 0,
   },
   {
     img: "/AboutPage/Gamma_Ela.png",
     name: "Elżbieta",
     position: "Creative director",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 1,
   },
   {
     img: "/AboutPage/Gamma_Aleksander.webp",
     name: "Aleksander",
     position: "Vice",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 2,
   },
   {
     img: "/AboutPage/Gamma_Anna.webp",
     name: "Anna",
     position: "Sales Specialist",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 3,
   },
   {
     img: "/AboutPage/Gamma_Beata.webp",
     name: "Beata",
     position: "Senior Graphic Designer",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 4,
   },
   {
     img: "/AboutPage/Gamma_Damian.webp",
     name: "Damian",
     position: "Web Developer",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 5,
   },
   {
     img: "/AboutPage/Gamma_Edyta.webp",
     name: "Edyta",
     position: "Senior Graphic Designer",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 6,
   },
   {
     img: "/AboutPage/Gamma_Gabriela.webp",
     name: "Gabriela",
     position: "Graphic Designer / Ilustrator",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 7,
   },
   {
     img: "/AboutPage/Gamma_Jerzy.webp",
     name: "Jurek",
     position: "Customer Service",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 8,
   },
   {
     img: "/AboutPage/Gamma_Joanna.webp",
     name: "Joanna",
     position: "Sales Specialist",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 9,
   },
   {
     img: "/AboutPage/Gamma_Kamil.webp",
     name: "Kamil",
     position: "Junior Graphic Designer",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 10,
   },
   {
     img: "/AboutPage/Gamma_Marta.webp",
     name: "Marta",
     position: "Senior Graphic Designer",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 11,
   },
   {
     img: "/AboutPage/Gamma_Panrysiu.webp",
     name: "Pan Rysiu",
     position: "Head of engineer",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 12,
   },
   {
     img: "/AboutPage/Gamma_Sebastian.webp",
     name: "Sebastian",
     position: "Senior Graphic Designer",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 13,
   },
   {
     img: "/AboutPage/Gamma_Weronika.webp",
     name: "Weronika",
     position: "Graphic Designer",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 14,
   },
   {
     img: "/AboutPage/Gamma_Aleksandra.png",
     name: "Aleksandra",
     position: "Sales Specialist",
+    text: (
+      <Fragment>
+        To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami.
+        <br />
+        <br />
+        Miłośnik jazdy na rowerze, pływania, podróżowania i uniwersum Star Wars.
+        Niekończący się optymista, który pała miłością do szarlotek.
+      </Fragment>
+    ),
     id: 15,
   },
 ];
@@ -222,6 +363,15 @@ export default function About() {
     }, 500);
   };
 
+  const openModal = () => {
+    setShowModal(true);
+
+    if (index === 0) {
+      console.log("siem");
+      setLeftDisabledBtn(true);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -249,9 +399,7 @@ export default function About() {
         <AboutWorkerModalContent
           name={ImagesURLS[index > 0 ? index - 1 : index].name}
           position={ImagesURLS[index > 0 ? index - 1 : index].position}
-          text={
-            "To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami."
-          }
+          text={ImagesURLS[index > 0 ? index - 1 : index].text}
           img={ImagesURLS[index > 0 ? index - 1 : index].img}
           dir={animateSwipe}
         ></AboutWorkerModalContent>
@@ -259,9 +407,7 @@ export default function About() {
         <AboutWorkerModalContent
           name={ImagesURLS[index].name}
           position={ImagesURLS[index].position}
-          text={
-            "To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami."
-          }
+          text={ImagesURLS[index].text}
           img={ImagesURLS[index].img}
           dir={animateSwipe}
         ></AboutWorkerModalContent>
@@ -269,9 +415,7 @@ export default function About() {
         <AboutWorkerModalContent
           name={ImagesURLS[index < 15 ? index + 1 : index].name}
           position={ImagesURLS[index < 15 ? index + 1 : index].position}
-          text={
-            "To on panuje nad nowym porządkiem w Gammie i nad naszymi wypłatami."
-          }
+          text={ImagesURLS[index < 15 ? index + 1 : index].text}
           img={ImagesURLS[index < 15 ? index + 1 : index].img}
           dir={animateSwipe}
         ></AboutWorkerModalContent>
@@ -299,9 +443,8 @@ export default function About() {
                   position={position}
                   key={id}
                   click={() => {
-                    // setTag(name);
                     setIndex(id);
-                    setShowModal(true);
+                    openModal();
                   }}
                 ></AboutWorkerCard>
               );
