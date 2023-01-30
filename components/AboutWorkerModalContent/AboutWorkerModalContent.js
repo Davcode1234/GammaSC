@@ -37,6 +37,6 @@ AboutWorkerModalContent.propTypes = {
   img: PropTypes.string,
   name: PropTypes.string,
   position: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.object,
   dir: PropTypes.string,
 };

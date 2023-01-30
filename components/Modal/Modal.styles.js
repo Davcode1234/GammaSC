@@ -6,12 +6,10 @@ const openModal = keyframes`
   transform: scale(0);
   opacity: 0;
 }
-
 80% {
   transform: scale(1.1);
   opacity: 1;
 }
-
 100% {
   transform: scale(1);
   opacity: 1;
@@ -23,7 +21,6 @@ const closeModal = keyframes`
   transform: scale(1);
   opacity: 1;
 }
-
 100% {
   transform: scale(0);
   opacity: 0;
@@ -44,10 +41,8 @@ export const StyledModal = styled.div`
   background-color: white;
   border-radius: 5px;
   transform: scale(0) translateX(0);
-
   transition: all 0.3s ease;
   animation: ${openModal} 0.5s ease-in-out forwards;
-
   overflow: hidden;
   ${({ exitAnim }) => {
     if (exitAnim) {
@@ -70,7 +65,6 @@ export const StyledOverlay = styled.div`
   z-index: 3500;
   background: #212b3277;
   transition: all 0.3s ease;
-
   ${({ exitAnim }) => {
     if (exitAnim) {
       return css`
@@ -97,7 +91,6 @@ export const CloseBtn = styled.div`
   border-radius: 5px;
   background-color: black;
   transform: rotate(45deg);
-
   &::after {
     content: "";
     position: absolute;
@@ -129,7 +122,6 @@ export const LeftArrowBtnWrapper = styled(ArrowBtnWrapper)`
 export const StyledIcon = styled(Icon)`
   color: ${({ theme }) => theme.color.graphite};
   transition: all 0.3s ease;
-
   &:hover {
     transform: translateX(-5px);
   }
@@ -139,7 +131,6 @@ export const SecondStyledIcon = styled(StyledIcon)`
   left: 50%;
   color: ${({ theme }) => theme.color.gammaOrange};
   transform: rotate(180deg);
-
   &:hover {
     transform: translateX(5px) rotate(180deg);
   }

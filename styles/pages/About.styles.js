@@ -15,7 +15,6 @@ export const Header = styled.h2`
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.gammaOrange};
   margin-bottom: 15px;
-
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.font.size.headingMobileAC};
   }
@@ -27,7 +26,6 @@ export const AboutParagraph = styled.p`
   text-align: center;
   max-width: 660px;
   margin-bottom: 100px;
-
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.font.size.paragraphMobile};
     max-width: 350px;
@@ -51,11 +49,9 @@ export const CompanyImagesSection = styled.section`
   height: 900px;
   width: 100%;
   background-color: ${({ theme }) => theme.color.grey};
-
   ${({ theme }) => theme.mq.tablet} {
     height: 600px;
   }
-
   ${({ theme }) => theme.mq.phone} {
     height: 500px;
   }
@@ -68,12 +64,10 @@ export const CompanySecHeader = styled.h2`
   max-width: 500px;
   margin: 80px auto;
   transform: translateX(-50%);
-
   ${({ theme }) => theme.mq.tablet} {
     transform: translate(-25%);
     margin: 40px auto;
   }
-
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.font.size.headingMobileAC};
     margin: 30px 16px;
@@ -86,7 +80,6 @@ export const CarouselImageWrapper = styled(motion.div)`
   min-height: 40rem;
   min-width: 465px;
   padding: 40px;
-
   ${({ theme }) => theme.mq.phone} {
     min-width: 365px;
     min-height: 30rem;

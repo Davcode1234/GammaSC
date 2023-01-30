@@ -5,7 +5,6 @@ const swipeLeft = keyframes`
 0% {
   transform: translateX(0);
 }
-
 100% {
   transform: translateX(-105.25%);
 }
@@ -15,7 +14,6 @@ const swipeRight = keyframes`
 0% {
   transform: translateX(0);
 }
-
 100% {
   transform: translateX(105.25%);
 }
@@ -28,7 +26,6 @@ export const Wrap = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
-
   ${({ dir }) => {
     switch (dir) {
       case "right":
@@ -39,7 +36,6 @@ export const Wrap = styled.div`
         return css`
           animation: ${swipeLeft} 0.5s ease forwards;
         `;
-
       default:
         return "";
     }
