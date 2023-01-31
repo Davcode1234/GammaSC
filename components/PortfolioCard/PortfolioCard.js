@@ -11,9 +11,9 @@ import {
 } from "./PortfolioCard.styles";
 import PropTypes from "prop-types";
 
-const PortfolioCard = ({ img, alt, client, product }) => {
+const PortfolioCard = ({ img, alt, client, product, click }) => {
   return (
-    <PortfolioCardContainer>
+    <PortfolioCardContainer onClick={click}>
       <CardOverlay>
         <HoverText>
           Zobacz projekt
@@ -41,4 +41,5 @@ PortfolioCard.propTypes = {
   alt: PropTypes.string,
   client: PropTypes.string,
   product: PropTypes.string,
+  click: PropTypes.func,
 };

@@ -74,16 +74,6 @@ export const StyledOverlay = styled.div`
   }}
 `;
 
-export const CloseBtnWrapper = styled.button`
-  position: absolute;
-  height: 40px;
-  top: 35px;
-  right: 30px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-`;
-
 export const CloseBtn = styled.div`
   position: relative;
   width: 40px;
@@ -100,6 +90,22 @@ export const CloseBtn = styled.div`
     border-radius: 5px;
     background-color: black;
     transform: rotate(90deg);
+  }
+  transition: all 0.3s ease;
+`;
+export const CloseBtnWrapper = styled.button`
+  position: absolute;
+  height: 40px;
+  top: 35px;
+  right: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    ${CloseBtn} {
+      transform: scale(1.1) rotate(45deg);
+    }
   }
 `;
 

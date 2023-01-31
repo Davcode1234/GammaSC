@@ -15,10 +15,9 @@ import {
 import { AnimatePresence } from "framer-motion";
 import VerticalScroll from "../components/VerticalScroll/VerticalScroll";
 import ModalComp from "../components/Modal/Modal";
-
 import AboutWorkerModalContent from "../components/AboutWorkerModalContent/AboutWorkerModalContent";
 
-const ImagesURLS = [
+const AboutCardsData = [
   {
     img: "/AboutPage/Gamma_Jaromir.webp",
     name: "Jaromir",
@@ -310,8 +309,8 @@ const aboutSubHeaderData = {
 export default function About() {
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(0);
-  const [animateSwipe, setAnimateSwipe] = useState("");
   const [exitAnim, setExitAnim] = useState(false);
+  const [animateSwipe, setAnimateSwipe] = useState("");
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
 
@@ -326,7 +325,7 @@ export default function About() {
         setRightDisabledBtn(false);
       }
       setIndex((id) =>
-        index < ImagesURLS.length - 1 ? id + 1 : ImagesURLS.length - 1
+        index < AboutCardsData.length - 1 ? id + 1 : AboutCardsData.length - 1
       );
       setAnimateSwipe("");
     }, 500);
@@ -385,26 +384,26 @@ export default function About() {
         prevContent={() => decreaseIndex()}
       >
         <AboutWorkerModalContent
-          name={ImagesURLS[index > 0 ? index - 1 : index].name}
-          position={ImagesURLS[index > 0 ? index - 1 : index].position}
-          text={ImagesURLS[index > 0 ? index - 1 : index].text}
-          img={ImagesURLS[index > 0 ? index - 1 : index].img}
+          name={AboutCardsData[index > 0 ? index - 1 : index].name}
+          position={AboutCardsData[index > 0 ? index - 1 : index].position}
+          text={AboutCardsData[index > 0 ? index - 1 : index].text}
+          img={AboutCardsData[index > 0 ? index - 1 : index].img}
           dir={animateSwipe}
         ></AboutWorkerModalContent>
 
         <AboutWorkerModalContent
-          name={ImagesURLS[index].name}
-          position={ImagesURLS[index].position}
-          text={ImagesURLS[index].text}
-          img={ImagesURLS[index].img}
+          name={AboutCardsData[index].name}
+          position={AboutCardsData[index].position}
+          text={AboutCardsData[index].text}
+          img={AboutCardsData[index].img}
           dir={animateSwipe}
         ></AboutWorkerModalContent>
 
         <AboutWorkerModalContent
-          name={ImagesURLS[index < 15 ? index + 1 : index].name}
-          position={ImagesURLS[index < 15 ? index + 1 : index].position}
-          text={ImagesURLS[index < 15 ? index + 1 : index].text}
-          img={ImagesURLS[index < 15 ? index + 1 : index].img}
+          name={AboutCardsData[index < 15 ? index + 1 : index].name}
+          position={AboutCardsData[index < 15 ? index + 1 : index].position}
+          text={AboutCardsData[index < 15 ? index + 1 : index].text}
+          img={AboutCardsData[index < 15 ? index + 1 : index].img}
           dir={animateSwipe}
         ></AboutWorkerModalContent>
       </ModalComp>
@@ -423,7 +422,7 @@ export default function About() {
             animate="open"
             exit="closed"
           >
-            {ImagesURLS.map(({ img, name, position, id }) => {
+            {AboutCardsData.map(({ img, name, position, id }) => {
               return (
                 <AboutWorkerCard
                   img={img}
