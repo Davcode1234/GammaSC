@@ -24,9 +24,9 @@ export const HeaderSection = styled.section`
 `;
 
 export const Header = styled(motion.h2)`
-  max-width: 900px;
+  max-width: 1100px;
   font-size: ${({ theme }) => theme.font.size.heading};
-  font-weight: ${({ theme }) => theme.font.weight.thin};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.white};
   margin-bottom: 40px;
   & > span {
