@@ -2,7 +2,6 @@ import Head from "next/head";
 import React, { Fragment, useState } from "react";
 import PortfolioCard from "../components/PortfolioCard/PortfolioCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
-
 import {
   ButtonsWrapper,
   PortfolioButton,
@@ -13,6 +12,8 @@ import {
 } from "../styles/pages/Portfolio.styles";
 import ModalComp from "../components/Modal/Modal";
 import PortfolioWorkerModalContent from "../components/PortfolioWorkerModalContent/PortfolioWorkerModalContent";
+import { createClient } from "contentful";
+import PropTypes from "prop-types";
 
 const portfolioSubHeaderData = {
   headerSmall: "portfolio",
@@ -38,16 +39,9 @@ export const dummyPortData = [
   {
     img: "/PortfolioPage/goodyearJumper.png",
     alt: "Goodyear jumper",
-    client: "Goodyear1",
-    product: "Bomberka Goodyear Racing 1",
-    id: 0,
-  },
-  {
-    img: "/PortfolioPage/goodyearJumper.png",
-    alt: "Goodyear jumper",
-    client: "Goodyear2",
-    product: "Bomberka Goodyear Racing 2",
-    id: 1,
+    client: "Goodyear4",
+    product: "Bomberka Goodyear Racing 4",
+    id: 3,
   },
   {
     img: "/PortfolioPage/goodyearJumper.png",
@@ -59,19 +53,43 @@ export const dummyPortData = [
   {
     img: "/PortfolioPage/goodyearJumper.png",
     alt: "Goodyear jumper",
-    client: "Goodyear4",
-    product: "Bomberka Goodyear Racing 4",
-    id: 3,
+    client: "Goodyear2",
+    product: "Bomberka Goodyear Racing 2",
+    id: 1,
+  },
+  {
+    img: "/PortfolioPage/goodyearJumper.png",
+    alt: "Goodyear jumper",
+    client: "Goodyear1",
+    product: "Bomberka Goodyear Racing 1",
+    id: 0,
   },
 ];
 
-export default function Portfolio() {
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.NEXT_PUBLIC_SPACE_ID,
+    accessToken: process.env.NEXT_PUBLIC_ACCESS_KEY,
+  });
+
+  const res = await client.getEntries({ content_type: "digital" });
+
+  return {
+    props: {
+      cards: res.items,
+    },
+    revalidate: 1,
+  };
+}
+export default function Portfolio({ cards }) {
   const [showModal, setShowModal] = useState();
   const [index, setIndex] = useState(0);
+  const [tag, setTag] = useState("digital");
   const [exitAnim, setExitAnim] = useState(false);
   const [animateSwipe, setAnimateSwipe] = useState("");
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
+  console.log(tag);
 
   const onRequestClose = () => {
     setExitAnim(true);
@@ -151,29 +169,34 @@ export default function Portfolio() {
       <PortfolioPage>
         <ButtonsWrapper>
           {portfolioButtons.map(({ buttonName, id }) => {
-            return <PortfolioButton key={id}>{buttonName}</PortfolioButton>;
+            return (
+              <PortfolioButton key={id} onClick={() => setTag("poligrafia")}>
+                {buttonName}
+              </PortfolioButton>
+            );
           })}
         </ButtonsWrapper>
 
         <CardsWrapper>
-          {dummyPortData.map(({ img, alt, client, product, id }) => {
+          {cards.map((card, index) => {
             return (
               <PortfolioCard
-                key={id}
-                img={img}
-                alt={alt}
-                client={client}
-                product={product}
-                id={id}
+                key={card.sys.id}
+                card={card}
                 click={() => {
-                  setIndex(id);
+                  setIndex(index);
                   setShowModal(true);
                 }}
               ></PortfolioCard>
             );
+            // console.log(`${card} ${index}`);
           })}
         </CardsWrapper>
       </PortfolioPage>
     </>
   );
 }
+
+Portfolio.propTypes = {
+  cards: PropTypes.array,
+};

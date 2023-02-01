@@ -11,6 +11,7 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.15.1",
     "@iconify/react": "^4.0.1",
+    "contentful": "^9.3.0",
     "dotenv": "^16.0.3",
     "framer-motion": "^7.6.12",
     "next": "13.0.5",
