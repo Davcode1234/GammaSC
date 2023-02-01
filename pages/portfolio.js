@@ -7,8 +7,6 @@ import {
   PortfolioButton,
   PortfolioPage,
   CardsWrapper,
-  ModalContentWrapper,
-  TextWrapper,
 } from "../styles/pages/Portfolio.styles";
 import ModalComp from "../components/Modal/Modal";
 import PortfolioWorkerModalContent from "../components/PortfolioWorkerModalContent/PortfolioWorkerModalContent";
@@ -35,37 +33,6 @@ export const portfolioButtons = [
   { buttonName: "Szwalnia", id: 6 },
 ];
 
-export const dummyPortData = [
-  {
-    img: "/PortfolioPage/goodyearJumper.png",
-    alt: "Goodyear jumper",
-    client: "Goodyear4",
-    product: "Bomberka Goodyear Racing 4",
-    id: 3,
-  },
-  {
-    img: "/PortfolioPage/goodyearJumper.png",
-    alt: "Goodyear jumper",
-    client: "Goodyear3",
-    product: "Bomberka Goodyear Racing 3",
-    id: 2,
-  },
-  {
-    img: "/PortfolioPage/goodyearJumper.png",
-    alt: "Goodyear jumper",
-    client: "Goodyear2",
-    product: "Bomberka Goodyear Racing 2",
-    id: 1,
-  },
-  {
-    img: "/PortfolioPage/goodyearJumper.png",
-    alt: "Goodyear jumper",
-    client: "Goodyear1",
-    product: "Bomberka Goodyear Racing 1",
-    id: 0,
-  },
-];
-
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.NEXT_PUBLIC_SPACE_ID,
@@ -89,7 +56,6 @@ export default function Portfolio({ cards }) {
   const [animateSwipe, setAnimateSwipe] = useState("");
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
-  console.log(tag);
 
   const onRequestClose = () => {
     setExitAnim(true);
@@ -109,9 +75,7 @@ export default function Portfolio({ cards }) {
       if (index < 14) {
         setRightDisabledBtn(false);
       }
-      setIndex((id) =>
-        index < dummyPortData.length - 1 ? id + 1 : dummyPortData.length - 1
-      );
+      setIndex((id) => (index < cards.length - 1 ? id + 1 : cards.length - 1));
       setAnimateSwipe("");
     }, 500);
   };
@@ -158,10 +122,10 @@ export default function Portfolio({ cards }) {
         prevContent={() => decreaseIndex()}
       >
         <PortfolioWorkerModalContent
-          img={dummyPortData[index].img}
-          client={dummyPortData[index].client}
-          product={dummyPortData[index].product}
-          alt={dummyPortData[index].alt}
+          img={`https:${cards[index].fields.image.fields.file.url}`}
+          client={cards[index].fields.company}
+          product={cards[index].fields.product}
+          alt={"test"}
           dir={animateSwipe}
         ></PortfolioWorkerModalContent>
       </ModalComp>
@@ -189,7 +153,6 @@ export default function Portfolio({ cards }) {
                 }}
               ></PortfolioCard>
             );
-            // console.log(`${card} ${index}`);
           })}
         </CardsWrapper>
       </PortfolioPage>
