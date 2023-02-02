@@ -5,22 +5,27 @@ import {
   StyledImage,
 } from "../PortfolioCard/PortfolioCard.styles.js";
 import {
+  Description,
   ModalContentWrapper,
   TextWrapper,
 } from "./PortfolioWorkerModalContent.styles";
 import PropTypes from "prop-types";
 
-const PortfolioWorkerModalContent = ({ img, client, product, alt, dir }) => {
+const PortfolioWorkerModalContent = ({ card, alt, dir }) => {
+  const { image, company, product, description } = card.fields;
+  const ImageURL = image.fields.file.url;
+
   return (
     <>
       <ModalContentWrapper dir={dir}>
         <TextWrapper>
-          <ClientName>{client}</ClientName>
+          <ClientName>{company}</ClientName>
           <ProductName>{product}</ProductName>
+          <Description>{description}</Description>
         </TextWrapper>
 
         <ImgWrapper>
-          <StyledImage src={img} fill alt={alt}></StyledImage>
+          <StyledImage src={`https:${ImageURL}`} fill alt={alt}></StyledImage>
         </ImgWrapper>
       </ModalContentWrapper>
     </>
@@ -30,9 +35,7 @@ const PortfolioWorkerModalContent = ({ img, client, product, alt, dir }) => {
 export default PortfolioWorkerModalContent;
 
 PortfolioWorkerModalContent.propTypes = {
-  img: PropTypes.string,
+  card: PropTypes.object,
   alt: PropTypes.string,
-  client: PropTypes.string,
-  product: PropTypes.string,
   dir: PropTypes.string,
 };

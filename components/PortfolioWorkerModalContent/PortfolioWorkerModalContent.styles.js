@@ -40,3 +40,7 @@ export const ModalContentWrapper = styled.div`
 `;
 
 export const TextWrapper = styled.div``;
+
+export const Description = styled.p`
+  max-width: 400px;
+`;

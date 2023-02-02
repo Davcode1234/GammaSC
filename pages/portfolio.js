@@ -39,8 +39,7 @@ export async function getStaticProps() {
     accessToken: process.env.NEXT_PUBLIC_ACCESS_KEY,
   });
 
-  const res = await client.getEntries({ content_type: "digital" });
-
+  const res = await client.getEntries({ content_type: "portfolio" });
   return {
     props: {
       cards: res.items,
@@ -56,6 +55,8 @@ export default function Portfolio({ cards }) {
   const [animateSwipe, setAnimateSwipe] = useState("");
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
+
+  const filteredCards = cards.filter((card) => card.fields.offerType === tag);
 
   const onRequestClose = () => {
     setExitAnim(true);
@@ -116,15 +117,13 @@ export default function Portfolio({ cards }) {
         isModalOpen={showModal}
         onClose={onRequestClose}
         exitAnim={exitAnim}
-        // leftDisabled={leftDisabledBtn}
-        // rightDisabled={rightDisabledBtn}
+        leftDisabled={leftDisabledBtn}
+        rightDisabled={rightDisabledBtn}
         nextContent={() => increaseIndex()}
         prevContent={() => decreaseIndex()}
       >
         <PortfolioWorkerModalContent
-          img={`https:${cards[index].fields.image.fields.file.url}`}
-          client={cards[index].fields.company}
-          product={cards[index].fields.product}
+          card={cards[index]}
           alt={"test"}
           dir={animateSwipe}
         ></PortfolioWorkerModalContent>
@@ -134,7 +133,10 @@ export default function Portfolio({ cards }) {
         <ButtonsWrapper>
           {portfolioButtons.map(({ buttonName, id }) => {
             return (
-              <PortfolioButton key={id} onClick={() => setTag("poligrafia")}>
+              <PortfolioButton
+                key={id}
+                onClick={() => setTag(buttonName.toLowerCase())}
+              >
                 {buttonName}
               </PortfolioButton>
             );
@@ -142,7 +144,7 @@ export default function Portfolio({ cards }) {
         </ButtonsWrapper>
 
         <CardsWrapper>
-          {cards.map((card, index) => {
+          {filteredCards.map((card, index) => {
             return (
               <PortfolioCard
                 key={card.sys.id}
