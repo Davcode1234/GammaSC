@@ -1,18 +1,16 @@
+import { StyledImage } from "../PortfolioCard/PortfolioCard.styles.js";
 import {
+  ProductName,
   ClientName,
   ImgWrapper,
-  ProductName,
-  StyledImage,
-} from "../PortfolioCard/PortfolioCard.styles.js";
-import {
   Description,
-  ModalContentWrapper,
   TextWrapper,
+  ModalContentWrapper,
 } from "./PortfolioWorkerModalContent.styles";
 import PropTypes from "prop-types";
 
-const PortfolioWorkerModalContent = ({ card, alt, dir }) => {
-  const { image, company, product, description } = card.fields;
+const PortfolioWorkerModalContent = ({ card, dir }) => {
+  const { image, company, product, description, alt } = card.fields;
   const ImageURL = image.fields.file.url;
 
   return (

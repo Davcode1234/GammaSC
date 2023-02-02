@@ -21,6 +21,7 @@ const ModalComp = ({
   exitAnim,
   leftDisabled,
   rightDisabled,
+  portfolio,
 }) => {
   const [isClient, setIsClient] = useState(false);
 
@@ -40,7 +41,7 @@ const ModalComp = ({
           className="_"
           overlayClassName="_"
           contentElement={(props, children) => (
-            <StyledModal exitAnim={exitAnim} {...props}>
+            <StyledModal exitAnim={exitAnim} portfolio={portfolio} {...props}>
               {children}
             </StyledModal>
           )}
@@ -88,4 +89,5 @@ ModalComp.propTypes = {
   exitAnim: PropTypes.bool,
   leftDisabled: PropTypes.bool,
   rightDisabled: PropTypes.bool,
+  portfolio: PropTypes.bool,
 };

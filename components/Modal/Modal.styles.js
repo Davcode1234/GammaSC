@@ -29,9 +29,9 @@ const closeModal = keyframes`
 
 export const StyledModal = styled.div`
   position: relative;
-  min-height: 500px;
+  min-height: ${({ portfolio }) => (portfolio ? "600px" : "500px")};
   width: 70%;
-  max-width: 900px;
+  max-width: ${({ portfolio }) => (portfolio ? "1200px" : "880px")};
   margin: 2rem;
   padding: 2.5rem;
   display: flex;
@@ -81,6 +81,7 @@ export const CloseBtn = styled.div`
   border-radius: 5px;
   background-color: black;
   transform: rotate(45deg);
+  z-index: 10;
   &::after {
     content: "";
     position: absolute;
@@ -101,6 +102,7 @@ export const CloseBtnWrapper = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  z-index: 10;
 
   &:hover {
     ${CloseBtn} {

@@ -90,6 +90,7 @@ export const ProductName = styled.h2`
   font-size: ${({ theme }) => theme.font.size.contactCardHeader};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.graphite};
+  margin-bottom: 20px;
 `;
 
 export const ImgWrapper = styled.div`

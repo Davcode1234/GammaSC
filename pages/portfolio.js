@@ -56,7 +56,9 @@ export default function Portfolio({ cards }) {
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
 
-  const filteredCards = cards.filter((card) => card.fields.offerType === tag);
+  const filteredCards = cards.filter((card) =>
+    card.fields.offerType.includes(tag)
+  );
 
   const onRequestClose = () => {
     setExitAnim(true);
@@ -121,10 +123,18 @@ export default function Portfolio({ cards }) {
         rightDisabled={rightDisabledBtn}
         nextContent={() => increaseIndex()}
         prevContent={() => decreaseIndex()}
+        portfolio={true}
       >
         <PortfolioWorkerModalContent
-          card={cards[index]}
-          alt={"test"}
+          card={filteredCards[index > 0 ? index - 1 : index]}
+          dir={animateSwipe}
+        ></PortfolioWorkerModalContent>
+        <PortfolioWorkerModalContent
+          card={filteredCards[index]}
+          dir={animateSwipe}
+        ></PortfolioWorkerModalContent>
+        <PortfolioWorkerModalContent
+          card={filteredCards[index < 3 ? index + 1 : index]}
           dir={animateSwipe}
         ></PortfolioWorkerModalContent>
       </ModalComp>

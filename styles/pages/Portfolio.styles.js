@@ -21,9 +21,11 @@ export const PortfolioButton = styled.button`
 `;
 
 export const CardsWrapper = styled.div`
+  max-width: 1500px;
   padding-top: 50px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 35px;
+  margin: 0 auto;
 `;

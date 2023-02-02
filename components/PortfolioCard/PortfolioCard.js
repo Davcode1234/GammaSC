@@ -12,7 +12,7 @@ import {
 import PropTypes from "prop-types";
 
 const PortfolioCard = ({ card, click }) => {
-  const { image, company, product } = card.fields;
+  const { image, company, product, alt } = card.fields;
   const ImageURL = image.fields.file.url;
 
   return (
@@ -29,7 +29,7 @@ const PortfolioCard = ({ card, click }) => {
         <HoverLine></HoverLine>
       </CardOverlay>
       <ImgWrapper>
-        <StyledImage src={`https:${ImageURL}`} fill alt="test"></StyledImage>
+        <StyledImage src={`https:${ImageURL}`} fill alt={alt}></StyledImage>
       </ImgWrapper>
       <ClientName>{company}</ClientName>
       <ProductName>{product}</ProductName>
