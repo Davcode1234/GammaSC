@@ -11,14 +11,11 @@ import {
   offerButtons,
   offerHeaderData,
 } from "../lib/offerData";
-import {
-  ButtonsWrapper,
-  OfferButton,
-  AnimationSlider,
-} from "../styles/pages/Offer.styles";
+import { ButtonsWrapper, AnimationSlider } from "../styles/pages/Offer.styles";
 import Head from "next/head";
 import { offerType } from "../components/OfferCard/OfferCard";
 import useWindowSize from "../hooks/useWindowSize";
+import CardChooseBtn from "../components/CardChooseBtn/CardChooseBtn";
 
 export default function Offer() {
   const [tag, setTag] = useState(offerType.offer.toLowerCase());
@@ -107,30 +104,11 @@ export default function Offer() {
         )}
       </AnimatePresence>
       <ButtonsWrapper>
-        {offerButtons.map(({ buttonName, id }) => {
-          {
-            return tag === buttonName ? (
-              <OfferButton
-                key={id}
-                isclicked="true"
-                onClick={() => handleButtonClick(`${buttonName}`)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {buttonName}
-              </OfferButton>
-            ) : (
-              <OfferButton
-                key={id}
-                onClick={() => handleButtonClick(`${buttonName}`)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {buttonName}
-              </OfferButton>
-            );
-          }
-        })}
+        <CardChooseBtn
+          btnsArr={offerButtons}
+          click={handleButtonClick}
+          tag={tag}
+        ></CardChooseBtn>
       </ButtonsWrapper>
       <OfferPageCard
         backgroundImg={"/OfferPage/offerbackground.jpg"}

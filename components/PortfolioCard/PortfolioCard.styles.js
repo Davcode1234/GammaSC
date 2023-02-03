@@ -1,6 +1,26 @@
 import Image from "next/image";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Icon } from "@iconify/react";
+
+const dissolve = keyframes`
+from {
+  opacity: 1
+}
+
+to {
+  opacity: 0;
+}
+`;
+
+const appear = keyframes`
+from {
+  opacity: 0;
+}
+
+to {
+  opacity: 1;
+}
+`;
 
 export const CardOverlay = styled.div`
   position: absolute;
@@ -8,7 +28,7 @@ export const CardOverlay = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: -2%;
+  top: -8%;
   z-index: 10;
   background-color: rgba(53, 53, 53, 0.8);
   opacity: 0;
@@ -56,6 +76,19 @@ export const PortfolioCardContainer = styled.div`
   align-items: center;
   cursor: pointer;
   position: relative;
+  opacity: 0;
+
+  ${({ exit }) => {
+    if (exit) {
+      return css`
+        animation: ${dissolve} 0.4s ease forwards;
+      `;
+    } else if (!exit) {
+      return css`
+        animation: ${appear} 0.4s ease forwards;
+      `;
+    }
+  }}
 
   &:hover {
     ${StyledImage} {
@@ -95,6 +128,6 @@ export const ProductName = styled.h2`
 
 export const ImgWrapper = styled.div`
   position: relative;
-  width: 660px;
-  height: 430px;
+  width: 600px;
+  height: 391px;
 `;

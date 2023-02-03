@@ -131,17 +131,20 @@ export default function Home() {
           promocyjne, a nawet produkujemy profesjonalną odzież sportową.
         </DescriptionParagraph>
         <BtnWrapper>
-          <CtaBtn
-            isbig="true"
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            whileHover={{
-              backgroundColor: "rgb(246, 140, 30, .0)",
-              color: "#f68c1e",
-            }}
-          >
-            <Link href="/portfolio">Zobacz nasze realizacje</Link>
-          </CtaBtn>
+          <Link href="/portfolio">
+            <CtaBtn
+              isbig="true"
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              whileHover={{
+                backgroundColor: "rgb(246, 140, 30, .0)",
+                color: "#f68c1e",
+              }}
+            >
+              Zobacz nasze realizacje
+            </CtaBtn>
+          </Link>
+
           <StyledLink href="/contact">
             Skontaktuj się z nami
             <StyledIcon

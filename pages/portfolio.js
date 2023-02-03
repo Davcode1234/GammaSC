@@ -4,12 +4,12 @@ import PortfolioCard from "../components/PortfolioCard/PortfolioCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 import {
   ButtonsWrapper,
-  PortfolioButton,
   PortfolioPage,
   CardsWrapper,
 } from "../styles/pages/Portfolio.styles";
 import ModalComp from "../components/Modal/Modal";
 import PortfolioWorkerModalContent from "../components/PortfolioWorkerModalContent/PortfolioWorkerModalContent";
+import CardChooseBtn from "../components/CardChooseBtn/CardChooseBtn";
 import { createClient } from "contentful";
 import PropTypes from "prop-types";
 
@@ -25,12 +25,12 @@ const portfolioSubHeaderData = {
 };
 
 export const portfolioButtons = [
-  { buttonName: "Digital", id: 1 },
-  { buttonName: "Poligrafia", id: 2 },
-  { buttonName: "Fotografia", id: 3 },
-  { buttonName: "Multimedia", id: 4 },
-  { buttonName: "Gadżety", id: 5 },
-  { buttonName: "Szwalnia", id: 6 },
+  { buttonName: "digital", id: 1 },
+  { buttonName: "poligrafia", id: 2 },
+  { buttonName: "fotografia", id: 3 },
+  { buttonName: "multimedia", id: 4 },
+  { buttonName: "gadżety", id: 5 },
+  { buttonName: "szwalnia", id: 6 },
 ];
 
 export async function getStaticProps() {
@@ -50,8 +50,10 @@ export async function getStaticProps() {
 export default function Portfolio({ cards }) {
   const [showModal, setShowModal] = useState();
   const [index, setIndex] = useState(0);
+  const [btnTag, setBtnTag] = useState("digital");
   const [tag, setTag] = useState("digital");
   const [exitAnim, setExitAnim] = useState(false);
+  const [cardsExit, setCardsExit] = useState(false);
   const [animateSwipe, setAnimateSwipe] = useState("");
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
@@ -62,6 +64,8 @@ export default function Portfolio({ cards }) {
 
   const onRequestClose = () => {
     setExitAnim(true);
+    setLeftDisabledBtn(false);
+    setRightDisabledBtn(false);
     setTimeout(() => {
       setShowModal(false);
       setExitAnim(false);
@@ -75,8 +79,9 @@ export default function Portfolio({ cards }) {
       setLeftDisabledBtn(false);
     }
     setTimeout(() => {
-      if (index < 14) {
+      if (index < filteredCards.length - 2) {
         setRightDisabledBtn(false);
+        console.log("enabled");
       }
       setIndex((id) => (index < cards.length - 1 ? id + 1 : cards.length - 1));
       setAnimateSwipe("");
@@ -97,6 +102,16 @@ export default function Portfolio({ cards }) {
       setIndex((id) => (index === 0 ? id : id - 1));
       setAnimateSwipe("");
     }, 500);
+  };
+
+  const handleButtonClick = (btn) => {
+    setCardsExit(true);
+    setBtnTag(btn);
+
+    setTimeout(() => {
+      setTag(btn);
+      setCardsExit(false);
+    }, 600);
   };
 
   return (
@@ -134,23 +149,20 @@ export default function Portfolio({ cards }) {
           dir={animateSwipe}
         ></PortfolioWorkerModalContent>
         <PortfolioWorkerModalContent
-          card={filteredCards[index < 3 ? index + 1 : index]}
+          card={
+            filteredCards[index < filteredCards.length - 1 ? index + 1 : index]
+          }
           dir={animateSwipe}
         ></PortfolioWorkerModalContent>
       </ModalComp>
 
       <PortfolioPage>
         <ButtonsWrapper>
-          {portfolioButtons.map(({ buttonName, id }) => {
-            return (
-              <PortfolioButton
-                key={id}
-                onClick={() => setTag(buttonName.toLowerCase())}
-              >
-                {buttonName}
-              </PortfolioButton>
-            );
-          })}
+          <CardChooseBtn
+            btnsArr={portfolioButtons}
+            click={handleButtonClick}
+            tag={btnTag}
+          ></CardChooseBtn>
         </ButtonsWrapper>
 
         <CardsWrapper>
@@ -163,6 +175,7 @@ export default function Portfolio({ cards }) {
                   setIndex(index);
                   setShowModal(true);
                 }}
+                exit={cardsExit}
               ></PortfolioCard>
             );
           })}

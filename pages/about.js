@@ -314,6 +314,8 @@ export default function About() {
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
 
+  console.log(AboutCardsData.length);
+
   const increaseIndex = () => {
     setAnimateSwipe("left");
     setRightDisabledBtn(true);
@@ -349,6 +351,8 @@ export default function About() {
 
   const onRequestClose = () => {
     setExitAnim(true);
+    setLeftDisabledBtn(false);
+    setRightDisabledBtn(false);
     setTimeout(() => {
       setShowModal(false);
       setExitAnim(false);

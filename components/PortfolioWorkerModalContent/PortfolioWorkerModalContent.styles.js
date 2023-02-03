@@ -51,6 +51,7 @@ export const ProductName = styled.h2`
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   color: ${({ theme }) => theme.color.graphite};
   margin-bottom: 20px;
+  max-width: 300px;
 `;
 
 export const TextWrapper = styled.div`

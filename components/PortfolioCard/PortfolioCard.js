@@ -11,12 +11,12 @@ import {
 } from "./PortfolioCard.styles";
 import PropTypes from "prop-types";
 
-const PortfolioCard = ({ card, click }) => {
+const PortfolioCard = ({ card, click, exit }) => {
   const { image, company, product, alt } = card.fields;
   const ImageURL = image.fields.file.url;
 
   return (
-    <PortfolioCardContainer onClick={click}>
+    <PortfolioCardContainer onClick={click} exit={exit}>
       <CardOverlay>
         <HoverText>
           Zobacz projekt
@@ -42,4 +42,5 @@ export default PortfolioCard;
 PortfolioCard.propTypes = {
   card: PropTypes.object,
   click: PropTypes.func,
+  exit: PropTypes.bool,
 };
