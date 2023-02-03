@@ -140,7 +140,7 @@ export default function Home() {
               color: "#f68c1e",
             }}
           >
-            Zobacz nasze realizacje
+            <Link href="/portfolio">Zobacz nasze realizacje</Link>
           </CtaBtn>
           <StyledLink href="/contact">
             Skontaktuj się z nami
