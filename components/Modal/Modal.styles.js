@@ -31,7 +31,7 @@ export const StyledModal = styled.div`
   position: relative;
   min-height: ${({ portfolio }) => (portfolio ? "600px" : "500px")};
   width: 70%;
-  max-width: ${({ portfolio }) => (portfolio ? "1200px" : "880px")};
+  max-width: ${({ portfolio }) => (portfolio ? "1200px" : "860px")};
   margin: 2rem;
   padding: 2.5rem;
   display: flex;
@@ -50,7 +50,11 @@ export const StyledModal = styled.div`
         animation: ${closeModal} 0.5s ease-in-out forwards;
       `;
     }
-  }}
+  }}/* div {
+    &:focus-visible {
+      outline: 0px solid white;
+    }
+  } */
 `;
 
 export const StyledOverlay = styled.div`

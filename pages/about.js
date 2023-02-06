@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Fragment, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import AboutWorkerCard from "../components/AboutWorkerCard/AboutWorkerCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 import {
@@ -313,8 +313,9 @@ export default function About() {
   const [animateSwipe, setAnimateSwipe] = useState("");
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
+  const [disableSideCards, setDisableSideCards] = useState(false);
 
-  console.log(AboutCardsData.length);
+  const modalEl = useRef();
 
   const increaseIndex = () => {
     setAnimateSwipe("left");
@@ -359,8 +360,36 @@ export default function About() {
     }, 500);
   };
 
+  const handleKeyEvents = (event) => {
+    switch (event.keyCode) {
+      case 39:
+        increaseIndex();
+        break;
+
+      case 37:
+        decreaseIndex();
+        break;
+
+      case 27:
+        setShowModal(false);
+        break;
+
+      default:
+        return;
+    }
+    console.log(event);
+  };
+
   const openModal = () => {
     setShowModal(true);
+  };
+
+  const disableSides = () => {
+    setDisableSideCards(true);
+
+    setTimeout(() => {
+      setDisableSideCards(false);
+    }, 500);
   };
 
   return (
@@ -381,35 +410,44 @@ export default function About() {
       <ModalComp
         isModalOpen={showModal}
         onClose={onRequestClose}
+        onAfterOpen={() => modalEl.current && modalEl.current.focus()}
         exitAnim={exitAnim}
         leftDisabled={leftDisabledBtn}
         rightDisabled={rightDisabledBtn}
         nextContent={() => increaseIndex()}
         prevContent={() => decreaseIndex()}
       >
-        <AboutWorkerModalContent
-          name={AboutCardsData[index > 0 ? index - 1 : index].name}
-          position={AboutCardsData[index > 0 ? index - 1 : index].position}
-          text={AboutCardsData[index > 0 ? index - 1 : index].text}
-          img={AboutCardsData[index > 0 ? index - 1 : index].img}
-          dir={animateSwipe}
-        ></AboutWorkerModalContent>
+        {!disableSideCards && (
+          <AboutWorkerModalContent
+            name={AboutCardsData[index > 0 ? index - 1 : index].name}
+            position={AboutCardsData[index > 0 ? index - 1 : index].position}
+            text={AboutCardsData[index > 0 ? index - 1 : index].text}
+            img={AboutCardsData[index > 0 ? index - 1 : index].img}
+            dir={animateSwipe}
+          ></AboutWorkerModalContent>
+        )}
 
+        {/* <div ref={modalEl} tabIndex="-1" onKeyDown={handleKeyEvents}> */}
         <AboutWorkerModalContent
           name={AboutCardsData[index].name}
           position={AboutCardsData[index].position}
           text={AboutCardsData[index].text}
           img={AboutCardsData[index].img}
           dir={animateSwipe}
+          keyDown={handleKeyEvents}
+          forwardRef={modalEl}
         ></AboutWorkerModalContent>
+        {/* </div> */}
 
-        <AboutWorkerModalContent
-          name={AboutCardsData[index < 15 ? index + 1 : index].name}
-          position={AboutCardsData[index < 15 ? index + 1 : index].position}
-          text={AboutCardsData[index < 15 ? index + 1 : index].text}
-          img={AboutCardsData[index < 15 ? index + 1 : index].img}
-          dir={animateSwipe}
-        ></AboutWorkerModalContent>
+        {!disableSideCards && (
+          <AboutWorkerModalContent
+            name={AboutCardsData[index < 15 ? index + 1 : index].name}
+            position={AboutCardsData[index < 15 ? index + 1 : index].position}
+            text={AboutCardsData[index < 15 ? index + 1 : index].text}
+            img={AboutCardsData[index < 15 ? index + 1 : index].img}
+            dir={animateSwipe}
+          ></AboutWorkerModalContent>
+        )}
       </ModalComp>
 
       <ContentSec>
@@ -436,6 +474,7 @@ export default function About() {
                   click={() => {
                     setIndex(id);
                     openModal();
+                    disableSides();
                   }}
                 ></AboutWorkerCard>
               );

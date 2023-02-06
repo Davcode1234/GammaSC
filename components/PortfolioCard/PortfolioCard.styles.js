@@ -4,21 +4,28 @@ import { Icon } from "@iconify/react";
 
 const dissolve = keyframes`
 from {
-  opacity: 1
+  opacity: 1;
+  transform: scale(1);
 }
 
 to {
   opacity: 0;
+  transform: scale(0.7);
+
 }
 `;
 
 const appear = keyframes`
 from {
   opacity: 0;
+  transform: scale(0.7);
+
 }
 
 to {
   opacity: 1;
+  transform: scale(1);
+
 }
 `;
 

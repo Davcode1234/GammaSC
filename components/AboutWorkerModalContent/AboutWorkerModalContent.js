@@ -9,10 +9,19 @@ import {
 
 import PropTypes from "prop-types";
 
-const AboutWorkerModalContent = ({ name, position, text, img, dir }) => {
+const AboutWorkerModalContent = ({
+  name,
+  position,
+  text,
+  img,
+  dir,
+  keyDown,
+  forwardRef,
+}) => {
   return (
     <>
-      <Wrap dir={dir}>
+      {/* <div ref={forwardRef} onKeyDown={keyDown} tabIndex="-1"></div> */}
+      <Wrap dir={dir} ref={forwardRef} onKeyDown={keyDown} tabIndex="-1">
         <StyledImage
           src={img}
           width={400}
@@ -39,4 +48,6 @@ AboutWorkerModalContent.propTypes = {
   position: PropTypes.string,
   text: PropTypes.object,
   dir: PropTypes.string,
+  keyDown: PropTypes.func,
+  forwardRef: PropTypes.object,
 };

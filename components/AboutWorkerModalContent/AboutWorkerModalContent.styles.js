@@ -40,6 +40,10 @@ export const Wrap = styled.div`
         return "";
     }
   }}
+
+  &:focus-visible {
+    outline: 0px solid white;
+  }
 `;
 
 export const TitleName = styled.h2`
@@ -55,7 +59,7 @@ export const PositionPar = styled.p`
 `;
 
 export const TextWrapper = styled.div`
-  min-width: 350px;
+  min-width: 370px;
 `;
 
 export const AboutText = styled.p``;

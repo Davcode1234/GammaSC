@@ -15,6 +15,7 @@ import PropTypes from "prop-types";
 const ModalComp = ({
   isModalOpen,
   onClose,
+  onAfterOpen,
   children,
   nextContent,
   prevContent,
@@ -38,6 +39,8 @@ const ModalComp = ({
         <Modal
           isOpen={isModalOpen}
           onRequestClose={onClose}
+          onAfterOpen={onAfterOpen}
+          // shouldFocusAfterRender={false}
           className="_"
           overlayClassName="_"
           contentElement={(props, children) => (
@@ -54,9 +57,7 @@ const ModalComp = ({
           <CloseBtnWrapper onClick={onClose}>
             <CloseBtn></CloseBtn>
           </CloseBtnWrapper>
-
           {children}
-
           <ArrowBtnWrapper onClick={prevContent} disabled={leftDisabled}>
             <StyledIcon
               icon="material-symbols:arrow-back"
@@ -84,6 +85,7 @@ ModalComp.propTypes = {
   children: PropTypes.node.isRequired,
   isModalOpen: PropTypes.bool,
   onClose: PropTypes.func,
+  onAfterOpen: PropTypes.func,
   nextContent: PropTypes.func,
   prevContent: PropTypes.func,
   exitAnim: PropTypes.bool,
