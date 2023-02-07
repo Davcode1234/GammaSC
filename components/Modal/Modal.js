@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from "react-modal";
 import {
   ArrowBtnWrapper,
-  CloseBtn,
   CloseBtnWrapper,
   LeftArrowBtnWrapper,
   SecondStyledIcon,
@@ -40,7 +39,6 @@ const ModalComp = ({
           isOpen={isModalOpen}
           onRequestClose={onClose}
           onAfterOpen={onAfterOpen}
-          // shouldFocusAfterRender={false}
           className="_"
           overlayClassName="_"
           contentElement={(props, children) => (
@@ -55,7 +53,7 @@ const ModalComp = ({
           )}
         >
           <CloseBtnWrapper onClick={onClose}>
-            <CloseBtn></CloseBtn>
+            <div></div>
           </CloseBtnWrapper>
           {children}
           <ArrowBtnWrapper onClick={prevContent} disabled={leftDisabled}>

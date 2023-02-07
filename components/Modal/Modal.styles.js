@@ -50,11 +50,7 @@ export const StyledModal = styled.div`
         animation: ${closeModal} 0.5s ease-in-out forwards;
       `;
     }
-  }}/* div {
-    &:focus-visible {
-      outline: 0px solid white;
-    }
-  } */
+  }}
 `;
 
 export const StyledOverlay = styled.div`
@@ -78,26 +74,6 @@ export const StyledOverlay = styled.div`
   }}
 `;
 
-export const CloseBtn = styled.div`
-  position: relative;
-  width: 40px;
-  height: 4px;
-  border-radius: 5px;
-  background-color: black;
-  transform: rotate(45deg);
-  z-index: 10;
-  &::after {
-    content: "";
-    position: absolute;
-    width: 40px;
-    height: 4px;
-    left: 0;
-    border-radius: 5px;
-    background-color: black;
-    transform: rotate(90deg);
-  }
-  transition: all 0.3s ease;
-`;
 export const CloseBtnWrapper = styled.button`
   position: absolute;
   height: 40px;
@@ -108,10 +84,29 @@ export const CloseBtnWrapper = styled.button`
   cursor: pointer;
   z-index: 10;
 
-  &:hover {
-    ${CloseBtn} {
-      transform: scale(1.1) rotate(45deg);
+  &:hover div {
+    transform: scale(1.1) rotate(45deg);
+  }
+
+  div {
+    position: relative;
+    width: 40px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: black;
+    transform: rotate(45deg);
+    z-index: 10;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 4px;
+      left: 0;
+      border-radius: 5px;
+      background-color: black;
+      transform: rotate(90deg);
     }
+    transition: all 0.3s ease;
   }
 `;
 

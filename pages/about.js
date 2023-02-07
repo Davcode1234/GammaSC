@@ -320,6 +320,8 @@ export default function About() {
   const increaseIndex = () => {
     setAnimateSwipe("left");
     setRightDisabledBtn(true);
+    modalEl.current && modalEl.current.focus();
+
     if (leftDisabledBtn) {
       setLeftDisabledBtn(false);
     }
@@ -330,6 +332,7 @@ export default function About() {
       setIndex((id) =>
         index < AboutCardsData.length - 1 ? id + 1 : AboutCardsData.length - 1
       );
+
       setAnimateSwipe("");
     }, 500);
   };
@@ -337,6 +340,8 @@ export default function About() {
   const decreaseIndex = () => {
     setAnimateSwipe("right");
     setLeftDisabledBtn(true);
+    modalEl.current && modalEl.current.focus();
+
     if (rightDisabledBtn) {
       setRightDisabledBtn(false);
     }
@@ -363,25 +368,30 @@ export default function About() {
   const handleKeyEvents = (event) => {
     switch (event.keyCode) {
       case 39:
-        increaseIndex();
+        if (!rightDisabledBtn) increaseIndex();
         break;
 
       case 37:
-        decreaseIndex();
+        if (!leftDisabledBtn) decreaseIndex();
         break;
 
       case 27:
-        setShowModal(false);
+        onRequestClose();
         break;
 
       default:
         return;
     }
-    console.log(event);
   };
 
-  const openModal = () => {
+  const openModal = (id, name) => {
+    setIndex(id);
     setShowModal(true);
+    if (name === "Jaromir") {
+      setLeftDisabledBtn(true);
+    } else if (name === "Pan Rysiu") {
+      setRightDisabledBtn(true);
+    }
   };
 
   const disableSides = () => {
@@ -427,7 +437,6 @@ export default function About() {
           ></AboutWorkerModalContent>
         )}
 
-        {/* <div ref={modalEl} tabIndex="-1" onKeyDown={handleKeyEvents}> */}
         <AboutWorkerModalContent
           name={AboutCardsData[index].name}
           position={AboutCardsData[index].position}
@@ -437,7 +446,6 @@ export default function About() {
           keyDown={handleKeyEvents}
           forwardRef={modalEl}
         ></AboutWorkerModalContent>
-        {/* </div> */}
 
         {!disableSideCards && (
           <AboutWorkerModalContent
@@ -472,8 +480,8 @@ export default function About() {
                   position={position}
                   key={id}
                   click={() => {
-                    setIndex(id);
-                    openModal();
+                    // setIndex();
+                    openModal(id, name);
                     disableSides();
                   }}
                 ></AboutWorkerCard>

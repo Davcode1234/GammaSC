@@ -116,10 +116,6 @@ export const CloseMenuBtn = styled.button`
   }
 `;
 
-export const Logo = styled.h1`
-  font-size: 30px;
-`;
-
 export const MainSliderMenu = styled(motion.aside)`
   position: fixed;
   box-sizing: border-box;

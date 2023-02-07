@@ -1,15 +1,10 @@
 import {
   ColumnsWrapper,
-  FooterHeader,
-  FooterParagraph,
   FooterWrapper,
   OuterWrapper,
 } from "./MobileFooter.styles";
 import Image from "next/image";
-import {
-  IconsWrapper,
-  StyledLink,
-} from "../DesktopFooter/DesktopFooter.styles";
+import { IconsWrapper } from "../DesktopFooter/DesktopFooter.styles";
 import { Icon } from "@iconify/react";
 
 const MobileFooter = () => {
@@ -26,27 +21,26 @@ const MobileFooter = () => {
         <OuterWrapper>
           <ColumnsWrapper>
             <div>
-              <FooterHeader>Lokalizacja</FooterHeader>
-              <FooterParagraph>39-204 Żyraków Zawierzbie 7c</FooterParagraph>
+              <h4>Lokalizacja</h4>
+              <p>39-204 Żyraków Zawierzbie 7c</p>
             </div>
             <div>
-              <FooterHeader>Jesteśmy otwarci:</FooterHeader>
-              <FooterParagraph>Pn - Pt 8:00 -16:00</FooterParagraph>
+              <h4>Jesteśmy otwarci:</h4>
+              <p>Pn - Pt 8:00 -16:00</p>
             </div>
           </ColumnsWrapper>
           <ColumnsWrapper>
             <div>
-              <FooterHeader>Kontakt</FooterHeader>
-              <FooterParagraph>
-                +48 525 525 525 biuro@gamma24.pl
-              </FooterParagraph>
+              <h4>Kontakt</h4>
+              <p>+48 525 525 525 biuro@gamma24.pl</p>
             </div>
             <div>
-              <FooterHeader>Obserwuj nas</FooterHeader>
+              <h4>Obserwuj nas</h4>
               <IconsWrapper>
-                <StyledLink
+                <a
                   href="https://www.facebook.com/gammaagencja"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <Icon
                     icon="ci:facebook"
@@ -54,10 +48,11 @@ const MobileFooter = () => {
                     width="24"
                     height="24"
                   />
-                </StyledLink>
-                <StyledLink
+                </a>
+                <a
                   href="https://www.linkedin.com/company/agencja-reklamowa-gamma/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <Icon
                     icon="entypo-social:linkedin-with-circle"
@@ -65,10 +60,11 @@ const MobileFooter = () => {
                     width="24"
                     height="24"
                   />
-                </StyledLink>
-                <StyledLink
+                </a>
+                <a
                   href="https://www.instagram.com/agencja_gamma24/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <Icon
                     icon="ri:instagram-fill"
@@ -76,7 +72,7 @@ const MobileFooter = () => {
                     width="24"
                     height="24"
                   />
-                </StyledLink>
+                </a>
               </IconsWrapper>
             </div>
           </ColumnsWrapper>

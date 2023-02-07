@@ -1,6 +1,5 @@
 import {
   FirstInfoSecCardWrapper,
-  NumParagraph,
   TextParagraph,
   SecInfoSecCardWrapper,
 } from "./InfoSecCard.styles";
@@ -45,11 +44,7 @@ const InfoSecCard = ({ text, addPlus, stopInterval }) => {
 
   return (
     <ViewComponent ref={ref} playState={inView}>
-      {addPlus ? (
-        <NumParagraph>+{numberAnim}</NumParagraph>
-      ) : (
-        <NumParagraph>{numberAnim}</NumParagraph>
-      )}
+      {addPlus ? <p>+{numberAnim}</p> : <p>{numberAnim}</p>}
 
       <TextParagraph
         whileInView={{ opacity: 1 }}

@@ -1,13 +1,6 @@
-import {
-  TitleName,
-  PositionPar,
-  AboutText,
-  TextWrapper,
-  StyledImage,
-  Wrap,
-} from "./AboutWorkerModalContent.styles";
-
+import { Wrap, TextContentWrapper } from "./AboutWorkerModalContent.styles";
 import PropTypes from "prop-types";
+import Image from "next/image";
 
 const AboutWorkerModalContent = ({
   name,
@@ -20,21 +13,13 @@ const AboutWorkerModalContent = ({
 }) => {
   return (
     <>
-      {/* <div ref={forwardRef} onKeyDown={keyDown} tabIndex="-1"></div> */}
       <Wrap dir={dir} ref={forwardRef} onKeyDown={keyDown} tabIndex="-1">
-        <StyledImage
-          src={img}
-          width={400}
-          height={429}
-          alt="test"
-        ></StyledImage>
-        <div>
-          <TitleName>{name}</TitleName>
-          <TextWrapper>
-            <PositionPar>{position}</PositionPar>
-            <AboutText>{text}</AboutText>
-          </TextWrapper>
-        </div>
+        <Image src={img} width={400} height={429} alt="test"></Image>
+        <TextContentWrapper>
+          <h2>{name}</h2>
+          <p>{position}</p>
+          <p>{text}</p>
+        </TextContentWrapper>
       </Wrap>
     </>
   );

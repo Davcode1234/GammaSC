@@ -47,6 +47,18 @@ export const SecInfoSecCardWrapper = styled.div`
     gap: 20px;
     padding-top: 0;
   }
+
+  p:first-child {
+    font-size: 76px;
+    font-weight: ${({ theme }) => theme.font.weight.bold};
+    color: ${({ theme }) => theme.color.white};
+    margin: 0;
+
+    ${({ theme }) => theme.mq.smallerPhone} {
+      font-size: 60px;
+      font-weight: 600;
+    }
+  }
 `;
 
 export const FirstInfoSecCardWrapper = styled(SecInfoSecCardWrapper)`
@@ -80,18 +92,6 @@ export const FirstInfoSecCardWrapper = styled(SecInfoSecCardWrapper)`
     height: 100%;
     clip-path: polygon(99% 0, 99% 0, 99% 0, 99% 0, 100% 0, 100% 0);
     animation: ${showFromRightCorner} 2s 1s ease forwards;
-  }
-`;
-
-export const NumParagraph = styled.p`
-  font-size: 76px;
-  font-weight: ${({ theme }) => theme.font.weight.bold};
-  color: ${({ theme }) => theme.color.white};
-  margin: 0;
-
-  ${({ theme }) => theme.mq.smallerPhone} {
-    font-size: 60px;
-    font-weight: 600;
   }
 `;
 

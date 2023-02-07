@@ -1,54 +1,51 @@
 import {
-  ContactCardHeader,
   ContactCardWrapper,
-  PositionText,
-  ContactPar,
   ContentWrapper,
   SalesAssImgWrapper,
   SalesAssImg,
 } from "./ContactAssistantCard.styles";
 import PropTypes from "prop-types";
-import useWindowSize from "../../hooks/useWindowSize";
+// import useWindowSize from "../../hooks/useWindowSize";
 
-const DesktopAssistantLoadAnim = {
-  hidden: {
-    opacity: 0,
-    translateY: 200,
-  },
-  visible: {
-    opacity: 1,
-    translateY: -90,
+// const DesktopAssistantLoadAnim = {
+//   hidden: {
+//     opacity: 0,
+//     translateY: 200,
+//   },
+//   visible: {
+//     opacity: 1,
+//     translateY: -90,
 
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      duration: 1,
-      delay: 0.4,
-    },
-  },
-};
+//     transition: {
+//       type: "spring",
+//       stiffness: 100,
+//       duration: 1,
+//       delay: 0.4,
+//     },
+//   },
+// };
 
-const MobileAssistanLoadAnim = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-  },
-};
+// const MobileAssistanLoadAnim = {
+//   hidden: {
+//     opacity: 0,
+//   },
+//   visible: {
+//     opacity: 1,
+//   },
+// };
 
 const ContactAssistantCard = ({ img, title, position, mail, number }) => {
-  const isMobile = useWindowSize(750);
+  // const isMobile = useWindowSize(750);
 
-  const cardAnimVar = isMobile
-    ? MobileAssistanLoadAnim
-    : DesktopAssistantLoadAnim;
+  // const cardAnimVar = isMobile
+  //   ? MobileAssistanLoadAnim
+  //   : DesktopAssistantLoadAnim;
 
   return (
     <ContactCardWrapper
-      variants={cardAnimVar}
-      initial="hidden"
-      animate="visible"
+    // variants={cardAnimVar}
+    // initial="hidden"
+    // animate="visible"
     >
       <SalesAssImgWrapper>
         <SalesAssImg
@@ -64,10 +61,10 @@ const ContactAssistantCard = ({ img, title, position, mail, number }) => {
       </SalesAssImgWrapper>
 
       <ContentWrapper>
-        <ContactCardHeader>{title}</ContactCardHeader>
-        <PositionText>{position}</PositionText>
-        <ContactPar>{mail}</ContactPar>
-        <ContactPar>{number}</ContactPar>
+        <h3>{title}</h3>
+        <p>{position}</p>
+        <p>{mail}</p>
+        <p>{number}</p>
       </ContentWrapper>
     </ContactCardWrapper>
   );

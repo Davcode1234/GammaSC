@@ -1,12 +1,11 @@
 import styled, { css, keyframes } from "styled-components";
-import Image from "next/image";
 
 const swipeLeft = keyframes`
 0% {
   transform: translateX(0);
 }
 100% {
-  transform: translateX(-105.25%);
+  transform: translateX(-105%);
 }
 `;
 
@@ -15,11 +14,9 @@ const swipeRight = keyframes`
   transform: translateX(0);
 }
 100% {
-  transform: translateX(105.25%);
+  transform: translateX(105%);
 }
 `;
-
-export const StyledImage = styled(Image)``;
 
 export const Wrap = styled.div`
   width: 100%;
@@ -46,20 +43,19 @@ export const Wrap = styled.div`
   }
 `;
 
-export const TitleName = styled.h2`
-  font-size: ${({ theme }) => theme.font.size.headingSmall};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.gammaOrange};
-  margin-bottom: 10px;
-`;
-export const PositionPar = styled.p`
-  font-size: ${({ theme }) => theme.font.size.ContactCardPar};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  margin-bottom: 20px;
-`;
-
-export const TextWrapper = styled.div`
+export const TextContentWrapper = styled.div`
   min-width: 370px;
-`;
 
-export const AboutText = styled.p``;
+  h2 {
+    font-size: ${({ theme }) => theme.font.size.headingSmall};
+    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+    color: ${({ theme }) => theme.color.gammaOrange};
+    margin-bottom: 10px;
+  }
+
+  p:nth-child(2) {
+    font-size: ${({ theme }) => theme.font.size.ContactCardPar};
+    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+    margin-bottom: 20px;
+  }
+`;

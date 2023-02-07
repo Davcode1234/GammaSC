@@ -37,13 +37,36 @@ export const HoverText = styled.p`
   opacity: 0;
   transition: all 0.4s 0.4s ease;
 `;
+
 export const HeroImg = styled(Image)`
   transition: all 0.2s ease;
   z-index: -10;
 `;
-export const CardWrapper = styled(motion.div)`
+export const CardWrapper = styled.div`
   cursor: pointer;
   position: relative;
+
+  h3 {
+    font-size: ${({ theme }) => theme.font.size.headingAboutCard};
+    color: ${({ theme }) => theme.color.graphite};
+    font-weight: ${({ theme }) => theme.font.weight.bold};
+    margin-bottom: 10px;
+
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.paragraph};
+      text-align: center;
+    }
+  }
+
+  p:not(:first-child) {
+    font-size: ${({ theme }) => theme.font.size.paragraph};
+    color: ${({ theme }) => theme.color.graphite};
+
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+      text-align: center;
+    }
+  }
 
   &:hover {
     ${HeroImg} {
@@ -61,27 +84,5 @@ export const CardWrapper = styled(motion.div)`
       opacity: 1;
       transform: translateY(0);
     }
-  }
-`;
-
-export const NameHeader = styled.h3`
-  font-size: ${({ theme }) => theme.font.size.headingAboutCard};
-  color: ${({ theme }) => theme.color.graphite};
-  font-weight: ${({ theme }) => theme.font.weight.bold};
-  margin-bottom: 10px;
-
-  ${({ theme }) => theme.mq.phone} {
-    font-size: ${({ theme }) => theme.font.size.paragraph};
-    text-align: center;
-  }
-`;
-
-export const PositionParagraph = styled.p`
-  font-size: ${({ theme }) => theme.font.size.paragraph};
-  color: ${({ theme }) => theme.color.graphite};
-
-  ${({ theme }) => theme.mq.phone} {
-    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
-    text-align: center;
   }
 `;

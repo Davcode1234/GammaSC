@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AnimatePresence, MotionConfig, useCycle } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import {
   NavigationWrapper,

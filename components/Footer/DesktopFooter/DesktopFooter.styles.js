@@ -13,13 +13,13 @@ export const FooterWrapper = styled.footer`
   ${({ theme }) => theme.mq.smallerDesktop} {
     gap: 80px;
   }
-`;
 
-export const FooterHeader = styled.h4`
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.gammaOrange};
-  text-transform: uppercase;
-  margin-bottom: 15px;
+  div > h4 {
+    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+    color: ${({ theme }) => theme.color.gammaOrange};
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
 `;
 
 export const FooterParagraph = styled.p`
@@ -33,19 +33,11 @@ export const FooterParagraph = styled.p`
 export const IconsWrapper = styled.div`
   display: flex;
   gap: 15px;
-`;
 
-export const StyledLink = styled(Link)`
-  transition: transform 0.2s ease;
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  &:first-child {
-    transform: scale(1.1);
-
+  a {
+    transition: transform 0.2s ease;
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   }
 `;
