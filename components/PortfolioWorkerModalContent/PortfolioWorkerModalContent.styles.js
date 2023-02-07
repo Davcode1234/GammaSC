@@ -24,6 +24,34 @@ export const ModalContentWrapper = styled.div`
   align-items: center;
   gap: 100px;
 
+  div:first-child {
+    z-index: 9;
+    margin-left: 60px;
+    p {
+      max-width: 600px;
+    }
+    p:first-child {
+      font-size: ${({ theme }) => theme.font.size.offerButton};
+      font-weight: ${({ theme }) => theme.font.weight.semiBold};
+      color: ${({ theme }) => theme.color.gammaOrange};
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: ${({ theme }) => theme.font.size.headingPortfolioModal};
+      font-weight: ${({ theme }) => theme.font.weight.semiBold};
+      color: ${({ theme }) => theme.color.graphite};
+      margin-bottom: 20px;
+      max-width: 300px;
+    }
+  }
+
+  div:nth-child(2) {
+    position: relative;
+    width: 720px;
+    height: 650px;
+  }
+
   ${({ dir }) => {
     switch (dir) {
       case "right":
@@ -38,33 +66,4 @@ export const ModalContentWrapper = styled.div`
         return "";
     }
   }}
-`;
-
-export const ClientName = styled.p`
-  font-size: ${({ theme }) => theme.font.size.offerButton};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.gammaOrange};
-  margin-bottom: 20px;
-`;
-export const ProductName = styled.h2`
-  font-size: ${({ theme }) => theme.font.size.headingPortfolioModal};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.graphite};
-  margin-bottom: 20px;
-  max-width: 300px;
-`;
-
-export const TextWrapper = styled.div`
-  z-index: 9;
-  margin-left: 60px;
-`;
-
-export const ImgWrapper = styled.div`
-  position: relative;
-  width: 720px;
-  height: 650px;
-`;
-
-export const Description = styled.p`
-  max-width: 600px;
 `;

@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import Link from "next/link";
 
 const revealCard = keyframes`
 0% {
@@ -19,29 +20,6 @@ const revealCard = keyframes`
 }
 `;
 
-export const CardHeader = styled.h3`
-  font-size: ${({ theme }) => theme.font.size.headingOffer};
-  font-weight: ${({ theme }) => theme.font.weight.thin};
-  margin-bottom: 10px;
-  transform: translateY(100%);
-  transition: all 0.3s ease-out;
-
-  ${({ theme }) => theme.mq.phone} {
-    font-size: ${({ theme }) => theme.font.size.headingMobileAC};
-    transform: translateY(0%);
-  }
-`;
-
-export const CardText = styled.p`
-  font-size: ${({ theme }) => theme.font.size.paragraph};
-  color: ${({ theme }) => theme.color.graphite};
-  max-width: 220px;
-
-  ${({ theme }) => theme.mq.phone} {
-    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
-  }
-`;
-
 export const StyledImage = styled(Image)`
   position: absolute;
   top: 20px;
@@ -54,33 +32,26 @@ export const StyledImage = styled(Image)`
   }
 `;
 
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.graphite};
+  height: 100%;
+  width: 100%;
+
+  ${({ theme }) => theme.mq.phone} {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
 export const StyledIcon = styled(Icon)`
   transform: rotate(180deg);
   position: absolute;
   top: -10%;
   right: -20%;
   transition: all 0.3s ease;
-`;
-
-export const CardBtn = styled.button`
-  position: relative;
-  font-family: ${({ theme }) => theme.font.family.montserrat};
-  font-size: ${({ theme }) => theme.font.size.paragraph};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.gammaOrange};
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  line-height: 120%;
-  margin-bottom: 10px;
-  opacity: 0;
-  transition: all 0.3s ease;
-  cursor: pointer;
-
-  ${({ theme }) => theme.mq.phone} {
-    opacity: 1;
-    font-size: ${({ theme }) => theme.font.size.paragraphSmall};
-  }
 `;
 
 export const CardWrapper = styled.div`
@@ -94,6 +65,16 @@ export const CardWrapper = styled.div`
   transform: scale(0);
   opacity: 0;
 
+  ${({ theme }) => theme.mq.phone} {
+    min-width: 220px;
+    max-height: none;
+    padding: 18px;
+    opacity: 1;
+    transform: scale(1);
+    animation: none;
+    margin-right: 20px;
+  }
+
   ${({ $start, $delay }) => {
     if ($start) {
       return css`
@@ -102,29 +83,61 @@ export const CardWrapper = styled.div`
     }
   }}
 
-  &:hover {
-    ${CardBtn} {
-      opacity: 1;
-    }
-    ${CardHeader} {
-      transform: translateY(-10%);
-    }
+  h3 {
+    font-size: ${({ theme }) => theme.font.size.headingOffer};
+    font-weight: ${({ theme }) => theme.font.weight.thin};
+    margin-bottom: 10px;
+    transform: translateY(100%);
+    transition: all 0.3s ease-out;
 
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.headingMobileAC};
+      transform: translateY(0%);
+    }
+  }
+
+  p {
+    font-size: ${({ theme }) => theme.font.size.paragraph};
+    color: ${({ theme }) => theme.color.graphite};
+    max-width: 220px;
+
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+    }
+  }
+
+  button {
+    position: relative;
+    font-family: ${({ theme }) => theme.font.family.montserrat};
+    font-size: ${({ theme }) => theme.font.size.paragraph};
+    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+    color: ${({ theme }) => theme.color.gammaOrange};
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    line-height: 120%;
+    margin-bottom: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    ${({ theme }) => theme.mq.phone} {
+      opacity: 1;
+      font-size: ${({ theme }) => theme.font.size.paragraphSmall};
+    }
+  }
+
+  &:hover h3 {
+    transform: translateY(-10%);
+  }
+
+  &:hover button {
+    opacity: 1;
+  }
+
+  &:hover {
     ${StyledIcon} {
       transform: rotate(135deg);
     }
-  }
-  ${({ theme }) => theme.mq.phone} {
-    min-width: 220px;
-    max-height: none;
-    padding: 18px;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    transform: scale(1);
-    animation: none;
-    margin-right: 20px;
   }
 `;

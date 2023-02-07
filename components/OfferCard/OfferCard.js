@@ -1,13 +1,10 @@
 import {
   CardWrapper,
-  CardHeader,
-  CardText,
-  CardBtn,
   StyledImage,
   StyledIcon,
+  StyledLink,
 } from "./OfferCard.styles";
 import PropTypes from "prop-types";
-import Link from "next/link";
 
 export const cardsContent = [
   {
@@ -89,10 +86,10 @@ const OfferCard = ({
 }) => {
   return (
     <CardWrapper ref={innerRef} $start={start} $delay={delay}>
-      <div>
-        <CardHeader>{header}</CardHeader>
-        <Link href="/offer" scroll={false}>
-          <CardBtn
+      <StyledLink href="/offer" scroll={false}>
+        <div>
+          <h3>{header}</h3>
+          <button
             onClick={() => {
               updateOfferType(header);
             }}
@@ -103,19 +100,18 @@ const OfferCard = ({
               width="24"
               height="24"
             />
-          </CardBtn>
-        </Link>
+          </button>
+          <p>{text}</p>
+        </div>
 
-        <CardText>{text}</CardText>
-      </div>
-
-      <StyledImage
-        src={img}
-        width={width}
-        height={height}
-        alt={alt}
-        className={"cameleon"}
-      ></StyledImage>
+        <StyledImage
+          src={img}
+          width={width}
+          height={height}
+          alt={alt}
+          className={"cameleon"}
+        ></StyledImage>
+      </StyledLink>
     </CardWrapper>
   );
 };

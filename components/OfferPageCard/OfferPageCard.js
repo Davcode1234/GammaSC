@@ -3,19 +3,14 @@ import {
   StyledImgBackground,
   Header,
   ContentTextWrapper,
-  Text,
   StyledCamImg,
   TextWrapper,
-  FirstTextParagraph,
-  List,
-  ListItem,
-  Line,
   CamImgWrapper,
 } from "./OfferPageCard.styles";
 import { AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 
-const textAppearOptions = {
+const cardAppearVariant = {
   hidden: {
     opacity: 0,
     translateY: 200,
@@ -61,7 +56,7 @@ const OfferPageCard = ({
         <ContentTextWrapper xDim={translateVal}>
           <div>
             <Header>{header}</Header>
-            <Text>{text}</Text>
+            <p>{text}</p>
           </div>
         </ContentTextWrapper>
       </StyledImgBackground>
@@ -70,7 +65,7 @@ const OfferPageCard = ({
           {appear && (
             <>
               <CamImgWrapper
-                variants={textAppearOptions}
+                variants={cardAppearVariant}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
@@ -84,19 +79,19 @@ const OfferPageCard = ({
               </CamImgWrapper>
 
               <TextWrapper
-                variants={textAppearOptions}
+                variants={cardAppearVariant}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
               >
-                <Line></Line>
+                <div></div>
                 <div>
-                  <FirstTextParagraph>{contentParagraph}</FirstTextParagraph>
-                  <List>
+                  <p>{contentParagraph}</p>
+                  <ul>
                     {itemsArray.map((item) => {
-                      return <ListItem key={item.id}>{item.listItem}</ListItem>;
+                      return <li key={item.id}>{item.listItem}</li>;
                     })}
-                  </List>
+                  </ul>
                 </div>
               </TextWrapper>
             </>

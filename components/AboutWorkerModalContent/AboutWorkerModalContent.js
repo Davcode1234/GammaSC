@@ -1,4 +1,8 @@
-import { Wrap, TextContentWrapper } from "./AboutWorkerModalContent.styles";
+import {
+  Wrap,
+  TextContentWrapper,
+  ImgWrapper,
+} from "./AboutWorkerModalContent.styles";
 import PropTypes from "prop-types";
 import Image from "next/image";
 
@@ -14,7 +18,9 @@ const AboutWorkerModalContent = ({
   return (
     <>
       <Wrap dir={dir} ref={forwardRef} onKeyDown={keyDown} tabIndex="-1">
+        {/* <ImgWrapper> */}
         <Image src={img} width={400} height={429} alt="test"></Image>
+        {/* </ImgWrapper> */}
         <TextContentWrapper>
           <h2>{name}</h2>
           <p>{position}</p>

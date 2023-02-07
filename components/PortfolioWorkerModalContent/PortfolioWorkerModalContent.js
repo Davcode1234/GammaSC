@@ -1,12 +1,5 @@
 import { StyledImage } from "../PortfolioCard/PortfolioCard.styles.js";
-import {
-  ProductName,
-  ClientName,
-  ImgWrapper,
-  Description,
-  TextWrapper,
-  ModalContentWrapper,
-} from "./PortfolioWorkerModalContent.styles";
+import { ModalContentWrapper } from "./PortfolioWorkerModalContent.styles";
 import PropTypes from "prop-types";
 
 const PortfolioWorkerModalContent = ({ card, dir }) => {
@@ -16,15 +9,14 @@ const PortfolioWorkerModalContent = ({ card, dir }) => {
   return (
     <>
       <ModalContentWrapper dir={dir}>
-        <TextWrapper>
-          <ClientName>{company}</ClientName>
-          <ProductName>{product}</ProductName>
-          <Description>{description}</Description>
-        </TextWrapper>
-
-        <ImgWrapper>
+        <div>
+          <p>{company}</p>
+          <h2>{product}</h2>
+          <p>{description}</p>
+        </div>
+        <div>
           <StyledImage src={`https:${ImageURL}`} fill alt={alt}></StyledImage>
-        </ImgWrapper>
+        </div>
       </ModalContentWrapper>
     </>
   );

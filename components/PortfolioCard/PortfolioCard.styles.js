@@ -28,42 +28,6 @@ to {
 
 }
 `;
-
-export const CardOverlay = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: -8%;
-  z-index: 10;
-  background-color: rgba(53, 53, 53, 0.8);
-  opacity: 0;
-  min-height: 430px;
-  min-width: 600px;
-  transition: all 0.2s ease;
-  border-radius: 5px;
-`;
-
-export const HoverLine = styled.div`
-  height: 5px;
-  width: 38%;
-  background-color: ${({ theme }) => theme.color.gammaOrange};
-  border-radius: 5px;
-  transform: scale(0);
-  transition: all 0.4s 0.1s ease;
-`;
-
-export const HoverText = styled.p`
-  font-size: ${({ theme }) => theme.font.size.ContactCardPar};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.gammaOrange};
-  margin-bottom: 10px;
-  transform: translateY(100%);
-  opacity: 0;
-  transition: all 0.4s 0.4s ease;
-`;
-
 export const StyledImage = styled(Image)`
   object-fit: contain;
   transition: all 0.4s ease;
@@ -85,6 +49,81 @@ export const PortfolioCardContainer = styled.div`
   position: relative;
   opacity: 0;
 
+  div:first-child {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: -8%;
+    z-index: 10;
+    background-color: rgba(53, 53, 53, 0.8);
+    opacity: 0;
+    min-height: 430px;
+    min-width: 600px;
+    transition: all 0.2s ease;
+    border-radius: 5px;
+
+    div {
+      height: 5px;
+      width: 38%;
+      background-color: ${({ theme }) => theme.color.gammaOrange};
+      border-radius: 5px;
+      transform: scale(0);
+      transition: all 0.4s 0.1s ease;
+    }
+
+    p {
+      font-size: ${({ theme }) => theme.font.size.ContactCardPar};
+      font-weight: ${({ theme }) => theme.font.weight.semiBold};
+      color: ${({ theme }) => theme.color.gammaOrange};
+      margin-bottom: 10px;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: all 0.4s 0.4s ease;
+    }
+  }
+
+  div:nth-child(2) {
+    position: relative;
+    width: 600px;
+    height: 391px;
+  }
+
+  p {
+    font-size: ${({ theme }) => theme.font.size.contactCardPar};
+    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+    color: ${({ theme }) => theme.color.gammaOrange};
+    margin: 10px 0;
+  }
+
+  h2 {
+    font-size: ${({ theme }) => theme.font.size.contactCardHeader};
+    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+    color: ${({ theme }) => theme.color.graphite};
+    margin-bottom: 20px;
+  }
+  &:hover div:first-child {
+    opacity: 1;
+  }
+
+  &:hover div:first-child div {
+    transform: scale(1);
+  }
+
+  &:hover div:first-child p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    ${StyledImage} {
+      transform: scale(1.1) translateY(-10px);
+    }
+    ${StyledIcon} {
+      transform: rotate(135deg);
+    }
+  }
   ${({ exit }) => {
     if (exit) {
       return css`
@@ -96,45 +135,4 @@ export const PortfolioCardContainer = styled.div`
       `;
     }
   }}
-
-  &:hover {
-    ${StyledImage} {
-      transform: scale(1.1) translateY(-10px);
-    }
-    ${CardOverlay} {
-      opacity: 1;
-    }
-
-    ${HoverLine} {
-      transform: scale(1);
-    }
-
-    ${HoverText} {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    ${StyledIcon} {
-      transform: rotate(135deg);
-    }
-  }
-`;
-
-export const ClientName = styled.p`
-  font-size: ${({ theme }) => theme.font.size.contactCardPar};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.gammaOrange};
-  margin: 10px 0;
-`;
-
-export const ProductName = styled.h2`
-  font-size: ${({ theme }) => theme.font.size.contactCardHeader};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.graphite};
-  margin-bottom: 20px;
-`;
-
-export const ImgWrapper = styled.div`
-  position: relative;
-  width: 600px;
-  height: 391px;
 `;

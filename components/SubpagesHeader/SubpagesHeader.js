@@ -1,11 +1,10 @@
 import { InfoSmallPar } from "../../styles/pages/Home.styles";
 import {
-  Header,
   HeaderSection,
-  NavStripe,
-  TextParagraph,
+  // NavStripe,
 } from "./SubpagesHeader.styles";
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
 
 const slideInVariants = {
   hidden: {
@@ -27,27 +26,17 @@ const slideInVariants = {
 const SubpagesHeader = ({ headerSmall, headerBig, text }) => {
   return (
     <>
-      <NavStripe></NavStripe>
+      {/* <NavStripe></NavStripe> */}
       <HeaderSection>
-        <div>
-          <InfoSmallPar
-            variants={slideInVariants}
-            initial="hidden"
-            animate="active"
-          >
-            {headerSmall}
-          </InfoSmallPar>
-          <Header variants={slideInVariants} initial="hidden" animate="active">
-            {headerBig}
-          </Header>
-          <TextParagraph
-            variants={slideInVariants}
-            initial="hidden"
-            animate="active"
-          >
-            {text}
-          </TextParagraph>
-        </div>
+        <motion.div
+          variants={slideInVariants}
+          initial="hidden"
+          animate="active"
+        >
+          <InfoSmallPar>{headerSmall}</InfoSmallPar>
+          <h2>{headerBig}</h2>
+          <p>{text}</p>
+        </motion.div>
       </HeaderSection>
     </>
   );

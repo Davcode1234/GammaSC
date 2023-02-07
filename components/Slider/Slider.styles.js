@@ -51,10 +51,6 @@ export const SlideTrack = styled.div`
   }
 `;
 
-export const SliderItem = styled(Image)`
-  object-fit: contain;
-`;
-
 export const SliderItemWrapper = styled.div`
   position: relative;
   width: 350px;
@@ -64,4 +60,7 @@ export const SliderItemWrapper = styled.div`
     width: 200px;
     height: 100px;
   }
+`;
+export const SliderItem = styled(Image)`
+  object-fit: contain;
 `;

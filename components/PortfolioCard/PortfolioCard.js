@@ -1,12 +1,6 @@
 import {
-  ClientName,
-  ImgWrapper,
   PortfolioCardContainer,
-  ProductName,
   StyledImage,
-  CardOverlay,
-  HoverLine,
-  HoverText,
   StyledIcon,
 } from "./PortfolioCard.styles";
 import PropTypes from "prop-types";
@@ -17,22 +11,22 @@ const PortfolioCard = ({ card, click, exit }) => {
 
   return (
     <PortfolioCardContainer onClick={click} exit={exit}>
-      <CardOverlay>
-        <HoverText>
+      <div>
+        <p>
           Zobacz projekt
           <StyledIcon
             icon="material-symbols:arrow-back"
             width="30"
             height="30"
           />
-        </HoverText>
-        <HoverLine></HoverLine>
-      </CardOverlay>
-      <ImgWrapper>
+        </p>
+        <div></div>
+      </div>
+      <div>
         <StyledImage src={`https:${ImageURL}`} fill alt={alt}></StyledImage>
-      </ImgWrapper>
-      <ClientName>{company}</ClientName>
-      <ProductName>{product}</ProductName>
+      </div>
+      <p>{company}</p>
+      <h2>{product}</h2>
     </PortfolioCardContainer>
   );
 };
