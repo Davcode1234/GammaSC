@@ -51,6 +51,13 @@ export const StyledModal = styled.div`
       `;
     }
   }}
+
+  ${({ theme }) => theme.mq.tablet} {
+    width: 90%;
+    max-width: 350px;
+    height: 550px;
+    padding: 16px 16px 60px 26px;
+  }
 `;
 
 export const StyledOverlay = styled.div`
@@ -84,6 +91,11 @@ export const CloseBtnWrapper = styled.button`
   cursor: pointer;
   z-index: 10;
 
+  ${({ theme }) => theme.mq.tablet} {
+    top: 20px;
+    right: 15px;
+  }
+
   &:hover div {
     transform: scale(1.1) rotate(45deg);
   }
@@ -96,6 +108,10 @@ export const CloseBtnWrapper = styled.button`
     background-color: black;
     transform: rotate(45deg);
     z-index: 10;
+    ${({ theme }) => theme.mq.tablet} {
+      width: 30px;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -105,6 +121,9 @@ export const CloseBtnWrapper = styled.button`
       border-radius: 5px;
       background-color: black;
       transform: rotate(90deg);
+      ${({ theme }) => theme.mq.tablet} {
+        width: 30px;
+      }
     }
     transition: all 0.3s ease;
   }
@@ -119,11 +138,20 @@ export const ArrowBtnWrapper = styled.button`
   border: none;
   cursor: pointer;
   pointer-events: ${({ disabled }) => (disabled ? "none" : "null")};
+
+  ${({ theme }) => theme.mq.tablet} {
+    bottom: 0;
+    left: 37%;
+  }
 `;
 
 export const LeftArrowBtnWrapper = styled(ArrowBtnWrapper)`
   left: 50%;
   pointer-events: ${({ disabled }) => (disabled ? "none" : "null")};
+
+  ${({ theme }) => theme.mq.tablet} {
+    left: 48%;
+  }
 `;
 
 export const StyledIcon = styled(Icon)`
@@ -131,6 +159,10 @@ export const StyledIcon = styled(Icon)`
   transition: all 0.3s ease;
   &:hover {
     transform: translateX(-5px);
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    transform: scale(0.8);
   }
 `;
 
@@ -140,5 +172,9 @@ export const SecondStyledIcon = styled(StyledIcon)`
   transform: rotate(180deg);
   &:hover {
     transform: translateX(5px) rotate(180deg);
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    transform: translateX(5px) rotate(180deg) scale(0.8);
   }
 `;
