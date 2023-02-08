@@ -19,6 +19,9 @@ export const HeaderSection = styled.section`
 
   div {
     padding-right: 25%;
+    ${({ theme }) => theme.mq.smallerPhone} {
+      padding-right: 0;
+    }
   }
 
   div h2 {

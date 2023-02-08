@@ -46,7 +46,7 @@ export const CardWrapper = styled.div`
   cursor: pointer;
   position: relative;
 
-  h3 {
+  h4 {
     font-size: ${({ theme }) => theme.font.size.headingAboutCard};
     color: ${({ theme }) => theme.color.graphite};
     font-weight: ${({ theme }) => theme.font.weight.bold};

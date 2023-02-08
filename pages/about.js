@@ -3,14 +3,13 @@ import { Fragment, useRef, useState } from "react";
 import AboutWorkerCard from "../components/AboutWorkerCard/AboutWorkerCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 import {
-  AboutParagraph,
   CompanyImagesSection,
-  CompanySecHeader,
   ContentSec,
-  Header,
   CarouselImageWrapper,
   CarouselStyledImg,
   TeamContainer,
+  ScrollBar,
+  ScrollBardContainer,
 } from "../styles/pages/About.styles";
 import { AnimatePresence } from "framer-motion";
 import VerticalScroll from "../components/VerticalScroll/VerticalScroll";
@@ -396,7 +395,6 @@ export default function About() {
 
   const disableSides = () => {
     setDisableSideCards(true);
-
     setTimeout(() => {
       setDisableSideCards(false);
     }, 500);
@@ -459,12 +457,12 @@ export default function About() {
       </ModalComp>
 
       <ContentSec>
-        <Header>Nasz team</Header>
-        <AboutParagraph>
+        <h2>Nasz team</h2>
+        <p>
           Lorem ipsum dolor sit amet consectetur. Suspendisse arcu pharetra
           imperdiet neque egestas faucibus ac. Velit congue donec at euismod
           velit quis ut purus eros.{" "}
-        </AboutParagraph>
+        </p>
         <AnimatePresence>
           <TeamContainer
             variants={cardsVariants}
@@ -491,9 +489,7 @@ export default function About() {
         </AnimatePresence>
 
         <CompanyImagesSection>
-          <CompanySecHeader>
-            Lorem ipsum dolor sit amet consectetur.
-          </CompanySecHeader>
+          <h3>Z życia agencji</h3>
 
           <VerticalScroll>
             {carouselImages.map((image) => {

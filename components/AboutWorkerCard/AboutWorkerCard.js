@@ -21,7 +21,7 @@ const AboutWorkerCard = ({ img, name, position, click }) => {
         alt={"hero img"}
         priority
       ></HeroImg>
-      <h3>{name}</h3>
+      <h4>{name}</h4>
       <p>{position}</p>
     </CardWrapper>
   );

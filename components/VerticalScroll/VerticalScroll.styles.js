@@ -13,3 +13,18 @@ export const Carousel = styled(motion.div)`
 export const InnerCarousel = styled(motion.div)`
   display: flex;
 `;
+
+export const ScrollBardContainer = styled.div`
+  position: relative;
+  height: 10px;
+  width: 100%;
+  padding: 0 2% 0 11%;
+  transform: translateY(350%);
+`;
+export const ScrollBar = styled(motion.div)`
+  position: absolute;
+  width: 100px;
+  height: 7px;
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.color.graphite};
+`;

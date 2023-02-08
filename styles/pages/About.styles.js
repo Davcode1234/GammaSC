@@ -9,41 +9,55 @@ export const ContentSec = styled.section`
   align-items: center;
   justify-content: center;
   padding-top: 90px;
-`;
-export const Header = styled.h2`
-  font-size: ${({ theme }) => theme.font.size.headingSmall};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.gammaOrange};
-  margin-bottom: 15px;
-  ${({ theme }) => theme.mq.phone} {
-    font-size: ${({ theme }) => theme.font.size.headingMobileAC};
-  }
-`;
 
-export const AboutParagraph = styled.p`
-  font-size: ${({ theme }) => theme.font.size.paragraph};
-  color: ${({ theme }) => theme.color.graphite};
-  text-align: center;
-  max-width: 660px;
-  margin-bottom: 100px;
-  ${({ theme }) => theme.mq.phone} {
-    font-size: ${({ theme }) => theme.font.size.paragraphMobile};
-    max-width: 350px;
-    margin: 0 10px 50px 10px;
+  h2 {
+    font-size: ${({ theme }) => theme.font.size.headingSmall};
+    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+    color: ${({ theme }) => theme.color.gammaOrange};
+    margin-bottom: 15px;
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.headingMobileAC};
+    }
+  }
+
+  h3 {
+    font-size: ${({ theme }) => theme.font.size.headingSmall};
+    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+    color: ${({ theme }) => theme.color.graphite};
+    max-width: 500px;
+    margin: 80px 11%;
+
+    ${({ theme }) => theme.mq.tablet} {
+      margin: 40px 13%;
+    }
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.headingMobileAC};
+      margin: 30px 15%;
+    }
+  }
+
+  p:nth-child(2) {
+    font-size: ${({ theme }) => theme.font.size.paragraph};
+    color: ${({ theme }) => theme.color.graphite};
+    text-align: center;
+    max-width: 660px;
+    margin-bottom: 100px;
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+      max-width: 350px;
+      margin: 0 10px 50px 10px;
+    }
   }
 `;
 
 export const TeamContainer = styled(motion.div)`
   display: flex;
-  flex-wrap: wrap;
-  max-width: 90%;
-  max-width: 1500px;
-  gap: 50px;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1500px;
   margin-bottom: 90px;
 `;
-
-export const HeroImg = styled(Image)``;
 
 export const CompanyImagesSection = styled.section`
   height: 900px;
@@ -54,24 +68,6 @@ export const CompanyImagesSection = styled.section`
   }
   ${({ theme }) => theme.mq.phone} {
     height: 500px;
-  }
-`;
-
-export const CompanySecHeader = styled.h2`
-  font-size: ${({ theme }) => theme.font.size.headingSmall};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.graphite};
-  max-width: 500px;
-  margin: 80px auto;
-  transform: translateX(-50%);
-  ${({ theme }) => theme.mq.tablet} {
-    transform: translate(-25%);
-    margin: 40px auto;
-  }
-  ${({ theme }) => theme.mq.phone} {
-    font-size: ${({ theme }) => theme.font.size.headingMobileAC};
-    margin: 30px 16px;
-    transform: translateX(0);
   }
 `;
 
@@ -90,21 +86,4 @@ export const CarouselImageWrapper = styled(motion.div)`
 export const CarouselStyledImg = styled(Image)`
   object-fit: contain;
   pointer-events: none;
-`;
-
-// Modal test
-
-export const TitleName = styled.h2`
-  font-size: ${({ theme }) => theme.font.size.headingSmall};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  color: ${({ theme }) => theme.color.gammaOrange};
-`;
-export const PositionPar = styled.p`
-  font-size: ${({ theme }) => theme.font.size.ContactCardPar};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  margin-bottom: 20px;
-`;
-
-export const AboutText = styled.p`
-  max-width: 350px;
 `;
