@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled, { css, keyframes } from "styled-components";
 
-const swipeLeft = keyframes`
+const swipeLeftMobile = keyframes`
 0% {
   transform: translateX(0);
 }
@@ -10,12 +10,30 @@ const swipeLeft = keyframes`
 }
 `;
 
-const swipeRight = keyframes`
+const swipeRightMobile = keyframes`
 0% {
   transform: translateX(0);
 }
 100% {
   transform: translateX(113.5%);
+}
+`;
+
+const swipeLeft = keyframes`
+0% {
+  transform: translateX(0);
+}
+100% {
+  transform: translateX(-105%);
+}
+`;
+
+const swipeRight = keyframes`
+0% {
+  transform: translateX(0);
+}
+100% {
+  transform: translateX(105%);
 }
 `;
 
@@ -29,10 +47,16 @@ export const Wrap = styled.div`
       case "right":
         return css`
           animation: ${swipeRight} 0.5s ease forwards;
+          ${({ theme }) => theme.mq.tablet} {
+            animation: ${swipeRightMobile} 0.5s ease forwards;
+          }
         `;
       case "left":
         return css`
           animation: ${swipeLeft} 0.5s ease forwards;
+          ${({ theme }) => theme.mq.tablet} {
+            animation: ${swipeLeftMobile} 0.5s ease forwards;
+          }
         `;
       default:
         return "";
