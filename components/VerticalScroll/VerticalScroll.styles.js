@@ -19,7 +19,7 @@ export const ScrollBardContainer = styled.div`
   height: 10px;
   width: 100%;
   padding: 0 2% 0 11%;
-  transform: translateY(350%);
+  transform: translateY(300%);
 `;
 export const ScrollBar = styled(motion.div)`
   position: absolute;
@@ -27,4 +27,8 @@ export const ScrollBar = styled(motion.div)`
   height: 7px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.color.graphite};
+
+  ${({ theme }) => theme.mq.phone} {
+    width: 50px;
+  }
 `;
