@@ -11,89 +11,83 @@ import { useMotionValue, useTransform } from "framer-motion";
 
 const VerticalScroll = ({ children }) => {
   const [width, setWidth] = useState(0);
-  const [offsetWidth, setOffsetWidth] = useState(0);
-  const [toMapVal, setToMapVal] = useState(1000);
-  const [leftOffsetVal, setLeftOffsetVal] = useState(200);
-  const [rightOffsetVal, setRightOffsetVal] = useState(offsetWidth);
-  console.log(offsetWidth);
+  // const [offsetWidth, setOffsetWidth] = useState(0);
+  // const [toMapVal, setToMapVal] = useState(1000);
+  // const [leftOffsetVal, setLeftOffsetVal] = useState(200);
+  // const [rightOffsetVal, setRightOffsetVal] = useState(offsetWidth);
+  // console.log(offsetWidth);
 
   const carousel = useRef();
-  const x = useMotionValue();
+  // const x = useMotionValue();
 
-  const updateToMapVal = (offsetWidth) => {
-    switch (true) {
-      case offsetWidth >= 1400: {
-        setToMapVal(1000);
-        break;
-      }
-      case offsetWidth <= 1400 && offsetWidth > 1300: {
-        setToMapVal(1200);
-        break;
-      }
-      case offsetWidth <= 1300 && offsetWidth > 1200: {
-        setToMapVal(1500);
-        break;
-      }
-      case offsetWidth <= 1200 && offsetWidth > 1050: {
-        setToMapVal(1600);
-        setLeftOffsetVal(150);
-        break;
-      }
-      case offsetWidth <= 1050 && offsetWidth > 850: {
-        setToMapVal(1800);
-        setLeftOffsetVal(150);
-        break;
-      }
-      case offsetWidth <= 850 && offsetWidth > 750: {
-        setToMapVal(1850);
-        setLeftOffsetVal(100);
-        break;
-      }
-      case offsetWidth <= 750 && offsetWidth > 690: {
-        setToMapVal(1950);
-        setLeftOffsetVal(100);
-        break;
-      }
-      case offsetWidth <= 690 && offsetWidth > 605: {
-        setToMapVal(2100);
-        setLeftOffsetVal(90);
-        break;
-      }
-      case offsetWidth < 605 && offsetWidth > 500: {
-        setToMapVal(2100);
-        setLeftOffsetVal(70);
-        break;
-      }
-      case offsetWidth < 500 && offsetWidth > 340: {
-        setToMapVal(2100);
-        setLeftOffsetVal(50);
-        break;
-      }
-      case offsetWidth < 340 && offsetWidth > 250: {
-        setToMapVal(2100);
-        setLeftOffsetVal(30);
-        break;
-      }
-      default: {
-        return;
-      }
-    }
-  };
+  // const updateToMapVal = (offsetWidth) => {
+  //   switch (true) {
+  //     case offsetWidth >= 1400: {
+  //       setToMapVal(1000);
+  //       break;
+  //     }
+  //     case offsetWidth <= 1400 && offsetWidth > 1300: {
+  //       setToMapVal(1200);
+  //       break;
+  //     }
+  //     case offsetWidth <= 1300 && offsetWidth > 1200: {
+  //       setToMapVal(1500);
+  //       break;
+  //     }
+  //     case offsetWidth <= 1200 && offsetWidth > 1050: {
+  //       setToMapVal(1600);
+  //       setLeftOffsetVal(150);
+  //       break;
+  //     }
+  //     case offsetWidth <= 1050 && offsetWidth > 850: {
+  //       setToMapVal(1800);
+  //       setLeftOffsetVal(150);
+  //       break;
+  //     }
+  //     case offsetWidth <= 850 && offsetWidth > 750: {
+  //       setToMapVal(1850);
+  //       setLeftOffsetVal(100);
+  //       break;
+  //     }
+  //     case offsetWidth <= 750 && offsetWidth > 690: {
+  //       setToMapVal(1950);
+  //       setLeftOffsetVal(100);
+  //       break;
+  //     }
+  //     case offsetWidth <= 690 && offsetWidth > 605: {
+  //       setToMapVal(2100);
+  //       setLeftOffsetVal(90);
+  //       break;
+  //     }
+  //     case offsetWidth < 605 && offsetWidth > 500: {
+  //       setToMapVal(2100);
+  //       setLeftOffsetVal(70);
+  //       break;
+  //     }
+  //     case offsetWidth < 500 && offsetWidth > 340: {
+  //       setToMapVal(2100);
+  //       setLeftOffsetVal(50);
+  //       break;
+  //     }
+  //     case offsetWidth < 340 && offsetWidth > 250: {
+  //       setToMapVal(2100);
+  //       setLeftOffsetVal(30);
+  //       break;
+  //     }
+  //     default: {
+  //       return;
+  //     }
+  //   }
+  // };
 
   useEffect(() => {
-    setOffsetWidth(carousel.current.offsetWidth);
-    updateToMapVal(carousel.current.offsetWidth);
+    // setOffsetWidth(carousel.current.offsetWidth);
+    // updateToMapVal(carousel.current.offsetWidth);
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, []);
 
-  console.log(`toMap: ${toMapVal}`);
-  console.log(`leftOff: ${leftOffsetVal}`);
-
-  // const crossPath = useTransform(
-  //   x,
-  //   [0, -offsetWidth * 0.6],
-  //   [offsetWidth * 0.12, offsetWidth * 1.05]
-  // );
+  // console.log(`toMap: ${toMapVal}`);
+  // console.log(`leftOff: ${leftOffsetVal}`);
 
   // const crossPath = useTransform(x, [0, -1100], [200, 1700]);
 
@@ -121,11 +115,11 @@ const VerticalScroll = ({ children }) => {
 
   // 300 - const crossPath = useTransform(x, [0, -2100], [30, offsetWidth * 0.9]); --> 250 OW
 
-  const crossPath = useTransform(
-    x,
-    [0, -toMapVal],
-    [leftOffsetVal, offsetWidth * 1.25]
-  );
+  // const crossPath = useTransform(
+  //   x,
+  //   [0, -toMapVal],
+  //   [leftOffsetVal, offsetWidth * 1.25]
+  // );
 
   return (
     <>
@@ -135,7 +129,7 @@ const VerticalScroll = ({ children }) => {
           <InnerCarousel
             drag="x"
             // dragControls={controls}
-            style={{ x }}
+            // style={{ x }}
             dragConstraints={{ right: 0, left: -width }}
             whileTap={{ cursor: "grabbing" }}
           >
@@ -144,9 +138,9 @@ const VerticalScroll = ({ children }) => {
         </Carousel>
       </Wrapper>
 
-      <ScrollBardContainer>
+      {/* <ScrollBardContainer>
         <ScrollBar style={{ left: crossPath }}></ScrollBar>
-      </ScrollBardContainer>
+      </ScrollBardContainer> */}
     </>
   );
 };

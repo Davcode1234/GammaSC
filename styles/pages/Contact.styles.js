@@ -49,9 +49,3 @@ export const MapHeader = styled.h2`
     max-width: 350px;
   }
 `;
-
-export const Map = styled.div`
-  & > div {
-    height: 620px;
-  }
-`;

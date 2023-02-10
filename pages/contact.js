@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment, useEffect, useMemo, useRef } from "react";
 import Head from "next/head";
 import { Loader } from "@googlemaps/js-api-loader";
 import {
@@ -8,6 +8,7 @@ import {
 } from "../styles/pages/Contact.styles";
 import ContactAssistantCard from "../components/ContactAssistantCard/ContactAssistantCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
+import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 
 const contactData = [
   {
@@ -39,28 +40,29 @@ const headerData = {
 };
 
 export default function Contact() {
-  const googleMap = useRef(null);
+  const libraries = useMemo(() => ["places"], []);
+  const mapCenter = useMemo(
+    () => ({ lat: 50.07215399984899, lng: 21.388977045745907 }),
+    []
+  );
 
-  50.07215399984899, 21.388977045745907;
+  const mapOptions = useMemo(
+    () => ({
+      disableDefaultUI: false,
+      clickableIcons: true,
+      scrollwheel: false,
+    }),
+    []
+  );
 
-  useEffect(() => {
-    const loader = new Loader({
-      apiKey: process.env.NEXT_PUBLIC_GOOGLE_API,
-      version: "weekly",
-    });
-    let map;
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API,
+    libraries: libraries,
+  });
 
-    loader.load().then(() => {
-      map = new google.maps.Map(googleMap.current, {
-        center: { lat: 50.07215399984899, lng: 21.388977045745907 },
-        zoom: 16,
-      });
-      let marker = new google.maps.Marker({
-        position: { lat: 50.07215399984899, lng: 21.388977045745907 },
-        map: map,
-      });
-    });
-  }, []);
+  if (!isLoaded) {
+    return <>Loading...</>;
+  }
 
   return (
     <>
@@ -94,9 +96,15 @@ export default function Contact() {
         <span>Gdzie</span> nas znajdziesz?
       </MapHeader>
 
-      <Map>
-        <div id="map" ref={googleMap} />
-      </Map>
+      <GoogleMap
+        options={mapOptions}
+        zoom={16}
+        center={mapCenter}
+        mapTypeId={google.maps.MapTypeId.ROADMAP}
+        mapContainerStyle={{ width: "100%", height: "620px" }}
+      >
+        <MarkerF position={mapCenter} />
+      </GoogleMap>
     </>
   );
 }
