@@ -1,6 +1,5 @@
-import { Fragment, useEffect, useMemo, useRef } from "react";
+import { Fragment, useMemo } from "react";
 import Head from "next/head";
-import { Loader } from "@googlemaps/js-api-loader";
 import {
   ContactInfoSection,
   MapHeader,
@@ -9,6 +8,7 @@ import {
 import ContactAssistantCard from "../components/ContactAssistantCard/ContactAssistantCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
+import { Loader, LoaderWrapper } from "../components/Loader.styles";
 
 const contactData = [
   {
@@ -61,7 +61,11 @@ export default function Contact() {
   });
 
   if (!isLoaded) {
-    return <>Loading...</>;
+    return (
+      <LoaderWrapper>
+        <Loader></Loader>
+      </LoaderWrapper>
+    );
   }
 
   return (

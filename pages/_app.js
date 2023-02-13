@@ -5,13 +5,47 @@ import { ThemeProvider } from "styled-components";
 import "../styles/normalize.css";
 import PropTypes from "prop-types";
 import Head from "next/head";
-import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { Loader, LoaderWrapper } from "../components/Loader.styles";
+// import { AnimatePresence, motion } from "framer-motion";
 
-const pageTransition = {
-  hidden: { opacity: 0, x: -200, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: { opacity: 0, x: 0, y: -100 },
-};
+// const pageTransition = {
+//   hidden: { opacity: 0, x: -200, y: 0 },
+//   enter: { opacity: 1, x: 0, y: 0 },
+//   exit: { opacity: 0, x: 0, y: -100 },
+// };
+
+function Loading() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const handleStart = (url) => url !== router.asPath && setLoading(true);
+    const handleComplete = (url) =>
+      url === router.asPath &&
+      setTimeout(() => {
+        setLoading(false);
+      }, 300);
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  });
+
+  return (
+    loading && (
+      <LoaderWrapper>
+        <Loader></Loader>
+      </LoaderWrapper>
+    )
+  );
+}
 
 function MyApp({ Component, pageProps, router }) {
   return (
@@ -21,23 +55,9 @@ function MyApp({ Component, pageProps, router }) {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <Loading />
         <Layout>
-          <AnimatePresence
-            mode="wait"
-            initial={false}
-            onExitComplete={() => window.scrollTo(0, 0)}
-          >
-            <motion.main
-              variants={pageTransition}
-              initial="hidden"
-              animate="enter"
-              exit="exit"
-              transition={{ type: "linear" }}
-              key={router.route}
-            >
-              <Component {...pageProps} />
-            </motion.main>
-          </AnimatePresence>
+          <Component {...pageProps} />
         </Layout>
       </ThemeProvider>
     </>

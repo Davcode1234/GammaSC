@@ -14,7 +14,7 @@ export const CardOverlay = styled.div`
   background-color: rgba(246, 140, 30, 0.8);
   opacity: 0;
   min-height: 300px;
-  min-width: 290px;
+  min-width: 300px;
   transition: all 0.2s ease;
   border-radius: 5px;
 `;
@@ -70,7 +70,7 @@ export const CardWrapper = styled.div`
 
   &:hover {
     ${HeroImg} {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
     ${CardOverlay} {
       opacity: 1;

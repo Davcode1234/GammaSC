@@ -86,7 +86,7 @@ const OfferCard = ({
 }) => {
   return (
     <CardWrapper ref={innerRef} $start={start} $delay={delay}>
-      <StyledLink href="/offer" scroll={false}>
+      <StyledLink href="/offer">
         <div>
           <h3>{header}</h3>
           <button

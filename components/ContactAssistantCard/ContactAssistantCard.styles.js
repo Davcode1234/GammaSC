@@ -17,7 +17,7 @@ export const ContactCardWrapper = styled(motion.div)`
   align-items: center;
   transform: translateY(-15%);
   opacity: 0;
-  animation: ${cardAppear} 0.5s 0.7s ease forwards;
+  animation: ${cardAppear} 0.5s 0.8s ease forwards;
 
   ${({ theme }) => theme.mq.smallerDesktop} {
     transform: translateY(0) !important;

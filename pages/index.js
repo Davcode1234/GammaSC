@@ -198,7 +198,7 @@ export default function Home() {
               firmy reklamowej oferującej swoim Klientom kompleksową obsługę w
               zakresie reklamy, druku oraz rozwiązań internetowych.
             </InfoSecContentPar>
-            <Link href="/about" scroll={false}>
+            <Link href="/about">
               <CtaBtn
                 isbig="true"
                 variants={btnOptions}
