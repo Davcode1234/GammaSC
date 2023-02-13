@@ -18,7 +18,7 @@ import AboutWorkerModalContent from "../components/AboutWorkerModalContent/About
 
 const AboutCardsData = [
   {
-    img: "/AboutPage/Gamma_Jaromir.webp",
+    img: "/AboutPage/Gamma_Jaromir-min.jpg",
     name: "Jaromir",
     position: "CEO",
     text: (
@@ -33,7 +33,7 @@ const AboutCardsData = [
     id: 0,
   },
   {
-    img: "/AboutPage/Gamma_Aleksander.webp",
+    img: "/AboutPage/Gamma_Aleksander-min.jpg",
     name: "Aleksander",
     position: "Vice",
     text: (
@@ -48,7 +48,7 @@ const AboutCardsData = [
     id: 1,
   },
   {
-    img: "/AboutPage/Gamma_Ela.png",
+    img: "/AboutPage/Gamma_Elżbieta-min.jpg",
     name: "Elżbieta",
     position: "Creative director",
     text: (
@@ -59,7 +59,7 @@ const AboutCardsData = [
     id: 2,
   },
   {
-    img: "/AboutPage/Gamma_Beata.webp",
+    img: "/AboutPage/Gamma_Beata-min.jpg",
     name: "Beata",
     position: "Senior Graphic Designer",
     text: (
@@ -74,7 +74,7 @@ const AboutCardsData = [
     id: 3,
   },
   {
-    img: "/AboutPage/Gamma_Jerzy.webp",
+    img: "/AboutPage/Gamma_Jerzy-min.jpg",
     name: "Jurek",
     position: "Customer Service",
     text: (
@@ -86,7 +86,7 @@ const AboutCardsData = [
     id: 4,
   },
   {
-    img: "/AboutPage/Gamma_Anna.webp",
+    img: "/AboutPage/Gamma_Anna-min.jpg",
     name: "Anna",
     position: "Sales Specialist",
     text: (
@@ -116,7 +116,7 @@ const AboutCardsData = [
     id: 6,
   },
   {
-    img: "/AboutPage/Gamma_Joanna.webp",
+    img: "/AboutPage/Gamma_Joanna-min.jpg",
     name: "Joanna",
     position: "Sales Specialist",
     text: (
@@ -128,7 +128,7 @@ const AboutCardsData = [
     id: 7,
   },
   {
-    img: "/AboutPage/Gamma_Edyta.webp",
+    img: "/AboutPage/Gamma_Edyta-min.jpg",
     name: "Edyta",
     position: "Senior Graphic Designer",
     text: (
@@ -144,7 +144,7 @@ const AboutCardsData = [
     id: 8,
   },
   {
-    img: "/AboutPage/Gamma_Damian.webp",
+    img: "/AboutPage/Gamma_Damian-min.jpg",
     name: "Damian",
     position: "Web Developer",
     text: (
@@ -160,7 +160,7 @@ const AboutCardsData = [
     id: 9,
   },
   {
-    img: "/AboutPage/Gamma_Sebastian.webp",
+    img: "/AboutPage/Gamma_Sebastian-min.jpg",
     name: "Sebastian",
     position: "Senior Graphic Designer",
     text: (
@@ -175,7 +175,7 @@ const AboutCardsData = [
     id: 10,
   },
   {
-    img: "/AboutPage/Gamma_Gabriela.webp",
+    img: "/AboutPage/Gamma_Gabriela-min.jpg",
     name: "Gabriela",
     position: "Graphic Designer / Ilustrator",
     text: (
@@ -191,7 +191,7 @@ const AboutCardsData = [
   },
 
   {
-    img: "/AboutPage/Gamma_Weronika.webp",
+    img: "/AboutPage/Gamma_Weronika-min.jpg",
     name: "Weronika",
     position: "Graphic Designer",
     text: (
@@ -207,7 +207,7 @@ const AboutCardsData = [
     id: 12,
   },
   {
-    img: "/AboutPage/Gamma_Marta.webp",
+    img: "/AboutPage/Gamma_Marta-min.jpg",
     name: "Marta",
     position: "Senior Graphic Designer",
     text: (
@@ -219,7 +219,7 @@ const AboutCardsData = [
     id: 13,
   },
   {
-    img: "/AboutPage/Gamma_Kamil.webp",
+    img: "/AboutPage/Gamma_Kamil-min.jpg",
     name: "Kamil",
     position: "Junior Graphic Designer",
     text: (
@@ -236,7 +236,7 @@ const AboutCardsData = [
   },
 
   {
-    img: "/AboutPage/Gamma_Panrysiu.webp",
+    img: "/AboutPage/Gamma_Panrysiu-min.jpg",
     name: "Pan Rysiu",
     position: "Head of engineer",
     text: (
