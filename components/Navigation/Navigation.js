@@ -11,6 +11,7 @@ import {
   MenuLink,
   StyledLink,
   Overlay,
+  MenuBtnWrapper,
 } from "./Navigation.styles";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -150,20 +151,25 @@ const Navigation = () => {
             width={160}
             height={60}
             alt="logo"
+            priority
           ></Image>
         </Link>
-        <MenuBtnView
-          isOpen={open}
+        <MenuBtnWrapper
           onClick={() => {
             openMenu();
           }}
-          variants={BtnVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.8 }}
-        ></MenuBtnView>
+          isOpen={open}
+        >
+          <MenuBtnView
+            isOpen={open}
+            variants={BtnVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.8 }}
+          ></MenuBtnView>
+        </MenuBtnWrapper>
       </NavigationWrapper>
       {open && (
         <Overlay

@@ -11,7 +11,7 @@ const AboutWorkerCard = ({ img, name, position, click }) => {
   return (
     <CardWrapper onClick={click}>
       <CardOverlay>
-        <HoverText>Learn more!</HoverText>
+        <HoverText>Poznaj mnie!</HoverText>
         <HoverLine></HoverLine>
       </CardOverlay>
       <HeroImg

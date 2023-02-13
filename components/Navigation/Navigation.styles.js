@@ -50,7 +50,7 @@ export const NavigationWrapper = styled.nav`
   }
 `;
 
-export const MenuBtn = styled.button`
+export const MenuBtn = styled.div`
   position: relative;
   border: none;
   border-radius: 4px;
@@ -59,6 +59,7 @@ export const MenuBtn = styled.button`
   cursor: pointer;
   background-color: ${({ isOpen }) => (isOpen ? "#fff" : "#f68c1e")};
   z-index: 10;
+  transition: all 0.3s ease;
 
   &:after {
     content: "";
@@ -85,8 +86,7 @@ export const MenuBtn = styled.button`
   }
 `;
 
-export const CloseMenuBtn = styled.button`
-  translate: 35px 20px;
+export const CloseMenuBtn = styled.div`
   rotate: 45deg;
   position: relative;
   border: none;
@@ -113,6 +113,26 @@ export const CloseMenuBtn = styled.button`
     height: 2px;
     background-color: #fff;
     animation: ${MenuBtnRev2} 0.5s 1.9s ease forwards;
+  }
+`;
+
+export const MenuBtnWrapper = styled.button`
+  position: relative;
+  width: 50px;
+  height: 50px;
+  transform: ${({ isOpen }) =>
+    isOpen ? "translate(45px, 25px);" : "translate(0px, 0px);"};
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    ${MenuBtn} {
+      transform: scale(1.1);
+    }
   }
 `;
 

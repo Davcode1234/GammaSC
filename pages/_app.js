@@ -8,13 +8,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Loader, LoaderWrapper } from "../components/Loader.styles";
-// import { AnimatePresence, motion } from "framer-motion";
-
-// const pageTransition = {
-//   hidden: { opacity: 0, x: -200, y: 0 },
-//   enter: { opacity: 1, x: 0, y: 0 },
-//   exit: { opacity: 0, x: 0, y: -100 },
-// };
 
 function Loading() {
   const router = useRouter();
@@ -47,7 +40,7 @@ function Loading() {
   );
 }
 
-function MyApp({ Component, pageProps, router }) {
+function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
@@ -55,8 +48,8 @@ function MyApp({ Component, pageProps, router }) {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Loading />
         <Layout>
+          <Loading />
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

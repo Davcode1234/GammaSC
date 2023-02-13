@@ -35,7 +35,6 @@ import { topImages, bottomImages } from "../components/Slider/Slider";
 import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Slider from "../components/Slider/Slider";
 import useWindowSize from "../hooks/useWindowSize";
@@ -97,16 +96,9 @@ const btnOptions = {
 };
 
 export default function Home() {
-  const [ref, inView] = useInView();
-  const [animated, setAnimated] = useState(false);
+  const [ref, inView] = useInView({ triggerOnce: true });
   const isMobile = useWindowSize(750);
   const CardsWrapperOffer = isMobile ? VerticalScroll : OfferCardsGrid;
-
-  useEffect(() => {
-    if (inView) {
-      setAnimated(true);
-    }
-  }, [inView]);
 
   return (
     <>
@@ -269,7 +261,7 @@ export default function Home() {
             ({ delay, header, text, img, alt, width, height }) => {
               return (
                 <OfferCard
-                  start={animated}
+                  start={inView}
                   innerRef={ref}
                   delay={delay}
                   header={header}
@@ -312,7 +304,7 @@ export default function Home() {
             Usiądź wygodnie,
             <br /> a my się wszystkim zajmiemy.
           </InfoSecHeader>
-          <Link href="/contact" scroll={false}>
+          <Link href="/contact">
             <CtaBtn
               isbig="true"
               whileInView={{ opacity: 1 }}

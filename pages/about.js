@@ -236,7 +236,7 @@ const AboutCardsData = [
   },
 
   {
-    img: "/AboutPage/Gamma_Panrysiu-min.jpg",
+    img: "/AboutPage/Gamma_PanRysiu-min.jpg",
     name: "Pan Rysiu",
     position: "Head of engineer",
     text: (

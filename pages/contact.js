@@ -3,12 +3,13 @@ import Head from "next/head";
 import {
   ContactInfoSection,
   MapHeader,
-  Map,
+  MapWrapper,
 } from "../styles/pages/Contact.styles";
 import ContactAssistantCard from "../components/ContactAssistantCard/ContactAssistantCard";
 import SubpagesHeader from "../components/SubpagesHeader/SubpagesHeader";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 import { Loader, LoaderWrapper } from "../components/Loader.styles";
+import { useInView } from "react-intersection-observer";
 
 const contactData = [
   {
@@ -40,7 +41,8 @@ const headerData = {
 };
 
 export default function Contact() {
-  const libraries = useMemo(() => ["places"], []);
+  const [ref, inView] = useInView({ triggerOnce: true });
+
   const mapCenter = useMemo(
     () => ({ lat: 50.07215399984899, lng: 21.388977045745907 }),
     []
@@ -57,7 +59,6 @@ export default function Contact() {
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API,
-    libraries: libraries,
   });
 
   if (!isLoaded) {
@@ -96,19 +97,23 @@ export default function Contact() {
           );
         })}
       </ContactInfoSection>
-      <MapHeader>
+      <MapHeader vis={inView}>
         <span>Gdzie</span> nas znajdziesz?
       </MapHeader>
 
-      <GoogleMap
-        options={mapOptions}
-        zoom={16}
-        center={mapCenter}
-        mapTypeId={google.maps.MapTypeId.ROADMAP}
-        mapContainerStyle={{ width: "100%", height: "620px" }}
-      >
-        <MarkerF position={mapCenter} />
-      </GoogleMap>
+      <MapWrapper ref={ref} vis={inView}>
+        {inView && (
+          <GoogleMap
+            options={mapOptions}
+            zoom={16}
+            center={mapCenter}
+            mapTypeId={google.maps.MapTypeId.ROADMAP}
+            mapContainerStyle={{ width: "100%", height: "620px" }}
+          >
+            <MarkerF position={mapCenter} />
+          </GoogleMap>
+        )}
+      </MapWrapper>
     </>
   );
 }

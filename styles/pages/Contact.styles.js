@@ -1,4 +1,14 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const reveal = keyframes`
+from {
+  opacity: 0;
+}
+
+to {
+  opacity: 1;
+}
+`;
 
 export const ContactHeader = styled.section`
   height: 560px;
@@ -38,6 +48,14 @@ export const MapHeader = styled.h2`
   color: ${({ theme }) => theme.color.graphite};
   text-align: center;
   margin-bottom: 60px;
+  opacity: 0;
+  ${({ vis }) => {
+    return vis
+      ? css`
+          animation: ${reveal} 0.5s 0.3s ease forwards;
+        `
+      : null;
+  }}
 
   & > span {
     color: ${({ theme }) => theme.color.gammaOrange};
@@ -48,4 +66,17 @@ export const MapHeader = styled.h2`
     margin: 0 auto 30px auto;
     max-width: 350px;
   }
+`;
+
+export const MapWrapper = styled.div`
+  height: 620px;
+  opacity: 0;
+
+  ${({ vis }) => {
+    return vis
+      ? css`
+          animation: ${reveal} 0.5s 0.3s ease forwards;
+        `
+      : null;
+  }}
 `;
