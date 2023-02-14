@@ -8,6 +8,9 @@ const useModal = (data) => {
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
   const [disableSideCards, setDisableSideCards] = useState(false);
+  // const [btnTag, setBtnTag] = useState("digital");
+  // const [tag, setTag] = useState("digital");
+  // const [cardsExit, setCardsExit] = useState(false);
 
   const modalEl = useRef();
 
@@ -38,8 +41,6 @@ const useModal = (data) => {
       setAnimateSwipe("");
     }, 500);
   };
-
-  console.log(data.length);
 
   const decreaseIndex = () => {
     setAnimateSwipe("right");

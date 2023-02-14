@@ -351,19 +351,13 @@ export default function About() {
       >
         {!disableSideCards && (
           <AboutWorkerModalContent
-            name={AboutCardsData[index > 0 ? index - 1 : index].name}
-            position={AboutCardsData[index > 0 ? index - 1 : index].position}
-            text={AboutCardsData[index > 0 ? index - 1 : index].text}
-            img={AboutCardsData[index > 0 ? index - 1 : index].img}
+            card={AboutCardsData[index > 0 ? index - 1 : index]}
             dir={animateSwipe}
           ></AboutWorkerModalContent>
         )}
 
         <AboutWorkerModalContent
-          name={AboutCardsData[index].name}
-          position={AboutCardsData[index].position}
-          text={AboutCardsData[index].text}
-          img={AboutCardsData[index].img}
+          card={AboutCardsData[index]}
           dir={animateSwipe}
           keyDown={handleKeyEvents}
           forwardRef={modalEl}
@@ -371,10 +365,7 @@ export default function About() {
 
         {!disableSideCards && (
           <AboutWorkerModalContent
-            name={AboutCardsData[index < 15 ? index + 1 : index].name}
-            position={AboutCardsData[index < 15 ? index + 1 : index].position}
-            text={AboutCardsData[index < 15 ? index + 1 : index].text}
-            img={AboutCardsData[index < 15 ? index + 1 : index].img}
+            card={AboutCardsData[index < 15 ? index + 1 : index]}
             dir={animateSwipe}
           ></AboutWorkerModalContent>
         )}

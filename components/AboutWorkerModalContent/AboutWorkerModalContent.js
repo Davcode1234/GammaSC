@@ -6,15 +6,9 @@ import {
 } from "./AboutWorkerModalContent.styles";
 import PropTypes from "prop-types";
 
-const AboutWorkerModalContent = ({
-  name,
-  position,
-  text,
-  img,
-  dir,
-  keyDown,
-  forwardRef,
-}) => {
+const AboutWorkerModalContent = ({ card, dir, keyDown, forwardRef }) => {
+  const { name, position, text, img } = card;
+
   return (
     <>
       <Wrap dir={dir} ref={forwardRef} onKeyDown={keyDown} tabIndex="-1">
@@ -42,10 +36,7 @@ const AboutWorkerModalContent = ({
 export default AboutWorkerModalContent;
 
 AboutWorkerModalContent.propTypes = {
-  img: PropTypes.string,
-  name: PropTypes.string,
-  position: PropTypes.string,
-  text: PropTypes.object,
+  card: PropTypes.array,
   dir: PropTypes.string,
   keyDown: PropTypes.func,
   forwardRef: PropTypes.object,

@@ -13,6 +13,7 @@ import CardChooseBtn from "../components/CardChooseBtn/CardChooseBtn";
 import { createClient } from "contentful";
 import PropTypes from "prop-types";
 import useCardCarousel from "../hooks/useModal";
+import useModal from "../hooks/useModal";
 
 const portfolioSubHeaderData = {
   headerSmall: "portfolio",
@@ -58,6 +59,23 @@ export default function Portfolio({ cards }) {
   const [animateSwipe, setAnimateSwipe] = useState("");
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
+
+  // const {
+  //   showModal,
+  //   index,
+  //   exitAnim,
+  //   animateSwipe,
+  //   leftDisabledBtn,
+  //   rightDisabledBtn,
+  //   disableSideCards,
+  //   modalEl,
+  //   increaseIndex,
+  //   decreaseIndex,
+  //   onRequestClose,
+  //   handleKeyEvents,
+  //   openModal,
+  //   disableSides,
+  // } = useModal(cards);
 
   const filteredCards = cards.filter((card) =>
     card.fields.offerType.includes(tag)
@@ -173,6 +191,8 @@ export default function Portfolio({ cards }) {
                 key={card.sys.id}
                 card={card}
                 click={() => {
+                  // openModal(index);
+                  // disableSides();
                   setIndex(index);
                   setShowModal(true);
                 }}
