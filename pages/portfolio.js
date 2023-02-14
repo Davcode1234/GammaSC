@@ -12,6 +12,7 @@ import PortfolioWorkerModalContent from "../components/PortfolioWorkerModalConte
 import CardChooseBtn from "../components/CardChooseBtn/CardChooseBtn";
 import { createClient } from "contentful";
 import PropTypes from "prop-types";
+import useCardCarousel from "../hooks/useModal";
 
 const portfolioSubHeaderData = {
   headerSmall: "portfolio",

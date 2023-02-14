@@ -15,6 +15,7 @@ import { AnimatePresence } from "framer-motion";
 import VerticalScroll from "../components/VerticalScroll/VerticalScroll";
 import ModalComp from "../components/Modal/Modal";
 import AboutWorkerModalContent from "../components/AboutWorkerModalContent/AboutWorkerModalContent";
+import useModal from "../hooks/useModal";
 
 const AboutCardsData = [
   {
@@ -306,99 +307,22 @@ const aboutSubHeaderData = {
 };
 
 export default function About() {
-  const [showModal, setShowModal] = useState(false);
-  const [index, setIndex] = useState(0);
-  const [exitAnim, setExitAnim] = useState(false);
-  const [animateSwipe, setAnimateSwipe] = useState("");
-  const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
-  const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
-  const [disableSideCards, setDisableSideCards] = useState(false);
-
-  const modalEl = useRef();
-
-  const increaseIndex = () => {
-    setAnimateSwipe("left");
-    setRightDisabledBtn(true);
-    modalEl.current && modalEl.current.focus();
-
-    if (leftDisabledBtn) {
-      setLeftDisabledBtn(false);
-    }
-    setTimeout(() => {
-      if (index < 14) {
-        setRightDisabledBtn(false);
-      }
-      setIndex((id) =>
-        index < AboutCardsData.length - 1 ? id + 1 : AboutCardsData.length - 1
-      );
-
-      setAnimateSwipe("");
-    }, 500);
-  };
-
-  const decreaseIndex = () => {
-    setAnimateSwipe("right");
-    setLeftDisabledBtn(true);
-    modalEl.current && modalEl.current.focus();
-
-    if (rightDisabledBtn) {
-      setRightDisabledBtn(false);
-    }
-
-    setTimeout(() => {
-      if (index > 1) {
-        setLeftDisabledBtn(false);
-      }
-      setIndex((id) => (index === 0 ? id : id - 1));
-      setAnimateSwipe("");
-    }, 500);
-  };
-
-  const onRequestClose = () => {
-    setExitAnim(true);
-    setLeftDisabledBtn(false);
-    setRightDisabledBtn(false);
-    setTimeout(() => {
-      setShowModal(false);
-      setExitAnim(false);
-    }, 500);
-  };
-
-  const handleKeyEvents = (event) => {
-    switch (event.keyCode) {
-      case 39:
-        if (!rightDisabledBtn) increaseIndex();
-        break;
-
-      case 37:
-        if (!leftDisabledBtn) decreaseIndex();
-        break;
-
-      case 27:
-        onRequestClose();
-        break;
-
-      default:
-        return;
-    }
-  };
-
-  const openModal = (id, name) => {
-    setIndex(id);
-    setShowModal(true);
-    if (name === "Jaromir") {
-      setLeftDisabledBtn(true);
-    } else if (name === "Pan Rysiu") {
-      setRightDisabledBtn(true);
-    }
-  };
-
-  const disableSides = () => {
-    setDisableSideCards(true);
-    setTimeout(() => {
-      setDisableSideCards(false);
-    }, 500);
-  };
+  const {
+    showModal,
+    index,
+    exitAnim,
+    animateSwipe,
+    leftDisabledBtn,
+    rightDisabledBtn,
+    disableSideCards,
+    modalEl,
+    increaseIndex,
+    decreaseIndex,
+    onRequestClose,
+    handleKeyEvents,
+    openModal,
+    disableSides,
+  } = useModal(AboutCardsData);
 
   return (
     <>
