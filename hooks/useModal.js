@@ -8,11 +8,10 @@ const useModal = (data) => {
   const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
   const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
   const [disableSideCards, setDisableSideCards] = useState(false);
-  // const [btnTag, setBtnTag] = useState("digital");
-  // const [tag, setTag] = useState("digital");
-  // const [cardsExit, setCardsExit] = useState(false);
 
   const modalEl = useRef();
+
+  console.log(data[data.length - 1].fields.product);
 
   const onRequestClose = () => {
     setExitAnim(true);
@@ -33,7 +32,7 @@ const useModal = (data) => {
       setLeftDisabledBtn(false);
     }
     setTimeout(() => {
-      if (index < 14) {
+      if (index < data.length - 2) {
         setRightDisabledBtn(false);
       }
       setIndex((id) => (index < data.length - 1 ? id + 1 : data.length - 1));
@@ -82,9 +81,12 @@ const useModal = (data) => {
   const openModal = (id, name) => {
     setIndex(id);
     setShowModal(true);
-    if (name === "Jaromir") {
+    if (name === "Jaromir" || data[0].fields.product === name) {
       setLeftDisabledBtn(true);
-    } else if (name === "Pan Rysiu") {
+    } else if (
+      name === "Pan Rysiu" ||
+      data[data.length - 1].fields.product === name
+    ) {
       setRightDisabledBtn(true);
     }
   };

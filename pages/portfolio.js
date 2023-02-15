@@ -12,7 +12,6 @@ import PortfolioWorkerModalContent from "../components/PortfolioWorkerModalConte
 import CardChooseBtn from "../components/CardChooseBtn/CardChooseBtn";
 import { createClient } from "contentful";
 import PropTypes from "prop-types";
-import useCardCarousel from "../hooks/useModal";
 import useModal from "../hooks/useModal";
 
 const portfolioSubHeaderData = {
@@ -50,83 +49,33 @@ export async function getStaticProps() {
   };
 }
 export default function Portfolio({ cards }) {
-  const [showModal, setShowModal] = useState();
-  const [index, setIndex] = useState(0);
   const [btnTag, setBtnTag] = useState("digital");
   const [tag, setTag] = useState("digital");
-  const [exitAnim, setExitAnim] = useState(false);
   const [cardsExit, setCardsExit] = useState(false);
-  const [animateSwipe, setAnimateSwipe] = useState("");
-  const [leftDisabledBtn, setLeftDisabledBtn] = useState(false);
-  const [rightDisabledBtn, setRightDisabledBtn] = useState(false);
-
-  // const {
-  //   showModal,
-  //   index,
-  //   exitAnim,
-  //   animateSwipe,
-  //   leftDisabledBtn,
-  //   rightDisabledBtn,
-  //   disableSideCards,
-  //   modalEl,
-  //   increaseIndex,
-  //   decreaseIndex,
-  //   onRequestClose,
-  //   handleKeyEvents,
-  //   openModal,
-  //   disableSides,
-  // } = useModal(cards);
 
   const filteredCards = cards.filter((card) =>
     card.fields.offerType.includes(tag)
   );
-
-  const onRequestClose = () => {
-    setExitAnim(true);
-    setLeftDisabledBtn(false);
-    setRightDisabledBtn(false);
-    setTimeout(() => {
-      setShowModal(false);
-      setExitAnim(false);
-    }, 500);
-  };
-
-  const increaseIndex = () => {
-    setAnimateSwipe("left");
-    setRightDisabledBtn(true);
-    if (leftDisabledBtn) {
-      setLeftDisabledBtn(false);
-    }
-    setTimeout(() => {
-      if (index < filteredCards.length - 2) {
-        setRightDisabledBtn(false);
-        console.log("enabled");
-      }
-      setIndex((id) => (index < cards.length - 1 ? id + 1 : cards.length - 1));
-      setAnimateSwipe("");
-    }, 500);
-  };
-
-  const decreaseIndex = () => {
-    setAnimateSwipe("right");
-    setLeftDisabledBtn(true);
-    if (rightDisabledBtn) {
-      setRightDisabledBtn(false);
-    }
-
-    setTimeout(() => {
-      if (index > 1) {
-        setLeftDisabledBtn(false);
-      }
-      setIndex((id) => (index === 0 ? id : id - 1));
-      setAnimateSwipe("");
-    }, 500);
-  };
+  const {
+    showModal,
+    index,
+    exitAnim,
+    animateSwipe,
+    leftDisabledBtn,
+    rightDisabledBtn,
+    disableSideCards,
+    modalEl,
+    increaseIndex,
+    decreaseIndex,
+    onRequestClose,
+    handleKeyEvents,
+    openModal,
+    disableSides,
+  } = useModal(filteredCards);
 
   const handleButtonClick = (btn) => {
     setCardsExit(true);
     setBtnTag(btn);
-
     setTimeout(() => {
       setTag(btn);
       setCardsExit(false);
@@ -152,6 +101,7 @@ export default function Portfolio({ cards }) {
       <ModalComp
         isModalOpen={showModal}
         onClose={onRequestClose}
+        onAfterOpen={() => modalEl.current && modalEl.current.focus()}
         exitAnim={exitAnim}
         leftDisabled={leftDisabledBtn}
         rightDisabled={rightDisabledBtn}
@@ -159,20 +109,30 @@ export default function Portfolio({ cards }) {
         prevContent={() => decreaseIndex()}
         portfolio={true}
       >
-        <PortfolioWorkerModalContent
-          card={filteredCards[index > 0 ? index - 1 : index]}
-          dir={animateSwipe}
-        ></PortfolioWorkerModalContent>
+        {!disableSideCards && (
+          <PortfolioWorkerModalContent
+            card={filteredCards[index > 0 ? index - 1 : index]}
+            dir={animateSwipe}
+          ></PortfolioWorkerModalContent>
+        )}
+
         <PortfolioWorkerModalContent
           card={filteredCards[index]}
           dir={animateSwipe}
+          keyDown={handleKeyEvents}
+          forwardRef={modalEl}
         ></PortfolioWorkerModalContent>
-        <PortfolioWorkerModalContent
-          card={
-            filteredCards[index < filteredCards.length - 1 ? index + 1 : index]
-          }
-          dir={animateSwipe}
-        ></PortfolioWorkerModalContent>
+
+        {!disableSideCards && (
+          <PortfolioWorkerModalContent
+            card={
+              filteredCards[
+                index < filteredCards.length - 1 ? index + 1 : index
+              ]
+            }
+            dir={animateSwipe}
+          ></PortfolioWorkerModalContent>
+        )}
       </ModalComp>
 
       <PortfolioPage>
@@ -191,10 +151,10 @@ export default function Portfolio({ cards }) {
                 key={card.sys.id}
                 card={card}
                 click={() => {
-                  // openModal(index);
-                  // disableSides();
-                  setIndex(index);
-                  setShowModal(true);
+                  openModal(index, card.fields.product);
+                  disableSides();
+                  // setIndex(index);
+                  // setShowModal(true);
                 }}
                 exit={cardsExit}
               ></PortfolioCard>

@@ -24,6 +24,10 @@ export const ModalContentWrapper = styled.div`
   align-items: center;
   gap: 100px;
 
+  &:focus-visible {
+    outline: 0px solid white;
+  }
+
   div:first-child {
     z-index: 9;
     margin-left: 60px;

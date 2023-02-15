@@ -69,7 +69,6 @@ export const Wrap = styled.div`
 
   ${({ theme }) => theme.mq.tablet} {
     justify-content: center;
-
     flex-wrap: wrap;
     gap: 0;
   }
