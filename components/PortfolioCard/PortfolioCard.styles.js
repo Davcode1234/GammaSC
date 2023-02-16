@@ -49,6 +49,10 @@ export const PortfolioCardContainer = styled.div`
   position: relative;
   opacity: 0;
 
+  ${({ theme }) => theme.mq.phone} {
+    max-width: 300px;
+  }
+
   div:first-child {
     position: absolute;
     display: flex;
@@ -63,6 +67,14 @@ export const PortfolioCardContainer = styled.div`
     min-width: 600px;
     transition: all 0.2s ease;
     border-radius: 5px;
+
+    ${({ theme }) => theme.mq.phone} {
+      min-width: 350px;
+    }
+
+    ${({ theme }) => theme.mq.tinyPhone} {
+      display: none;
+    }
 
     div {
       height: 5px;
@@ -88,21 +100,37 @@ export const PortfolioCardContainer = styled.div`
     position: relative;
     width: 600px;
     height: 391px;
+
+    ${({ theme }) => theme.mq.phone} {
+      width: 450px;
+      height: 291px;
+    }
   }
 
   p {
-    font-size: ${({ theme }) => theme.font.size.contactCardPar};
+    font-size: ${({ theme }) => theme.font.size.ContactCardPar};
     font-weight: ${({ theme }) => theme.font.weight.semiBold};
     color: ${({ theme }) => theme.color.gammaOrange};
     margin: 10px 0;
+
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.paragraphMobile};
+    }
   }
 
   h2 {
-    font-size: ${({ theme }) => theme.font.size.contactCardHeader};
+    max-width: 500px;
+    text-align: center;
+    font-size: ${({ theme }) => theme.font.size.ContactCardHeader};
     font-weight: ${({ theme }) => theme.font.weight.semiBold};
     color: ${({ theme }) => theme.color.graphite};
     margin-bottom: 20px;
+
+    ${({ theme }) => theme.mq.phone} {
+      font-size: ${({ theme }) => theme.font.size.headingMobileAC};
+    }
   }
+
   &:hover div:first-child {
     opacity: 1;
   }

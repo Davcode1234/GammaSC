@@ -11,8 +11,6 @@ const useModal = (data) => {
 
   const modalEl = useRef();
 
-  // console.log(data[0].hasOwnProperty("fields"));
-
   const onRequestClose = () => {
     setExitAnim(true);
     setLeftDisabledBtn(false);
@@ -80,20 +78,20 @@ const useModal = (data) => {
 
   const checkEndCards = (name, index) => {
     if (data[index].hasOwnProperty("fields")) {
-      if (data[index].fields.product === name) {
-        return true;
-      }
-    } else {
-      return false;
+      if (data[index].fields.product === name) return true;
     }
+    return false;
   };
 
   const openModal = (id, name) => {
     setIndex(id);
     setShowModal(true);
-    if (name === "Jaromir" || checkEndCards(name, 0)) {
+    if ((data[0].name === name) | checkEndCards(name, 0)) {
       setLeftDisabledBtn(true);
-    } else if (name === "Pan Rysiu" || checkEndCards(name, data.length - 1)) {
+    } else if (
+      data[data.length - 1].name === name ||
+      checkEndCards(name, data.length - 1)
+    ) {
       setRightDisabledBtn(true);
     }
   };

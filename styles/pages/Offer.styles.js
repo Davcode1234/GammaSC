@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const ButtonsWrapper = styled.div`
@@ -13,8 +13,9 @@ export const ButtonsWrapper = styled.div`
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
     grid-gap: 30px;
-    align-items: start;
     padding-left: 16px;
+    width: 50%;
+    transform: translate(50%, 60px);
   }
 `;
 

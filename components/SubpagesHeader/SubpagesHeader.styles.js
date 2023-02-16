@@ -15,12 +15,12 @@ export const HeaderSection = styled.section`
   }
 
   ${({ theme }) => theme.mq.tablet} {
-    padding: 0 30px;
+    padding: 0 16px;
   }
 
   div {
     padding-right: 25%;
-    ${({ theme }) => theme.mq.smallerPhone} {
+    ${({ theme }) => theme.mq.tablet} {
       padding-right: 0;
     }
   }
@@ -34,9 +34,14 @@ export const HeaderSection = styled.section`
     & > span {
       color: ${({ theme }) => theme.color.gammaOrange};
     }
+
+    ${({ theme }) => theme.mq.tablet} {
+      max-width: 800px;
+    }
     ${({ theme }) => theme.mq.phone} {
       font-size: ${({ theme }) => theme.font.size.headingMobileDP};
       margin-bottom: 20px;
+      max-width: 400px;
     }
   }
 

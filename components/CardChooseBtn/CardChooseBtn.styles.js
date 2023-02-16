@@ -37,5 +37,6 @@ export const OfferButton = styled(motion.button)`
   ${({ theme }) => theme.mq.tablet} {
     font-size: ${({ theme }) => theme.font.size.paragraph};
     text-align: left;
+    max-width: 150px;
   }
 `;
