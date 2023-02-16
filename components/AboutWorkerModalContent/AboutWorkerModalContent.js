@@ -36,7 +36,7 @@ const AboutWorkerModalContent = ({ card, dir, keyDown, forwardRef }) => {
 export default AboutWorkerModalContent;
 
 AboutWorkerModalContent.propTypes = {
-  card: PropTypes.array,
+  card: PropTypes.object,
   dir: PropTypes.string,
   keyDown: PropTypes.func,
   forwardRef: PropTypes.object,

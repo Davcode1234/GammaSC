@@ -63,7 +63,6 @@ export default function Portfolio({ cards }) {
     animateSwipe,
     leftDisabledBtn,
     rightDisabledBtn,
-    disableSideCards,
     modalEl,
     increaseIndex,
     decreaseIndex,
@@ -109,12 +108,10 @@ export default function Portfolio({ cards }) {
         prevContent={() => decreaseIndex()}
         portfolio={true}
       >
-        {!disableSideCards && (
-          <PortfolioWorkerModalContent
-            card={filteredCards[index > 0 ? index - 1 : index]}
-            dir={animateSwipe}
-          ></PortfolioWorkerModalContent>
-        )}
+        <PortfolioWorkerModalContent
+          card={filteredCards[index > 0 ? index - 1 : index]}
+          dir={animateSwipe}
+        ></PortfolioWorkerModalContent>
 
         <PortfolioWorkerModalContent
           card={filteredCards[index]}
@@ -123,16 +120,12 @@ export default function Portfolio({ cards }) {
           forwardRef={modalEl}
         ></PortfolioWorkerModalContent>
 
-        {!disableSideCards && (
-          <PortfolioWorkerModalContent
-            card={
-              filteredCards[
-                index < filteredCards.length - 1 ? index + 1 : index
-              ]
-            }
-            dir={animateSwipe}
-          ></PortfolioWorkerModalContent>
-        )}
+        <PortfolioWorkerModalContent
+          card={
+            filteredCards[index < filteredCards.length - 1 ? index + 1 : index]
+          }
+          dir={animateSwipe}
+        ></PortfolioWorkerModalContent>
       </ModalComp>
 
       <PortfolioPage>
@@ -153,8 +146,6 @@ export default function Portfolio({ cards }) {
                 click={() => {
                   openModal(index, card.fields.product);
                   disableSides();
-                  // setIndex(index);
-                  // setShowModal(true);
                 }}
                 exit={cardsExit}
               ></PortfolioCard>

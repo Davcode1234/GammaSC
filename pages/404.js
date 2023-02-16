@@ -5,7 +5,7 @@ const fdPage = () => {
   return (
     <Custom404Sec>
       <Image
-        src={"/mariusz.png"}
+        src={"/mariusz.jpg"}
         width={1000}
         height={565}
         alt="mariusz"

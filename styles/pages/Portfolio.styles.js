@@ -6,8 +6,10 @@ export const PortfolioPage = styled.section`
 
 export const ButtonsWrapper = styled.div`
   display: flex;
+  justify-content: center;
   gap: 50px;
-  padding-left: 6.5%;
+  padding-right: 30%;
+  /* padding-left: 6.5%; */
   transform: translateY(-130px);
 `;
 
