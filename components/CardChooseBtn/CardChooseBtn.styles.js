@@ -4,14 +4,14 @@ import styled, { css, keyframes } from "styled-components";
 const clicked = keyframes`
 to {
     color: #f68c1e;
-    font-weight: 700;
+    /* font-weight: 700; */
 }
 `;
 
 const unClicked = keyframes`
 to { 
     color: #fff;
-    font-weight: 400;
+    /* font-weight: 400; */
 }
 `;
 

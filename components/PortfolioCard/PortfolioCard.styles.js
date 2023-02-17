@@ -72,6 +72,10 @@ export const PortfolioCardContainer = styled.div`
       min-width: 350px;
     }
 
+    ${({ theme }) => theme.mq.smallerPhone} {
+      min-height: 360px;
+    }
+
     ${({ theme }) => theme.mq.tinyPhone} {
       display: none;
     }
@@ -104,6 +108,11 @@ export const PortfolioCardContainer = styled.div`
     ${({ theme }) => theme.mq.phone} {
       width: 450px;
       height: 291px;
+    }
+
+    ${({ theme }) => theme.mq.smallerPhone} {
+      width: 350px;
+      height: 228px;
     }
   }
 
@@ -146,7 +155,7 @@ export const PortfolioCardContainer = styled.div`
 
   &:hover {
     ${StyledImage} {
-      transform: scale(1.1) translateY(-10px);
+      transform: scale(1.05) translateY(-10px);
     }
     ${StyledIcon} {
       transform: rotate(135deg);

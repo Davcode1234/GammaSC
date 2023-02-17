@@ -1,47 +1,45 @@
 import styled from "styled-components";
 
-export const PortfolioPage = styled.section`
-  padding-bottom: 150px;
-`;
+export const PortfolioPage = styled.section``;
 
 export const ButtonsWrapper = styled.div`
   display: flex;
   justify-content: center;
-  gap: 50px;
-  padding-right: 30%;
-  /* padding-left: 6.5%; */
+  gap: 30px;
+  position: absolute;
+  width: 100%;
   transform: translateY(-130px);
+  padding-right: 34%;
 
   ${({ theme }) => theme.mq.desktop} {
-    gap: 30px;
-    padding-right: 25%;
+    padding-right: 0;
+    padding-left: 16px;
+    justify-content: left;
   }
 
   ${({ theme }) => theme.mq.tablet} {
-    padding-right: 0;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
-  ${({ theme }) => theme.mq.phone} {
+  ${({ theme }) => theme.mq.smallerPhone} {
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-    grid-gap: 30px;
-    padding-left: 16px;
-    width: 50%;
-    transform: translate(50%, -155px);
-  }
-
-  ${({ theme }) => theme.mq.tinyPhone} {
-    grid-gap: 25px;
+    gap: 15px;
   }
 `;
 
 export const CardsWrapper = styled.div`
   max-width: 1500px;
-  padding-top: 50px;
+  padding: 100px 0 150px 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 35px;
   margin: 0 auto;
+
+  ${({ theme }) => theme.mq.smallerPhone} {
+    padding-top: 50px;
+    padding: 50px 0 100px 0;
+  }
 `;

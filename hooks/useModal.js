@@ -86,7 +86,7 @@ const useModal = (data) => {
   const openModal = (id, name) => {
     setIndex(id);
     setShowModal(true);
-    if ((data[0].name === name) | checkEndCards(name, 0)) {
+    if (data[0].name === name || checkEndCards(name, 0)) {
       setLeftDisabledBtn(true);
     } else if (
       data[data.length - 1].name === name ||

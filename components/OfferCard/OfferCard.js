@@ -86,9 +86,9 @@ const OfferCard = ({
 }) => {
   return (
     <CardWrapper ref={innerRef} $start={start} $delay={delay}>
-      <StyledLink href="/offer">
-        <div>
-          <h3>{header}</h3>
+      <div>
+        <h3>{header}</h3>
+        <StyledLink href="/offer">
           <button
             onClick={() => {
               updateOfferType(header);
@@ -101,17 +101,17 @@ const OfferCard = ({
               height="24"
             />
           </button>
-          <p>{text}</p>
-        </div>
+        </StyledLink>
+        <p>{text}</p>
+      </div>
 
-        <StyledImage
-          src={img}
-          width={width}
-          height={height}
-          alt={alt}
-          className={"cameleon"}
-        ></StyledImage>
-      </StyledLink>
+      <StyledImage
+        src={img}
+        width={width}
+        height={height}
+        alt={alt}
+        className={"cameleon"}
+      ></StyledImage>
     </CardWrapper>
   );
 };

@@ -24,6 +24,7 @@ export const StyledImage = styled(Image)`
   position: absolute;
   top: 20px;
   right: 15px;
+  margin: 0 auto;
 
   ${({ theme }) => theme.mq.phone} {
     position: static;
@@ -38,12 +39,12 @@ export const StyledLink = styled(Link)`
   height: 100%;
   width: 100%;
 
-  ${({ theme }) => theme.mq.phone} {
+  /* ${({ theme }) => theme.mq.phone} {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-  }
+  } */
 `;
 
 export const StyledIcon = styled(Icon)`
@@ -56,6 +57,8 @@ export const StyledIcon = styled(Icon)`
 
 export const CardWrapper = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column-reverse;
   padding: 76px 30px 30px 30px;
   background: linear-gradient(to bottom, white, transparent);
   width: 420px;
