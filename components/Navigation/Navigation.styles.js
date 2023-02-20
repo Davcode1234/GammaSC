@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -45,6 +45,15 @@ export const NavigationWrapper = styled.nav`
   width: 100%;
   height: 75px;
   z-index: 100;
+  transition: all 0.3s ease;
+
+  ${({ dir }) => {
+    return dir === "down"
+      ? css`
+          transform: translateY(-80px);
+        `
+      : null;
+  }}
   ${({ theme }) => theme.mq.smallerPhone} {
     padding: 0 50px;
   }

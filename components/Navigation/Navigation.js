@@ -15,6 +15,7 @@ import {
 } from "./Navigation.styles";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import useScroll from "../../hooks/useScroll";
 
 const links = [
   { name: "Oferta", id: 1, to: "/offer" },
@@ -52,6 +53,8 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [exitVar, setExitVar] = useState(false);
   // const [secondSliderVal, setSecondSliderVal] = useState(false);
+  const scroll = useScroll();
+  console.log(scroll);
 
   const openMenu = () => {
     setOpen((val) => !val);
@@ -144,7 +147,7 @@ const Navigation = () => {
 
   return (
     <>
-      <NavigationWrapper>
+      <NavigationWrapper dir={scroll}>
         <Link href={"/"} onClick={() => setOpen(false)}>
           <Image
             src={"/HomePage/orange.png"}
