@@ -24,6 +24,10 @@ export const ModalContentWrapper = styled.div`
   align-items: center;
   gap: 100px;
 
+  @media (max-width: 1550px) {
+    gap: 50px;
+  }
+
   &:focus-visible {
     outline: 0px solid white;
   }
@@ -54,6 +58,11 @@ export const ModalContentWrapper = styled.div`
     position: relative;
     width: 720px;
     height: 650px;
+
+    ${({ theme }) => theme.mq.desktop} {
+      width: 550px;
+      height: 497px;
+    }
   }
 
   ${({ dir }) => {

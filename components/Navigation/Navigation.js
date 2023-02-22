@@ -54,7 +54,6 @@ const Navigation = () => {
   const [exitVar, setExitVar] = useState(false);
   // const [secondSliderVal, setSecondSliderVal] = useState(false);
   const scroll = useScroll();
-  console.log(scroll);
 
   const openMenu = () => {
     setOpen((val) => !val);

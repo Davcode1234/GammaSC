@@ -50,6 +50,14 @@ export const SlideTrack = styled.div`
     display: inline-block;
   }
 `;
+export const SliderItem = styled(Image)`
+  object-fit: contain;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
 
 export const SliderItemWrapper = styled.div`
   position: relative;
@@ -60,7 +68,4 @@ export const SliderItemWrapper = styled.div`
     width: 200px;
     height: 100px;
   }
-`;
-export const SliderItem = styled(Image)`
-  object-fit: contain;
 `;

@@ -45,6 +45,7 @@ export const HeroImg = styled(Image)`
 export const CardWrapper = styled.div`
   cursor: pointer;
   position: relative;
+  z-index: 0;
 
   h4 {
     font-size: ${({ theme }) => theme.font.size.headingAboutCard};
