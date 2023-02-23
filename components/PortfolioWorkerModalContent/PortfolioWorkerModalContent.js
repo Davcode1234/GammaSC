@@ -20,7 +20,15 @@ const PortfolioWorkerModalContent = ({ card, dir, keyDown, forwardRef }) => {
           <p>{description}</p>
         </div>
         <div>
-          <StyledImage src={`https:${ImageURL}`} fill alt={alt}></StyledImage>
+          <StyledImage
+            src={`https:${ImageURL}`}
+            sizes="
+            (max-width: 1150px) 300px,
+            720px
+          "
+            fill
+            alt={alt}
+          ></StyledImage>
         </div>
       </ModalContentWrapper>
     </>

@@ -10,6 +10,7 @@ import {
   StyledOverlay,
 } from "./Modal.styles";
 import PropTypes from "prop-types";
+import { Loader, LoaderWrapper } from "../Loader.styles";
 
 const ModalComp = ({
   isModalOpen,
@@ -33,7 +34,9 @@ const ModalComp = ({
   return (
     <>
       {!isClient ? (
-        <div>Fallback UI</div>
+        <LoaderWrapper>
+          <Loader></Loader>
+        </LoaderWrapper>
       ) : (
         <Modal
           isOpen={isModalOpen}

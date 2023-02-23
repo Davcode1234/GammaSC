@@ -23,7 +23,17 @@ const PortfolioCard = ({ card, click, exit }) => {
         <div></div>
       </div>
       <div>
-        <StyledImage src={`https:${ImageURL}`} fill alt={alt}></StyledImage>
+        <StyledImage
+          src={`https:${ImageURL}`}
+          fill
+          sizes="
+        (max-width: 750px) 450px,
+        (max-width: 500px) 350px,
+        600px
+        "
+          alt={alt}
+          priority
+        ></StyledImage>
       </div>
       <p>{company}</p>
       <h2>{product}</h2>
