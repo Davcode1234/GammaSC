@@ -30,7 +30,7 @@ const closeModal = keyframes`
 export const StyledModal = styled.div`
   position: relative;
   min-height: ${({ portfolio }) => (portfolio ? "600px" : "500px")};
-  width: 70%;
+  width: 80%;
   max-width: ${({ portfolio }) => (portfolio ? "1200px" : "860px")};
   margin: 2rem;
   padding: 2.5rem;
@@ -53,10 +53,20 @@ export const StyledModal = styled.div`
   }}
 
   ${({ theme }) => theme.mq.tablet} {
+    max-width: ${({ portfolio }) => (portfolio ? "650px" : "350px")};
     width: 90%;
-    max-width: 350px;
     height: 550px;
-    padding: 16px 16px 60px 26px;
+    padding: ${({ portfolio }) =>
+      portfolio ? "16px 16px 30px 26px" : "16px 16px 60px 26px"};
+  }
+  ${({ theme }) => theme.mq.tablet} {
+    ${({ portfolio }) => {
+      if (portfolio) {
+        return css`
+          max-width: 350px;
+        `;
+      }
+    }}
   }
 `;
 

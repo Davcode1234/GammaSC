@@ -18,14 +18,37 @@ const swipeRight = keyframes`
 }
 `;
 
+const swipeLeftMobile = keyframes`
+0% {
+  transform: translateX(0);
+}
+100% {
+  transform: translateX(-113.5%);
+}
+`;
+
+const swipeRightMobile = keyframes`
+0% {
+  transform: translateX(0);
+}
+100% {
+  transform: translateX(113.5%);
+}
+`;
+
 export const ModalContentWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 100px;
 
-  @media (max-width: 1550px) {
-    gap: 50px;
+  @media (max-width: 1450px) {
+    gap: 0px;
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    flex-wrap: wrap-reverse;
+    gap: 30px;
   }
 
   &:focus-visible {
@@ -35,14 +58,26 @@ export const ModalContentWrapper = styled.div`
   div:first-child {
     z-index: 9;
     margin-left: 60px;
+    ${({ theme }) => theme.mq.tablet} {
+      margin-left: 16px;
+    }
     p {
       max-width: 600px;
+
+      ${({ theme }) => theme.mq.tablet} {
+        font-size: ${({ theme }) => theme.font.size.thumbnailSmall};
+      }
     }
     p:first-child {
       font-size: ${({ theme }) => theme.font.size.offerButton};
       font-weight: ${({ theme }) => theme.font.weight.semiBold};
       color: ${({ theme }) => theme.color.gammaOrange};
       margin-bottom: 20px;
+
+      ${({ theme }) => theme.mq.tablet} {
+        font-size: ${({ theme }) => theme.font.size.paragraphSmall};
+        margin-bottom: 10px;
+      }
     }
 
     h2 {
@@ -50,7 +85,12 @@ export const ModalContentWrapper = styled.div`
       font-weight: ${({ theme }) => theme.font.weight.semiBold};
       color: ${({ theme }) => theme.color.graphite};
       margin-bottom: 20px;
-      max-width: 300px;
+      max-width: 600px;
+
+      ${({ theme }) => theme.mq.tablet} {
+        font-size: ${({ theme }) => theme.font.size.ContactCardPar};
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -59,9 +99,9 @@ export const ModalContentWrapper = styled.div`
     width: 720px;
     height: 650px;
 
-    ${({ theme }) => theme.mq.desktop} {
-      width: 550px;
-      height: 497px;
+    ${({ theme }) => theme.mq.tablet} {
+      width: 300px;
+      height: 256px;
     }
   }
 
@@ -70,10 +110,16 @@ export const ModalContentWrapper = styled.div`
       case "right":
         return css`
           animation: ${swipeRight} 0.5s ease forwards;
+          ${({ theme }) => theme.mq.tablet} {
+            animation: ${swipeRightMobile} 0.5s ease forwards;
+          }
         `;
       case "left":
         return css`
           animation: ${swipeLeft} 0.5s ease forwards;
+          ${({ theme }) => theme.mq.tablet} {
+            animation: ${swipeLeftMobile} 0.5s ease forwards;
+          }
         `;
       default:
         return "";

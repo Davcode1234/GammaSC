@@ -123,7 +123,7 @@ export const ImgWrapper = styled.div`
   min-height: 429px;
   aspect-ratio: 1/1.2;
 
-  ${({ theme }) => theme.mq.phone} {
+  ${({ theme }) => theme.mq.tablet} {
     min-width: 250px;
     min-height: 268px;
     aspect-ratio: 1/1.2;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Image from "next/legacy/image";
-import { motion } from "framer-motion";
 
 export const CardOverlay = styled.div`
   position: absolute;
