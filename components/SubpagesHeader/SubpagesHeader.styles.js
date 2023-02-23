@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderSection = styled.section`
   height: 560px;
@@ -20,6 +20,7 @@ export const HeaderSection = styled.section`
 
   div {
     padding-right: 25%;
+
     ${({ theme }) => theme.mq.tablet} {
       padding-right: 0;
     }
