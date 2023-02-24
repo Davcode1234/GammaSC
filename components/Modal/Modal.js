@@ -11,6 +11,7 @@ import {
 } from "./Modal.styles";
 import PropTypes from "prop-types";
 import { Loader, LoaderWrapper } from "../Loader.styles";
+import Skeleton from "../Skeleton/Skeleton";
 
 const ModalComp = ({
   isModalOpen,
@@ -34,9 +35,7 @@ const ModalComp = ({
   return (
     <>
       {!isClient ? (
-        <LoaderWrapper>
-          <Loader></Loader>
-        </LoaderWrapper>
+        <Skeleton></Skeleton>
       ) : (
         <Modal
           isOpen={isModalOpen}
