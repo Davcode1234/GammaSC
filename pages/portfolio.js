@@ -13,6 +13,7 @@ import CardChooseBtn from "../components/CardChooseBtn/CardChooseBtn";
 import { createClient } from "contentful";
 import PropTypes from "prop-types";
 import useModal from "../hooks/useModal";
+import Skeleton from "../components/Skeleton/Skeleton";
 
 const portfolioSubHeaderData = {
   headerSmall: "portfolio",
@@ -137,21 +138,25 @@ export default function Portfolio({ cards }) {
           ></CardChooseBtn>
         </ButtonsWrapper>
 
-        <CardsWrapper>
-          {filteredCards.map((card, index) => {
-            return (
-              <PortfolioCard
-                key={card.sys.id}
-                card={card}
-                click={() => {
-                  openModal(index, card.fields.product);
-                  disableSides();
-                }}
-                exit={cardsExit}
-              ></PortfolioCard>
-            );
-          })}
-        </CardsWrapper>
+        {!cards ? (
+          <Skeleton></Skeleton>
+        ) : (
+          <CardsWrapper>
+            {filteredCards.map((card, index) => {
+              return (
+                <PortfolioCard
+                  key={card.sys.id}
+                  card={card}
+                  click={() => {
+                    openModal(index, card.fields.product);
+                    disableSides();
+                  }}
+                  exit={cardsExit}
+                ></PortfolioCard>
+              );
+            })}
+          </CardsWrapper>
+        )}
       </PortfolioPage>
     </>
   );
