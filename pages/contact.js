@@ -77,6 +77,10 @@ export default function Contact() {
           name="keywords"
           content="Gamma agencja reklamowa kampania reklamowa kontakt jak dojechać"
         ></meta>
+        <meta
+          name="description"
+          content="Jesteśmy Agencją Reklamową typu full service, oferujemy kompleksową obsługę dla małych i dużych firm. Skontaktuj się z nami w razie jakichkolwiek pytań!"
+        ></meta>
       </Head>
       <SubpagesHeader
         headerSmall={headerData.headerSmall}

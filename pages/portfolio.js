@@ -88,7 +88,11 @@ export default function Portfolio({ cards }) {
         <title>Gamma | Portfolio</title>
         <meta
           name="keywords"
-          content="Gamma portfolio goodyear shell multimedia szwalnia grafika fotografia gadżety"
+          content="Gamma marketing reklama digital marketing, social media, branding, SEO, PPC advertising, content marketing, email marketing, web design, kampania reklamowa"
+        ></meta>
+        <meta
+          name="description"
+          content="Jesteśmy Agencją Reklamową typu full service, oferujemy kompleksową obsługę dla małych i dużych firm. Oto zbiór naszych realizacji, które wykonaliśmy dla klientów na przestrzeni lat."
         ></meta>
       </Head>
 

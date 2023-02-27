@@ -10,7 +10,7 @@ import {
   StyledOverlay,
 } from "./Modal.styles";
 import PropTypes from "prop-types";
-import { Loader, LoaderWrapper } from "../Loader.styles";
+// import { Loader, LoaderWrapper } from "../Loader.styles";
 import Skeleton from "../Skeleton/Skeleton";
 
 const ModalComp = ({

@@ -106,7 +106,11 @@ export default function Home() {
         <title>Gamma | Strona główna</title>
         <meta
           name="keywords"
-          content="Gamma agencja reklamowa kampania reklamowa strona główna"
+          content="Gamma marketing reklama digital marketing, social media, branding, SEO, PPC advertising, content marketing, email marketing, web design, kampania reklamowa"
+        ></meta>
+        <meta
+          name="description"
+          content="Jesteśmy Agencją Reklamową typu full service, oferujemy kompleksową obsługę dla małych i dużych firm. Nasze doświadczenie pozwoli zrealizować Wasze pomysły."
         ></meta>
       </Head>
 

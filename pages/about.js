@@ -332,6 +332,11 @@ export default function About() {
           name="keywords"
           content="Gamma Gafik designer web developer specjalista sprzedaż team o nas doświadczenie"
         ></meta>
+
+        <meta
+          name="description"
+          content="Jesteśmy Agencją Reklamową typu full service, oferujemy kompleksową obsługę dla małych i dużych firm. Poznaj członków naszego wspaniałego teamu z którym możesz współpracować!"
+        ></meta>
       </Head>
       <SubpagesHeader
         headerBig={aboutSubHeaderData.headerBig}
