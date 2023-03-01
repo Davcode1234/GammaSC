@@ -278,6 +278,10 @@ const carouselImages = [
     src: "/AboutPage/BottomSec/o_nas_1.webp",
     id: 6,
   },
+  {
+    src: "/AboutPage/BottomSec/o_nas_1.webp",
+    id: 7,
+  },
 ];
 
 const cardsVariants = {
@@ -323,6 +327,10 @@ export default function About() {
     openModal,
     disableSides,
   } = useModal(AboutCardsData);
+  const [vertScrollVal, setVertScrollVal] = useState({
+    width: 465,
+    size: 650,
+  });
 
   return (
     <>
@@ -411,7 +419,12 @@ export default function About() {
         <CompanyImagesSection>
           <h3>Z życia agencji</h3>
 
-          <VerticalScroll>
+          <VerticalScroll
+            items={carouselImages}
+            width={vertScrollVal.width}
+            padding={0}
+            size={vertScrollVal.size}
+          >
             {carouselImages.map((image) => {
               return (
                 <CarouselImageWrapper key={image.id}>
