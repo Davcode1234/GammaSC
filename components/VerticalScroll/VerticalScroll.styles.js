@@ -1,32 +1,26 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const Wrapper = styled.div`
-  margin: 0 2% 0 10%;
-`;
-
 export const Carousel = styled(motion.div)`
-  cursor: grab;
+  width: 90vw;
+  margin-left: auto;
   overflow: hidden;
+  position: relative;
+  cursor: grab;
 `;
 
 export const InnerCarousel = styled(motion.div)`
   display: flex;
+  align-items: center;
+  margin-bottom: ${({ isOffer }) => (isOffer ? "-20px" : "40px")};
 `;
 
-export const ScrollBardContainer = styled.div`
-  position: relative;
-  height: 10px;
-  width: 100%;
-  padding: 0 2% 0 11%;
-  transform: translateY(300%);
-`;
 export const ScrollBar = styled(motion.div)`
-  position: absolute;
-  width: 100px;
-  height: 7px;
-  border-radius: 5px;
+  width: 80px;
+  height: 6px;
+  border-radius: 3px;
   background-color: ${({ theme }) => theme.color.graphite};
+  position: relative;
 
   ${({ theme }) => theme.mq.phone} {
     width: 50px;

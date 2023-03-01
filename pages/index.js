@@ -260,7 +260,7 @@ export default function Home() {
             </OfferSecHeader>
           </PartnersTextWrapper>
         </AnimatePresence>
-        <CardsWrapperOffer>
+        <CardsWrapperOffer isOffer={true}>
           {cardsContent.map(
             ({ delay, header, text, img, alt, width, height }) => {
               return (

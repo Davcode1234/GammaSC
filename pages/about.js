@@ -327,10 +327,6 @@ export default function About() {
     openModal,
     disableSides,
   } = useModal(AboutCardsData);
-  const [vertScrollVal, setVertScrollVal] = useState({
-    width: 465,
-    size: 650,
-  });
 
   return (
     <>
@@ -419,12 +415,7 @@ export default function About() {
         <CompanyImagesSection>
           <h3>Z życia agencji</h3>
 
-          <VerticalScroll
-            items={carouselImages}
-            width={vertScrollVal.width}
-            padding={0}
-            size={vertScrollVal.size}
-          >
+          <VerticalScroll>
             {carouselImages.map((image) => {
               return (
                 <CarouselImageWrapper key={image.id}>

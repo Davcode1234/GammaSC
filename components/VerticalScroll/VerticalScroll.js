@@ -1,9 +1,9 @@
 import { useRef, useEffect, useState } from "react";
-import { Carousel, InnerCarousel, Wrapper } from "./VerticalScroll.styles";
+import { Carousel, InnerCarousel, ScrollBar } from "./VerticalScroll.styles";
 import PropTypes from "prop-types";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { useMotionValue, useTransform } from "framer-motion";
 
-const VerticalScroll = ({ children }) => {
+const VerticalScroll = ({ children, isOffer }) => {
   const [width, setwidth] = useState(0);
   const carousel = useRef();
 
@@ -21,27 +21,12 @@ const VerticalScroll = ({ children }) => {
 
   return (
     <>
-      <motion.div
-        ref={carousel}
-        style={{
-          marginLeft: "auto",
-          width: "90vw",
-          height: 450,
-          borderRadius: 30,
-          overflow: "hidden",
-          position: "relative",
-          transform: "translateZ(0)",
-          cursor: "grab",
-        }}
-        whileTap={{ cursor: "grabbing" }}
-      >
-        <motion.div
+      <Carousel ref={carousel} whileTap={{ cursor: "grabbing" }}>
+        <InnerCarousel
           style={{
-            display: "flex",
-            alignItems: "center",
-            height: 450,
             x: scrollX,
           }}
+          isOffer={isOffer}
           drag="x"
           dragConstraints={{
             left: -width,
@@ -49,19 +34,14 @@ const VerticalScroll = ({ children }) => {
           }}
         >
           {children}
-        </motion.div>
-      </motion.div>
+        </InnerCarousel>
+      </Carousel>
 
-      <motion.div
+      <ScrollBar
         style={{
-          width: 80,
-          height: 6,
-          borderRadius: 3,
-          backgroundColor: "#000",
-          position: "relative",
           left: scrollDir,
         }}
-      />
+      ></ScrollBar>
     </>
   );
 };
@@ -70,8 +50,5 @@ export default VerticalScroll;
 
 VerticalScroll.propTypes = {
   children: PropTypes.node,
-  items: PropTypes.array,
-  width: PropTypes.number,
-  padding: PropTypes.number,
-  size: PropTypes.number,
+  isOffer: PropTypes.bool,
 };
