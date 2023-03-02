@@ -1,8 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
+
+const appear = keyframes`
+  from {
+    opacity: 0
+  } 
+
+  to {
+    opacity: 1
+  }
+`;
 
 export const WelcomSection = styled.section`
   height: 100vh;
@@ -11,6 +21,7 @@ export const WelcomSection = styled.section`
   justify-content: center;
   align-items: center;
   padding-bottom: 175px;
+  animation: ${appear} 0.5s 0.2s ease forwards;
 
   ${({ theme }) => theme.mq.phone} {
     padding: 0 16px;
@@ -29,7 +40,7 @@ export const DescriptionParagraph = styled.p`
   }
 `;
 
-export const CtaBtn = styled(motion.button)`
+export const CtaBtn = styled.button`
   font-size: ${({ theme }) => theme.font.size.button};
   font-weight: ${({ theme }) => theme.font.weight.semiBold};
   letter-spacing: 0.5px;
@@ -40,7 +51,12 @@ export const CtaBtn = styled(motion.button)`
   cursor: pointer;
   border: 1px solid #f68c1e;
   background-color: #f68c1e;
-  opacity: 0;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgb(246, 140, 30, 0);
+    color: #f68c1e;
+  }
 
   ${({ theme }) => theme.mq.phone} {
     font-size: ${({ theme }) => theme.font.size.paragraphMobile};
@@ -77,13 +93,6 @@ export const StyledIcon = styled(Icon)`
   top: -10%;
   right: -18%;
 `;
-
-// export const StyledBtnText = styled.p`
-//   font-size: ${({ theme }) => theme.font.size.button};
-//   font-weight: ${({ theme }) => theme.font.weight.semiBold};
-//   color: #fff;
-//   letter-spacing: 0.5px;
-// `;
 
 // Second sec
 

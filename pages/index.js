@@ -81,20 +81,6 @@ const textAppearOptions = {
   },
 };
 
-const btnOptions = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-
-    transition: {
-      duration: 1,
-      delay: 1.6,
-    },
-  },
-};
-
 export default function Home() {
   const [ref, inView] = useInView({ triggerOnce: true });
   const isMobile = useWindowSize(750);
@@ -106,7 +92,7 @@ export default function Home() {
         <title>Gamma | Strona główna</title>
         <meta
           name="keywords"
-          content="Gamma marketing reklama digital marketing, social media, branding, SEO, PPC advertising, content marketing, email marketing, web design, kampania reklamowa"
+          content="Gamma, agencja reklamowa, marketing, reklama, digital, marketing, social media, branding, SEO, PPC advertising, content marketing, email marketing, web design, kampania reklamowa"
         ></meta>
         <meta
           name="description"
@@ -128,17 +114,7 @@ export default function Home() {
         </DescriptionParagraph>
         <BtnWrapper>
           <Link href="/portfolio">
-            <CtaBtn
-              isbig="true"
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              whileHover={{
-                backgroundColor: "rgb(246, 140, 30, .0)",
-                color: "#f68c1e",
-              }}
-            >
-              Zobacz nasze realizacje
-            </CtaBtn>
+            <CtaBtn isbig="true">Zobacz nasze realizacje</CtaBtn>
           </Link>
 
           <StyledLink href="/contact">
@@ -197,10 +173,6 @@ export default function Home() {
             <Link href="/about">
               <CtaBtn
                 isbig="true"
-                variants={btnOptions}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
                 whileHover={{
                   backgroundColor: "rgb(246, 140, 30, .0)",
                   color: "#f68c1e",

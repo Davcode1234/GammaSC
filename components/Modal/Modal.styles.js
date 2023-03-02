@@ -51,7 +51,6 @@ export const StyledModal = styled.div`
       `;
     }
   }}
-
   ${({ theme }) => theme.mq.tablet} {
     max-width: ${({ portfolio }) => (portfolio ? "650px" : "350px")};
     width: 90%;

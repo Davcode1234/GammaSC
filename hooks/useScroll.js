@@ -5,16 +5,20 @@ const useScroll = () => {
 
   useEffect(() => {
     let initialVal = window.scrollY;
+    console.log(`InitialVal:${initialVal}`);
 
     const updateScrollDir = () => {
       const currentVal = window.scrollY;
       const direction = currentVal > initialVal ? "down" : "up";
+      console.log(`CurrentVal:${currentVal}`);
 
       if (
         direction !== dir &&
         (currentVal - initialVal > 5 || currentVal - initialVal < -5)
       ) {
         setDir(direction);
+      } else if (currentVal === 0) {
+        setDir("up");
       }
       initialVal = currentVal > 0 ? currentVal : 0;
     };
