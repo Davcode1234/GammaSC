@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import {
   WelcomSection,
   DescriptionParagraph,
@@ -29,6 +29,7 @@ import {
   StyledFooterImage,
   MapWrapper,
   FooterImageWrapper,
+  WelcomeImageWrapper,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
 import { topImages, bottomImages } from "../components/Slider/Slider";
@@ -101,13 +102,15 @@ export default function Home() {
       </Head>
 
       <WelcomSection>
-        <Image
-          src="/HomePage/Grouped.png"
-          width={851}
-          height={597}
-          alt="gamma Cameleon with bulb above his hand"
-          priority
-        />
+        <WelcomeImageWrapper>
+          <StyledImageMap
+            src="/HomePage/Grouped.png"
+            fill
+            alt="gamma Cameleon with bulb above his hand"
+            priority
+          ></StyledImageMap>
+        </WelcomeImageWrapper>
+
         <DescriptionParagraph>
           Projektujemy, filmujemy, fotografujemy, drukujemy, tworzymy koncepcje
           promocyjne, a nawet produkujemy profesjonalną odzież sportową.

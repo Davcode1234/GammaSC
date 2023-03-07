@@ -59,7 +59,9 @@ export const NavigationWrapper = styled.nav`
   }
 `;
 
-export const MenuBtn = styled.div`
+export const MenuBtn = styled.div.attrs((props) => ({
+  "aria-label": props.label || "Menu",
+}))`
   position: relative;
   border: none;
   border-radius: 4px;

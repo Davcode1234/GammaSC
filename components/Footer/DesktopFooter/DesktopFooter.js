@@ -41,6 +41,7 @@ const DesktopFooter = () => {
             href="https://www.facebook.com/gammaagencja"
             target="_blank"
             rel="noreferrer"
+            aria-label="Facebook"
           >
             <Icon icon="ci:facebook" color="white" width="32" height="32" />
           </a>
@@ -48,6 +49,7 @@ const DesktopFooter = () => {
             href="https://www.linkedin.com/company/agencja-reklamowa-gamma/"
             target="_blank"
             rel="noreferrer"
+            aria-label="LinkedIn"
           >
             <Icon
               icon="entypo-social:linkedin-with-circle"
@@ -60,6 +62,7 @@ const DesktopFooter = () => {
             href="https://www.instagram.com/agencja_gamma24/"
             target="_blank"
             rel="noreferrer"
+            aria-label="Instagram"
           >
             <Icon
               icon="ri:instagram-fill"

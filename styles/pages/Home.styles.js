@@ -21,10 +21,34 @@ export const WelcomSection = styled.section`
   justify-content: center;
   align-items: center;
   padding-bottom: 175px;
+  opacity: 0;
   animation: ${appear} 0.5s 0.2s ease forwards;
 
   ${({ theme }) => theme.mq.phone} {
     padding: 0 16px;
+  }
+`;
+
+export const WelcomeImageWrapper = styled.div`
+  position: relative;
+  width: 851px;
+  height: 597px;
+  min-height: 200px;
+
+  @media (max-width: 875px) {
+    width: 100%;
+  }
+
+  ${({ theme }) => theme.mq.phone} {
+    height: 350px;
+  }
+
+  ${({ theme }) => theme.mq.smallerPhone} {
+    height: 300px;
+  }
+
+  ${({ theme }) => theme.mq.tinyPhone} {
+    height: 250px;
   }
 `;
 
