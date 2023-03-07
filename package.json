@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@iconify/react": "^4.0.1",
+    "@next/font": "^13.2.3",
     "@react-google-maps/api": "^2.18.1",
     "contentful": "^9.3.0",
     "dotenv": "^16.0.3",
@@ -25,7 +26,6 @@
     "use-places-autocomplete": "^4.0.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5"
   }

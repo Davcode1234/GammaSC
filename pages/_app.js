@@ -8,6 +8,9 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Loader, LoaderWrapper } from "../components/Loader.styles";
+import { Montserrat } from "@next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 function Loading() {
   const router = useRouter();
@@ -47,12 +50,14 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/png" href="/favicon30.png" />
       </Head>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <Loading />
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <main className={montserrat.className}>
+        <ThemeProvider theme={theme}>
+          <Layout>
+            <Loading />
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </main>
     </>
   );
 }

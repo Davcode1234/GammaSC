@@ -111,7 +111,6 @@ export const CardWrapper = styled.div`
 
   button {
     position: relative;
-    font-family: ${({ theme }) => theme.font.family.montserrat};
     font-size: ${({ theme }) => theme.font.size.paragraph};
     font-weight: ${({ theme }) => theme.font.weight.semiBold};
     color: ${({ theme }) => theme.color.gammaOrange};
