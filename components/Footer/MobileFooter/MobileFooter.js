@@ -16,6 +16,7 @@ const MobileFooter = () => {
           height={60}
           src={"/HomePage/white.png"}
           alt={"white gamma logo"}
+          priority
         />
 
         <OuterWrapper>

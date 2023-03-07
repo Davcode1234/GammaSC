@@ -14,6 +14,7 @@ const DesktopFooter = () => {
         width={206}
         height={60}
         alt={"white gamma logo"}
+        priority
       />
       <div>
         <h4>lokalizacja</h4>

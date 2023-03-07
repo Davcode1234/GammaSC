@@ -17,7 +17,6 @@ const AboutWorkerModalContent = ({ card, dir, keyDown, forwardRef }) => {
       <div className={montserrat.className}>
         <Wrap dir={dir} ref={forwardRef} onKeyDown={keyDown} tabIndex="-1">
           <ImgWrapper>
-            {/* <Image src={img} width={400} height={429} alt="test"></Image> */}
             <StyledImg
               src={img}
               fill
