@@ -3,7 +3,7 @@ import { Carousel, InnerCarousel, ScrollBar } from "./VerticalScroll.styles";
 import PropTypes from "prop-types";
 import { useMotionValue, useTransform } from "framer-motion";
 
-const VerticalScroll = ({ children, isOffer }) => {
+const VerticalScroll = ({ children, isoffer }) => {
   const [width, setwidth] = useState(0);
   const carousel = useRef();
 
@@ -26,7 +26,7 @@ const VerticalScroll = ({ children, isOffer }) => {
           style={{
             x: scrollX,
           }}
-          isOffer={isOffer}
+          isoffer={isoffer}
           drag="x"
           dragConstraints={{
             left: -width,
@@ -50,5 +50,5 @@ export default VerticalScroll;
 
 VerticalScroll.propTypes = {
   children: PropTypes.node,
-  isOffer: PropTypes.bool,
+  isoffer: PropTypes.bool,
 };

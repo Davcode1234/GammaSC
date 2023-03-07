@@ -8,7 +8,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Loader, LoaderWrapper } from "../components/Loader.styles";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 

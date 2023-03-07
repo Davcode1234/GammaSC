@@ -5,7 +5,7 @@ import {
   StyledImg,
 } from "./AboutWorkerModalContent.styles";
 import PropTypes from "prop-types";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 

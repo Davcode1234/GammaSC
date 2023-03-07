@@ -1,7 +1,7 @@
 import { StyledImage } from "../PortfolioCard/PortfolioCard.styles.js";
 import { ModalContentWrapper } from "./PortfolioWorkerModalContent.styles";
 import PropTypes from "prop-types";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
