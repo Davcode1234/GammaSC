@@ -60,7 +60,9 @@ export const NavigationWrapper = styled.nav`
 `;
 
 export const MenuBtn = styled.div.attrs((props) => ({
+  role: "button",
   "aria-label": props.label || "Menu",
+  "aria-pressed": false,
 }))`
   position: relative;
   border: none;

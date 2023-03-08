@@ -10,6 +10,20 @@ to {
 }
 `;
 
+const mapLoading = keyframes`
+0% {
+    opacity: .5
+}
+
+50% {
+    opacity: 1
+}
+
+100% {
+    opacity: .5;
+}
+`;
+
 export const ContactHeader = styled.section`
   height: 560px;
   background-color: ${({ theme }) => theme.color.graphite};
@@ -79,4 +93,14 @@ export const MapWrapper = styled.div`
         `
       : null;
   }}
+`;
+
+export const MapSkeleton = styled.div`
+  height: 620px;
+  width: 100%;
+  background-color: rgba(217, 215, 208, 0.5);
+  animation: ${mapLoading} 1s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

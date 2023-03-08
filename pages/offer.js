@@ -48,6 +48,7 @@ export default function Offer() {
 
   const filteredData = offerCardsData.filter((card) => card.id === contentTag);
   const {
+    backgroundImg,
     title,
     text,
     img,
@@ -111,7 +112,7 @@ export default function Offer() {
         ></CardChooseBtn>
       </ButtonsWrapper>
       <OfferPageCard
-        backgroundImg={"/OfferPage/offerbackground.jpg"}
+        backgroundImg={backgroundImg}
         header={title}
         text={text}
         camImg={img}

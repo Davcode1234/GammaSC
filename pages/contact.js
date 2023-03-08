@@ -3,6 +3,7 @@ import Head from "next/head";
 import {
   ContactInfoSection,
   MapHeader,
+  MapSkeleton,
   MapWrapper,
 } from "../styles/pages/Contact.styles";
 import ContactAssistantCard from "../components/ContactAssistantCard/ContactAssistantCard";
@@ -63,9 +64,34 @@ export default function Contact() {
 
   if (!isLoaded) {
     return (
-      <LoaderWrapper>
-        <Loader></Loader>
-      </LoaderWrapper>
+      <>
+        <SubpagesHeader
+          headerSmall={headerData.headerSmall}
+          headerBig={headerData.headerBig}
+          text={headerData.text}
+        ></SubpagesHeader>
+        <ContactInfoSection>
+          {contactData.map(({ img, name, position, number, mail, id }) => {
+            return (
+              <ContactAssistantCard
+                img={img}
+                title={name}
+                position={position}
+                number={number}
+                mail={mail}
+                key={id}
+              ></ContactAssistantCard>
+            );
+          })}
+        </ContactInfoSection>
+        <MapHeader vis={inView}>
+          <span>Gdzie</span> nas znajdziesz?
+        </MapHeader>
+
+        <MapSkeleton>
+          <h3>Ładowanie...</h3>
+        </MapSkeleton>
+      </>
     );
   }
 

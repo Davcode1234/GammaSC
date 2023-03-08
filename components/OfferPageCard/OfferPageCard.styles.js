@@ -4,8 +4,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export const StyledImgBackground = styled.div`
-  background-image: url("${({ imageSource }) => imageSource}");
-  background-position: 50% 50%;
+  background-image: linear-gradient(
+      rgba(53, 53, 53, 0.75),
+      rgba(53, 53, 53, 0.75)
+    ),
+    url("${({ imageSource }) => imageSource}");
+  background-position: 50% 35%;
   background-size: cover;
   position: relative;
   width: 100%;
