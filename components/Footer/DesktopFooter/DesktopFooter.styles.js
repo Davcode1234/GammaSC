@@ -14,7 +14,7 @@ export const FooterWrapper = styled.footer`
     gap: 80px;
   }
 
-  div > h4 {
+  div > p:first-child {
     font-weight: ${({ theme }) => theme.font.weight.semiBold};
     color: ${({ theme }) => theme.color.gammaOrange};
     text-transform: uppercase;

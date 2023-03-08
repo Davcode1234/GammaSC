@@ -17,25 +17,25 @@ const DesktopFooter = () => {
         priority
       />
       <div>
-        <h4>lokalizacja</h4>
+        <p>lokalizacja</p>
         <FooterParagraph width={145} margin>
           39-204 Żyraków Zawierzbie 7c
         </FooterParagraph>
         <div>
-          <h4>jesteśmy otwarci:</h4>
+          <p>jesteśmy otwarci:</p>
           <FooterParagraph width={170}>Pn - Pt 8:00 - 16:00</FooterParagraph>
         </div>
       </div>
 
       <div>
-        <h4>kontakt</h4>
+        <p>kontakt</p>
         <FooterParagraph width={145} margin>
           +48 525 525 525 kontakt@gamma24.pl
         </FooterParagraph>
       </div>
 
       <div>
-        <h4>obserwuj nas</h4>
+        <p>obserwuj nas</p>
         <IconsWrapper>
           <a
             href="https://www.facebook.com/gammaagencja"

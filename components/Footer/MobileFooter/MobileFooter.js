@@ -22,21 +22,21 @@ const MobileFooter = () => {
         <OuterWrapper>
           <ColumnsWrapper>
             <div>
-              <h4>Lokalizacja</h4>
+              <p>Lokalizacja</p>
               <p>39-204 Żyraków Zawierzbie 7c</p>
             </div>
             <div>
-              <h4>Jesteśmy otwarci:</h4>
+              <p>Jesteśmy otwarci:</p>
               <p>Pn - Pt 8:00 -16:00</p>
             </div>
           </ColumnsWrapper>
           <ColumnsWrapper>
             <div>
-              <h4>Kontakt</h4>
+              <p>Kontakt</p>
               <p>+48 525 525 525 biuro@gamma24.pl</p>
             </div>
             <div>
-              <h4>Obserwuj nas</h4>
+              <p>Obserwuj nas</p>
               <IconsWrapper>
                 <a
                   href="https://www.facebook.com/gammaagencja"

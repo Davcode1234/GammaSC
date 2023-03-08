@@ -10,7 +10,7 @@ export const FooterWrapper = styled.footer`
   height: 390px;
   background-color: ${({ theme }) => theme.color.graphite};
 
-  div > h4 {
+  div > p:first-child {
     font-weight: ${({ theme }) => theme.font.weight.semiBold};
     color: ${({ theme }) => theme.color.gammaOrange};
     text-transform: uppercase;
