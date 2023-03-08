@@ -5,9 +5,17 @@ const nextConfig = {
     styledComponents: true,
   },
   swcMinify: true,
+  // images: {
+  //   domains: ["images.ctfassets.net"],
+  // },
+
+  // Testing loader config for static deploy
+
   images: {
-    domains: ["images.ctfassets.net"],
+    loader: "custom",
+    loaderFile: "./components/loader.js",
   },
+
   // i18n: {
   //   locales: ["pl", "en"],
   //   defaultLocale: "pl",
