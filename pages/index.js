@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+// import Image from "next/image";
 import {
   WelcomSection,
   DescriptionParagraph,
@@ -32,41 +32,19 @@ import {
   WelcomeImageWrapper,
 } from "../styles/pages/Home.styles";
 import InfoSecCard from "../components/InfoSecCard/InfoSecCard";
-import { topImages, bottomImages } from "../components/Slider/Slider";
-import OfferCard, { cardsContent } from "../components/OfferCard/OfferCard";
+import OfferCard from "../components/OfferCard/OfferCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
 import Slider from "../components/Slider/Slider";
 import useWindowSize from "../hooks/useWindowSize";
 import VerticalScroll from "../components/VerticalScroll/VerticalScroll";
-
-const infoSecCardData = [
-  {
-    text: "lat doświadczenia",
-    withPlus: true,
-    id: 1,
-    intervalTime: 900,
-  },
-  {
-    text: "tysięcy ukończonych projektów",
-    withPlus: true,
-    id: 2,
-    intervalTime: 1800,
-  },
-  {
-    text: "tysięcy wypitych filiżanek kawy",
-    withPlus: true,
-    id: 3,
-    intervalTime: 1450,
-  },
-  {
-    text: "stałych klientów",
-    withPlus: false,
-    id: 4,
-    intervalTime: 2500,
-  },
-];
+import {
+  infoSecCardData,
+  offerCardsContent,
+  sliderTopImages,
+  sliderBottomImages,
+} from "../lib/homeData";
 
 const textAppearOptions = {
   hidden: {
@@ -210,8 +188,8 @@ export default function Home() {
           </PartnersTextWrapper>
         </AnimatePresence>
 
-        <Slider position={"left"} imgArr={topImages}></Slider>
-        <Slider position={"right"} imgArr={bottomImages}></Slider>
+        <Slider position={"left"} imgArr={sliderTopImages}></Slider>
+        <Slider position={"right"} imgArr={sliderBottomImages}></Slider>
       </PartnersSec>
 
       <OfferSection>
@@ -236,7 +214,7 @@ export default function Home() {
           </PartnersTextWrapper>
         </AnimatePresence>
         <CardsWrapperOffer isOffer={true}>
-          {cardsContent.map(
+          {offerCardsContent.map(
             ({ delay, header, text, img, alt, width, height }) => {
               return (
                 <OfferCard

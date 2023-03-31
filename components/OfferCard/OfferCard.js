@@ -6,63 +6,6 @@ import {
 } from "./OfferCard.styles";
 import PropTypes from "prop-types";
 
-export const cardsContent = [
-  {
-    header: "Kreacja",
-    text: "Tworzymy niezwykłe kreacje, które zapadają w pamieci",
-    img: "/HomePage/cameleons/KameleonObszar-kompozycji-2.png",
-    alt: "Gamma cameleon with can of farb",
-    width: "92",
-    height: "162",
-    delay: `${0.1}s`,
-  },
-  {
-    header: "Drukarnia",
-    text: "Tworzymy niezwykłe kreacje, które zapadają w pamieci",
-    img: "/HomePage/cameleons/KameleonObszar-kompozycji-1.png",
-    alt: "Gamma cameleon in carpet",
-    width: "119",
-    height: "162",
-    delay: ` ${0.2}s`,
-  },
-  {
-    header: "Fotografia",
-    text: "Tworzymy niezwykłe kreacje, które zapadają w pamieci",
-    img: "/HomePage/cameleons/KameleonObszar-kompozycji-6.png",
-    alt: "Gamma cameleon standing on his head taking photos",
-    width: "156",
-    height: "162",
-    delay: ` ${0.3}s`,
-  },
-  {
-    header: "Sublimacja",
-    text: "Tworzymy niezwykłe kreacje, które zapadają w pamieci",
-    img: "/HomePage/cameleons/KameleonObszar-kompozycji-3.png",
-    alt: "Gamma cameleon in Gamma t-shirt with glasses on",
-    width: "148",
-    height: "162",
-    delay: ` ${0.4}s`,
-  },
-  {
-    header: "Gadżety",
-    text: "Tworzymy niezwykłe kreacje, które zapadają w pamieci",
-    img: "/HomePage/cameleons/KameleonObszar-kompozycji-4.png",
-    alt: "Gamma cameleon showing his gadgets under coat",
-    width: "134",
-    height: "171",
-    delay: ` ${0.5}s`,
-  },
-  {
-    header: "Szwalnia",
-    text: "Projektujemy i szyjemy odzież, którą przyjemnie jest nosić.",
-    img: "/HomePage/cameleons/KameleonObszar-kompozycji-5.png",
-    alt: "Gamma cameleon with a needle looking for something",
-    width: "163",
-    height: "162",
-    delay: ` ${0.6}s`,
-  },
-];
-
 export let offerType = {
   offer: "kreacja",
 };
@@ -70,7 +13,7 @@ export let offerType = {
 export const updateOfferType = (picked) => {
   offerType = {
     ...offerType,
-    offer: picked,
+    offer: picked ? picked : "kreacja",
   };
 };
 const OfferCard = ({

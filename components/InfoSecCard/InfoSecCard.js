@@ -7,23 +7,23 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import useWindowSize from "../../hooks/useWindowSize";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
-const boxVariants = {
-  hidden: { pathLength: 0, opacity: 0 },
-  visible: {
-    pathLength: 1,
-    opacity: 1,
-    transition: {
-      pathLength: { type: "ease", duration: 2, delay: 0.5, bounce: 0 },
-      opacity: { duration: 0.1 },
-    },
-  },
-  hover: {
-    scale: 1.02,
-    strokeWidth: 3,
-  },
-};
+// const boxVariants = {
+//   hidden: { pathLength: 0, opacity: 0 },
+//   visible: {
+//     pathLength: 1,
+//     opacity: 1,
+//     transition: {
+//       pathLength: { type: "ease", duration: 2, delay: 0.5, bounce: 0 },
+//       opacity: { duration: 0.1 },
+//     },
+//   },
+//   hover: {
+//     scale: 1.02,
+//     strokeWidth: 3,
+//   },
+// };
 
 const InfoSecCard = ({ text, addPlus, stopInterval }) => {
   const [numberAnim, setNumberAnim] = useState(0);
