@@ -135,7 +135,7 @@ export const CardsWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 65px;
+  gap: 35px;
   width: 100%;
 
   ${({ theme }) => theme.mq.tablet} {

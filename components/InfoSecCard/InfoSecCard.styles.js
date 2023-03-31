@@ -5,7 +5,7 @@ const showFromLeftCorner = keyframes`
   0% {
     clip-path: polygon(1% 100%, 1% 100%, 1% 100%, 0 100%, 0 100%, 1% 100%);
   }
-  
+
   50% {
     clip-path: polygon(1% 1%, 1% 1%, 1% 100%, 0 100%, 0 0, 1% 0);
   }
